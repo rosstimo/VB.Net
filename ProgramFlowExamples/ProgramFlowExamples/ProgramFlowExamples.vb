@@ -76,26 +76,27 @@ Module ProgramFlowExamples
             userResponse = Console.ReadLine()
             Try
                 userNumber = CInt(userResponse)
+                Select Case userNumber
+                    Case < 0
+                        message = "must be a negative number"
+                    Case 0 To 3
+                        message = "welcome to the toddler free range!"
+                    Case 4 To 10
+                        message = "you must be at least this tall to ride"
+                    Case 11 To 50
+                        message = "If you need to spew, spew in this..."
+                    Case > 65
+                        message = "please sign this release of liability"
+                    Case Else
+                        'MsgBox($"uh not sure what to do with {userResponse}")
+                        message = $"uh not sure what to do with {userResponse}"
+                End Select
             Catch ex As Exception
                 message = $"{userResponse} is not a number"
             End Try
-
-            Select Case userNumber
-                Case < 0
-                    message = "must be a negative number"
-                Case 0 To 3
-                    message = "welcome to the toddler free range!"
-                Case 4 To 10
-                    message = "you must be at least this tall to ride"
-                Case 11 To 50
-                    message = "If you need to spew, spew in this..."
-                Case > 65
-                    message = "please sign this release of liability"
-                Case Else
-                    MsgBox($"uh not sure what to do with {userResponse}")
-            End Select
             Console.WriteLine(message)
         Loop
+
 
     End Sub
 
