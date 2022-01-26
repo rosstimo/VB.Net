@@ -1,14 +1,15 @@
 ﻿Option Strict On
 Option Explicit On
-Option Compare Text
+Option Compare Binary
 
 
 Module ProgramFlowExamples
 
     Sub Main()
 
-        SelectCaseExample()
-
+        'SelectCaseExample()
+        'DoUntilExample()
+        DoWhileExample()
 
         'Dim userResponse As String
         'Dim userNumber As Integer
@@ -44,11 +45,41 @@ Module ProgramFlowExamples
     End Sub
 
     Sub DoWhileExample()
-
+        Dim runAgain As Boolean = True
+        Dim userResponse As String
+        'evaluate expression prior to loop content
+        Do While runAgain = True
+            Console.WriteLine("the thing happened")
+            userResponse = Console.ReadLine()
+            Select Case userResponse
+                Case "Y"
+                    runAgain = True
+                Case "N"
+                    runAgain = False
+                Case Else
+                    Console.WriteLine("I'll take that as a no...")
+                    runAgain = False
+            End Select
+        Loop
     End Sub
 
     Sub DoUntilExample()
-
+        Dim runAgain As Boolean = False
+        Dim userResponse As String
+        'evaluate expression after to loop content
+        Do
+            Console.WriteLine("the thing happened")
+            userResponse = Console.ReadLine()
+            Select Case userResponse
+                Case "Y"
+                    runAgain = True
+                Case "N"
+                    runAgain = False
+                Case Else
+                    Console.WriteLine("I'll take that as a no...")
+                    runAgain = False
+            End Select
+        Loop Until runAgain = False
     End Sub
 
     Sub IfExample()
