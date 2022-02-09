@@ -4,14 +4,21 @@ Option Strict On
 Module MethodExamples
 
     Sub Main()
-        TestRunningTotal()
-
 
         Console.Read()
     End Sub
 
-
-
+    Sub TestChangeANumber()
+        Dim someNumber As Integer
+        someNumber = 5
+        Console.WriteLine($"in main before call: {someNumber}")
+        ChangeANumber(someNumber)
+        Console.WriteLine($"in main after call: {someNumber}")
+    End Sub
+    Sub ChangeANumber(ByRef firstNumber As Integer)
+        firstNumber = 7
+        Console.WriteLine($"in ChangeANumber: {firstNumber}")
+    End Sub
 
     Sub TestRunningTotal()
         Dim userInput As String
