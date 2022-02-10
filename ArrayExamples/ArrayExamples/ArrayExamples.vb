@@ -3,7 +3,6 @@
     Sub Main()
 
 
-
         Console.ReadLine()
 
     End Sub
@@ -43,6 +42,26 @@
             Next
             Console.WriteLine()
         Next
+    End Sub
+
+    Sub ArrayBoundries()
+        Dim fruits(5) As String
+
+        fruits(0) = "apple"
+        fruits(1) = "pear"
+        fruits(2) = "orange"
+        fruits(3) = "plum"
+        fruits(4) = "grape"
+        fruits(5) = "tomato"
+
+        For i = LBound(fruits) To UBound(fruits)
+            Console.WriteLine(fruits(i))
+        Next
+
+        For i = 0 To 5
+            Console.WriteLine(fruits(i))
+        Next
+
     End Sub
 
 End Module
