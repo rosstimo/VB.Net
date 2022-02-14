@@ -2,7 +2,6 @@
 
     Sub Main()
 
-
         Console.ReadLine()
 
     End Sub
