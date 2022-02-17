@@ -27,18 +27,19 @@
         For row = 0 To bingoCage.GetLength(1)
             For column = 0 To bingoCage.GetLength(0) - 1
                 Select Case row
-                    Case 0
+                    Case 0 'first row is column headers
                         columnData = header(column).PadLeft(columnWidth)
                     Case Else
-                        If bingoCage(column, row - 1) Then
-                            columnData = "X"
-                        Else
+                        If Not bingoCage(column, row - 1) Then 'mark if ball has been drawn
+                            columnData = "  "
+                        Else 'show number if ball hasn't been drawn
                             columnData = CStr(((column) * bingoCage.GetLength(1)) + row)
                         End If
                 End Select
-                Console.Write(columnData.PadLeft(columnWidth))
+                Console.Write(columnData.PadLeft(columnWidth) & " |")
             Next
             Console.WriteLine()
+            Console.WriteLine(StrDup(25, "-"))
         Next
 
     End Sub
