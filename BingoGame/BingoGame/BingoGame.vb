@@ -14,29 +14,38 @@
         Dim bingoCage(4, 14) As Boolean
         Dim letter As Integer
         Dim number As Integer
-        Dim trys As Integer
+        Dim count As Integer
+        Dim userInput As String
 
-        For i = 1 To 75
+
+        'For i = 1 To 75
+        Do
             'test if ball has already been drawn
             'True - try again
             'False - good to go. mark the element True
             Do
-                trys += 1
                 letter = RandomNumberInRange(4)
                 number = RandomNumberInRange(14)
-            Loop While bingoCage(letter, number)
-
+            Loop While bingoCage(letter, number) And count < 75
+            count += 1
             bingoCage(letter, number) = True
 
+            'display 
             Console.Clear()
             DisplayBingoCage(bingoCage)
-            Console.WriteLine($"Draw {i} took {trys} tries")
-            trys = 0
-            Console.ReadLine()
-        Next
+            'Console.WriteLine(count)
 
+            'Next
+            userInput = Console.ReadLine()
 
-        Console.Read()
+            If userInput = "C" Then
+                ResetBingoCage(bingoCage)
+                count = 0
+            End If
+
+        Loop While userInput <> "Q"
+
+        'Console.Read()
     End Sub
 
     Sub DisplayBingoCage(ByRef bingoCage(,) As Boolean)
@@ -61,6 +70,17 @@
             Console.WriteLine()
             Console.WriteLine(StrDup(25, "-"))
         Next
+
+    End Sub
+
+    Sub ResetBingoCage(ByRef bingoCage(,) As Boolean)
+        'For row = 0 To 14
+        '    For column = 0 To 4
+        '        bingoCage(column, row) = False
+        '    Next
+        'Next
+
+        ReDim bingoCage(4, 14)
 
     End Sub
 
