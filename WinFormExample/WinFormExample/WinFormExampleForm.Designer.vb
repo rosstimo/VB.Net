@@ -308,6 +308,8 @@ Partial Class WinFormExampleForm
         '
         'PictureBox1
         '
+        Me.PictureBox1.BackgroundImage = Global.WinFormExample.My.Resources.Resources.img_BLOG___Found_Kittens_C_19__4_
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.Location = New System.Drawing.Point(460, 35)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(278, 242)

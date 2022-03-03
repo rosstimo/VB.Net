@@ -27,4 +27,15 @@
 
     End Sub
 
+    Private Sub RadioButton4_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton4.CheckedChanged
+        Select Case True
+            Case RadioButton4.Checked
+                PictureBox1.BackgroundImage = My.Resources.img_BLOG___Found_Kittens_C_19__4_
+            Case RadioButton3.Checked
+                PictureBox1.BackgroundImage = My.Resources.istockphoto_1208790371_612x612
+            Case Else
+                MsgBox("something weird happened")
+        End Select
+        PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
+    End Sub
 End Class
