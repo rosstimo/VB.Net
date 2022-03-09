@@ -26,15 +26,16 @@ Partial Class UserInputValidationForm
         Me.QuitButton = New System.Windows.Forms.Button()
         Me.FirstNameTextBox = New System.Windows.Forms.TextBox()
         Me.InputGroupBox = New System.Windows.Forms.GroupBox()
-        Me.OutputGroupBox = New System.Windows.Forms.GroupBox()
-        Me.ButtonGroupBox = New System.Windows.Forms.GroupBox()
-        Me.ClearButton = New System.Windows.Forms.Button()
-        Me.SubmitButton = New System.Windows.Forms.Button()
-        Me.LastNameLabel = New System.Windows.Forms.Label()
-        Me.LastNameTextBox = New System.Windows.Forms.TextBox()
         Me.AgeLabel = New System.Windows.Forms.Label()
         Me.AgeTextBox = New System.Windows.Forms.TextBox()
+        Me.LastNameLabel = New System.Windows.Forms.Label()
+        Me.LastNameTextBox = New System.Windows.Forms.TextBox()
+        Me.OutputGroupBox = New System.Windows.Forms.GroupBox()
         Me.ResultLabel = New System.Windows.Forms.Label()
+        Me.ButtonGroupBox = New System.Windows.Forms.GroupBox()
+        Me.SummaryButton = New System.Windows.Forms.Button()
+        Me.SubmitButton = New System.Windows.Forms.Button()
+        Me.ClearButton = New System.Windows.Forms.Button()
         Me.InputGroupBox.SuspendLayout()
         Me.OutputGroupBox.SuspendLayout()
         Me.ButtonGroupBox.SuspendLayout()
@@ -50,7 +51,7 @@ Partial Class UserInputValidationForm
         '
         'QuitButton
         '
-        Me.QuitButton.Location = New System.Drawing.Point(445, 47)
+        Me.QuitButton.Location = New System.Drawing.Point(384, 19)
         Me.QuitButton.Name = "QuitButton"
         Me.QuitButton.Size = New System.Drawing.Size(120, 74)
         Me.QuitButton.TabIndex = 1
@@ -78,59 +79,6 @@ Partial Class UserInputValidationForm
         Me.InputGroupBox.TabIndex = 0
         Me.InputGroupBox.TabStop = False
         '
-        'OutputGroupBox
-        '
-        Me.OutputGroupBox.Controls.Add(Me.ResultLabel)
-        Me.OutputGroupBox.Location = New System.Drawing.Point(301, 35)
-        Me.OutputGroupBox.Name = "OutputGroupBox"
-        Me.OutputGroupBox.Size = New System.Drawing.Size(282, 227)
-        Me.OutputGroupBox.TabIndex = 4
-        Me.OutputGroupBox.TabStop = False
-        '
-        'ButtonGroupBox
-        '
-        Me.ButtonGroupBox.Controls.Add(Me.SubmitButton)
-        Me.ButtonGroupBox.Controls.Add(Me.ClearButton)
-        Me.ButtonGroupBox.Controls.Add(Me.QuitButton)
-        Me.ButtonGroupBox.Location = New System.Drawing.Point(12, 268)
-        Me.ButtonGroupBox.Name = "ButtonGroupBox"
-        Me.ButtonGroupBox.Size = New System.Drawing.Size(571, 127)
-        Me.ButtonGroupBox.TabIndex = 0
-        Me.ButtonGroupBox.TabStop = False
-        '
-        'ClearButton
-        '
-        Me.ClearButton.Location = New System.Drawing.Point(319, 47)
-        Me.ClearButton.Name = "ClearButton"
-        Me.ClearButton.Size = New System.Drawing.Size(120, 74)
-        Me.ClearButton.TabIndex = 2
-        Me.ClearButton.Text = "&Clear"
-        Me.ClearButton.UseVisualStyleBackColor = True
-        '
-        'SubmitButton
-        '
-        Me.SubmitButton.Location = New System.Drawing.Point(193, 47)
-        Me.SubmitButton.Name = "SubmitButton"
-        Me.SubmitButton.Size = New System.Drawing.Size(120, 74)
-        Me.SubmitButton.TabIndex = 3
-        Me.SubmitButton.Text = "&Submit"
-        Me.SubmitButton.UseVisualStyleBackColor = True
-        '
-        'LastNameLabel
-        '
-        Me.LastNameLabel.Location = New System.Drawing.Point(16, 46)
-        Me.LastNameLabel.Name = "LastNameLabel"
-        Me.LastNameLabel.Size = New System.Drawing.Size(35, 17)
-        Me.LastNameLabel.TabIndex = 3
-        Me.LastNameLabel.Text = "Last"
-        '
-        'LastNameTextBox
-        '
-        Me.LastNameTextBox.Location = New System.Drawing.Point(57, 46)
-        Me.LastNameTextBox.Name = "LastNameTextBox"
-        Me.LastNameTextBox.Size = New System.Drawing.Size(169, 20)
-        Me.LastNameTextBox.TabIndex = 4
-        '
         'AgeLabel
         '
         Me.AgeLabel.AutoSize = True
@@ -147,19 +95,83 @@ Partial Class UserInputValidationForm
         Me.AgeTextBox.Size = New System.Drawing.Size(169, 20)
         Me.AgeTextBox.TabIndex = 6
         '
+        'LastNameLabel
+        '
+        Me.LastNameLabel.Location = New System.Drawing.Point(16, 46)
+        Me.LastNameLabel.Name = "LastNameLabel"
+        Me.LastNameLabel.Size = New System.Drawing.Size(35, 17)
+        Me.LastNameLabel.TabIndex = 3
+        Me.LastNameLabel.Text = "Last"
+        '
+        'LastNameTextBox
+        '
+        Me.LastNameTextBox.Location = New System.Drawing.Point(57, 46)
+        Me.LastNameTextBox.Name = "LastNameTextBox"
+        Me.LastNameTextBox.Size = New System.Drawing.Size(169, 20)
+        Me.LastNameTextBox.TabIndex = 4
+        '
+        'OutputGroupBox
+        '
+        Me.OutputGroupBox.Controls.Add(Me.ResultLabel)
+        Me.OutputGroupBox.Location = New System.Drawing.Point(301, 35)
+        Me.OutputGroupBox.Name = "OutputGroupBox"
+        Me.OutputGroupBox.Size = New System.Drawing.Size(226, 227)
+        Me.OutputGroupBox.TabIndex = 4
+        Me.OutputGroupBox.TabStop = False
+        '
         'ResultLabel
         '
-        Me.ResultLabel.Location = New System.Drawing.Point(27, 27)
+        Me.ResultLabel.Location = New System.Drawing.Point(6, 16)
         Me.ResultLabel.Name = "ResultLabel"
-        Me.ResultLabel.Size = New System.Drawing.Size(227, 65)
+        Me.ResultLabel.Size = New System.Drawing.Size(209, 197)
         Me.ResultLabel.TabIndex = 6
         Me.ResultLabel.Text = "Result"
+        '
+        'ButtonGroupBox
+        '
+        Me.ButtonGroupBox.Controls.Add(Me.SummaryButton)
+        Me.ButtonGroupBox.Controls.Add(Me.SubmitButton)
+        Me.ButtonGroupBox.Controls.Add(Me.ClearButton)
+        Me.ButtonGroupBox.Controls.Add(Me.QuitButton)
+        Me.ButtonGroupBox.Location = New System.Drawing.Point(12, 268)
+        Me.ButtonGroupBox.Name = "ButtonGroupBox"
+        Me.ButtonGroupBox.Size = New System.Drawing.Size(515, 108)
+        Me.ButtonGroupBox.TabIndex = 0
+        Me.ButtonGroupBox.TabStop = False
+        '
+        'SummaryButton
+        '
+        Me.SummaryButton.Enabled = False
+        Me.SummaryButton.Location = New System.Drawing.Point(132, 19)
+        Me.SummaryButton.Name = "SummaryButton"
+        Me.SummaryButton.Size = New System.Drawing.Size(120, 74)
+        Me.SummaryButton.TabIndex = 4
+        Me.SummaryButton.Text = "&Summary"
+        Me.SummaryButton.UseVisualStyleBackColor = True
+        '
+        'SubmitButton
+        '
+        Me.SubmitButton.Location = New System.Drawing.Point(6, 19)
+        Me.SubmitButton.Name = "SubmitButton"
+        Me.SubmitButton.Size = New System.Drawing.Size(120, 74)
+        Me.SubmitButton.TabIndex = 3
+        Me.SubmitButton.Text = "S&ubmit"
+        Me.SubmitButton.UseVisualStyleBackColor = True
+        '
+        'ClearButton
+        '
+        Me.ClearButton.Location = New System.Drawing.Point(258, 19)
+        Me.ClearButton.Name = "ClearButton"
+        Me.ClearButton.Size = New System.Drawing.Size(120, 74)
+        Me.ClearButton.TabIndex = 2
+        Me.ClearButton.Text = "&Clear"
+        Me.ClearButton.UseVisualStyleBackColor = True
         '
         'UserInputValidationForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(595, 408)
+        Me.ClientSize = New System.Drawing.Size(542, 388)
         Me.Controls.Add(Me.ButtonGroupBox)
         Me.Controls.Add(Me.OutputGroupBox)
         Me.Controls.Add(Me.InputGroupBox)
@@ -187,4 +199,5 @@ Partial Class UserInputValidationForm
     Friend WithEvents ButtonGroupBox As GroupBox
     Friend WithEvents SubmitButton As Button
     Friend WithEvents ClearButton As Button
+    Friend WithEvents SummaryButton As Button
 End Class
