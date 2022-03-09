@@ -1,6 +1,10 @@
 ﻿Public Class UserInputValidationForm
-
-    Function ValidInput() As Boolean
+    ''' <summary>
+    ''' verify that all text fields on the form have correct/desired input
+    ''' alert user otherwise.
+    ''' </summary>
+    ''' <returns>True if all input valid</returns>
+    Private Function ValidInput() As Boolean
         Dim userAge As Integer
         Dim valid As Boolean = True
 
@@ -53,8 +57,14 @@
         Return _message
     End Function
 
+    ''' <summary>
+    ''' Stores formatted data records
+    ''' </summary>
+    ''' <param name="addRecord"></param>
+    ''' <returns>Formatted summary As String</returns>
     Private Function Summary(Optional addRecord As Boolean = True) As String
         Static _summary As String
+        'example of a formatted record
         'Name: Elmer Fudd
         'Age: 42
         'email: Elmer.Fudd@Acme.com
@@ -81,9 +91,10 @@
 
     End Sub
 
+    'Event handlers below here
+
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
         If ValidInput() Then
-            'ResultLabel.Text = Summary()
             Summary()
             SummaryButton.Enabled = True
             Reset()
