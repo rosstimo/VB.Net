@@ -23,13 +23,17 @@
 
     End Sub
 
-    Private Sub AddButton_Click(sender As Object, e As EventArgs) Handles AddButton.Click
+    Private Sub AddButton_Click(sender As Object, e As EventArgs) Handles AddButton.Click, AddToolStripMenuItem.Click
         DisplayListBox.Items.Add(TextBox1.Text)
 
     End Sub
 
     Private Sub DisplayListBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DisplayListBox.SelectedIndexChanged
-        Me.Text = DisplayListBox.SelectedItem.ToString()
+        Try
+            Me.Text = DisplayListBox.SelectedItem.ToString()
+        Catch ex As Exception
+            Me.Text = DisplayListBox.SelectedIndex.ToString()
+        End Try
     End Sub
 
     Sub DrawColumns()
@@ -45,4 +49,21 @@
         Next
 
     End Sub
+
+    Private Sub QuitButton_Click(sender As Object, e As EventArgs) Handles QuitButton.Click, CloseToolStripMenuItem.Click
+        Me.Close()
+    End Sub
+
+    Private Sub RemoveContextMenuItem_Click(sender As Object, e As EventArgs) Handles RemoveContextMenuItem.Click
+        Try
+            DisplayListBox.Items.RemoveAt(DisplayListBox.SelectedIndex())
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub ClearAllContextMenuItem_Click(sender As Object, e As EventArgs) Handles ClearAllContextMenuItem.Click
+        DisplayListBox.Items.Clear()
+    End Sub
+
 End Class

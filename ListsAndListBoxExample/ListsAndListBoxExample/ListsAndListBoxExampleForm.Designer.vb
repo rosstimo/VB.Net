@@ -22,19 +22,32 @@ Partial Class ListsAndListBoxExampleForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.DisplayListBox = New System.Windows.Forms.ListBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.QuitButton = New System.Windows.Forms.Button()
         Me.AddButton = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TopMenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.RemoveContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearAllContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TopMenuStrip.SuspendLayout()
+        Me.ContextMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'DisplayListBox
         '
+        Me.DisplayListBox.ContextMenuStrip = Me.ContextMenuStrip
         Me.DisplayListBox.FormattingEnabled = True
-        Me.DisplayListBox.Location = New System.Drawing.Point(12, 12)
+        Me.DisplayListBox.Location = New System.Drawing.Point(12, 51)
         Me.DisplayListBox.Name = "DisplayListBox"
-        Me.DisplayListBox.Size = New System.Drawing.Size(776, 290)
+        Me.DisplayListBox.Size = New System.Drawing.Size(776, 251)
         Me.DisplayListBox.TabIndex = 0
         '
         'ComboBox1
@@ -70,6 +83,67 @@ Partial Class ListsAndListBoxExampleForm
         Me.TextBox1.Size = New System.Drawing.Size(216, 20)
         Me.TextBox1.TabIndex = 4
         '
+        'TopMenuStrip
+        '
+        Me.TopMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.TopMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.TopMenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.TopMenuStrip.Name = "TopMenuStrip"
+        Me.TopMenuStrip.Size = New System.Drawing.Size(800, 24)
+        Me.TopMenuStrip.TabIndex = 5
+        Me.TopMenuStrip.Text = "MenuStrip1"
+        '
+        'FileToolStripMenuItem
+        '
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem, Me.CloseToolStripMenuItem})
+        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
+        Me.FileToolStripMenuItem.Text = "&File"
+        '
+        'AddToolStripMenuItem
+        '
+        Me.AddToolStripMenuItem.Name = "AddToolStripMenuItem"
+        Me.AddToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.AddToolStripMenuItem.Text = "Add"
+        '
+        'CloseToolStripMenuItem
+        '
+        Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
+        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.CloseToolStripMenuItem.Text = "Close"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.HelpToolStripMenuItem.Text = "&Help"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.AboutToolStripMenuItem.Text = "&About"
+        '
+        'ContextMenuStrip
+        '
+        Me.ContextMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.ContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RemoveContextMenuItem, Me.ClearAllContextMenuItem})
+        Me.ContextMenuStrip.Name = "ContextMenuStrip"
+        Me.ContextMenuStrip.Size = New System.Drawing.Size(119, 48)
+        '
+        'RemoveContextMenuItem
+        '
+        Me.RemoveContextMenuItem.Name = "RemoveContextMenuItem"
+        Me.RemoveContextMenuItem.Size = New System.Drawing.Size(118, 22)
+        Me.RemoveContextMenuItem.Text = "Remove"
+        '
+        'ClearAllContextMenuItem
+        '
+        Me.ClearAllContextMenuItem.Name = "ClearAllContextMenuItem"
+        Me.ClearAllContextMenuItem.Size = New System.Drawing.Size(118, 22)
+        Me.ClearAllContextMenuItem.Text = "Clear All"
+        '
         'ListsAndListBoxExampleForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -80,8 +154,13 @@ Partial Class ListsAndListBoxExampleForm
         Me.Controls.Add(Me.QuitButton)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.DisplayListBox)
+        Me.Controls.Add(Me.TopMenuStrip)
+        Me.MainMenuStrip = Me.TopMenuStrip
         Me.Name = "ListsAndListBoxExampleForm"
         Me.Text = "Form1"
+        Me.TopMenuStrip.ResumeLayout(False)
+        Me.TopMenuStrip.PerformLayout()
+        Me.ContextMenuStrip.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -92,4 +171,13 @@ Partial Class ListsAndListBoxExampleForm
     Friend WithEvents QuitButton As Button
     Friend WithEvents AddButton As Button
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TopMenuStrip As MenuStrip
+    Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AddToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CloseToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ContextMenuStrip As ContextMenuStrip
+    Friend WithEvents RemoveContextMenuItem As ToolStripMenuItem
+    Friend WithEvents ClearAllContextMenuItem As ToolStripMenuItem
 End Class
