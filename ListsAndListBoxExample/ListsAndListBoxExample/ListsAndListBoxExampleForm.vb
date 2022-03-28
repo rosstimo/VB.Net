@@ -66,4 +66,8 @@
         DisplayListBox.Items.Clear()
     End Sub
 
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        AboutForm.Show()
+        Me.Hide()
+    End Sub
 End Class

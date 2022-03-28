@@ -24,6 +24,9 @@ Partial Class ListsAndListBoxExampleForm
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.DisplayListBox = New System.Windows.Forms.ListBox()
+        Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.RemoveContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearAllContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.QuitButton = New System.Windows.Forms.Button()
         Me.AddButton = New System.Windows.Forms.Button()
@@ -34,11 +37,8 @@ Partial Class ListsAndListBoxExampleForm
         Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.RemoveContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ClearAllContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TopMenuStrip.SuspendLayout()
         Me.ContextMenuStrip.SuspendLayout()
+        Me.TopMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'DisplayListBox
@@ -49,6 +49,25 @@ Partial Class ListsAndListBoxExampleForm
         Me.DisplayListBox.Name = "DisplayListBox"
         Me.DisplayListBox.Size = New System.Drawing.Size(776, 251)
         Me.DisplayListBox.TabIndex = 0
+        '
+        'ContextMenuStrip
+        '
+        Me.ContextMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.ContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RemoveContextMenuItem, Me.ClearAllContextMenuItem})
+        Me.ContextMenuStrip.Name = "ContextMenuStrip"
+        Me.ContextMenuStrip.Size = New System.Drawing.Size(119, 48)
+        '
+        'RemoveContextMenuItem
+        '
+        Me.RemoveContextMenuItem.Name = "RemoveContextMenuItem"
+        Me.RemoveContextMenuItem.Size = New System.Drawing.Size(118, 22)
+        Me.RemoveContextMenuItem.Text = "Remove"
+        '
+        'ClearAllContextMenuItem
+        '
+        Me.ClearAllContextMenuItem.Name = "ClearAllContextMenuItem"
+        Me.ClearAllContextMenuItem.Size = New System.Drawing.Size(118, 22)
+        Me.ClearAllContextMenuItem.Text = "Clear All"
         '
         'ComboBox1
         '
@@ -122,27 +141,8 @@ Partial Class ListsAndListBoxExampleForm
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AboutToolStripMenuItem.Text = "&About"
-        '
-        'ContextMenuStrip
-        '
-        Me.ContextMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
-        Me.ContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RemoveContextMenuItem, Me.ClearAllContextMenuItem})
-        Me.ContextMenuStrip.Name = "ContextMenuStrip"
-        Me.ContextMenuStrip.Size = New System.Drawing.Size(119, 48)
-        '
-        'RemoveContextMenuItem
-        '
-        Me.RemoveContextMenuItem.Name = "RemoveContextMenuItem"
-        Me.RemoveContextMenuItem.Size = New System.Drawing.Size(118, 22)
-        Me.RemoveContextMenuItem.Text = "Remove"
-        '
-        'ClearAllContextMenuItem
-        '
-        Me.ClearAllContextMenuItem.Name = "ClearAllContextMenuItem"
-        Me.ClearAllContextMenuItem.Size = New System.Drawing.Size(118, 22)
-        Me.ClearAllContextMenuItem.Text = "Clear All"
         '
         'ListsAndListBoxExampleForm
         '
@@ -158,9 +158,9 @@ Partial Class ListsAndListBoxExampleForm
         Me.MainMenuStrip = Me.TopMenuStrip
         Me.Name = "ListsAndListBoxExampleForm"
         Me.Text = "Form1"
+        Me.ContextMenuStrip.ResumeLayout(False)
         Me.TopMenuStrip.ResumeLayout(False)
         Me.TopMenuStrip.PerformLayout()
-        Me.ContextMenuStrip.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
