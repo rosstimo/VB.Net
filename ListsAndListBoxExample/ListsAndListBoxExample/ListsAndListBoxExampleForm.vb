@@ -1,7 +1,7 @@
 ﻿Public Class ListsAndListBoxExampleForm
     Private Sub ListsAndListBoxExampleForm_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        DrawColumns()
+        'DrawColumns()
 
     End Sub
 
@@ -24,15 +24,28 @@
     End Sub
 
     Private Sub AddButton_Click(sender As Object, e As EventArgs) Handles AddButton.Click, AddToolStripMenuItem.Click
-        DisplayListBox.Items.Add(TextBox1.Text)
-
+        If TextBox1.Text <> "" Then
+            DisplayListBox.Items.Add(TextBox1.Text)
+            ItemsComboBox.Items.Add(TextBox1.Text)
+        End If
+        TextBox1.Text = ""
     End Sub
 
     Private Sub DisplayListBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DisplayListBox.SelectedIndexChanged
+        ItemsComboBox.SelectedItem = DisplayListBox.SelectedItem
         Try
             Me.Text = DisplayListBox.SelectedItem.ToString()
         Catch ex As Exception
             Me.Text = DisplayListBox.SelectedIndex.ToString()
+        End Try
+    End Sub
+
+    Private Sub ItemsComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ItemsComboBox.SelectedIndexChanged
+        DisplayListBox.SelectedItem = ItemsComboBox.SelectedItem
+        Try
+            Me.Text = ItemsComboBox.SelectedItem.ToString()
+        Catch ex As Exception
+            Me.Text = ItemsComboBox.SelectedIndex.ToString()
         End Try
     End Sub
 
@@ -55,8 +68,12 @@
     End Sub
 
     Private Sub RemoveContextMenuItem_Click(sender As Object, e As EventArgs) Handles RemoveContextMenuItem.Click
+        Dim temp As String = DisplayListBox.SelectedItem().ToString
+
         Try
-            DisplayListBox.Items.RemoveAt(DisplayListBox.SelectedIndex())
+            DisplayListBox.Items.Remove(temp)
+            ItemsComboBox.Items.Remove(temp)
+
         Catch ex As Exception
 
         End Try
@@ -70,4 +87,5 @@
         AboutForm.Show()
         Me.Hide()
     End Sub
+
 End Class

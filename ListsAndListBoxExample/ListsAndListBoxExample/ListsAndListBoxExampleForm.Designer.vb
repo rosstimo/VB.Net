@@ -27,7 +27,7 @@ Partial Class ListsAndListBoxExampleForm
         Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.RemoveContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearAllContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ItemsComboBox = New System.Windows.Forms.ComboBox()
         Me.QuitButton = New System.Windows.Forms.Button()
         Me.AddButton = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -37,6 +37,7 @@ Partial Class ListsAndListBoxExampleForm
         Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MainToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.ContextMenuStrip.SuspendLayout()
         Me.TopMenuStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -44,11 +45,13 @@ Partial Class ListsAndListBoxExampleForm
         'DisplayListBox
         '
         Me.DisplayListBox.ContextMenuStrip = Me.ContextMenuStrip
+        Me.DisplayListBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.DisplayListBox.FormattingEnabled = True
         Me.DisplayListBox.Location = New System.Drawing.Point(12, 51)
         Me.DisplayListBox.Name = "DisplayListBox"
         Me.DisplayListBox.Size = New System.Drawing.Size(776, 251)
         Me.DisplayListBox.TabIndex = 0
+        Me.MainToolTip.SetToolTip(Me.DisplayListBox, "Select an item then right click for more options.")
         '
         'ContextMenuStrip
         '
@@ -69,13 +72,13 @@ Partial Class ListsAndListBoxExampleForm
         Me.ClearAllContextMenuItem.Size = New System.Drawing.Size(118, 22)
         Me.ClearAllContextMenuItem.Text = "Clear All"
         '
-        'ComboBox1
+        'ItemsComboBox
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(541, 308)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(247, 21)
-        Me.ComboBox1.TabIndex = 1
+        Me.ItemsComboBox.FormattingEnabled = True
+        Me.ItemsComboBox.Location = New System.Drawing.Point(541, 308)
+        Me.ItemsComboBox.Name = "ItemsComboBox"
+        Me.ItemsComboBox.Size = New System.Drawing.Size(247, 21)
+        Me.ItemsComboBox.TabIndex = 1
         '
         'QuitButton
         '
@@ -84,6 +87,7 @@ Partial Class ListsAndListBoxExampleForm
         Me.QuitButton.Size = New System.Drawing.Size(148, 64)
         Me.QuitButton.TabIndex = 2
         Me.QuitButton.Text = "&Quit"
+        Me.MainToolTip.SetToolTip(Me.QuitButton, "Click to leave")
         Me.QuitButton.UseVisualStyleBackColor = True
         '
         'AddButton
@@ -93,6 +97,7 @@ Partial Class ListsAndListBoxExampleForm
         Me.AddButton.Size = New System.Drawing.Size(148, 64)
         Me.AddButton.TabIndex = 3
         Me.AddButton.Text = "&Add"
+        Me.MainToolTip.SetToolTip(Me.AddButton, "Add From Text Box")
         Me.AddButton.UseVisualStyleBackColor = True
         '
         'TextBox1
@@ -111,6 +116,7 @@ Partial Class ListsAndListBoxExampleForm
         Me.TopMenuStrip.Size = New System.Drawing.Size(800, 24)
         Me.TopMenuStrip.TabIndex = 5
         Me.TopMenuStrip.Text = "MenuStrip1"
+        Me.MainToolTip.SetToolTip(Me.TopMenuStrip, "Select an item then right click for more options.")
         '
         'FileToolStripMenuItem
         '
@@ -152,12 +158,12 @@ Partial Class ListsAndListBoxExampleForm
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.AddButton)
         Me.Controls.Add(Me.QuitButton)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.ItemsComboBox)
         Me.Controls.Add(Me.DisplayListBox)
         Me.Controls.Add(Me.TopMenuStrip)
         Me.MainMenuStrip = Me.TopMenuStrip
         Me.Name = "ListsAndListBoxExampleForm"
-        Me.Text = "Form1"
+        Me.Text = "List Controls"
         Me.ContextMenuStrip.ResumeLayout(False)
         Me.TopMenuStrip.ResumeLayout(False)
         Me.TopMenuStrip.PerformLayout()
@@ -167,7 +173,7 @@ Partial Class ListsAndListBoxExampleForm
     End Sub
 
     Friend WithEvents DisplayListBox As ListBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents ItemsComboBox As ComboBox
     Friend WithEvents QuitButton As Button
     Friend WithEvents AddButton As Button
     Friend WithEvents TextBox1 As TextBox
@@ -180,4 +186,5 @@ Partial Class ListsAndListBoxExampleForm
     Friend WithEvents ContextMenuStrip As ContextMenuStrip
     Friend WithEvents RemoveContextMenuItem As ToolStripMenuItem
     Friend WithEvents ClearAllContextMenuItem As ToolStripMenuItem
+    Friend WithEvents MainToolTip As ToolTip
 End Class
