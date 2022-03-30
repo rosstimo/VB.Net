@@ -31,155 +31,6 @@ Public Class FileIOForm
     Dim TempArray() As String
 
 
-    Private Sub DataCrossWalk()
-
-        Dim originalFileName As String = "C:\Users\rosstimo\Documents\GitHub\TJR-VS-F19\ClassRmExamples\FileIO_Examples\Resources\email.txt"
-        Dim newFileName As String = "C:\Users\rosstimo\Documents\GitHub\TJR-VS-F19\ClassRmExamples\FileIO_Examples\Resources\NEWemail.txt"
-        Dim crossWalkArray() As String
-        Dim recordData() As String
-        Dim goodDataString As String = ""
-
-
-        ReadFile(originalFileName, crossWalkArray)
-
-        For i = LBound(crossWalkArray) To UBound(crossWalkArray)
-            recordData = Split(crossWalkArray(i), ",")
-            Try
-                'goodDataString &= recordData(0) & "," & recordData(1) & "," & recordData(2) & "," & "ID" & "," & "" & "," & recordData(3) & "$$"
-                AppendFile(newFileName, "$$" & recordData(0) & "," & recordData(1) & "," & recordData(2) & "," & "ID" & "," & "" & "," & recordData(3))
-                Console.WriteLine(crossWalkArray(i))
-            Catch ex As Exception
-                Console.WriteLine(ex.Message & " *********** Hey You! ***************   Index #: " & Str(i))
-            End Try
-        Next
-
-        crossWalkArray = Split(goodDataString, "$$")
-
-        'If crossWalkArray(0) = "" Then
-        '    Console.WriteLine(crossWalkArray(0))
-        'Else
-        '    Console.WriteLine("Nope")
-        'End If
-
-        'Console.WriteLine(Len(crossWalkArray(0)))
-        'Console.WriteLine(InStr(crossWalkArray(0), "$$"))
-        'Console.WriteLine(InStr(crossWalkArray(1), "$$"))
-
-        'Dim arrayPointer As Integer = 0
-        'For i = LBound(crossWalkArray) To UBound(crossWalkArray)
-
-        '    'goodData
-        '    'badData
-        '    'TODO Draw out on board or single step
-        '    Select Case InStr(crossWalkArray(i), "$$") 'return 1 for TRUE 0 for FALSE
-        '        Case 1 'Good Data
-        '            arrayPointer += 1
-        '            crossWalkArray(arrayPointer) = crossWalkArray(i)
-        '        Case 0 ' Bad Data
-        '            crossWalkArray(arrayPointer) = crossWalkArray(i)
-        '    End Select
-
-        'Next
-
-        'UpdateListBox(crossWalkArray)
-
-        UpdateFile(newFileName, crossWalkArray)
-
-    End Sub
-
-
-    '<Remarks>
-    'ReadFile() allows user to choose text file then reads file into TempArray
-    '</Remarks>
-    Private Sub ReadFile(ByVal fileName As String, ByRef recordData() As String)
-        Dim currentRecord As String
-        Dim fileData As String
-        Dim fileNumber As Integer = FreeFile()
-
-        Try
-            FileOpen(fileNumber, fileName, OpenMode.Input)
-            Do While Not EOF(fileNumber)
-                Input(fileNumber, currentRecord)
-                'ListBox1.Items.Add(currentRecord)
-                fileData &= currentRecord
-            Loop
-        Catch ex As Exception
-            'TODO: user select file if it doesn't exist
-            Console.WriteLine(ex.Message)
-        Finally
-            FileClose(fileNumber)
-        End Try
-
-        recordData = Split(fileData, "$$")
-
-    End Sub
-
-    '<Remarks>
-    'Update display data in listbox from TempArray Class level array
-    '</Remarks>
-    Private Sub UpdateListBox(ByVal dataArray() As String)
-        'TODO pass array as argument
-        ListBox1.Items.Clear()
-
-        For i = LBound(dataArray) To UBound(dataArray)
-            ListBox1.Items.Add(dataArray(i))
-        Next
-
-    End Sub
-
-    Private Sub LoadFile()
-
-
-
-
-    End Sub
-
-    Private Sub CreateTempFile()
-        Kill(TempFileName)
-        UpdateFile(TempFileName, TempArray)
-    End Sub
-
-    Private Sub UpdateFile(fileNameToBeUpdated As String, newData() As String)
-        For currentRecord = LBound(newData) To UBound(newData)
-            AppendFile(fileNameToBeUpdated, newData(currentRecord))
-        Next
-    End Sub
-
-    Private Sub AppendFile(ByVal filename As String, newRecord As String)
-        Dim fileNumber As Integer = FreeFile()
-
-        Try
-            FileOpen(fileNumber, filename, OpenMode.Append)
-            Write(fileNumber, newRecord)
-            WriteLine(fileNumber)
-
-        Catch ex As Exception
-            'TODO: user select file if it doesn't exist
-            'handle file in use exception
-            'verify other possible exceptions           
-        Finally
-            FileClose(fileNumber)
-        End Try
-
-    End Sub
-
-    Private Sub WriteFile(ByVal filename As String, newRecord As String)
-        Dim fileNumber As Integer = FreeFile()
-
-        Try
-            FileOpen(fileNumber, filename, OpenMode.Output)
-            Write(fileNumber, newRecord)
-
-        Catch ex As Exception
-            'TODO: user select file if it doesn't exist
-            'handle file in use exception
-            'verify other possible exceptions           
-        Finally
-            FileClose(fileNumber)
-        End Try
-
-    End Sub
-
     Private Sub WriteTestFile()
         'Dim myfile As My.Resources
         'Example from: https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.filesystem.writeline?view=netframework-4.8
@@ -223,6 +74,98 @@ Public Class FileIOForm
         '         ,"Hello"
         '"False is a Boolean value."
         '"2/12/1969 is a date."
+    End Sub
+
+    '<Remarks>
+    'ReadFile() allows user to choose text file then reads file into TempArray
+    '</Remarks>
+    Private Sub ReadFile(ByVal fileName As String, ByRef recordData() As String)
+        Dim currentRecord As String
+        Dim fileData As String
+        Dim fileNumber As Integer = FreeFile()
+
+        Try
+            FileOpen(fileNumber, fileName, OpenMode.Input)
+            Do While Not EOF(fileNumber)
+                Input(fileNumber, currentRecord)
+                'ListBox1.Items.Add(currentRecord)
+                fileData &= currentRecord
+            Loop
+        Catch ex As Exception
+            'TODO: user select file if it doesn't exist
+            Console.WriteLine(ex.Message)
+        Finally
+            FileClose(fileNumber)
+        End Try
+
+        recordData = Split(fileData, "$$")
+
+    End Sub
+
+    Private Sub WriteFile(ByVal filename As String, newRecord As String)
+        Dim fileNumber As Integer = FreeFile()
+
+        Try
+            FileOpen(fileNumber, filename, OpenMode.Output)
+            Write(fileNumber, newRecord)
+
+        Catch ex As Exception
+            'TODO: user select file if it doesn't exist
+            'handle file in use exception
+            'verify other possible exceptions           
+        Finally
+            FileClose(fileNumber)
+        End Try
+
+    End Sub
+
+    Private Sub AppendFile(ByVal filename As String, newRecord As String)
+        Dim fileNumber As Integer = FreeFile()
+
+        Try
+            FileOpen(fileNumber, filename, OpenMode.Append)
+            Write(fileNumber, newRecord)
+            WriteLine(fileNumber)
+
+        Catch ex As Exception
+            'TODO: user select file if it doesn't exist
+            'handle file in use exception
+            'verify other possible exceptions           
+        Finally
+            FileClose(fileNumber)
+        End Try
+
+    End Sub
+
+    '<Remarks>
+    'Update display data in listbox from TempArray Class level array
+    '</Remarks>
+    Private Sub UpdateListBox(ByVal dataArray() As String)
+        'TODO pass array as argument
+        ListBox1.Items.Clear()
+
+        For i = LBound(dataArray) To UBound(dataArray)
+            ListBox1.Items.Add(dataArray(i))
+        Next
+
+    End Sub
+
+    Private Sub LoadFile()
+
+
+
+
+    End Sub
+
+    Private Sub CreateTempFile()
+        Kill(TempFileName)
+        UpdateFile(TempFileName, TempArray)
+    End Sub
+
+    Private Sub UpdateFile(fileNameToBeUpdated As String, newData() As String)
+        For currentRecord = LBound(newData) To UBound(newData)
+            AppendFile(fileNameToBeUpdated, newData(currentRecord))
+        Next
     End Sub
 
     Private Sub updateTextBoxes(index As Integer)
@@ -299,54 +242,6 @@ Public Class FileIOForm
         'ShiftArray()
     End Sub
 
-
-    'debug stuff below
-    Sub ListBoxTesting()
-
-        ListBox1.Items.Insert(0, "Inserted Data")
-
-    End Sub
-
-    '<Remarks>
-    'Used for debug only
-    '</Remarks>
-    Private Sub testArray(anArray() As String) 'TODO add to array examples
-
-        Dim feildData() As String
-
-        For i = LBound(anArray) To UBound(anArray)
-            Console.WriteLine(anArray(i))
-            ListBox1.Items.Add(anArray(i))
-            feildData = Split(anArray(i), ",")
-            For j = LBound(feildData) To UBound(feildData)
-                Console.WriteLine(feildData(j))
-            Next
-        Next
-    End Sub
-
-
-    Private Sub ShiftArray() 'TODO add to array examples
-        Static myArray(6) As String
-        Dim newData As String = FirstNameTextBox.Text
-        Dim oldData As String
-        Static notFirstRun As Boolean
-
-        If notFirstRun = False Then
-            myArray = {"Fred", "Bill", "Joe", "Jimmy", "Ted", "Frank", "Bob"}
-            notFirstRun = True
-        End If
-
-        For i = UBound(myArray) To LBound(myArray) Step -1
-
-            oldData = myArray(i)
-            myArray(i) = newData
-            newData = oldData
-
-        Next
-
-        UpdateListBox(myArray)
-
-    End Sub
 
 End Class
 
