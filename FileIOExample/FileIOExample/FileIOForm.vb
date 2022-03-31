@@ -27,8 +27,9 @@ Option Compare Binary
 Public Class FileIOForm
 
     Private Sub WriteTestFile()
-        'Dim myfile As My.Resources
+
         'Example from: https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.filesystem.writeline?view=netframework-4.8
+
         ' Open file for output.
         FileOpen(1, "TestFile.txt", OpenMode.Output)
         ' Print text to the file. The quotation marks will be in the display.
@@ -71,9 +72,30 @@ Public Class FileIOForm
         '"2/12/1969 is a date."
     End Sub
 
+    Sub WriteFileExample()
+        ' Open file for output.
+        ' This will overwrite the contents of the file
+        ' be careful....
+        FileOpen(5, "TestFile.txt", OpenMode.Output)
+
+        Write(5, "Hello, World!")
+        Write(5, "Bob")
+        Write(5, "Fred")
+        Write(5, 7)
+        Write(5, 43)
+        Write(5, 3.14)
+
+        FileClose(5)
+
+    End Sub
+
+
     Private Sub ExitProgram(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
     End Sub
 
-
+    Private Sub OverWriteButton_Click(sender As Object, e As EventArgs) Handles OverWriteButton.Click
+        'WriteTestFile()
+        ClassRoomExample()
+    End Sub
 End Class

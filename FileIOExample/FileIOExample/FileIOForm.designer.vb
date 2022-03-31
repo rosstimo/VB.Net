@@ -31,8 +31,6 @@ Partial Class FileIOForm
         Me.LastNameTextBox = New System.Windows.Forms.TextBox()
         Me.StateTextBox = New System.Windows.Forms.TextBox()
         Me.ZipTextBox = New System.Windows.Forms.TextBox()
-        Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
-        Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.SaveFileButton = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.emailTextBox = New System.Windows.Forms.TextBox()
@@ -117,10 +115,6 @@ Partial Class FileIOForm
         Me.ZipTextBox.TabIndex = 9
         Me.ZipTextBox.Text = "Zip"
         '
-        'OpenFileDialog
-        '
-        Me.OpenFileDialog.FileName = "OpenFileDialog"
-        '
         'SaveFileButton
         '
         Me.SaveFileButton.Location = New System.Drawing.Point(12, 383)
@@ -199,8 +193,6 @@ Partial Class FileIOForm
     Friend WithEvents LastNameTextBox As TextBox
     Friend WithEvents StateTextBox As TextBox
     Friend WithEvents ZipTextBox As TextBox
-    Friend WithEvents SaveFileDialog As SaveFileDialog
-    Friend WithEvents OpenFileDialog As OpenFileDialog
     Friend WithEvents SaveFileButton As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents CityTextBox As TextBox
