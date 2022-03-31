@@ -89,6 +89,26 @@ Public Class FileIOForm
 
     End Sub
 
+    Sub AppendFileExample()
+        ' Open file for output.
+        ' This will overwrite the contents of the file
+        ' be careful....
+        FileOpen(5, "TestFile.txt", OpenMode.Append)
+
+        Write(5, "Hello, World!")
+        Write(5, "Bob")
+        Write(5, "Fred")
+        Write(5, 7)
+        Write(5, 43)
+        Write(5, 3.14)
+
+        FileClose(5)
+
+    End Sub
+
+    Sub ReadFileExample()
+
+    End Sub
 
     Private Sub ExitProgram(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
@@ -96,6 +116,7 @@ Public Class FileIOForm
 
     Private Sub OverWriteButton_Click(sender As Object, e As EventArgs) Handles OverWriteButton.Click
         'WriteTestFile()
-        ClassRoomExample()
+        WriteFileExample()
+        'AppendFileExample()
     End Sub
 End Class
