@@ -11,7 +11,6 @@ Option Explicit On
 Option Strict On
 Option Compare Binary
 
-
 '<Remarks>
 'The FileOpen() functions allows for various file read/write options.
 'FreeFile() returns the next available file number. It is used to refer to
@@ -26,10 +25,6 @@ Option Compare Binary
 'file IO classes offer more efficient and elegant solutions.
 '</Remarks>
 Public Class FileIOForm
-
-    Dim TempFileName As String = "TempFile.txt" '= My.Resources.TempFile_txt 'variable assignment not working at class level
-    Dim TempArray() As String
-
 
     Private Sub WriteTestFile()
         'Dim myfile As My.Resources
@@ -76,172 +71,9 @@ Public Class FileIOForm
         '"2/12/1969 is a date."
     End Sub
 
-    '<Remarks>
-    'ReadFile() allows user to choose text file then reads file into TempArray
-    '</Remarks>
-    Private Sub ReadFile(ByVal fileName As String, ByRef recordData() As String)
-        Dim currentRecord As String
-        Dim fileData As String
-        Dim fileNumber As Integer = FreeFile()
-
-        Try
-            FileOpen(fileNumber, fileName, OpenMode.Input)
-            Do While Not EOF(fileNumber)
-                Input(fileNumber, currentRecord)
-                'ListBox1.Items.Add(currentRecord)
-                fileData &= currentRecord
-            Loop
-        Catch ex As Exception
-            'TODO: user select file if it doesn't exist
-            Console.WriteLine(ex.Message)
-        Finally
-            FileClose(fileNumber)
-        End Try
-
-        recordData = Split(fileData, "$$")
-
-    End Sub
-
-    Private Sub WriteFile(ByVal filename As String, newRecord As String)
-        Dim fileNumber As Integer = FreeFile()
-
-        Try
-            FileOpen(fileNumber, filename, OpenMode.Output)
-            Write(fileNumber, newRecord)
-
-        Catch ex As Exception
-            'TODO: user select file if it doesn't exist
-            'handle file in use exception
-            'verify other possible exceptions           
-        Finally
-            FileClose(fileNumber)
-        End Try
-
-    End Sub
-
-    Private Sub AppendFile(ByVal filename As String, newRecord As String)
-        Dim fileNumber As Integer = FreeFile()
-
-        Try
-            FileOpen(fileNumber, filename, OpenMode.Append)
-            Write(fileNumber, newRecord)
-            WriteLine(fileNumber)
-
-        Catch ex As Exception
-            'TODO: user select file if it doesn't exist
-            'handle file in use exception
-            'verify other possible exceptions           
-        Finally
-            FileClose(fileNumber)
-        End Try
-
-    End Sub
-
-    '<Remarks>
-    'Update display data in listbox from TempArray Class level array
-    '</Remarks>
-    Private Sub UpdateListBox(ByVal dataArray() As String)
-        'TODO pass array as argument
-        ListBox1.Items.Clear()
-
-        For i = LBound(dataArray) To UBound(dataArray)
-            ListBox1.Items.Add(dataArray(i))
-        Next
-
-    End Sub
-
-    Private Sub LoadFile()
-
-
-
-
-    End Sub
-
-    Private Sub CreateTempFile()
-        Kill(TempFileName)
-        UpdateFile(TempFileName, TempArray)
-    End Sub
-
-    Private Sub UpdateFile(fileNameToBeUpdated As String, newData() As String)
-        For currentRecord = LBound(newData) To UBound(newData)
-            AppendFile(fileNameToBeUpdated, newData(currentRecord))
-        Next
-    End Sub
-
-    Private Sub updateTextBoxes(index As Integer)
-        Dim feildData() As String
-        Try
-            feildData = Split(TempArray(index), ",")
-            FirstNameTextBox.Text = feildData(0)
-            LastNameTextBox.Text = feildData(1)
-            CityTextBox.Text = feildData(2)
-            emailTextBox.Text = feildData(3)
-        Catch ex As Exception
-            Console.WriteLine(ex.Message)
-        End Try
-    End Sub
-
-    Private Sub updateRecord(index As Integer)
-        Try
-            TempArray(index) = FirstNameTextBox.Text & "," & LastNameTextBox.Text & "," & CityTextBox.Text & "," & emailTextBox.Text
-        Catch ex As Exception
-
-        End Try
-
-        CreateTempFile()
-    End Sub
-
-    'event handler subs below
-    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
-        'MessageBox.Show("sender: " & sender.ToString & "e: " & Str(e))
-
-        Me.Text = Str(ListBox1.SelectedIndex)
-
-        'FirstNameTextBox.Text = TempArray(ListBox1.SelectedIndex)
-        updateTextBoxes(ListBox1.SelectedIndex)
-    End Sub
-
-    Private Sub ReadFileButton_Click(sender As Object, e As EventArgs) Handles ReadFileButton.Click
-        OpenFileDialog.ShowDialog()
-        ReadFile(OpenFileDialog.FileName, TempArray)
-        UpdateListBox(TempArray)
-    End Sub
-
-    Private Sub OverWriteButton_Click(sender As Object, e As EventArgs) Handles OverWriteButton.Click
-        'WriteFile("TempFile.txt", "Start of file")
-        'ListBoxTesting()
-        ListBox1.Items.Insert(0, "Inserted Data")
-    End Sub
-
-    Private Sub AppendFileButton_Click(sender As Object, e As EventArgs) Handles AppendFileButton.Click
-        'AppendFile("TestFile.txt", "Here is my extra data")
-        'AppendFile("TempFile.txt", "$$" & FirstNameTextBox.Text & "," & LastNameTextBox.Text & "," & CityTextBox.Text & "," & StateTextBox.Text & "," & ZipTextBox.Text)
-        ListBox1.Items.Add("added item" & DateTime.Now.ToString)
-    End Sub
-
-    Private Sub SaveFileButton_Click(sender As Object, e As EventArgs) Handles SaveFileButton.Click
-
-        SaveFileDialog.DefaultExt = ".txt"
-        SaveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*"
-        SaveFileDialog.FileName = "MyFile " & DateTime.Now.Year & DateTime.Now.Month & DateTime.Now.Day
-        'SaveFileDialog.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) ' "%Downloads%"
-        SaveFileDialog.ShowDialog()
-        FileCopy(TempFileName, SaveFileDialog.FileName)
-
-    End Sub
-
-    Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
-        updateRecord(ListBox1.SelectedIndex)
-        UpdateListBox(TempArray)
-    End Sub
-
     Private Sub ExitProgram(sender As Object, e As EventArgs) Handles ExitButton.Click
-        'WriteTestFile()
-        'Me.Close()
-        DataCrossWalk()
-        'ShiftArray()
+        Me.Close()
     End Sub
 
 
 End Class
-
