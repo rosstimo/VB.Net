@@ -125,17 +125,16 @@ Public Class FileIOForm
 
     Sub ReadFile()
         Dim currentRecord As String
-
+        Dim fileNumber As Integer = FreeFile()
+        'TODO pass file name as arg
         Try
-            FileOpen(3, "TestFile.txt", OpenMode.Input)
-
-            Do Until EOF(3)
-                Input(3, currentRecord)
+            FileOpen(FreeFile, "TestFile.txt", OpenMode.Input)
+            Do Until EOF(FreeFile)
+                Input(FreeFile, currentRecord)
                 'MsgBox(currentRecord)
                 ListBox1.Items.Add(currentRecord)
             Loop
-
-            FileClose(3)
+            FileClose(FreeFile)
 
         Catch fileNotFound As IO.FileNotFoundException
             MsgBox("Sorry, that file doesn't exist")
