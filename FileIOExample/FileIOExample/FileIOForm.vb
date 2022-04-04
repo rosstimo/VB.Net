@@ -1,4 +1,5 @@
-﻿'see lecture notes pdf: https://elearn.isu.edu/moodle/pluginfile.php/2000753/mod_resource/content/0/Section%2010%20Topics.pdf
+﻿
+'see lecture notes pdf: https://elearn.isu.edu/moodle/pluginfile.php/2000753/mod_resource/content/0/Section%2010%20Topics.pdf
 'see also https://docs.microsoft.com/en-us/dotnet/visual-basic/developing-apps/programming/drives-directories-files/basics-of-net-framework-file-io-and-the-file-system
 'https://docs.microsoft.com/en-us/dotnet/visual-basic/developing-apps/programming/drives-directories-files/file-access
 'FileOpen Depricated 
@@ -90,9 +91,8 @@ Public Class FileIOForm
     End Sub
 
     Sub AppendFileExample()
-        ' Open file for output.
-        ' This will overwrite the contents of the file
-        ' be careful....
+        ' Open file for append.
+        ' This will add to the contents of the file
         FileOpen(5, "TestFile.txt", OpenMode.Append)
 
         Write(5, "Hello, World!")
@@ -107,6 +107,18 @@ Public Class FileIOForm
     End Sub
 
     Sub ReadFileExample()
+        Dim currentRecord As String = "This will get written over ha ha ha..."
+
+        Try
+            FileOpen(3, "TestFile.txt", OpenMode.Input)
+            Input(3, currentRecord)
+            MsgBox(currentRecord)
+            FileClose(3)
+        Catch fileNotFound As IO.FileNotFoundException
+            MsgBox("Sorry, that file doesn't exist")
+        Catch ex As Exception
+            MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+        End Try
 
     End Sub
 
@@ -118,5 +130,9 @@ Public Class FileIOForm
         'WriteTestFile()
         WriteFileExample()
         'AppendFileExample()
+    End Sub
+
+    Private Sub ReadFileButton_Click(sender As Object, e As EventArgs) Handles ReadFileButton.Click
+        ReadFileExample()
     End Sub
 End Class
