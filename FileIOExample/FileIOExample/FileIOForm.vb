@@ -112,8 +112,31 @@ Public Class FileIOForm
         Try
             FileOpen(3, "TestFile.txt", OpenMode.Input)
             Input(3, currentRecord)
+            'currentRecord = LineInput(3)
             MsgBox(currentRecord)
             FileClose(3)
+        Catch fileNotFound As IO.FileNotFoundException
+            MsgBox("Sorry, that file doesn't exist")
+        Catch ex As Exception
+            MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+        End Try
+
+    End Sub
+
+    Sub ReadFile()
+        Dim currentRecord As String
+
+        Try
+            FileOpen(3, "TestFile.txt", OpenMode.Input)
+
+            Do Until EOF(3)
+                Input(3, currentRecord)
+                'MsgBox(currentRecord)
+                ListBox1.Items.Add(currentRecord)
+            Loop
+
+            FileClose(3)
+
         Catch fileNotFound As IO.FileNotFoundException
             MsgBox("Sorry, that file doesn't exist")
         Catch ex As Exception
@@ -134,5 +157,6 @@ Public Class FileIOForm
 
     Private Sub ReadFileButton_Click(sender As Object, e As EventArgs) Handles ReadFileButton.Click
         ReadFileExample()
+        'ReadFile()
     End Sub
 End Class
