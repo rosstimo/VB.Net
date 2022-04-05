@@ -36,6 +36,7 @@ Partial Class FileIOForm
         Me.emailTextBox = New System.Windows.Forms.TextBox()
         Me.CityTextBox = New System.Windows.Forms.TextBox()
         Me.UpdateButton = New System.Windows.Forms.Button()
+        Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -44,7 +45,7 @@ Partial Class FileIOForm
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.Location = New System.Drawing.Point(218, 12)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(378, 368)
+        Me.ListBox1.Size = New System.Drawing.Size(359, 316)
         Me.ListBox1.TabIndex = 0
         '
         'ReadFileButton
@@ -163,6 +164,10 @@ Partial Class FileIOForm
         Me.UpdateButton.Text = "Update"
         Me.UpdateButton.UseVisualStyleBackColor = True
         '
+        'OpenFileDialog
+        '
+        Me.OpenFileDialog.FileName = "OpenFileDialog"
+        '
         'FileIOForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -198,4 +203,5 @@ Partial Class FileIOForm
     Friend WithEvents CityTextBox As TextBox
     Friend WithEvents emailTextBox As TextBox
     Friend WithEvents UpdateButton As Button
+    Friend WithEvents OpenFileDialog As OpenFileDialog
 End Class

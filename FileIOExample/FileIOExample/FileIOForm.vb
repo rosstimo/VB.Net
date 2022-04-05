@@ -27,6 +27,8 @@ Option Compare Binary
 '</Remarks>
 Public Class FileIOForm
 
+    Dim currentFile As String = ""
+
     Private Sub WriteTestFile()
 
         'Example from: https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.filesystem.writeline?view=netframework-4.8
@@ -128,21 +130,34 @@ Public Class FileIOForm
         Dim fileNumber As Integer = FreeFile()
         'TODO pass file name as arg
         Try
-            FileOpen(FreeFile, "TestFile.txt", OpenMode.Input)
-            Do Until EOF(FreeFile)
-                Input(FreeFile, currentRecord)
+            FileOpen(fileNumber, Me.currentFile, OpenMode.Input)
+            Do Until EOF(fileNumber)
+                Input(fileNumber, currentRecord)
                 'MsgBox(currentRecord)
                 ListBox1.Items.Add(currentRecord)
             Loop
-            FileClose(FreeFile)
+            FileClose(fileNumber)
 
         Catch fileNotFound As IO.FileNotFoundException
-            MsgBox("Sorry, that file doesn't exist")
+            'MsgBox("Sorry, that file doesn't exist")
+            updateFileName()
+        Catch badFileNAme As IO.IOException
+            updateFileName()
         Catch ex As Exception
             MsgBox(ex.Message & vbNewLine & ex.StackTrace)
         End Try
 
     End Sub
+
+    Sub updateFileName(Optional newFileName As String = "")
+        If newFileName <> "" Then
+            Me.currentFile = newFileName
+        Else
+            OpenFileDialog.ShowDialog()
+            updateFileName(OpenFileDialog.FileName)
+        End If
+    End Sub
+
 
     Private Sub ExitProgram(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
@@ -155,7 +170,11 @@ Public Class FileIOForm
     End Sub
 
     Private Sub ReadFileButton_Click(sender As Object, e As EventArgs) Handles ReadFileButton.Click
-        ReadFileExample()
-        'ReadFile()
+        'ReadFileExample()
+        ReadFile()
+    End Sub
+
+    Private Sub SaveFileButton_Click(sender As Object, e As EventArgs) Handles SaveFileButton.Click
+        updateFileName()
     End Sub
 End Class
