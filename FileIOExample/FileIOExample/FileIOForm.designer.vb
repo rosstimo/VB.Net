@@ -37,15 +37,21 @@ Partial Class FileIOForm
         Me.CityTextBox = New System.Windows.Forms.TextBox()
         Me.UpdateButton = New System.Windows.Forms.Button()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
+        Me.TopMenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenToolStripTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveToolStripTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveAsToolStripTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
+        Me.TopMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(218, 12)
+        Me.ListBox1.Location = New System.Drawing.Point(218, 51)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(359, 316)
+        Me.ListBox1.Size = New System.Drawing.Size(359, 277)
         Me.ListBox1.TabIndex = 0
         '
         'ReadFileButton
@@ -133,7 +139,7 @@ Partial Class FileIOForm
         Me.GroupBox1.Controls.Add(Me.FirstNameTextBox)
         Me.GroupBox1.Controls.Add(Me.LastNameTextBox)
         Me.GroupBox1.Controls.Add(Me.CityTextBox)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 51)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(200, 208)
         Me.GroupBox1.TabIndex = 11
@@ -157,7 +163,7 @@ Partial Class FileIOForm
         '
         'UpdateButton
         '
-        Me.UpdateButton.Location = New System.Drawing.Point(12, 226)
+        Me.UpdateButton.Location = New System.Drawing.Point(12, 273)
         Me.UpdateButton.Name = "UpdateButton"
         Me.UpdateButton.Size = New System.Drawing.Size(112, 55)
         Me.UpdateButton.TabIndex = 12
@@ -168,10 +174,47 @@ Partial Class FileIOForm
         '
         Me.OpenFileDialog.FileName = "OpenFileDialog"
         '
+        'TopMenuStrip
+        '
+        Me.TopMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.TopMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
+        Me.TopMenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.TopMenuStrip.Name = "TopMenuStrip"
+        Me.TopMenuStrip.Size = New System.Drawing.Size(616, 24)
+        Me.TopMenuStrip.TabIndex = 13
+        Me.TopMenuStrip.Text = "TopMenuStrip"
+        '
+        'FileToolStripMenuItem
+        '
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripTopMenuItem, Me.SaveToolStripTopMenuItem, Me.SaveAsToolStripTopMenuItem})
+        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
+        Me.FileToolStripMenuItem.Text = "&File"
+        '
+        'OpenToolStripTopMenuItem
+        '
+        Me.OpenToolStripTopMenuItem.Name = "OpenToolStripTopMenuItem"
+        Me.OpenToolStripTopMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.OpenToolStripTopMenuItem.Text = "&Open"
+        '
+        'SaveToolStripTopMenuItem
+        '
+        Me.SaveToolStripTopMenuItem.Name = "SaveToolStripTopMenuItem"
+        Me.SaveToolStripTopMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.SaveToolStripTopMenuItem.Text = "&Save"
+        '
+        'SaveAsToolStripTopMenuItem
+        '
+        Me.SaveAsToolStripTopMenuItem.Name = "SaveAsToolStripTopMenuItem"
+        Me.SaveAsToolStripTopMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.SaveAsToolStripTopMenuItem.Text = "Save &As"
+        '
         'FileIOForm
         '
+        Me.AcceptButton = Me.UpdateButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.ExitButton
         Me.ClientSize = New System.Drawing.Size(616, 450)
         Me.Controls.Add(Me.UpdateButton)
         Me.Controls.Add(Me.GroupBox1)
@@ -181,11 +224,16 @@ Partial Class FileIOForm
         Me.Controls.Add(Me.AppendFileButton)
         Me.Controls.Add(Me.ReadFileButton)
         Me.Controls.Add(Me.ListBox1)
+        Me.Controls.Add(Me.TopMenuStrip)
+        Me.MainMenuStrip = Me.TopMenuStrip
         Me.Name = "FileIOForm"
         Me.Text = "`File Stuff"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.TopMenuStrip.ResumeLayout(False)
+        Me.TopMenuStrip.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -204,4 +252,9 @@ Partial Class FileIOForm
     Friend WithEvents emailTextBox As TextBox
     Friend WithEvents UpdateButton As Button
     Friend WithEvents OpenFileDialog As OpenFileDialog
+    Friend WithEvents TopMenuStrip As MenuStrip
+    Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OpenToolStripTopMenuItem As ToolStripMenuItem
+    Friend WithEvents SaveToolStripTopMenuItem As ToolStripMenuItem
+    Friend WithEvents SaveAsToolStripTopMenuItem As ToolStripMenuItem
 End Class

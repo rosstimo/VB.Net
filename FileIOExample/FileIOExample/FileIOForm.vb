@@ -158,7 +158,6 @@ Public Class FileIOForm
         End If
     End Sub
 
-
     Private Sub ExitProgram(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
     End Sub
@@ -176,5 +175,9 @@ Public Class FileIOForm
 
     Private Sub SaveFileButton_Click(sender As Object, e As EventArgs) Handles SaveFileButton.Click
         updateFileName()
+    End Sub
+
+    Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
+        MsgBox("hello")
     End Sub
 End Class
