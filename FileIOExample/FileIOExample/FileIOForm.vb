@@ -28,7 +28,7 @@ Option Compare Binary
 Public Class FileIOForm
 
     Dim currentFile As String = ""
-
+    Dim customerData() As String
     Private Sub WriteTestFile()
 
         'Example from: https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.filesystem.writeline?view=netframework-4.8
@@ -128,16 +128,20 @@ Public Class FileIOForm
     Sub ReadFile()
         Dim currentRecord As String
         Dim fileNumber As Integer = FreeFile()
+        Dim temp As String
+        Dim records() As String
         'TODO pass file name as arg
         Try
             FileOpen(fileNumber, Me.currentFile, OpenMode.Input)
             Do Until EOF(fileNumber)
                 Input(fileNumber, currentRecord)
                 'MsgBox(currentRecord)
-                ListBox1.Items.Add(currentRecord)
+                'ListBox1.Items.Add(currentRecord)
+                temp &= currentRecord
             Loop
             FileClose(fileNumber)
-
+            records = Split(temp, "$$")
+            Me.customerData = records
         Catch fileNotFound As IO.FileNotFoundException
             'MsgBox("Sorry, that file doesn't exist")
             updateFileName()
@@ -156,6 +160,15 @@ Public Class FileIOForm
             OpenFileDialog.ShowDialog()
             updateFileName(OpenFileDialog.FileName)
         End If
+    End Sub
+
+    Sub UpdateListBox()
+        ListBox1.Items.Clear()
+
+        For i = LBound(Me.customerData) To UBound(Me.customerData)
+            ListBox1.Items.Add(Me.customerData(i))
+        Next
+
     End Sub
 
     Private Sub ExitProgram(sender As Object, e As EventArgs) Handles ExitButton.Click
@@ -178,6 +191,6 @@ Public Class FileIOForm
     End Sub
 
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
-        MsgBox("hello")
+        UpdateListBox()
     End Sub
 End Class
