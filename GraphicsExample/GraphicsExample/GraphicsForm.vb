@@ -1,10 +1,31 @@
 ﻿Public Class GraphicsForm
 
+    Dim currentColor As Color
+
+
+    Sub Sketch(startX As Integer, startY As Integer, endX As Integer, endY As Integer)
+        Dim g As Graphics = Me.CreateGraphics
+        Dim pen As New Pen(Me.currentColor)
+        'Static oldX, oldY As Integer
+        g.DrawLine(pen, startX, startY, endX, endY)
+        'oldX = currentX
+        'oldY = currentY
+        g.Dispose()
+        pen.Dispose()
+    End Sub
+
+    Sub Clear()
+
+        'Me.BackColor = Control.DefaultBackColor
+        Me.Refresh()
+    End Sub
+
+
     Private Sub GraphicsForm_Click(sender As Object, e As EventArgs) Handles Me.Click
         'DrawLine()
-        DrawRectangle()
-        DrawElipse()
-        ColorDialog1.ShowDialog()
+        'DrawRectangle()
+        'DrawElipse()
+        'ColorDialog1.ShowDialog()
     End Sub
 
     Sub DrawLine()
@@ -43,11 +64,29 @@
         g.Dispose()
     End Sub
 
-    Private Sub GraphicsForm_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove
+    Private Sub GraphicsForm_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, Me.MouseDown
+        Static oldX, oldY As Integer
         Me.Text = $"({e.X},{e.Y}) Button:{e.Button.ToString()}"
+
+        Select Case e.Button.ToString
+            Case "Left"
+                Sketch(oldX, oldY, e.X, e.Y)
+            Case "Middle"
+                'ColorDialog1.ShowDialog()
+                'Me.currentColor = ColorDialog1.Color
+                Clear()
+        End Select
+
+        oldX = e.X
+        oldY = e.Y
+
     End Sub
 
-    Private Sub GraphicsForm_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
-        Me.Text = $"You Clicked Mouse Button:   {e.Button.ToString()}"
+    'Private Sub GraphicsForm_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
+    '    Me.Text = $"You Clicked Mouse Button:   {e.Button.ToString()}"
+    'End Sub
+
+    Private Sub GraphicsForm_Load(sender As Object, e As EventArgs) Handles Me.Load
+        currentColor = Color.Black
     End Sub
 End Class
