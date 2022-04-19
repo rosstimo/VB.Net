@@ -6,6 +6,11 @@
     Private Sub GoButton_Click(sender As Object, e As EventArgs) Handles GoButton.Click
         'Me.Text = "You have clicked the button"
         Me.Text = NameTextBox.Text
+
+        Dim totalMoney As Decimal = 3.5@
+
+        TextBox1.Text = totalMoney.ToString("C")
+
     End Sub
 
     Private Sub WinFormExampleForm_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -38,4 +43,6 @@
         End Select
         PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
     End Sub
+
+
 End Class
