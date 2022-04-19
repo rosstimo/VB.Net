@@ -1,70 +1,50 @@
-﻿Public Class GraphicsForm
+﻿
+Imports System.Math
+
+Public Class GraphicsForm
 
     Dim currentColor As Color
-
+    Dim currentPenSize As Integer
 
     Sub Sketch(startX As Integer, startY As Integer, endX As Integer, endY As Integer)
-        Dim g As Graphics = Me.CreateGraphics
+        Dim g As Graphics = DrawPictureBox.CreateGraphics
         Dim pen As New Pen(Me.currentColor)
-        'Static oldX, oldY As Integer
+        pen.Width = currentPenSize
         g.DrawLine(pen, startX, startY, endX, endY)
-        'oldX = currentX
-        'oldY = currentY
         g.Dispose()
         pen.Dispose()
     End Sub
 
     Sub Clear()
-
-        'Me.BackColor = Control.DefaultBackColor
-        Me.Refresh()
-    End Sub
-
-
-    Private Sub GraphicsForm_Click(sender As Object, e As EventArgs) Handles Me.Click
-        'DrawLine()
-        'DrawRectangle()
-        'DrawElipse()
-        'ColorDialog1.ShowDialog()
-    End Sub
-
-    Sub DrawLine()
-        'instantiate new graphics object and tell it what to draw on 
-        Dim g As Graphics = Me.CreateGraphics
-        Dim pen As New Pen(Color.Black)
-
-        g.DrawLine(pen, 100, 100, 200, 200)
-        'g.DrawLine(pen, 0, 0, Me.Width, Me.Height)
-
-        pen.Dispose()
-        g.Dispose()
-    End Sub
-
-    Sub DrawRectangle()
-        Dim g As Graphics = Me.CreateGraphics
-        Dim pen As New Pen(Color.Red)
-
-        pen.Width = 20
-
-        g.DrawRectangle(pen, 100, 100, 200, 300)
-
-        pen.Dispose()
-        g.Dispose()
+        DrawPictureBox.Refresh()
 
     End Sub
 
-    Sub DrawElipse()
-        Dim g As Graphics = Me.CreateGraphics
-        Dim pen As New Pen(Color.Green)
+    Sub PickPenColor()
+        ColorDialog1.ShowDialog()
+        Me.currentColor = ColorDialog1.Color
 
-
-        g.DrawEllipse(pen, 100, 100, 200, 200)
-
-        pen.Dispose()
-        g.Dispose()
     End Sub
 
-    Private Sub GraphicsForm_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, Me.MouseDown
+    Sub DrawSinWave()
+        Dim x, y, ymax, oldY, oldX As Integer
+        ymax = 100
+        x = 45
+
+        'use system.math
+        'degrees must be converted to radians deg * (PI/180)
+        '
+        Console.WriteLine(ymax * Sin(x * (PI / 180)))
+        Console.WriteLine(Ceiling((ymax * Sin(x * (PI / 180)))))
+        Console.WriteLine(Floor((ymax * Sin(x * (PI / 180)))))
+
+
+    End Sub
+
+
+    Private Sub GraphicsForm_MouseMove(sender As Object, e As MouseEventArgs) _
+        Handles DrawPictureBox.MouseMove, DrawPictureBox.MouseDown
+
         Static oldX, oldY As Integer
         Me.Text = $"({e.X},{e.Y}) Button:{e.Button.ToString()}"
 
@@ -72,9 +52,7 @@
             Case "Left"
                 Sketch(oldX, oldY, e.X, e.Y)
             Case "Middle"
-                'ColorDialog1.ShowDialog()
-                'Me.currentColor = ColorDialog1.Color
-                Clear()
+                PickPenColor()
         End Select
 
         oldX = e.X
@@ -82,11 +60,31 @@
 
     End Sub
 
-    'Private Sub GraphicsForm_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
-    '    Me.Text = $"You Clicked Mouse Button:   {e.Button.ToString()}"
-    'End Sub
-
     Private Sub GraphicsForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         currentColor = Color.Black
+        currentPenSize = 1
+    End Sub
+
+    Private Sub ClearToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearToolStripMenuItem.Click
+        Clear()
+    End Sub
+
+    Private Sub ColorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ColorToolStripMenuItem.Click
+        PickPenColor()
+    End Sub
+
+    Private Sub SizeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContextMenuStrip.Opened, ContextMenuStrip.Closed, SizeToolStripMenuItem.LostFocus
+        SizeToolStripMenuItem.Text = CStr(currentPenSize)
+        Try
+            currentPenSize = CInt(SizeToolStripMenuItem.Text)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub DrawWavesButton_Click(sender As Object, e As EventArgs) Handles DrawWavesButton.Click
+        DrawSinWave()
     End Sub
 End Class
+
+

@@ -31,6 +31,7 @@ Partial Class GraphicsForm
         Me.SizeToolStripMenuItem = New System.Windows.Forms.ToolStripTextBox()
         Me.ClearToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DrawPictureBox = New System.Windows.Forms.PictureBox()
+        Me.DrawWavesButton = New System.Windows.Forms.Button()
         Me.ContextMenuStrip.SuspendLayout()
         CType(Me.DrawPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -86,12 +87,22 @@ Partial Class GraphicsForm
         Me.DrawPictureBox.TabIndex = 1
         Me.DrawPictureBox.TabStop = False
         '
+        'DrawWavesButton
+        '
+        Me.DrawWavesButton.Location = New System.Drawing.Point(226, 287)
+        Me.DrawWavesButton.Name = "DrawWavesButton"
+        Me.DrawWavesButton.Size = New System.Drawing.Size(162, 64)
+        Me.DrawWavesButton.TabIndex = 2
+        Me.DrawWavesButton.Text = "Draw &Waves"
+        Me.DrawWavesButton.UseVisualStyleBackColor = True
+        '
         'GraphicsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(625, 363)
+        Me.Controls.Add(Me.DrawWavesButton)
         Me.Controls.Add(Me.DrawPictureBox)
         Me.MinimumSize = New System.Drawing.Size(300, 300)
         Me.Name = "GraphicsForm"
@@ -111,4 +122,5 @@ Partial Class GraphicsForm
     Friend WithEvents SizeToolStripMenuItem As ToolStripTextBox
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents DrawWavesButton As Button
 End Class
