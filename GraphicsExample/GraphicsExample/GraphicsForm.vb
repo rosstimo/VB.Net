@@ -30,16 +30,74 @@ Public Class GraphicsForm
         Dim x, y, ymax, oldY, oldX As Integer
         ymax = 100
         x = 45
+        oldY = ymax
+        For x = 0 To 360 Step 1
 
-        'use system.math
-        'degrees must be converted to radians deg * (PI/180)
-        '
-        Console.WriteLine(ymax * Sin(x * (PI / 180)))
-        Console.WriteLine(Ceiling((ymax * Sin(x * (PI / 180)))))
-        Console.WriteLine(Floor((ymax * Sin(x * (PI / 180)))))
+            'use system.math
+            'degrees must be converted to radians deg * (PI/180)
 
+            'Draw sin
+            y = CInt(ymax * Sin(x * (PI / 180)) * -1) + ymax
+            'y = CInt(Round(ymax * Sin(x * (PI / 180))) * -1) + ymax
+            'y = CInt(Ceiling(ymax * Sin(x * (PI / 180))) * -1) + ymax
+            'y = CInt(Floor(ymax * Sin(x * (PI / 180))) * -1) + ymax
+
+            Sketch(oldX, oldY, x, y)
+            'Console.WriteLine($"({x},{y})")
+            oldX = x
+            oldY = y
+
+        Next
 
     End Sub
+
+    Sub DrawCosWave()
+        Dim x, y, ymax, oldY, oldX As Integer
+        ymax = 100
+        x = 45
+        oldY = ymax
+        For x = 0 To 360 Step 1
+
+            'use system.math
+            'degrees must be converted to radians deg * (PI/180)
+
+            'Draw cos
+            y = CInt(ymax * Cos(x * (PI / 180)) * -1) + ymax
+
+            Sketch(oldX, oldY, x, y)
+            'Console.WriteLine($"({x},{y})")
+            oldX = x
+            oldY = y
+
+        Next
+
+    End Sub
+
+    Sub DrawTanWave()
+        Dim x, y, ymax, oldY, oldX As Integer
+        ymax = 100
+        x = 45
+        oldY = ymax
+        For x = 0 To 360 Step 1
+
+            'use system.math
+            'degrees must be converted to radians deg * (PI/180)
+
+            'Draw tan
+            y = CInt(ymax * Tan(x * (PI / 180)) * -1) + ymax
+
+
+            Sketch(oldX, oldY, x, y)
+            'Console.WriteLine($"({x},{y})")
+            oldX = x
+            oldY = y
+
+        Next
+
+    End Sub
+
+
+
 
 
     Private Sub GraphicsForm_MouseMove(sender As Object, e As MouseEventArgs) _

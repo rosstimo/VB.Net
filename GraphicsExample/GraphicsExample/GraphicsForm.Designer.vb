@@ -62,7 +62,6 @@ Partial Class GraphicsForm
         '
         'SizeToolStripMenuItem
         '
-        Me.SizeToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SizeToolStripMenuItem.Name = "SizeToolStripMenuItem"
         Me.SizeToolStripMenuItem.Size = New System.Drawing.Size(180, 23)
         '
@@ -81,15 +80,15 @@ Partial Class GraphicsForm
         Me.DrawPictureBox.ContextMenuStrip = Me.ContextMenuStrip
         Me.DrawPictureBox.Cursor = System.Windows.Forms.Cursors.Cross
         Me.DrawPictureBox.Location = New System.Drawing.Point(12, 12)
-        Me.DrawPictureBox.MinimumSize = New System.Drawing.Size(360, 200)
+        Me.DrawPictureBox.MinimumSize = New System.Drawing.Size(360, 201)
         Me.DrawPictureBox.Name = "DrawPictureBox"
-        Me.DrawPictureBox.Size = New System.Drawing.Size(601, 257)
+        Me.DrawPictureBox.Size = New System.Drawing.Size(360, 212)
         Me.DrawPictureBox.TabIndex = 1
         Me.DrawPictureBox.TabStop = False
         '
         'DrawWavesButton
         '
-        Me.DrawWavesButton.Location = New System.Drawing.Point(226, 287)
+        Me.DrawWavesButton.Location = New System.Drawing.Point(12, 231)
         Me.DrawWavesButton.Name = "DrawWavesButton"
         Me.DrawWavesButton.Size = New System.Drawing.Size(162, 64)
         Me.DrawWavesButton.TabIndex = 2
@@ -101,11 +100,12 @@ Partial Class GraphicsForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(625, 363)
+        Me.ClientSize = New System.Drawing.Size(394, 307)
         Me.Controls.Add(Me.DrawWavesButton)
         Me.Controls.Add(Me.DrawPictureBox)
-        Me.MinimumSize = New System.Drawing.Size(300, 300)
+        Me.MinimumSize = New System.Drawing.Size(410, 335)
         Me.Name = "GraphicsForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         Me.ContextMenuStrip.ResumeLayout(False)
         Me.ContextMenuStrip.PerformLayout()
