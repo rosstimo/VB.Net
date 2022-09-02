@@ -6,7 +6,6 @@ Option Strict On
 Option Explicit On
 Option Compare Binary
 
-
 Module PlayinWithStrings
 
     Sub Main()
@@ -19,7 +18,6 @@ Module PlayinWithStrings
         Console.WriteLine(LCase(testString))
         Console.WriteLine(Replace(testString, "W", "X"))
         Console.WriteLine(StrReverse(testString))
-
 
         'Console.WriteLine(testString)
         'Console.WriteLine(Left(testString, 7))
@@ -40,12 +38,7 @@ Module PlayinWithStrings
         'temp = Split(testString, ", ")
         'Console.WriteLine(temp(1))
 
-
-
         Console.Read()
     End Sub
-
-
-
 
 End Module
