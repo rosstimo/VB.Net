@@ -23,9 +23,20 @@
 
     Private Sub GraphicsForm_Click(sender As Object, e As EventArgs) Handles Me.Click
         'DrawLine()
+        'DrawLineExample()
         'DrawRectangle()
         'DrawElipse()
         'ColorDialog1.ShowDialog()
+    End Sub
+
+    Sub DrawLineExample()
+        Dim g As Graphics = Me.CreateGraphics
+        Dim pen As New Pen(Color.Blue)
+
+        g.DrawLine(pen, 0, 0, 200, 200)
+
+        g.Dispose()
+        pen.Dispose()
     End Sub
 
     Sub DrawLine()
@@ -64,29 +75,44 @@
         g.Dispose()
     End Sub
 
-    Private Sub GraphicsForm_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, Me.MouseDown
-        Static oldX, oldY As Integer
-        Me.Text = $"({e.X},{e.Y}) Button:{e.Button.ToString()}"
 
-        Select Case e.Button.ToString
-            Case "Left"
-                Sketch(oldX, oldY, e.X, e.Y)
-            Case "Middle"
-                'ColorDialog1.ShowDialog()
-                'Me.currentColor = ColorDialog1.Color
-                Clear()
-        End Select
 
-        oldX = e.X
-        oldY = e.Y
 
-    End Sub
+    'Private Sub GraphicsForm_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, Me.MouseDown
+    '    Static oldX, oldY As Integer
+    '    Me.Text = $"({e.X},{e.Y}) Button:{e.Button.ToString()}"
 
-    'Private Sub GraphicsForm_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
-    '    Me.Text = $"You Clicked Mouse Button:   {e.Button.ToString()}"
+    '    Select Case e.Button.ToString
+    '        Case "Left"
+    '            Sketch(oldX, oldY, e.X, e.Y)
+    '        Case "Middle"
+    '            'ColorDialog1.ShowDialog()
+    '            'Me.currentColor = ColorDialog1.Color
+    '            Clear()
+    '    End Select
+
+    '    oldX = e.X
+    '    oldY = e.Y
+
     'End Sub
+
+    ''Private Sub GraphicsForm_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
+    ''    Me.Text = $"You Clicked Mouse Button:   {e.Button.ToString()}"
+    ''End Sub
 
     Private Sub GraphicsForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         currentColor = Color.Black
+    End Sub
+
+    Private Sub GraphicsForm_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove
+        PositionStatusLabel.Text = CStr($"({e.X},{e.Y})")
+    End Sub
+
+    Private Sub GraphicsForm_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
+        MouseButtonStatusLabel.Text = e.Button.ToString
+    End Sub
+
+    Private Sub GraphicsForm_MouseUp(sender As Object, e As MouseEventArgs) Handles Me.MouseUp
+        MouseButtonStatusLabel.Text = "None"
     End Sub
 End Class
