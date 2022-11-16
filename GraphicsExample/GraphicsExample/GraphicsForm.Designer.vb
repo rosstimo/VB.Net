@@ -32,6 +32,7 @@ Partial Class GraphicsForm
         Me.PositionStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ColorStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MouseButtonStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.Splitter1 = New System.Windows.Forms.Splitter()
         Me.ContextMenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -88,13 +89,22 @@ Partial Class GraphicsForm
         Me.MouseButtonStatusLabel.Size = New System.Drawing.Size(159, 32)
         Me.MouseButtonStatusLabel.Text = "MouseButton"
         '
+        'Splitter1
+        '
+        Me.Splitter1.Location = New System.Drawing.Point(0, 0)
+        Me.Splitter1.Name = "Splitter1"
+        Me.Splitter1.Size = New System.Drawing.Size(3, 823)
+        Me.Splitter1.TabIndex = 2
+        Me.Splitter1.TabStop = False
+        '
         'GraphicsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1600, 865)
+        Me.Controls.Add(Me.Splitter1)
         Me.Controls.Add(Me.StatusStrip)
-        Me.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Margin = New System.Windows.Forms.Padding(6)
         Me.Name = "GraphicsForm"
         Me.Text = "Form1"
         Me.ContextMenuStrip.ResumeLayout(False)
@@ -114,4 +124,5 @@ Partial Class GraphicsForm
     Friend WithEvents PositionStatusLabel As ToolStripStatusLabel
     Friend WithEvents ColorStatusLabel As ToolStripStatusLabel
     Friend WithEvents MouseButtonStatusLabel As ToolStripStatusLabel
+    Friend WithEvents Splitter1 As Splitter
 End Class
