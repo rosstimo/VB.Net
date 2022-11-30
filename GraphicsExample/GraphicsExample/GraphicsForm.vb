@@ -1,4 +1,6 @@
-﻿Public Class GraphicsForm
+﻿Imports System.Data.SqlTypes
+
+Public Class GraphicsForm
 
     Dim currentColor As Color
     'Dim currentX%, currentY% '% means As Integer
@@ -18,6 +20,7 @@
 
         'Me.BackColor = Control.DefaultBackColor
         Me.Refresh()
+        DrawPictureBox.Refresh()
     End Sub
 
 
@@ -27,11 +30,27 @@
         'DrawRectangle()
         'DrawElipse()
         'ColorDialog1.ShowDialog()
+        'DrawSinWave()
     End Sub
 
     Sub DrawLineExample(lastX As Integer, lastY As Integer, currentX As Integer, currentY As Integer)
-        Dim g As Graphics = Me.CreateGraphics
+        Dim g As Graphics = DrawPictureBox.CreateGraphics
         Dim pen As New Pen(Me.currentColor)
+        'Me.Text = CStr(Me.Width \ 360)
+
+
+
+        'Dim sx As Single = CSng((Me.Width) / 360)
+        'Dim sy As Single = CSng((Me.Height) / 200)
+        'Dim dx As Single
+        'Dim dy As Single = 100
+
+
+        'g.PageUnit = GraphicsUnit.Pixel
+        'g.PixelOffsetMode = Drawing2D.PixelOffsetMode.HighSpeed
+        'g.ScaleTransform(sx, sy)
+        'g.TranslateTransform(dx, dy)
+        'g.RotateTransform(R)
 
         g.DrawLine(pen, lastX, lastY, currentX, currentY)
 
@@ -101,9 +120,10 @@
     Private Sub GraphicsForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         currentColor = Color.Black
         ColorStatusLabel.Text = Me.currentColor.ToString
+
     End Sub
 
-    Private Sub GraphicsForm_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove
+    Private Sub GraphicsForm_MouseMove(sender As Object, e As MouseEventArgs) Handles DrawPictureBox.MouseMove
         PositionStatusLabel.Text = CStr($"({e.X},{e.Y})")
         'Me.currentX = e.X
         'Me.currentY = e.Y
@@ -117,7 +137,7 @@
         lastY = e.Y
     End Sub
 
-    Private Sub GraphicsForm_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
+    Private Sub GraphicsForm_MouseDown(sender As Object, e As MouseEventArgs) Handles DrawPictureBox.MouseDown
         MouseButtonStatusLabel.Text = e.Button.ToString
         If e.Button.ToString = "Left" Then
             'DrawLineExample(e.X, e.Y)
@@ -130,7 +150,42 @@
 
     End Sub
 
-    Private Sub GraphicsForm_MouseUp(sender As Object, e As MouseEventArgs) Handles Me.MouseUp
+    Private Sub GraphicsForm_MouseUp(sender As Object, e As MouseEventArgs) Handles DrawPictureBox.MouseUp
         MouseButtonStatusLabel.Text = "None"
     End Sub
+
+    Sub DrawSinWave()
+        Dim g As Graphics = DrawPictureBox.CreateGraphics 'instantiate graphics object
+        Dim pen As New Pen(Me.currentColor) 'instantiate pen object
+
+        Dim sx As Single = CSng((DrawPictureBox.Width) / 360) 'create scale factor the drawing area width. new width 360 "units"
+        Dim sy As Single = CSng((DrawPictureBox.Height) / 200) 'create scale factor the drawing area height.new width 200 "units"
+        Dim dx As Single
+        Dim dy As Single = 100 'move origin down by half of height
+
+        Dim lastX%, lastY%, currentX%, currentY% 'store start and stop coordinates
+
+        g.PageUnit = GraphicsUnit.Pixel 'set units to pixel, should be default
+        g.PixelOffsetMode = Drawing2D.PixelOffsetMode.HighSpeed 'TODO lookup, performence improvement?
+        g.ScaleTransform(sx, sy) 'apply scale factors from above
+        g.TranslateTransform(dx, dy) 'apply origin offset from top left corner
+        'g.RotateTransform(R)
+
+        'g.DrawLine(pen, 0, 0, 360, 0)
+        'g.DrawLine(pen, 0, 60, 360, 60)
+        'g.DrawLine(pen, 0, -60, 360, -60)
+
+        'draw sin wave
+        For currentX% = 0 To 360 Step 1
+            currentY = CInt(60 * Math.Sin(CDbl((Math.PI * currentX) / 180))) 'conversion will hide decimal values
+            g.DrawLine(pen, lastX, lastY, currentX, currentY)
+            lastX = currentX
+            lastY = currentY
+        Next
+
+        'free up system resources
+        g.Dispose()
+        pen.Dispose()
+    End Sub
+
 End Class

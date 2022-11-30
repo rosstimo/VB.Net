@@ -33,8 +33,10 @@ Partial Class GraphicsForm
         Me.ColorStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MouseButtonStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.Splitter1 = New System.Windows.Forms.Splitter()
+        Me.DrawPictureBox = New System.Windows.Forms.PictureBox()
         Me.ContextMenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
+        CType(Me.DrawPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ContextMenuStrip
@@ -42,74 +44,91 @@ Partial Class GraphicsForm
         Me.ContextMenuStrip.ImageScalingSize = New System.Drawing.Size(32, 32)
         Me.ContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ColorToolStripMenuItem, Me.SizeToolStripMenuItem, Me.ClearToolStripMenuItem})
         Me.ContextMenuStrip.Name = "ContextMenuStrip"
-        Me.ContextMenuStrip.Size = New System.Drawing.Size(146, 118)
+        Me.ContextMenuStrip.Size = New System.Drawing.Size(104, 70)
         '
         'ColorToolStripMenuItem
         '
         Me.ColorToolStripMenuItem.Name = "ColorToolStripMenuItem"
-        Me.ColorToolStripMenuItem.Size = New System.Drawing.Size(145, 38)
+        Me.ColorToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
         Me.ColorToolStripMenuItem.Text = "&Color"
         '
         'SizeToolStripMenuItem
         '
         Me.SizeToolStripMenuItem.Name = "SizeToolStripMenuItem"
-        Me.SizeToolStripMenuItem.Size = New System.Drawing.Size(145, 38)
+        Me.SizeToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
         Me.SizeToolStripMenuItem.Text = "&Size"
         '
         'ClearToolStripMenuItem
         '
         Me.ClearToolStripMenuItem.Name = "ClearToolStripMenuItem"
-        Me.ClearToolStripMenuItem.Size = New System.Drawing.Size(145, 38)
+        Me.ClearToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
         Me.ClearToolStripMenuItem.Text = "&Clear"
         '
         'StatusStrip
         '
         Me.StatusStrip.ImageScalingSize = New System.Drawing.Size(32, 32)
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PositionStatusLabel, Me.ColorStatusLabel, Me.MouseButtonStatusLabel})
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 823)
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 599)
         Me.StatusStrip.Name = "StatusStrip"
-        Me.StatusStrip.Size = New System.Drawing.Size(1600, 42)
+        Me.StatusStrip.Padding = New System.Windows.Forms.Padding(0, 0, 7, 0)
+        Me.StatusStrip.Size = New System.Drawing.Size(827, 22)
         Me.StatusStrip.TabIndex = 1
         '
         'PositionStatusLabel
         '
         Me.PositionStatusLabel.Name = "PositionStatusLabel"
-        Me.PositionStatusLabel.Size = New System.Drawing.Size(98, 32)
+        Me.PositionStatusLabel.Size = New System.Drawing.Size(50, 17)
         Me.PositionStatusLabel.Text = "Position"
         '
         'ColorStatusLabel
         '
         Me.ColorStatusLabel.Name = "ColorStatusLabel"
-        Me.ColorStatusLabel.Size = New System.Drawing.Size(71, 32)
+        Me.ColorStatusLabel.Size = New System.Drawing.Size(36, 17)
         Me.ColorStatusLabel.Text = "Color"
         '
         'MouseButtonStatusLabel
         '
         Me.MouseButtonStatusLabel.Name = "MouseButtonStatusLabel"
-        Me.MouseButtonStatusLabel.Size = New System.Drawing.Size(159, 32)
+        Me.MouseButtonStatusLabel.Size = New System.Drawing.Size(79, 17)
         Me.MouseButtonStatusLabel.Text = "MouseButton"
         '
         'Splitter1
         '
         Me.Splitter1.Location = New System.Drawing.Point(0, 0)
+        Me.Splitter1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Splitter1.Name = "Splitter1"
-        Me.Splitter1.Size = New System.Drawing.Size(3, 823)
+        Me.Splitter1.Size = New System.Drawing.Size(2, 599)
         Me.Splitter1.TabIndex = 2
         Me.Splitter1.TabStop = False
         '
+        'DrawPictureBox
+        '
+        Me.DrawPictureBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DrawPictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.DrawPictureBox.Cursor = System.Windows.Forms.Cursors.Cross
+        Me.DrawPictureBox.Location = New System.Drawing.Point(12, 12)
+        Me.DrawPictureBox.Name = "DrawPictureBox"
+        Me.DrawPictureBox.Size = New System.Drawing.Size(803, 584)
+        Me.DrawPictureBox.TabIndex = 3
+        Me.DrawPictureBox.TabStop = False
+        '
         'GraphicsForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1600, 865)
+        Me.ClientSize = New System.Drawing.Size(827, 621)
+        Me.Controls.Add(Me.DrawPictureBox)
         Me.Controls.Add(Me.Splitter1)
         Me.Controls.Add(Me.StatusStrip)
-        Me.Margin = New System.Windows.Forms.Padding(6)
         Me.Name = "GraphicsForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         Me.ContextMenuStrip.ResumeLayout(False)
         Me.StatusStrip.ResumeLayout(False)
         Me.StatusStrip.PerformLayout()
+        CType(Me.DrawPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -125,4 +144,5 @@ Partial Class GraphicsForm
     Friend WithEvents ColorStatusLabel As ToolStripStatusLabel
     Friend WithEvents MouseButtonStatusLabel As ToolStripStatusLabel
     Friend WithEvents Splitter1 As Splitter
+    Friend WithEvents DrawPictureBox As PictureBox
 End Class
