@@ -16,6 +16,7 @@
         Dim number As Integer
         Dim count As Integer
         Dim userInput As String
+        Dim tries As Integer
 
 
         'For i = 1 To 75
@@ -23,9 +24,11 @@
             'test if ball has already been drawn
             'True - try again
             'False - good to go. mark the element True
+            tries = 0
             Do
                 letter = RandomNumberInRange(4)
                 number = RandomNumberInRange(14)
+                tries += 1
             Loop While bingoCage(letter, number) And count < 75
             count += 1
             bingoCage(letter, number) = True
@@ -33,7 +36,7 @@
             'display 
             Console.Clear()
             DisplayBingoCage(bingoCage)
-            'Console.WriteLine(count)
+            Console.WriteLine(tries)
 
             'Next
             userInput = Console.ReadLine()

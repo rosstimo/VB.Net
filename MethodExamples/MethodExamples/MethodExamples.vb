@@ -5,8 +5,26 @@ Module MethodExamples
 
     Sub Main()
 
+        For i = 0 To 5
+            'Console.WriteLine(Timer)
+            Console.WriteLine(RandomNumberExample())
+        Next
+
+
         Console.Read()
     End Sub
+
+    Function RandomNumberExample() As Integer
+        ' Initialize the random-number generator.
+
+        Randomize(DateAndTime.Now.Millisecond)
+        ' Generate random value between 1 and 6.
+        Dim value As Integer = CInt(Int((6 * Rnd()) + 1))
+
+        Return value
+
+    End Function
+
 
     Sub TestChangeANumber()
         Dim someNumber As Integer
