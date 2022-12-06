@@ -83,6 +83,7 @@ Partial Class FileIOForm
         '
         'ExitButton
         '
+        Me.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.ExitButton.Location = New System.Drawing.Point(484, 383)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(112, 55)
@@ -194,19 +195,19 @@ Partial Class FileIOForm
         'OpenToolStripTopMenuItem
         '
         Me.OpenToolStripTopMenuItem.Name = "OpenToolStripTopMenuItem"
-        Me.OpenToolStripTopMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.OpenToolStripTopMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.OpenToolStripTopMenuItem.Text = "&Open"
         '
         'SaveToolStripTopMenuItem
         '
         Me.SaveToolStripTopMenuItem.Name = "SaveToolStripTopMenuItem"
-        Me.SaveToolStripTopMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.SaveToolStripTopMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SaveToolStripTopMenuItem.Text = "&Save"
         '
         'SaveAsToolStripTopMenuItem
         '
         Me.SaveAsToolStripTopMenuItem.Name = "SaveAsToolStripTopMenuItem"
-        Me.SaveAsToolStripTopMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.SaveAsToolStripTopMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SaveAsToolStripTopMenuItem.Text = "Save &As"
         '
         'FileIOForm
@@ -227,7 +228,7 @@ Partial Class FileIOForm
         Me.Controls.Add(Me.TopMenuStrip)
         Me.MainMenuStrip = Me.TopMenuStrip
         Me.Name = "FileIOForm"
-        Me.Text = "`File Stuff"
+        Me.Text = "File Stuff"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.TopMenuStrip.ResumeLayout(False)

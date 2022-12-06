@@ -134,7 +134,8 @@ Public Class FileIOForm
         Try
             FileOpen(fileNumber, Me.currentFile, OpenMode.Input)
             Do Until EOF(fileNumber)
-                Input(fileNumber, currentRecord)
+                'Input(fileNumber, currentRecord)
+                currentRecord = LineInput(fileNumber)
                 'MsgBox(currentRecord)
                 'ListBox1.Items.Add(currentRecord)
                 temp &= currentRecord
@@ -152,6 +153,28 @@ Public Class FileIOForm
         End Try
 
     End Sub
+
+    Sub TempFile()
+        Dim fileNumber As Integer = FreeFile()
+        Dim temp() As String
+
+
+        FileOpen(fileNumber, "TempFile.txt", OpenMode.Append)
+
+        For i = LBound(Me.customerData) To UBound(Me.customerData) 'read all array records
+            temp = Split(Me.customerData(i), ",") 'seperate fields
+            If temp.Length >= 4 Then
+                Write(fileNumber, temp(0))
+                Write(fileNumber, temp(1))
+                Write(fileNumber, temp(2))
+                WriteLine(fileNumber, Strings.Left(temp(3), Len(temp(3)) - 1)) 'left len - 2, extra quotes
+
+            End If
+        Next
+
+
+    End Sub
+
 
     Sub updateFileName(Optional newFileName As String = "")
         If newFileName <> "" Then
@@ -187,7 +210,8 @@ Public Class FileIOForm
     End Sub
 
     Private Sub SaveFileButton_Click(sender As Object, e As EventArgs) Handles SaveFileButton.Click
-        updateFileName()
+        'updateFileName()
+        TempFile()
     End Sub
 
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
