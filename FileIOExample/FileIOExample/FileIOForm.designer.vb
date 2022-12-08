@@ -42,6 +42,8 @@ Partial Class FileIOForm
         Me.OpenToolStripTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveToolStripTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveAsToolStripTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
         Me.TopMenuStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -178,7 +180,7 @@ Partial Class FileIOForm
         'TopMenuStrip
         '
         Me.TopMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
-        Me.TopMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
+        Me.TopMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.TopMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.TopMenuStrip.Name = "TopMenuStrip"
         Me.TopMenuStrip.Size = New System.Drawing.Size(616, 24)
@@ -210,6 +212,19 @@ Partial Class FileIOForm
         Me.SaveAsToolStripTopMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SaveAsToolStripTopMenuItem.Text = "Save &As"
         '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.HelpToolStripMenuItem.Text = "&Help"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AboutToolStripMenuItem.Text = "&About"
+        '
         'FileIOForm
         '
         Me.AcceptButton = Me.UpdateButton
@@ -228,6 +243,7 @@ Partial Class FileIOForm
         Me.Controls.Add(Me.TopMenuStrip)
         Me.MainMenuStrip = Me.TopMenuStrip
         Me.Name = "FileIOForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "File Stuff"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -258,4 +274,6 @@ Partial Class FileIOForm
     Friend WithEvents OpenToolStripTopMenuItem As ToolStripMenuItem
     Friend WithEvents SaveToolStripTopMenuItem As ToolStripMenuItem
     Friend WithEvents SaveAsToolStripTopMenuItem As ToolStripMenuItem
+    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
 End Class

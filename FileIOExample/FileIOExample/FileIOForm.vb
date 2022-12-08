@@ -27,8 +27,9 @@ Option Compare Binary
 '</Remarks>
 Public Class FileIOForm
 
-    Dim currentFile As String = ""
+    Dim currentFile As String = "TempFile.txt"
     Dim customerData() As String
+    Dim customerRecords(,) As String
     Private Sub WriteTestFile()
 
         'Example from: https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.filesystem.writeline?view=netframework-4.8
@@ -175,24 +176,55 @@ Public Class FileIOForm
 
     End Sub
 
-
     Sub updateFileName(Optional newFileName As String = "")
         If newFileName <> "" Then
             Me.currentFile = newFileName
         Else
+            OpenFileDialog.InitialDirectory = "../../../"
+            OpenFileDialog.Filter = "txt files (*.txt)|*.txt|image files (*.png)|*.png|log files (*.log)|*.log|All files (*.*)|*.*"
+            OpenFileDialog.FilterIndex = 4
+            'OpenFileDialog.RestoreDirectory = False
+            OpenFileDialog.FileName = $"Untitled-{DateTime.Now.Year}{DateTime.Now.Month}{DateTime.Now.Day}{DateTime.Now.Hour}{DateTime.Now.Minute}.txt"
             OpenFileDialog.ShowDialog()
             updateFileName(OpenFileDialog.FileName)
         End If
     End Sub
 
-    Sub UpdateListBox()
-        ListBox1.Items.Clear()
+    Sub LoadArray()
+        Dim fileNumber As Integer = FreeFile()
+        Dim fileName As String = Me.currentFile
+        Dim records(3, 1000) As String
+        Dim recordCount As Integer = 0
 
-        For i = LBound(Me.customerData) To UBound(Me.customerData)
-            ListBox1.Items.Add(Me.customerData(i))
+
+        FileOpen(fileNumber, fileName, OpenMode.Input)
+        Do Until EOF(fileNumber)
+            For column = 0 To 3
+                Input(fileNumber, records(column, recordCount))
+            Next
+            recordCount += 1
+        Loop
+
+        ReDim Preserve records(3, recordCount - 1)
+        Me.customerRecords = records
+        FileClose(fileNumber)
+
+    End Sub
+
+
+    Sub UpdateListBox()
+        Dim tempString As String
+
+        ListBox1.Items.Clear()
+        For i = 0 To Me.customerRecords.GetLength(1) - 1
+            tempString = $"{i}: {Me.customerRecords(0, i)},{Me.customerRecords(1, i)},{Me.customerRecords(2, i)},{Me.customerRecords(3, i)}"
+            ListBox1.Items.Add(tempString)
+
         Next
 
     End Sub
+
+    'event handlers
 
     Private Sub ExitProgram(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
@@ -210,11 +242,16 @@ Public Class FileIOForm
     End Sub
 
     Private Sub SaveFileButton_Click(sender As Object, e As EventArgs) Handles SaveFileButton.Click
-        'updateFileName()
-        TempFile()
+        updateFileName()
+        'TempFile()
     End Sub
 
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
+        LoadArray()
         UpdateListBox()
+    End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        AboutForm.Show()
     End Sub
 End Class
