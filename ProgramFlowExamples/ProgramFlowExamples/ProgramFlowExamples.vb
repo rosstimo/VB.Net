@@ -2,7 +2,6 @@
 Option Explicit On
 Option Compare Binary
 
-
 Module ProgramFlowExamples
 
     Sub Main()
@@ -10,7 +9,8 @@ Module ProgramFlowExamples
         'SelectCaseExample()
         'DoUntilExample()
         'DoWhileExample()
-        IfExample()
+        'IfExample()
+        ForNextExample()
 
 
 
@@ -44,7 +44,9 @@ Module ProgramFlowExamples
     End Sub
 
     Sub ForNextExample()
-        'TODO
+        For i = 10 To -10 Step -1
+            Console.WriteLine(i)
+        Next
     End Sub
 
     Sub DoWhileExample()
