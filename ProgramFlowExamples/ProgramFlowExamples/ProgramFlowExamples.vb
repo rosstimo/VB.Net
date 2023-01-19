@@ -87,11 +87,17 @@ Module ProgramFlowExamples
 
     Sub IfExample()
 
-        If 5 < 6 Then
+        If 5 > 6 Then 'evaluates to False, code skipped
             Console.WriteLine("in the first condition")
-        Else
+        ElseIf 5 < 6 Then 'evaluates to true, code runs
+            Console.WriteLine("in the second condition")
+        ElseIf 5 = 5 Then 'not evaluated, previous condition was True
+            Console.WriteLine("in the third condition")
+        Else 'skipped, previous condition was True
             Console.WriteLine("in the Else")
         End If
+
+
 
     End Sub
 
