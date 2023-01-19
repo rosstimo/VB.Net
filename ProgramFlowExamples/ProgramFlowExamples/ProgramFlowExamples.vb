@@ -9,7 +9,10 @@ Module ProgramFlowExamples
 
         'SelectCaseExample()
         'DoUntilExample()
-        DoWhileExample()
+        'DoWhileExample()
+        IfExample()
+
+
 
         'Dim userResponse As String
         'Dim userNumber As Integer
@@ -83,6 +86,12 @@ Module ProgramFlowExamples
     End Sub
 
     Sub IfExample()
+
+        If 5 < 6 Then
+            Console.WriteLine("in the first condition")
+        Else
+            Console.WriteLine("in the Else")
+        End If
 
     End Sub
 
