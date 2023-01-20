@@ -7,8 +7,8 @@ Module ProgramFlowExamples
     Sub Main()
 
         'SelectCaseExample()
-        'DoUntilExample()
-        DoWhileExample()
+        DoUntilExample()
+        'DoWhileExample()
         'IfExample()
         'ForNextExample()
         'TryCatchExample()
@@ -50,11 +50,12 @@ Module ProgramFlowExamples
     End Sub
 
     Sub DoWhileExample()
-        Dim runAgain As Boolean = True
+        Dim runAgain As Boolean '= True
         Dim userResponse As String
-        Dim message As String
+        Dim message As String = "loop did not run"
 
         'evaluate expression prior to loop content
+        'only runs if condition evaluates as True
         Do While runAgain = True
             Console.WriteLine("Do you want to try again? (Y/N)")
             userResponse = Console.ReadLine()
@@ -77,20 +78,27 @@ Module ProgramFlowExamples
     Sub DoUntilExample()
         Dim runAgain As Boolean = False
         Dim userResponse As String
-        'evaluate expression after to loop content
+        Dim message As String = "loop did not run"
+
+        'evaluate expression at the end of the loop content
+        'always runs at least once
+
         Do
-            Console.WriteLine("the thing happened")
+            Console.WriteLine("Do you want to try again? (Y/N)")
             userResponse = Console.ReadLine()
             Select Case userResponse
                 Case "Y"
                     runAgain = True
                 Case "N"
                     runAgain = False
+                    message = "Have a nice day!"
                 Case Else
-                    Console.WriteLine("I'll take that as a no...")
+                    message = "I'll take that as a no..."
                     runAgain = False
             End Select
-        Loop Until runAgain = False
+        Loop Until runagain = False
+
+        Console.WriteLine(message)
     End Sub
 
     Sub IfExample()
