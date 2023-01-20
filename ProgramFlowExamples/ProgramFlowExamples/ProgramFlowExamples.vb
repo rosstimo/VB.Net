@@ -1,6 +1,6 @@
 ﻿Option Strict On
 Option Explicit On
-Option Compare Binary
+Option Compare Text
 
 Module ProgramFlowExamples
 
@@ -8,10 +8,10 @@ Module ProgramFlowExamples
 
         'SelectCaseExample()
         'DoUntilExample()
-        'DoWhileExample()
+        DoWhileExample()
         'IfExample()
         'ForNextExample()
-        TryCatchExample()
+        'TryCatchExample()
 
 
         'Dim userResponse As String
@@ -52,20 +52,26 @@ Module ProgramFlowExamples
     Sub DoWhileExample()
         Dim runAgain As Boolean = True
         Dim userResponse As String
+        Dim message As String
+
         'evaluate expression prior to loop content
         Do While runAgain = True
-            Console.WriteLine("the thing happened")
+            Console.WriteLine("Do you want to try again? (Y/N)")
             userResponse = Console.ReadLine()
             Select Case userResponse
                 Case "Y"
                     runAgain = True
                 Case "N"
                     runAgain = False
+                    message = "Have a nice day!"
                 Case Else
-                    Console.WriteLine("I'll take that as a no...")
+                    message = "I'll take that as a no..."
                     runAgain = False
             End Select
         Loop
+
+        Console.WriteLine(message)
+
     End Sub
 
     Sub DoUntilExample()
