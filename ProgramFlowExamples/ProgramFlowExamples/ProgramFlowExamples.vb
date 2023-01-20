@@ -6,8 +6,8 @@ Module ProgramFlowExamples
 
     Sub Main()
 
-        'SelectCaseExample()
-        DoUntilExample()
+        SelectCaseExample()
+        'DoUntilExample()
         'DoWhileExample()
         'IfExample()
         'ForNextExample()
@@ -123,14 +123,14 @@ Module ProgramFlowExamples
         Dim message As String
 
         'examine or test a single variable
-        Select Case userResponse
-            Case "Q"
-                Console.WriteLine("Are you sure you want to quit?")
-            Case "X"
-                Console.WriteLine("I found X!")
-            Case Else
-                Console.WriteLine($"You typed: {userResponse}...")
-        End Select
+        'Select Case userResponse
+        '    Case "Q"
+        '        Console.WriteLine("Are you sure you want to quit?")
+        '    Case "X"
+        '        Console.WriteLine("I found X!")
+        '    Case Else
+        '        Console.WriteLine($"You typed: {userResponse}...")
+        'End Select
 
 
         Do While userResponse <> "Q"
