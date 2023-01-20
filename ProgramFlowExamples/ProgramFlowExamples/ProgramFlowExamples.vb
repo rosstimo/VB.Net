@@ -10,8 +10,8 @@ Module ProgramFlowExamples
         'DoUntilExample()
         'DoWhileExample()
         'IfExample()
-        ForNextExample()
-
+        'ForNextExample()
+        TryCatchExample()
 
 
         'Dim userResponse As String
@@ -149,6 +149,21 @@ Module ProgramFlowExamples
     End Sub
 
     Sub TryCatchExample()
+        Dim userNumber As Integer
+        Dim userInput As String
+
+        Console.WriteLine("Enter a number between 1 and 10...")
+        userInput = Console.ReadLine()
+        Console.WriteLine($"You entered {userInput}!")
+
+        Try
+            userNumber = CInt(userInput)
+            Console.WriteLine(5 + userNumber)
+        Catch ex As Exception
+            Console.WriteLine($"Sorry, {userInput} is not a number...")
+        End Try
+
+
 
     End Sub
 
