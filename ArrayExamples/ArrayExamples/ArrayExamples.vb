@@ -1,6 +1,10 @@
 ﻿Module ArrayExamples
 
     Sub Main()
+        'SimpleArray()
+        'TwoDimensionArrayLoop()
+        'ArrayBoundries()
+        DeclareWithData()
 
         Console.ReadLine()
 
@@ -63,4 +67,17 @@
 
     End Sub
 
+    Sub DeclareWithData()
+        Dim tracker(9) As Boolean
+        tracker(3) = True
+
+        Dim values = New Integer() {5, 6, 7, 2, 9, 0, 4, 7}
+
+        Dim grid(4, 4) As Boolean
+        grid(2, 4) = True
+
+        Dim square = New Integer(,) {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
+        'ReDim Preserve square(2, 4)
+        Console.Read()
+    End Sub
 End Module
