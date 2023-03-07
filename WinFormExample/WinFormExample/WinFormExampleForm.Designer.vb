@@ -117,7 +117,7 @@ Partial Class WinFormExampleForm
         Me.RadioButton1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(133, 24)
-        Me.RadioButton1.TabIndex = 5
+        Me.RadioButton1.TabIndex = 2
         Me.RadioButton1.Text = "RadioButton1"
         Me.RadioButton1.UseVisualStyleBackColor = True
         '
@@ -139,7 +139,7 @@ Partial Class WinFormExampleForm
         Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(116, 24)
-        Me.CheckBox1.TabIndex = 2
+        Me.CheckBox1.TabIndex = 3
         Me.CheckBox1.Text = "CheckBox1"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
@@ -150,7 +150,7 @@ Partial Class WinFormExampleForm
         Me.CheckBox2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(116, 24)
-        Me.CheckBox2.TabIndex = 3
+        Me.CheckBox2.TabIndex = 4
         Me.CheckBox2.Text = "CheckBox2"
         Me.CheckBox2.UseVisualStyleBackColor = True
         '
@@ -164,7 +164,7 @@ Partial Class WinFormExampleForm
         Me.GroupBox1.Controls.Add(Me.CheckBox4)
         Me.GroupBox1.Controls.Add(Me.RadioButton3)
         Me.GroupBox1.Controls.Add(Me.RadioButton4)
-        Me.GroupBox1.Location = New System.Drawing.Point(18, 202)
+        Me.GroupBox1.Location = New System.Drawing.Point(18, 199)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
@@ -215,7 +215,7 @@ Partial Class WinFormExampleForm
         Me.CheckBox3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.CheckBox3.Name = "CheckBox3"
         Me.CheckBox3.Size = New System.Drawing.Size(116, 24)
-        Me.CheckBox3.TabIndex = 3
+        Me.CheckBox3.TabIndex = 4
         Me.CheckBox3.Text = "CheckBox3"
         Me.CheckBox3.UseVisualStyleBackColor = True
         '
@@ -226,7 +226,7 @@ Partial Class WinFormExampleForm
         Me.CheckBox4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.CheckBox4.Name = "CheckBox4"
         Me.CheckBox4.Size = New System.Drawing.Size(116, 24)
-        Me.CheckBox4.TabIndex = 2
+        Me.CheckBox4.TabIndex = 3
         Me.CheckBox4.Text = "CheckBox4"
         Me.CheckBox4.UseVisualStyleBackColor = True
         '
@@ -248,7 +248,7 @@ Partial Class WinFormExampleForm
         Me.RadioButton4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.RadioButton4.Name = "RadioButton4"
         Me.RadioButton4.Size = New System.Drawing.Size(133, 24)
-        Me.RadioButton4.TabIndex = 9
+        Me.RadioButton4.TabIndex = 2
         Me.RadioButton4.Text = "RadioButton4"
         Me.RadioButton4.UseVisualStyleBackColor = True
         '
@@ -265,7 +265,7 @@ Partial Class WinFormExampleForm
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox2.Size = New System.Drawing.Size(180, 377)
-        Me.GroupBox2.TabIndex = 7
+        Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         '
         'RadioButton9

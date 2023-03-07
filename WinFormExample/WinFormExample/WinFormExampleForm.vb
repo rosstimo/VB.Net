@@ -3,39 +3,70 @@
         Me.Close()
     End Sub
 
-    Private Sub GoButton_Click(sender As Object, e As EventArgs) Handles GoButton.Click
-        'Me.Text = "You have clicked the button"
-        Me.Text = NameTextBox.Text
+    Private Sub DefaultSetup()
+        RadioButton1.Checked = True
+        RadioButton4.Checked = True
+        RadioButton6.Checked = True
+        GoButton.Enabled = False
     End Sub
 
     Private Sub WinFormExampleForm_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Me.Text = "I'm loaded!!"
-        RadioButton1.Checked = True
-
+        DefaultSetup()
     End Sub
 
-    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
+    Private Sub ValidateFields()
+        Dim allFieldsValid As Boolean = True
+        Dim age As Integer
+        Dim message As string
 
-        Select Case True
-            Case RadioButton1.Checked
-                GoButton.Enabled = False
-            Case RadioButton2.Checked
-                GoButton.Enabled = True
-            Case Else
-                MsgBox("something weird happened")
-        End Select
+        If NameTextBox.Text = "" Then
+            allFieldsValid = False
+            message &= "Name is required" & vbNewLine
+        End If
 
+        If AgeTextBox.Text = "" Then
+            allFieldsValid = False
+            message &= "Age is required" & vbNewLine
+        ElseIf allFieldsValid Then
+
+            Try
+                age = CInt(AgeTextBox.Text)
+                Select Case age
+                    Case <= 0
+                        allFieldsValid = False
+                        message &= "Lost infant can be collected at the baggage claim" & vbNewLine
+                    Case 1 To 5
+                        allFieldsValid = False
+                        message &= "You must be at least this tall to ride" & vbNewLine
+                    Case 6 To 18
+                        allFieldsValid = False
+                        message &= "Why don't you try the kiddy ride!" & vbNewLine
+                    Case 19 To 55
+                        allFieldsValid = True
+                        message &= "Enjoy the ride" & vbNewLine
+                    Case > 55
+                        allFieldsValid = False
+                        message &= "Patrons with heart conditions should avoid the thrill rides" & vbNewLine
+                    Case Else
+                        allFieldsValid = False
+                        message &= "I really don't know what to say..." & vbNewLine
+                End Select
+            Catch ex As Exception
+                allFieldsValid = False
+                message &= "Age must be a number" & vbNewLine
+            End Try
+        End If
+
+        If allFieldsValid Then
+            GoButton.Enabled = True
+        Else
+            GoButton.Enabled = False
+            MsgBox(message)
+
+        End If
     End Sub
 
-    Private Sub RadioButton4_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton4.CheckedChanged
-        Select Case True
-            Case RadioButton4.Checked
-                PictureBox1.BackgroundImage = My.Resources.img_BLOG___Found_Kittens_C_19__4_
-            Case RadioButton3.Checked
-                PictureBox1.BackgroundImage = My.Resources.istockphoto_1208790371_612x612
-            Case Else
-                MsgBox("something weird happened")
-        End Select
-        PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
+    Private Sub WinFormExampleForm_Click(sender As Object, e As EventArgs) Handles Me.Click
+        ValidateFields()
     End Sub
 End Class
