@@ -22,6 +22,7 @@ Partial Class WinFormExampleForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.ExitButton = New System.Windows.Forms.Button()
         Me.GoButton = New System.Windows.Forms.Button()
         Me.NameLabel = New System.Windows.Forms.Label()
@@ -49,9 +50,18 @@ Partial Class WinFormExampleForm
         Me.RadioButton5 = New System.Windows.Forms.RadioButton()
         Me.RadioButton6 = New System.Windows.Forms.RadioButton()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TopMenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.FIleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TopMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'ExitButton
@@ -62,6 +72,7 @@ Partial Class WinFormExampleForm
         Me.ExitButton.Size = New System.Drawing.Size(249, 128)
         Me.ExitButton.TabIndex = 6
         Me.ExitButton.Text = "E&xit"
+        Me.ToolTip.SetToolTip(Me.ExitButton, "Click here to quit")
         Me.ExitButton.UseVisualStyleBackColor = True
         '
         'GoButton
@@ -72,6 +83,7 @@ Partial Class WinFormExampleForm
         Me.GoButton.Size = New System.Drawing.Size(249, 128)
         Me.GoButton.TabIndex = 4
         Me.GoButton.Text = "&Go"
+        Me.ToolTip.SetToolTip(Me.GoButton, "Click to submit")
         Me.GoButton.UseVisualStyleBackColor = True
         '
         'NameLabel
@@ -91,6 +103,7 @@ Partial Class WinFormExampleForm
         Me.NameTextBox.Name = "NameTextBox"
         Me.NameTextBox.Size = New System.Drawing.Size(354, 26)
         Me.NameTextBox.TabIndex = 0
+        Me.ToolTip.SetToolTip(Me.NameTextBox, "Enter Name Here")
         '
         'AgeTextBox
         '
@@ -171,6 +184,7 @@ Partial Class WinFormExampleForm
         Me.GroupBox1.Size = New System.Drawing.Size(474, 225)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
+        Me.ToolTip.SetToolTip(Me.GroupBox1, "Location Info")
         '
         'StateTextBox
         '
@@ -267,6 +281,7 @@ Partial Class WinFormExampleForm
         Me.GroupBox2.Size = New System.Drawing.Size(180, 377)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
+        Me.ToolTip.SetToolTip(Me.GroupBox2, "Select Image")
         '
         'RadioButton9
         '
@@ -344,6 +359,56 @@ Partial Class WinFormExampleForm
         Me.PictureBox1.Size = New System.Drawing.Size(417, 372)
         Me.PictureBox1.TabIndex = 8
         Me.PictureBox1.TabStop = False
+        Me.ToolTip.SetToolTip(Me.PictureBox1, "image display")
+        '
+        'TopMenuStrip
+        '
+        Me.TopMenuStrip.GripMargin = New System.Windows.Forms.Padding(2, 2, 0, 2)
+        Me.TopMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.TopMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FIleToolStripMenuItem, Me.EditToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.TopMenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.TopMenuStrip.Name = "TopMenuStrip"
+        Me.TopMenuStrip.Size = New System.Drawing.Size(1140, 33)
+        Me.TopMenuStrip.TabIndex = 9
+        Me.TopMenuStrip.Text = "MenuStrip1"
+        '
+        'FIleToolStripMenuItem
+        '
+        Me.FIleToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GoToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.FIleToolStripMenuItem.Name = "FIleToolStripMenuItem"
+        Me.FIleToolStripMenuItem.Size = New System.Drawing.Size(55, 29)
+        Me.FIleToolStripMenuItem.Text = "&FIle"
+        '
+        'EditToolStripMenuItem
+        '
+        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(58, 29)
+        Me.EditToolStripMenuItem.Text = "&Edit"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 29)
+        Me.HelpToolStripMenuItem.Text = "&Help"
+        '
+        'GoToolStripMenuItem
+        '
+        Me.GoToolStripMenuItem.Name = "GoToolStripMenuItem"
+        Me.GoToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.GoToolStripMenuItem.Text = "&Go"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.ExitToolStripMenuItem.Text = "E&xit"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.AboutToolStripMenuItem.Text = "&About"
         '
         'WinFormExampleForm
         '
@@ -363,6 +428,8 @@ Partial Class WinFormExampleForm
         Me.Controls.Add(Me.NameLabel)
         Me.Controls.Add(Me.GoButton)
         Me.Controls.Add(Me.ExitButton)
+        Me.Controls.Add(Me.TopMenuStrip)
+        Me.MainMenuStrip = Me.TopMenuStrip
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "WinFormExampleForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -372,6 +439,8 @@ Partial Class WinFormExampleForm
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TopMenuStrip.ResumeLayout(False)
+        Me.TopMenuStrip.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -404,4 +473,12 @@ Partial Class WinFormExampleForm
     Friend WithEvents RadioButton7 As RadioButton
     Friend WithEvents RadioButton8 As RadioButton
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents ToolTip As ToolTip
+    Friend WithEvents TopMenuStrip As MenuStrip
+    Friend WithEvents FIleToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
 End Class
