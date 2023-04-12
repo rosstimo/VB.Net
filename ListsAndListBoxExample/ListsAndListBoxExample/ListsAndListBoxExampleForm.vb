@@ -1,7 +1,7 @@
 ﻿Public Class ListsAndListBoxExampleForm
     Private Sub ListsAndListBoxExampleForm_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        'DrawColumns()
+        DrawColumns()
 
     End Sub
 
@@ -53,7 +53,7 @@
         Dim line As String
         For i = 90 To 110
             For j = 990 To 1010
-                line &= Str(i).PadLeft(5)
+                line &= Str(i).PadLeft(6)
             Next
             'these display different. why??
             DisplayListBox.Items.Add(line)

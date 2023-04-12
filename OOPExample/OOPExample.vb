@@ -14,13 +14,13 @@ Module OOPExample
         Dim pepe As New Chihuahua
         Dim sly As New Fox
 
-        Console.WriteLine(jim.Move)
-        Console.WriteLine(jim.Speak)
-        Console.WriteLine()
+        'Console.WriteLine(jim.Move)
+        'Console.WriteLine(jim.Speak)
+        'Console.WriteLine()
 
-        Console.WriteLine(bob.Move)
-        Console.WriteLine(bob.Speak)
-        Console.WriteLine()
+        'Console.WriteLine(bob.Move)
+        'Console.WriteLine(bob.Speak)
+        'Console.WriteLine()
 
         Console.WriteLine(scruffy.Move)
         Console.WriteLine(scruffy.Speak)
@@ -153,9 +153,9 @@ Module OOPExample
 
         'A common mistake is to accidentally access the parent class values
         'If you leave out the New() method this will happen
-        Public Shadows Function Move() As String
-            Return Me.movement '"Ok, who left the window open?"
-        End Function
+        'Public Shadows Function Move() As String
+        '    Return Me.movement '"Ok, who left the window open?"
+        'End Function
 
         Public Shadows Function speak() As String
             Return "Pretty Bird...."

@@ -1,15 +1,18 @@
 ﻿Option Strict On
 Option Explicit On
-Option Compare Binary
-
+Option Compare Text
 
 Module ProgramFlowExamples
 
     Sub Main()
 
-        'SelectCaseExample()
+        SelectCaseExample()
         'DoUntilExample()
-        DoWhileExample()
+        'DoWhileExample()
+        'IfExample()
+        'ForNextExample()
+        'TryCatchExample()
+
 
         'Dim userResponse As String
         'Dim userNumber As Integer
@@ -41,48 +44,76 @@ Module ProgramFlowExamples
     End Sub
 
     Sub ForNextExample()
-        'TODO
+        For i = 10 To -10 Step -1
+            Console.WriteLine(i)
+        Next
     End Sub
 
     Sub DoWhileExample()
-        Dim runAgain As Boolean = True
+        Dim runAgain As Boolean '= True
         Dim userResponse As String
+        Dim message As String = "loop did not run"
+
         'evaluate expression prior to loop content
+        'only runs if condition evaluates as True
         Do While runAgain = True
-            Console.WriteLine("the thing happened")
+            Console.WriteLine("Do you want to try again? (Y/N)")
             userResponse = Console.ReadLine()
             Select Case userResponse
                 Case "Y"
                     runAgain = True
                 Case "N"
                     runAgain = False
+                    message = "Have a nice day!"
                 Case Else
-                    Console.WriteLine("I'll take that as a no...")
+                    message = "I'll take that as a no..."
                     runAgain = False
             End Select
         Loop
+
+        Console.WriteLine(message)
+
     End Sub
 
     Sub DoUntilExample()
         Dim runAgain As Boolean = False
         Dim userResponse As String
-        'evaluate expression after to loop content
+        Dim message As String = "loop did not run"
+
+        'evaluate expression at the end of the loop content
+        'always runs at least once
+
         Do
-            Console.WriteLine("the thing happened")
+            Console.WriteLine("Do you want to try again? (Y/N)")
             userResponse = Console.ReadLine()
             Select Case userResponse
                 Case "Y"
                     runAgain = True
                 Case "N"
                     runAgain = False
+                    message = "Have a nice day!"
                 Case Else
-                    Console.WriteLine("I'll take that as a no...")
+                    message = "I'll take that as a no..."
                     runAgain = False
             End Select
-        Loop Until runAgain = False
+        Loop Until runagain = False
+
+        Console.WriteLine(message)
     End Sub
 
     Sub IfExample()
+
+        If 5 > 6 Then 'evaluates to False, code skipped
+            Console.WriteLine("in the first condition")
+        ElseIf 5 < 6 Then 'evaluates to true, code runs
+            Console.WriteLine("in the second condition")
+        ElseIf 5 = 5 Then 'not evaluated, previous condition was True
+            Console.WriteLine("in the third condition")
+        Else 'skipped, previous condition was True
+            Console.WriteLine("in the Else")
+        End If
+
+
 
     End Sub
 
@@ -92,14 +123,14 @@ Module ProgramFlowExamples
         Dim message As String
 
         'examine or test a single variable
-        Select Case userResponse
-            Case "Q"
-                Console.WriteLine("Are you sure you want to quit?")
-            Case "X"
-                Console.WriteLine("I found X!")
-            Case Else
-                Console.WriteLine($"You typed: {userResponse}...")
-        End Select
+        'Select Case userResponse
+        '    Case "Q"
+        '        Console.WriteLine("Are you sure you want to quit?")
+        '    Case "X"
+        '        Console.WriteLine("I found X!")
+        '    Case Else
+        '        Console.WriteLine($"You typed: {userResponse}...")
+        'End Select
 
 
         Do While userResponse <> "Q"
@@ -132,6 +163,21 @@ Module ProgramFlowExamples
     End Sub
 
     Sub TryCatchExample()
+        Dim userNumber As Integer
+        Dim userInput As String
+
+        Console.WriteLine("Enter a number between 1 and 10...")
+        userInput = Console.ReadLine()
+        Console.WriteLine($"You entered {userInput}!")
+
+        Try
+            userNumber = CInt(userInput)
+            Console.WriteLine(5 + userNumber)
+        Catch ex As Exception
+            Console.WriteLine($"Sorry, {userInput} is not a number...")
+        End Try
+
+
 
     End Sub
 
