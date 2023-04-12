@@ -53,15 +53,19 @@ Partial Class WinFormExampleForm
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.TopMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.FIleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ClearContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TopMenuStrip.SuspendLayout()
+        Me.ContextMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'ExitButton
@@ -169,6 +173,7 @@ Partial Class WinFormExampleForm
         '
         'GroupBox1
         '
+        Me.GroupBox1.ContextMenuStrip = Me.ContextMenuStrip
         Me.GroupBox1.Controls.Add(Me.StateTextBox)
         Me.GroupBox1.Controls.Add(Me.StateLabel)
         Me.GroupBox1.Controls.Add(Me.CityTextBox)
@@ -379,6 +384,18 @@ Partial Class WinFormExampleForm
         Me.FIleToolStripMenuItem.Size = New System.Drawing.Size(55, 29)
         Me.FIleToolStripMenuItem.Text = "&FIle"
         '
+        'GoToolStripMenuItem
+        '
+        Me.GoToolStripMenuItem.Name = "GoToolStripMenuItem"
+        Me.GoToolStripMenuItem.Size = New System.Drawing.Size(141, 34)
+        Me.GoToolStripMenuItem.Text = "&Go"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(141, 34)
+        Me.ExitToolStripMenuItem.Text = "E&xit"
+        '
         'EditToolStripMenuItem
         '
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
@@ -392,29 +409,37 @@ Partial Class WinFormExampleForm
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 29)
         Me.HelpToolStripMenuItem.Text = "&Help"
         '
-        'GoToolStripMenuItem
-        '
-        Me.GoToolStripMenuItem.Name = "GoToolStripMenuItem"
-        Me.GoToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
-        Me.GoToolStripMenuItem.Text = "&Go"
-        '
-        'ExitToolStripMenuItem
-        '
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
-        Me.ExitToolStripMenuItem.Text = "E&xit"
-        '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(164, 34)
         Me.AboutToolStripMenuItem.Text = "&About"
+        '
+        'ContextMenuStrip
+        '
+        Me.ContextMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.ContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClearContextMenuItem, Me.AboutContextMenuItem})
+        Me.ContextMenuStrip.Name = "ContextMenuStrip"
+        Me.ContextMenuStrip.Size = New System.Drawing.Size(241, 101)
+        '
+        'ClearContextMenuItem
+        '
+        Me.ClearContextMenuItem.Name = "ClearContextMenuItem"
+        Me.ClearContextMenuItem.Size = New System.Drawing.Size(240, 32)
+        Me.ClearContextMenuItem.Text = "&Clear"
+        '
+        'AboutContextMenuItem
+        '
+        Me.AboutContextMenuItem.Name = "AboutContextMenuItem"
+        Me.AboutContextMenuItem.Size = New System.Drawing.Size(134, 32)
+        Me.AboutContextMenuItem.Text = "&About"
         '
         'WinFormExampleForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1140, 606)
+        Me.ContextMenuStrip = Me.ContextMenuStrip
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -441,6 +466,7 @@ Partial Class WinFormExampleForm
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TopMenuStrip.ResumeLayout(False)
         Me.TopMenuStrip.PerformLayout()
+        Me.ContextMenuStrip.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -481,4 +507,7 @@ Partial Class WinFormExampleForm
     Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ContextMenuStrip As ContextMenuStrip
+    Friend WithEvents ClearContextMenuItem As ToolStripMenuItem
+    Friend WithEvents AboutContextMenuItem As ToolStripMenuItem
 End Class
