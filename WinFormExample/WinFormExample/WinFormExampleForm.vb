@@ -1,5 +1,5 @@
 ﻿Public Class WinFormExampleForm
-    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click, ExitToolStripMenuItem.Click
         Me.Close()
     End Sub
 
@@ -8,6 +8,7 @@
         RadioButton4.Checked = True
         RadioButton6.Checked = True
         GoButton.Enabled = False
+        GoToolStripMenuItem.Enabled = False
     End Sub
 
     Private Sub WinFormExampleForm_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -17,7 +18,7 @@
     Private Sub ValidateFields()
         Dim allFieldsValid As Boolean = True
         Dim age As Integer
-        Dim message As string
+        Dim message As String
 
         If NameTextBox.Text = "" Then
             allFieldsValid = False
@@ -59,14 +60,23 @@
 
         If allFieldsValid Then
             GoButton.Enabled = True
+            GoToolStripMenuItem.Enabled = True
         Else
             GoButton.Enabled = False
+            GoToolStripMenuItem.Enabled = False
             MsgBox(message)
 
         End If
     End Sub
+    Private Sub GoButton_Click(sender As Object, e As EventArgs) Handles GoButton.Click, GoToolStripMenuItem.Click
+        MsgBox("You clicked go!")
+    End Sub
 
-    Private Sub WinFormExampleForm_Click(sender As Object, e As EventArgs) Handles Me.Click
+    Private Sub ClearContextMenuItem_Click(sender As Object, e As EventArgs) Handles ClearContextMenuItem.Click
+        DefaultSetup()
+    End Sub
+
+    Private Sub NameTextBox_Leave(sender As Object, e As EventArgs) Handles NameTextBox.Leave, AgeTextBox.Leave, CityTextBox.Leave, StateTextBox.Leave
         ValidateFields()
     End Sub
 End Class
