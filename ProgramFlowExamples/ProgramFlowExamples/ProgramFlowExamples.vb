@@ -6,10 +6,10 @@ Module ProgramFlowExamples
 
     Sub Main()
 
-        SelectCaseExample()
+        'SelectCaseExample()
         'DoUntilExample()
         'DoWhileExample()
-        'IfExample()
+        IfExample()
         'ForNextExample()
         'TryCatchExample()
 
@@ -103,6 +103,18 @@ Module ProgramFlowExamples
 
     Sub IfExample()
 
+        'runs nested code if condition evaluates to true
+        If 4 > 2 Then
+            Console.WriteLine("4 is greater than 2")
+        End If
+
+        'runs nested code if condition true
+        If 5 > 6 Then
+            Console.WriteLine("5 is greater than 6")
+        Else 'runs nested code if condition is false
+            Console.WriteLine("5 is not greater than 6")
+        End If
+
         If 5 > 6 Then 'evaluates to False, code skipped
             Console.WriteLine("in the first condition")
         ElseIf 5 < 6 Then 'evaluates to true, code runs
@@ -113,7 +125,9 @@ Module ProgramFlowExamples
             Console.WriteLine("in the Else")
         End If
 
+        If (5 > 6 And 7 = 7) Or 4 = 3 Then
 
+        End If
 
     End Sub
 
