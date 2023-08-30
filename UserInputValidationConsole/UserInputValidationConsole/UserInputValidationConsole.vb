@@ -23,7 +23,11 @@
         Console.WriteLine($"You entered: {userInput}")
 
         'attempt to convert the user input to an integer
-        userNumber = CInt(userInput)
+        Try
+            userNumber = CInt(userInput)
+        Catch ex As Exception
+            Console.WriteLine($"I'm sorry {userInput} is not a number")
+        End Try
 
         'pause here so the user can read the console before exit
         Console.Read()
