@@ -13,25 +13,27 @@
         'If yes congratulate the user and start over
         Dim userInput As String
         Dim userNumber As Integer
+        Dim exitFlag As Boolean = False
 
-        Console.WriteLine("Please enter a number from 1 to 10")
-        Console.WriteLine("Enter 'q' to quit")
+        Do
+            Console.WriteLine("Please enter a number from 1 to 10")
+            Console.WriteLine("Enter 'q' to quit")
 
-        'get user input
-        userInput = Console.ReadLine()
-        'reflect the user input back to the user
-        Console.WriteLine($"You entered: {userInput}")
+            'get user input
+            userInput = Console.ReadLine()
+            'reflect the user input back to the user
+            Console.WriteLine($"You entered: {userInput}")
 
-        'attempt to convert the user input to an integer
-        Try
-            userNumber = CInt(userInput)
-        Catch ex As Exception
-            Console.WriteLine($"I'm sorry {userInput} is not a number")
-        End Try
+            'attempt to convert the user input to an integer
+            Try
+                userNumber = CInt(userInput)
+            Catch ex As Exception
+                Console.WriteLine($"I'm sorry {userInput} is not a number")
+            End Try
+        Loop Until exitflag = True
 
         'pause here so the user can read the console before exit
         Console.Read()
-
     End Sub
 
 End Module
