@@ -31,6 +31,18 @@ Module UserInputValidationConsole
             'attempt to convert the user input to an integer
             Try
                 userNumber = CInt(userInput)
+                'if we get here then we know the user entered a number
+                'check if the user entered a number between 1 and 10
+                Select Case userNumber
+                    Case <= 0
+                        Console.WriteLine("I'm sorry, the number must be greater than 0")
+                    Case > 10
+                        Console.WriteLine("I'm sorry, the number must be less than 11")
+                    Case 1 To 10
+                        Console.WriteLine("Congratulations! You entered a valid number!")
+                    Case Else
+                        Console.WriteLine("I'm sorry, I don't understand")
+                End Select
             Catch ex As Exception
                 If userInput = "q" Then 'Option Compare Text is set so we don't have to worry about case
                     exitFlag = True
