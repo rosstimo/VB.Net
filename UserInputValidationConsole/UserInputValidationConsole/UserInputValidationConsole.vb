@@ -6,15 +6,16 @@ Module UserInputValidationConsole
 
     Sub Main()
         'TODO
-        '[ ] Prompt the user for a number from 1 to 10 inclusive or "q" to quit
+        '[*] Prompt the user for a number from 1 to 10 inclusive or "q" to quit
         '[*] Reflect the user input back to the user
-        '[ ] Validate the user input
+        '[*] Validate the user input
         '[*] Check if the input is a number
         '[*] If the user entered "q" or "Q" then quit the program
         '[*] If not, display an error message and prompt the user again
-        '[ ] Continue until the user enters a valid number or enter "q"
-        '[ ] Check if the number is within the range
-        '[ ] If yes congratulate the user and start over
+        '[*] Continue until the user enters a valid number or enter "q"
+        '[*]Check if the number is within the range
+        '[*] If yes congratulate the user and start over
+
         Dim userInput As String
         Dim userNumber As Integer
         Dim exitFlag As Boolean = False
@@ -50,6 +51,11 @@ Module UserInputValidationConsole
                     Console.WriteLine($"I'm sorry {userInput} is not a number")
                 End If
             End Try
+            If exitFlag = False Then
+                Console.WriteLine("Press Enter to go again!")
+                Console.ReadLine()
+                Console.Clear()
+            End If
         Loop Until exitFlag = True
         Console.WriteLine("Have a nice day!")
         'pause here so the user can read the console before exit
