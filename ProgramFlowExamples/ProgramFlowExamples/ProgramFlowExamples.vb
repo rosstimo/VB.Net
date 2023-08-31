@@ -9,9 +9,9 @@ Module ProgramFlowExamples
         'SelectCaseExample()
         'DoUntilExample()
         'DoWhileExample()
-        IfExample()
+        'IfExample()
         'ForNextExample()
-        'TryCatchExample()
+        TryCatchExample()
 
 
         'Dim userResponse As String
