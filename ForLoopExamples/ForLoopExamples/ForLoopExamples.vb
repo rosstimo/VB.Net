@@ -13,18 +13,27 @@ Module ForLoopExamples
             Console.WriteLine("something" & " " & CStr(index))
         Next
 
-        'streamlined version
-        For i = 1 To 10
-            runningTotal = runningTotal + 5 'verbose complex assignment
-            runningTotal += 5 'streamlined complex assignment. works exactly the same as above.
-            Console.WriteLine("The running total is:" & " " & CStr(runningTotal))
-        Next
+        ''streamlined version
+        'For i = 1 To 10
+        '    ' runningTotal = runningTotal + 5 'verbose complex assignment
+        '    runningTotal += 5 'streamlined complex assignment. works exactly the same as above.
+        '    Console.WriteLine("The running total is:" & " " & CStr(runningTotal))
+        'Next
 
-        'complex assignment of strings
-        For i = 1 To 10
-            prettyString &= "*"
-            Console.WriteLine(prettyString)
-        Next
+        ''complex assignment of strings
+        'For i = 1 To 10
+        '    prettyString &= "*"
+        '    Console.WriteLine(prettyString)
+        'Next
+
+        ''Nested loop example
+        'For i = 0 To 10
+        '    For j = 0 To 10
+        '        Console.Write(CStr(i * j) & " ")
+        '        'Console.Write(CStr(i * j).PadLeft(4))
+        '    Next
+        '    Console.WriteLine()
+        'Next
 
         Console.ReadLine()
     End Sub
