@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{26CE5C0B-259B-457E-94F1-A57FCBD0FED7}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>DoLoopExamples.Module1</StartupObject>
+    <StartupObject>DoLoopExamples.DoLoopExamples</StartupObject>
     <RootNamespace>DoLoopExamples</RootNamespace>
     <AssemblyName>DoLoopExamples</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -69,7 +69,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Module1.vb" />
+    <Compile Include="DoLoopExamples.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
