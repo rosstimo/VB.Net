@@ -12,9 +12,9 @@ Module MethodExamples
         'SendMessage(userMessage)
         'Console.WriteLine($"In Main: {userMessage}")
 
-        Console.WriteLine(MyLuckyNumber())
+        'Console.WriteLine(MyLuckyNumber())
 
-        'TestRunningTotal()
+        TestRunningTotal()
 
         Console.Read()
 
@@ -75,7 +75,8 @@ Module MethodExamples
     End Sub
 
     Function RunningTotal(value As Integer, clear As Boolean) As Integer
-        Static total As Integer
+        Dim total As Integer
+        'Static total As Integer
         If clear = False Then
             total += value
         Else
