@@ -4,9 +4,63 @@ Option Strict On
 Module MethodExamples
 
     Sub Main()
+        Dim userMessage As String = "Hello"
+        'SayHello()
+        'SumOf(5, 7)
+
+        'Console.WriteLine($"In Main: {userMessage}")
+        'SendMessage(userMessage)
+        'Console.WriteLine($"In Main: {userMessage}")
+
+        Console.WriteLine(MyLuckyNumber())
+
+        'TestRunningTotal()
 
         Console.Read()
+
     End Sub
+
+    'basic example
+    'good for reusable code
+    Sub SayHello()
+        Console.WriteLine("hello")
+    End Sub
+
+    'example with parameters or arguments
+    Sub SumOf(firstNumber As Integer, secondNumber As Integer)
+        Console.WriteLine(firstNumber + secondNumber)
+    End Sub
+
+    'example with parameters or arguments
+    'includes ByVal keyword
+    'indicating that the parameter data is a copy of the original
+    'safe, will not change original value
+    Sub ProductOf(ByVal firstNumber As Integer, ByVal secondNumber As Integer)
+        Console.WriteLine(firstNumber * secondNumber)
+    End Sub
+
+
+    'example with parameters or arguments
+    'includes ByRef keyword
+    'indicating that the parameter data is a pointer to the original
+    'unsafe, will change original value
+    'may be faster
+
+    'try running this ByRef and ByVal
+    'notice the difference
+    ' Sub SendMessage(ByVal message As String)
+    Sub SendMessage(ByRef message As String)
+        Console.WriteLine($"In SendMessage: {message}")
+        message = "Goodbye"
+        Console.WriteLine($"In SendMessage: {message}")
+    End Sub
+
+    'function example
+    Function MyLuckyNumber() As Integer
+        Return 7
+    End Function
+
+
 
     Sub TestChangeANumber()
         Dim someNumber As Integer
@@ -19,6 +73,16 @@ Module MethodExamples
         firstNumber = 7
         Console.WriteLine($"in ChangeANumber: {firstNumber}")
     End Sub
+
+    Function RunningTotal(value As Integer, clear As Boolean) As Integer
+        Static total As Integer
+        If clear = False Then
+            total += value
+        Else
+            total = 0
+        End If
+        Return total
+    End Function
 
     Sub TestRunningTotal()
         Dim userInput As String
@@ -54,9 +118,6 @@ Module MethodExamples
         Console.WriteLine(result)
     End Sub
 
-    Sub SumOf(firstNumber As Integer, secondNumber As Integer)
-        Console.WriteLine(firstNumber + secondNumber)
-    End Sub
 
     Function SumResult(ByVal firstNumber As Integer, ByVal secondNumber As Integer) As Integer
         Dim result As Integer
@@ -78,16 +139,6 @@ Module MethodExamples
     Function RandomNumber() As Integer
         Randomize()
         Return CInt(Rnd() * 15)
-    End Function
-
-    Function RunningTotal(value As Integer, clear As Boolean) As Integer
-        Static total As Integer
-        If clear = False Then
-            total += value
-        Else
-            total = 0
-        End If
-        Return total
     End Function
 
     Function Count(Optional clear As Boolean = False) As Integer
