@@ -14,7 +14,15 @@ Module MethodExamples
 
         'Console.WriteLine(MyLuckyNumber())
 
-        TestRunningTotal()
+        'TestRunningTotal()
+
+        'testing random
+        'Randomize()
+        'For i = 0 To 100
+        '    ' Console.WriteLine((CInt(Rnd() * 10) + 10))
+        '    Console.WriteLine(CInt(Math.Floor((20 - 10 + 1) * Rnd())) + 10)
+        'Next
+
 
         Console.Read()
 
