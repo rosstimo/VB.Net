@@ -150,6 +150,13 @@ Module MethodExamples
         Return CInt(Rnd() * 15)
     End Function
 
+    Function RandomIntegerBetween() As Integer
+        Dim result As Integer
+        Randomize()
+        'TODO
+        Return result
+    End Function
+
     Function Count(Optional clear As Boolean = False) As Integer
         Static runningCount As Integer
         If clear Then
