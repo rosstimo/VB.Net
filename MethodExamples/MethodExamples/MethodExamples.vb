@@ -5,6 +5,9 @@ Module MethodExamples
 
     Sub Main()
         Dim userMessage As String = "Hello"
+        Dim firstNumber As Integer
+        Dim max As Integer = 20
+        Dim min As Integer = 10
         'SayHello()
         'SumOf(5, 7)
 
@@ -23,6 +26,14 @@ Module MethodExamples
         '    Console.WriteLine(CInt(Math.Floor((20 - 10 + 1) * Rnd())) + 10)
         'Next
 
+        'testing random between
+        For i = 0 To 100000
+            firstNumber = RandomIntegerBetween(min, max)
+            Console.WriteLine(firstNumber)
+            If firstNumber < min Or firstNumber > max Then
+                Console.Write(" oops!!")
+            End If
+        Next
 
         Console.Read()
 
@@ -150,10 +161,17 @@ Module MethodExamples
         Return CInt(Rnd() * 15)
     End Function
 
-    Function RandomIntegerBetween() As Integer
+    ''' <summary>
+    ''' Random integer between min and max inclusive.
+    ''' max must be greater than min
+    ''' </summary>
+    ''' <param name="min"></param>
+    ''' <param name="max"></param>
+    ''' <returns>Random integer between min and max</returns>
+    Function RandomIntegerBetween(min As Integer, max As Integer) As Integer
         Dim result As Integer
         Randomize()
-        'TODO
+        result = CInt(Rnd() * (max - min)) + min
         Return result
     End Function
 
