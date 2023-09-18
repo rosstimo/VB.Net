@@ -9,7 +9,7 @@
 '[*] Create a function to display the balls already called
 '[*] Create a way to draw a ball, check if it has been called, and track it in the array
 '[ ] Create a way to restart. should happen automatically if all balls are called
-'[ ] new game, play again or quit functionality
+'[ ] new game, play again or quit functionality - use accumulate messages function
 'Later generate player cards and make playable 
 '[ ] Create a way to display the bingo card
 
