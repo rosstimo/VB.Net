@@ -8,8 +8,8 @@
 '[*] Create an array to track the numbers called
 '[*] Create a function to display the balls already called
 '[*] Create a way to draw a ball, check if it has been called, and track it in the array
-'[ ] Create a way to restart. should happen automatically if all balls are called
-'[ ] new game, play again or quit functionality - use accumulate messages function
+'[*] Create a way to restart. should happen automatically if all balls are called
+'[*] new game, play again or quit functionality - use accumulate messages function
 'Later generate player cards and make playable 
 '[ ] Create a way to display the bingo card
 
@@ -25,14 +25,21 @@ Module BingoGame
         'ball number = (letter index * 15) + number index + 1
         Dim bingoCage(4, 14) As Boolean
         Dim userInput As String
-
+        SetDefaultPrompt()
         Do Until userInput = "q"
             DisplayDraws(bingoCage)
             userInput = Console.ReadLine()
-            Draw(bingoCage)
+            Select Case userInput
+                Case "q"
+                    Exit Do
+                Case "n"
+                    ReDim bingoCage(4, 14)
+                Case Else
+                    Draw(bingoCage)
+            End Select
         Loop
 
-        Console.Read()
+        ' Console.Read()
     End Sub
 
     Sub DisplayDraws(ByRef ballCage(,) As Boolean)
@@ -61,7 +68,7 @@ Module BingoGame
             Next
             Console.WriteLine()
         Next
-
+        Console.WriteLine(UserMessage())
 
     End Sub
 
@@ -82,4 +89,22 @@ Module BingoGame
         Randomize(DateTime.Now.Millisecond * DateTime.Now.Second)
         Return CInt(Rnd() * max)
     End Function
+
+    Function UserMessage(Optional message As String = "", Optional clear As Boolean = False) As String
+        Static messages As String
+        If clear Then
+            messages = ""
+        ElseIf message <> "" Then
+            messages &= message & vbNewLine
+        End If
+        Return messages
+    End Function
+
+    Sub SetDefaultPrompt()
+        UserMessage(, True)
+        UserMessage("Press Enter to draw a ball")
+        UserMessage("Enter 'n' to restart game")
+        UserMessage("Enter 'q' to quit")
+    End Sub
+
 End Module
