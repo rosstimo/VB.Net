@@ -25,16 +25,19 @@ Module BingoGame
         'ball number = (letter index * 15) + number index + 1
         Dim bingoCage(4, 14) As Boolean
         Dim userInput As String
+        BallCount(True)
         SetDefaultPrompt()
+        UserMessage("Press Enter to draw a ball")
         Do Until userInput = "q"
             DisplayDraws(bingoCage)
-            SetDefaultPrompt()
+            'SetDefaultPrompt()
             userInput = Console.ReadLine()
             Select Case userInput
                 Case "q"
                     Exit Do
                 Case "n"
                     ReDim bingoCage(4, 14)
+                    BallCount(True)
                 Case Else
                     Draw(bingoCage)
             End Select
@@ -78,15 +81,25 @@ Module BingoGame
         Dim number As Integer
         Dim numberOfTries As Integer
         Dim _letter = New String() {"B", "I", "N", "G", "O"}
+        Dim _ballCount as integer
         'need logic for when all balls are called
-        Do
-            letter = RandomNumber(4)
-            number = RandomNumber(14)
-            numberOfTries += 1
-        Loop Until bingoCage(letter, number) = False
 
-        bingoCage(letter, number) = True
-        UserMessage($"Drew {_letter(letter)}{number} in {numberOfTries} tries")
+        If _ballCount < 75 Then
+            Do
+                letter = RandomNumber(4)
+                number = RandomNumber(14)
+                numberOfTries += 1
+            Loop Until bingoCage(letter, number) = False
+            bingoCage(letter, number) = True
+            _ballCount = BallCount()
+            SetDefaultPrompt()
+            UserMessage(CStr(_ballCount))
+            ' UserMessage($"Drew {_letter(letter)}{number} in {numberOfTries} tries")
+        Else
+            SetDefaultPrompt()
+            UserMessage("All balls have been called.")
+        End If
+
     End Sub
 
     Function RandomNumber(max As Integer) As Integer
@@ -106,9 +119,18 @@ Module BingoGame
 
     Sub SetDefaultPrompt()
         UserMessage(, True)
-        UserMessage("Press Enter to draw a ball")
+        'UserMessage("Press Enter to draw a ball")
         UserMessage("Enter 'n' to restart game")
         UserMessage("Enter 'q' to quit")
     End Sub
+
+    Function BallCount(Optional reset As Boolean = False) As Integer
+        Static count As Integer
+        count += 1
+        If reset Then
+            count = 0
+        End If
+        Return count
+    End Function
 
 End Module
