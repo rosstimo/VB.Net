@@ -68,12 +68,21 @@ Module FileIOConsoleExample
         Dim fileNumber As Integer = FreeFile()
         Dim currentRecord As String = ""
         Dim recordCount As Integer = 0
+        Dim customerData() As String
+        Dim cleanFileName As String = "../../" & DateTime.Now.ToString("yyyyMMddhhss") & ".txt"
 
         FileOpen(fileNumber, fileName, OpenMode.Input)
         Do Until EOF(fileNumber)
             'Input(fileNumber, currentRecord)
             currentRecord = LineInput(fileNumber)
-            Console.WriteLine(currentRecord)
+            'clean extra double quotes
+            currentRecord = Replace(currentRecord, Chr(34), "", 1, -1)
+            'clean extra dollar signs
+            currentRecord = Replace(currentRecord, "$", "", 1, -1)
+            customerData = Split(currentRecord, ",")
+            'TODO test array length before call to export
+            ExportCustomerData(customerData, cleanFileName)
+            'Console.WriteLine(currentRecord)
             recordCount += 1
         Loop
 
@@ -83,5 +92,13 @@ Module FileIOConsoleExample
         Console.Read()
     End Sub
 
+    Sub ExportCustomerData(recordData() As String, fileName As String)
+        Dim fileNumber As Integer = FreeFile()
+        FileOpen(fileNumber, fileName, OpenMode.Append)
+        For i = LBound(recordData) To UBound(recordData)
+            Write(fileNumber, recordData(i))
+        Next
+        FileClose(fileNumber)
+    End Sub
 
 End Module
