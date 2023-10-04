@@ -69,8 +69,8 @@ Module FileIOConsoleExample
         Dim currentRecord As String = ""
         Dim recordCount As Integer = 0
         Dim customerData() As String
-        Dim cleanFileName As String = "../../" & DateTime.Now.ToString("yyyyMMddhhss") & ".txt"
-
+        Dim cleanFileName As String = "../../" & DateTime.Now.ToString("yyyyMMddhhmmss") & ".txt"
+        Dim badRecordCount As Integer = 0
         FileOpen(fileNumber, fileName, OpenMode.Input)
         Do Until EOF(fileNumber)
             'Input(fileNumber, currentRecord)
@@ -81,7 +81,15 @@ Module FileIOConsoleExample
             currentRecord = Replace(currentRecord, "$", "", 1, -1)
             customerData = Split(currentRecord, ",")
             'TODO test array length before call to export
-            ExportCustomerData(customerData, cleanFileName)
+            If UBound(customerData) < 3 Then
+                badRecordCount += 1
+            Else
+                ReDim Preserve customerData(3)
+                If InStr(customerData(3), ChrW(&HA0)) > 0 Then
+                    Console.WriteLine($"customer {recordCount} may have bad data. See: {customerData(3)}")
+                End If
+                ExportCustomerData(customerData, cleanFileName)
+            End If
             'Console.WriteLine(currentRecord)
             recordCount += 1
         Loop
@@ -98,6 +106,7 @@ Module FileIOConsoleExample
         For i = LBound(recordData) To UBound(recordData)
             Write(fileNumber, recordData(i))
         Next
+        WriteLine(fileNumber)
         FileClose(fileNumber)
     End Sub
 
