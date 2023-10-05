@@ -1,6 +1,6 @@
 ﻿Option Explicit On
 Option Strict On
-
+Imports System.IO
 
 Module FileIOConsoleExample
 
@@ -10,8 +10,10 @@ Module FileIOConsoleExample
         '    AppendToFile()
         'Next
         'AppendRecordsToFile()
-        ImportCustomerData()
-        'Console.Read()
+        ' ImportCustomerData()
+        'ReadRecordsFromFile("junk.txt")
+        ReadRecordsFromFile("../../cleanfile.txt")
+        Console.Read()
     End Sub
 
     'this sub will write to a file
@@ -42,24 +44,26 @@ Module FileIOConsoleExample
         FileClose(1)
     End Sub
 
-    'read all the records in data.log and write to the console
-    Sub ReadRecordsFromFile()
-        FileOpen(1, "data.log", OpenMode.Input)
-        Dim str As String = ""
-        Dim i As Integer = 0
-        Dim b As Boolean = False
-        Dim d As DateTime = DateTime.Now
-        While Not EOF(1)
-            Input(1, str)
-            Input(1, i)
-            Input(1, b)
-            Input(1, d)
-            Console.WriteLine(str)
-            Console.WriteLine(i)
-            Console.WriteLine(b)
-            Console.WriteLine(d)
-        End While
-        FileClose(1)
+    'read all the records in and write to the console
+    Sub ReadRecordsFromFile(fileName As String)
+        Dim fileNumber As Integer = FreeFile()
+
+        Dim currentRecord As String = ""
+        Try
+            FileOpen(fileNumber, fileName, OpenMode.Input)
+            Do Until EOF(fileNumber)
+                Input(fileNumber, currentRecord)
+                Console.WriteLine(currentRecord)
+            Loop
+            FileClose(fileNumber)
+        Catch notFound As System.IO.FileNotFoundException
+            Console.WriteLine($"Sorry, the file {fileName} was not found")
+        Catch ex As Exception
+            fileNumber = FreeFile()
+            FileOpen(fileNumber, "error.log", OpenMode.Append)
+            Write(fileNumber, ex.GetBaseException)
+            FileClose(fileNumber)
+        End Try
     End Sub
 
     'read all the records in email.txt
@@ -79,13 +83,15 @@ Module FileIOConsoleExample
             currentRecord = Replace(currentRecord, Chr(34), "", 1, -1)
             'clean extra dollar signs
             currentRecord = Replace(currentRecord, "$", "", 1, -1)
+            currentRecord = Replace(currentRecord, ChrW(&HA0), "", 1, -1)
+            currentRecord = Replace(currentRecord, ChrW(&HC2), "", 1, -1)
             customerData = Split(currentRecord, ",")
             'TODO test array length before call to export
             If UBound(customerData) < 3 Then
                 badRecordCount += 1
             Else
                 ReDim Preserve customerData(3)
-                If InStr(customerData(3), ChrW(&HA0)) > 0 Then
+                If InStr(customerData(3), ChrW(&HA0)) > 0 Or InStr(customerData(3), ChrW(&HC2)) > 0 Then
                     Console.WriteLine($"customer {recordCount} may have bad data. See: {customerData(3)}")
                 End If
                 ExportCustomerData(customerData, cleanFileName)
