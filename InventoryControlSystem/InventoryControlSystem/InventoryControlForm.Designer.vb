@@ -40,6 +40,12 @@ Partial Class InventoryControlForm
         Me.ButtonsGroupBox = New System.Windows.Forms.GroupBox()
         Me.OptionsGroupBox = New System.Windows.Forms.GroupBox()
         Me.RecordInfoGroupBox = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.ButtonsGroupBox.SuspendLayout()
         Me.OptionsGroupBox.SuspendLayout()
         Me.RecordInfoGroupBox.SuspendLayout()
@@ -65,14 +71,14 @@ Partial Class InventoryControlForm
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(6, 25)
+        Me.TextBox1.Location = New System.Drawing.Point(94, 25)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(187, 26)
         Me.TextBox1.TabIndex = 0
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(6, 57)
+        Me.TextBox2.Location = New System.Drawing.Point(94, 57)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(187, 26)
         Me.TextBox2.TabIndex = 1
@@ -88,28 +94,28 @@ Partial Class InventoryControlForm
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(6, 121)
+        Me.TextBox3.Location = New System.Drawing.Point(94, 121)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(187, 26)
         Me.TextBox3.TabIndex = 3
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(6, 89)
+        Me.TextBox4.Location = New System.Drawing.Point(94, 89)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(187, 26)
         Me.TextBox4.TabIndex = 2
         '
         'TextBox5
         '
-        Me.TextBox5.Location = New System.Drawing.Point(6, 185)
+        Me.TextBox5.Location = New System.Drawing.Point(94, 185)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(187, 26)
         Me.TextBox5.TabIndex = 5
         '
         'TextBox6
         '
-        Me.TextBox6.Location = New System.Drawing.Point(6, 153)
+        Me.TextBox6.Location = New System.Drawing.Point(94, 153)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(187, 26)
         Me.TextBox6.TabIndex = 4
@@ -205,6 +211,12 @@ Partial Class InventoryControlForm
         '
         'RecordInfoGroupBox
         '
+        Me.RecordInfoGroupBox.Controls.Add(Me.Label5)
+        Me.RecordInfoGroupBox.Controls.Add(Me.Label6)
+        Me.RecordInfoGroupBox.Controls.Add(Me.Label3)
+        Me.RecordInfoGroupBox.Controls.Add(Me.Label4)
+        Me.RecordInfoGroupBox.Controls.Add(Me.Label2)
+        Me.RecordInfoGroupBox.Controls.Add(Me.Label1)
         Me.RecordInfoGroupBox.Controls.Add(Me.TextBox1)
         Me.RecordInfoGroupBox.Controls.Add(Me.TextBox2)
         Me.RecordInfoGroupBox.Controls.Add(Me.TextBox4)
@@ -217,6 +229,60 @@ Partial Class InventoryControlForm
         Me.RecordInfoGroupBox.TabIndex = 0
         Me.RecordInfoGroupBox.TabStop = False
         Me.RecordInfoGroupBox.Text = "Record Info"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(31, 25)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(57, 20)
+        Me.Label1.TabIndex = 6
+        Me.Label1.Text = "Label1"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(31, 57)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(57, 20)
+        Me.Label2.TabIndex = 7
+        Me.Label2.Text = "Label2"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(31, 121)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(57, 20)
+        Me.Label3.TabIndex = 9
+        Me.Label3.Text = "Label3"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(31, 89)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(57, 20)
+        Me.Label4.TabIndex = 8
+        Me.Label4.Text = "Label4"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(31, 185)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(57, 20)
+        Me.Label5.TabIndex = 11
+        Me.Label5.Text = "Label5"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(31, 153)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(57, 20)
+        Me.Label6.TabIndex = 10
+        Me.Label6.Text = "Label6"
         '
         'InventoryControlForm
         '
@@ -255,4 +321,10 @@ Partial Class InventoryControlForm
     Friend WithEvents ButtonsGroupBox As GroupBox
     Friend WithEvents OptionsGroupBox As GroupBox
     Friend WithEvents RecordInfoGroupBox As GroupBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
 End Class
