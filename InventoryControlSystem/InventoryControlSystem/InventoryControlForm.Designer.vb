@@ -22,15 +22,21 @@ Partial Class InventoryControlForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.components = New System.ComponentModel.Container()
+        Me.ExitButton = New System.Windows.Forms.Button()
+        Me.ClearButton = New System.Windows.Forms.Button()
+        Me.DescriptionLabel = New System.Windows.Forms.Label()
+        Me.DescriptionTextBox = New System.Windows.Forms.TextBox()
+        Me.PartNumberLabel = New System.Windows.Forms.Label()
+        Me.PartNumberTextBox = New System.Windows.Forms.TextBox()
+        Me.LocationLabel = New System.Windows.Forms.Label()
+        Me.LocationTextBox = New System.Windows.Forms.TextBox()
+        Me.VendorLabel = New System.Windows.Forms.Label()
+        Me.VendorTextBox = New System.Windows.Forms.TextBox()
+        Me.ManufacturerLabel = New System.Windows.Forms.Label()
+        Me.ManufacturerTextBox = New System.Windows.Forms.TextBox()
+        Me.DataSheetLabel = New System.Windows.Forms.Label()
+        Me.DataSheetTextBox = New System.Windows.Forms.TextBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.CheckBox3 = New System.Windows.Forms.CheckBox()
@@ -40,85 +46,127 @@ Partial Class InventoryControlForm
         Me.ButtonsGroupBox = New System.Windows.Forms.GroupBox()
         Me.OptionsGroupBox = New System.Windows.Forms.GroupBox()
         Me.RecordInfoGroupBox = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.MainToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.ButtonsGroupBox.SuspendLayout()
         Me.OptionsGroupBox.SuspendLayout()
         Me.RecordInfoGroupBox.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Button1
+        'ExitButton
         '
-        Me.Button1.Location = New System.Drawing.Point(278, 25)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(130, 51)
-        Me.Button1.TabIndex = 12
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.ExitButton.Location = New System.Drawing.Point(278, 25)
+        Me.ExitButton.Name = "ExitButton"
+        Me.ExitButton.Size = New System.Drawing.Size(130, 51)
+        Me.ExitButton.TabIndex = 12
+        Me.ExitButton.Text = "E&xit"
+        Me.MainToolTip.SetToolTip(Me.ExitButton, "Click here to close")
+        Me.ExitButton.UseVisualStyleBackColor = True
         '
-        'Button2
+        'ClearButton
         '
-        Me.Button2.Location = New System.Drawing.Point(142, 25)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(130, 51)
-        Me.Button2.TabIndex = 11
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.ClearButton.Location = New System.Drawing.Point(142, 25)
+        Me.ClearButton.Name = "ClearButton"
+        Me.ClearButton.Size = New System.Drawing.Size(130, 51)
+        Me.ClearButton.TabIndex = 11
+        Me.ClearButton.Text = "&Clear"
+        Me.MainToolTip.SetToolTip(Me.ClearButton, "Click here to clear form")
+        Me.ClearButton.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'DescriptionLabel
         '
-        Me.TextBox1.Location = New System.Drawing.Point(94, 25)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(187, 26)
-        Me.TextBox1.TabIndex = 0
+        Me.DescriptionLabel.AutoSize = True
+        Me.DescriptionLabel.Location = New System.Drawing.Point(5, 30)
+        Me.DescriptionLabel.Name = "DescriptionLabel"
+        Me.DescriptionLabel.Size = New System.Drawing.Size(89, 20)
+        Me.DescriptionLabel.TabIndex = 0
+        Me.DescriptionLabel.Text = "Description"
         '
-        'TextBox2
+        'DescriptionTextBox
         '
-        Me.TextBox2.Location = New System.Drawing.Point(94, 57)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(187, 26)
-        Me.TextBox2.TabIndex = 1
+        Me.DescriptionTextBox.Location = New System.Drawing.Point(125, 30)
+        Me.DescriptionTextBox.Name = "DescriptionTextBox"
+        Me.DescriptionTextBox.Size = New System.Drawing.Size(187, 26)
+        Me.DescriptionTextBox.TabIndex = 0
         '
-        'Button3
+        'PartNumberLabel
         '
-        Me.Button3.Location = New System.Drawing.Point(6, 25)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(130, 51)
-        Me.Button3.TabIndex = 10
-        Me.Button3.Text = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.PartNumberLabel.AutoSize = True
+        Me.PartNumberLabel.Location = New System.Drawing.Point(5, 60)
+        Me.PartNumberLabel.Name = "PartNumberLabel"
+        Me.PartNumberLabel.Size = New System.Drawing.Size(51, 20)
+        Me.PartNumberLabel.TabIndex = 1
+        Me.PartNumberLabel.Text = "Part #"
         '
-        'TextBox3
+        'PartNumberTextBox
         '
-        Me.TextBox3.Location = New System.Drawing.Point(94, 121)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(187, 26)
-        Me.TextBox3.TabIndex = 3
+        Me.PartNumberTextBox.Location = New System.Drawing.Point(125, 60)
+        Me.PartNumberTextBox.Name = "PartNumberTextBox"
+        Me.PartNumberTextBox.Size = New System.Drawing.Size(187, 26)
+        Me.PartNumberTextBox.TabIndex = 1
         '
-        'TextBox4
+        'LocationLabel
         '
-        Me.TextBox4.Location = New System.Drawing.Point(94, 89)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(187, 26)
-        Me.TextBox4.TabIndex = 2
+        Me.LocationLabel.AutoSize = True
+        Me.LocationLabel.Location = New System.Drawing.Point(5, 90)
+        Me.LocationLabel.Name = "LocationLabel"
+        Me.LocationLabel.Size = New System.Drawing.Size(70, 20)
+        Me.LocationLabel.TabIndex = 2
+        Me.LocationLabel.Text = "Location"
         '
-        'TextBox5
+        'LocationTextBox
         '
-        Me.TextBox5.Location = New System.Drawing.Point(94, 185)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(187, 26)
-        Me.TextBox5.TabIndex = 5
+        Me.LocationTextBox.Location = New System.Drawing.Point(125, 90)
+        Me.LocationTextBox.Name = "LocationTextBox"
+        Me.LocationTextBox.Size = New System.Drawing.Size(187, 26)
+        Me.LocationTextBox.TabIndex = 2
         '
-        'TextBox6
+        'VendorLabel
         '
-        Me.TextBox6.Location = New System.Drawing.Point(94, 153)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(187, 26)
-        Me.TextBox6.TabIndex = 4
+        Me.VendorLabel.AutoSize = True
+        Me.VendorLabel.Location = New System.Drawing.Point(5, 120)
+        Me.VendorLabel.Name = "VendorLabel"
+        Me.VendorLabel.Size = New System.Drawing.Size(61, 20)
+        Me.VendorLabel.TabIndex = 3
+        Me.VendorLabel.Text = "Vendor"
+        '
+        'VendorTextBox
+        '
+        Me.VendorTextBox.Location = New System.Drawing.Point(125, 120)
+        Me.VendorTextBox.Name = "VendorTextBox"
+        Me.VendorTextBox.Size = New System.Drawing.Size(187, 26)
+        Me.VendorTextBox.TabIndex = 3
+        '
+        'ManufacturerLabel
+        '
+        Me.ManufacturerLabel.AutoSize = True
+        Me.ManufacturerLabel.Location = New System.Drawing.Point(5, 150)
+        Me.ManufacturerLabel.Name = "ManufacturerLabel"
+        Me.ManufacturerLabel.Size = New System.Drawing.Size(104, 20)
+        Me.ManufacturerLabel.TabIndex = 4
+        Me.ManufacturerLabel.Text = "Manufacturer"
+        '
+        'ManufacturerTextBox
+        '
+        Me.ManufacturerTextBox.Location = New System.Drawing.Point(125, 150)
+        Me.ManufacturerTextBox.Name = "ManufacturerTextBox"
+        Me.ManufacturerTextBox.Size = New System.Drawing.Size(187, 26)
+        Me.ManufacturerTextBox.TabIndex = 4
+        '
+        'DataSheetLabel
+        '
+        Me.DataSheetLabel.AutoSize = True
+        Me.DataSheetLabel.Location = New System.Drawing.Point(5, 180)
+        Me.DataSheetLabel.Name = "DataSheetLabel"
+        Me.DataSheetLabel.Size = New System.Drawing.Size(87, 20)
+        Me.DataSheetLabel.TabIndex = 5
+        Me.DataSheetLabel.Text = "DataSheet"
+        '
+        'DataSheetTextBox
+        '
+        Me.DataSheetTextBox.Location = New System.Drawing.Point(125, 180)
+        Me.DataSheetTextBox.Name = "DataSheetTextBox"
+        Me.DataSheetTextBox.Size = New System.Drawing.Size(187, 26)
+        Me.DataSheetTextBox.TabIndex = 5
         '
         'CheckBox1
         '
@@ -185,9 +233,8 @@ Partial Class InventoryControlForm
         '
         'ButtonsGroupBox
         '
-        Me.ButtonsGroupBox.Controls.Add(Me.Button3)
-        Me.ButtonsGroupBox.Controls.Add(Me.Button2)
-        Me.ButtonsGroupBox.Controls.Add(Me.Button1)
+        Me.ButtonsGroupBox.Controls.Add(Me.ClearButton)
+        Me.ButtonsGroupBox.Controls.Add(Me.ExitButton)
         Me.ButtonsGroupBox.Location = New System.Drawing.Point(372, 341)
         Me.ButtonsGroupBox.Name = "ButtonsGroupBox"
         Me.ButtonsGroupBox.Size = New System.Drawing.Size(418, 97)
@@ -211,78 +258,24 @@ Partial Class InventoryControlForm
         '
         'RecordInfoGroupBox
         '
-        Me.RecordInfoGroupBox.Controls.Add(Me.Label5)
-        Me.RecordInfoGroupBox.Controls.Add(Me.Label6)
-        Me.RecordInfoGroupBox.Controls.Add(Me.Label3)
-        Me.RecordInfoGroupBox.Controls.Add(Me.Label4)
-        Me.RecordInfoGroupBox.Controls.Add(Me.Label2)
-        Me.RecordInfoGroupBox.Controls.Add(Me.Label1)
-        Me.RecordInfoGroupBox.Controls.Add(Me.TextBox1)
-        Me.RecordInfoGroupBox.Controls.Add(Me.TextBox2)
-        Me.RecordInfoGroupBox.Controls.Add(Me.TextBox4)
-        Me.RecordInfoGroupBox.Controls.Add(Me.TextBox3)
-        Me.RecordInfoGroupBox.Controls.Add(Me.TextBox6)
-        Me.RecordInfoGroupBox.Controls.Add(Me.TextBox5)
+        Me.RecordInfoGroupBox.Controls.Add(Me.DataSheetLabel)
+        Me.RecordInfoGroupBox.Controls.Add(Me.ManufacturerLabel)
+        Me.RecordInfoGroupBox.Controls.Add(Me.VendorLabel)
+        Me.RecordInfoGroupBox.Controls.Add(Me.LocationLabel)
+        Me.RecordInfoGroupBox.Controls.Add(Me.PartNumberLabel)
+        Me.RecordInfoGroupBox.Controls.Add(Me.DescriptionLabel)
+        Me.RecordInfoGroupBox.Controls.Add(Me.DescriptionTextBox)
+        Me.RecordInfoGroupBox.Controls.Add(Me.PartNumberTextBox)
+        Me.RecordInfoGroupBox.Controls.Add(Me.VendorTextBox)
+        Me.RecordInfoGroupBox.Controls.Add(Me.LocationTextBox)
+        Me.RecordInfoGroupBox.Controls.Add(Me.DataSheetTextBox)
+        Me.RecordInfoGroupBox.Controls.Add(Me.ManufacturerTextBox)
         Me.RecordInfoGroupBox.Location = New System.Drawing.Point(12, 12)
         Me.RecordInfoGroupBox.Name = "RecordInfoGroupBox"
         Me.RecordInfoGroupBox.Size = New System.Drawing.Size(338, 323)
         Me.RecordInfoGroupBox.TabIndex = 0
         Me.RecordInfoGroupBox.TabStop = False
         Me.RecordInfoGroupBox.Text = "Record Info"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(31, 25)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(57, 20)
-        Me.Label1.TabIndex = 6
-        Me.Label1.Text = "Label1"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(31, 57)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(57, 20)
-        Me.Label2.TabIndex = 7
-        Me.Label2.Text = "Label2"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(31, 121)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(57, 20)
-        Me.Label3.TabIndex = 9
-        Me.Label3.Text = "Label3"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(31, 89)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(57, 20)
-        Me.Label4.TabIndex = 8
-        Me.Label4.Text = "Label4"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(31, 185)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(57, 20)
-        Me.Label5.TabIndex = 11
-        Me.Label5.Text = "Label5"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(31, 153)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(57, 20)
-        Me.Label6.TabIndex = 10
-        Me.Label6.Text = "Label6"
         '
         'InventoryControlForm
         '
@@ -293,7 +286,7 @@ Partial Class InventoryControlForm
         Me.Controls.Add(Me.OptionsGroupBox)
         Me.Controls.Add(Me.ButtonsGroupBox)
         Me.Name = "InventoryControlForm"
-        Me.Text = "Form1"
+        Me.Text = "Parts Inventory"
         Me.ButtonsGroupBox.ResumeLayout(False)
         Me.OptionsGroupBox.ResumeLayout(False)
         Me.OptionsGroupBox.PerformLayout()
@@ -303,15 +296,14 @@ Partial Class InventoryControlForm
 
     End Sub
 
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Button3 As Button
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents ExitButton As Button
+    Friend WithEvents ClearButton As Button
+    Friend WithEvents DescriptionTextBox As TextBox
+    Friend WithEvents PartNumberTextBox As TextBox
+    Friend WithEvents LocationTextBox As TextBox
+    Friend WithEvents VendorTextBox As TextBox
+    Friend WithEvents ManufacturerTextBox As TextBox
+    Friend WithEvents DataSheetTextBox As TextBox
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents CheckBox2 As CheckBox
     Friend WithEvents CheckBox3 As CheckBox
@@ -321,10 +313,11 @@ Partial Class InventoryControlForm
     Friend WithEvents ButtonsGroupBox As GroupBox
     Friend WithEvents OptionsGroupBox As GroupBox
     Friend WithEvents RecordInfoGroupBox As GroupBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
+    Friend WithEvents DataSheetLabel As Label
+    Friend WithEvents ManufacturerLabel As Label
+    Friend WithEvents VendorLabel As Label
+    Friend WithEvents LocationLabel As Label
+    Friend WithEvents PartNumberLabel As Label
+    Friend WithEvents DescriptionLabel As Label
+    Friend WithEvents MainToolTip As ToolTip
 End Class
