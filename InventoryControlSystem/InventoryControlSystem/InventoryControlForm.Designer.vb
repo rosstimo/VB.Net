@@ -47,6 +47,7 @@ Partial Class InventoryControlForm
         Me.OptionsGroupBox = New System.Windows.Forms.GroupBox()
         Me.RecordInfoGroupBox = New System.Windows.Forms.GroupBox()
         Me.MainToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.ButtonsGroupBox.SuspendLayout()
         Me.OptionsGroupBox.SuspendLayout()
         Me.RecordInfoGroupBox.SuspendLayout()
@@ -277,6 +278,10 @@ Partial Class InventoryControlForm
         Me.RecordInfoGroupBox.TabStop = False
         Me.RecordInfoGroupBox.Text = "Record Info"
         '
+        'OpenFileDialog
+        '
+        Me.OpenFileDialog.FileName = "OpenFileDialog1"
+        '
         'InventoryControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -285,7 +290,9 @@ Partial Class InventoryControlForm
         Me.Controls.Add(Me.RecordInfoGroupBox)
         Me.Controls.Add(Me.OptionsGroupBox)
         Me.Controls.Add(Me.ButtonsGroupBox)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "InventoryControlForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Parts Inventory"
         Me.ButtonsGroupBox.ResumeLayout(False)
         Me.OptionsGroupBox.ResumeLayout(False)
@@ -320,4 +327,5 @@ Partial Class InventoryControlForm
     Friend WithEvents PartNumberLabel As Label
     Friend WithEvents DescriptionLabel As Label
     Friend WithEvents MainToolTip As ToolTip
+    Friend WithEvents OpenFileDialog As OpenFileDialog
 End Class
