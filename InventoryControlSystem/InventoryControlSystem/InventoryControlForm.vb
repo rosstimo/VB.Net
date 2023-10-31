@@ -11,8 +11,18 @@
             FileOpen(fileNumber, fileName, OpenMode.Input)
 
         Catch ioException As IO.IOException
-            OpenFileDialog.ShowDialog()
+            With OpenFileDialog
+                .Title = "Open File"
+                .InitialDirectory = "..\..\"
+                .FileName = ""
+                .Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*"
+                .FilterIndex = 1
+                .RestoreDirectory = True
+                .ShowDialog()
+            End With
         Catch ex As Exception
+
+
 
         End Try
 
