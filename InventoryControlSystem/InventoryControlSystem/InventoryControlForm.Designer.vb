@@ -48,6 +48,7 @@ Partial Class InventoryControlForm
         Me.RecordInfoGroupBox = New System.Windows.Forms.GroupBox()
         Me.MainToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
+        Me.UpdateButton = New System.Windows.Forms.Button()
         Me.ButtonsGroupBox.SuspendLayout()
         Me.OptionsGroupBox.SuspendLayout()
         Me.RecordInfoGroupBox.SuspendLayout()
@@ -234,6 +235,7 @@ Partial Class InventoryControlForm
         '
         'ButtonsGroupBox
         '
+        Me.ButtonsGroupBox.Controls.Add(Me.UpdateButton)
         Me.ButtonsGroupBox.Controls.Add(Me.ClearButton)
         Me.ButtonsGroupBox.Controls.Add(Me.ExitButton)
         Me.ButtonsGroupBox.Location = New System.Drawing.Point(372, 341)
@@ -282,6 +284,16 @@ Partial Class InventoryControlForm
         '
         Me.OpenFileDialog.FileName = "OpenFileDialog1"
         '
+        'UpdateButton
+        '
+        Me.UpdateButton.Location = New System.Drawing.Point(6, 25)
+        Me.UpdateButton.Name = "UpdateButton"
+        Me.UpdateButton.Size = New System.Drawing.Size(130, 51)
+        Me.UpdateButton.TabIndex = 13
+        Me.UpdateButton.Text = "&Update"
+        Me.MainToolTip.SetToolTip(Me.UpdateButton, "Click here to clear form")
+        Me.UpdateButton.UseVisualStyleBackColor = True
+        '
         'InventoryControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -328,4 +340,5 @@ Partial Class InventoryControlForm
     Friend WithEvents DescriptionLabel As Label
     Friend WithEvents MainToolTip As ToolTip
     Friend WithEvents OpenFileDialog As OpenFileDialog
+    Friend WithEvents UpdateButton As Button
 End Class

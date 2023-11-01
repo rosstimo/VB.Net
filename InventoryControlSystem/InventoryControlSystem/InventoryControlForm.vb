@@ -30,6 +30,39 @@
 
     End Sub
 
+    Private Function ValidateUserInput() As Boolean
+        Dim valid As Boolean = True
+        Dim message As String
+        'If DataSheetTextBox.Text = "" Then
+        '    MsgBox("DataSheet is required")
+        '    DataSheetTextBox.Focus()
+        'End If
+
+        'If ManufacturerTextBox.Text = "" Then
+        '    MsgBox("Manufacturer is required")
+        '    ManufacturerTextBox.Focus()
+        'End If
+
+        'If VendorTextBox.Text = "" Then
+        '    MsgBox("Vendor is required")
+        '    VendorTextBox.Focus()
+        'End If
+
+        For Each thingy As TextBox In RecordInfoGroupBox.Controls.OfType(Of TextBox)()
+            MsgBox(thingy.ToString)
+            If valid Then
+                thingy.Focus()
+            End If
+            If thingy.Text = "" Then
+                valid = False
+                message &= $"{thingy.Name} is required{vbCrLf}"
+            End If
+
+        Next
+        MsgBox(message)
+        Return False
+    End Function
+
     ' Event Handlers Below
     Private Sub InventoryControlForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         SetDefaults()
@@ -38,5 +71,10 @@
 
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
+    End Sub
+
+    Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
+        ValidateUserInput()
+
     End Sub
 End Class
