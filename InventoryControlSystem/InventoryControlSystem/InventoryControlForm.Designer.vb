@@ -44,11 +44,11 @@ Partial Class InventoryControlForm
         Me.RadioButton5 = New System.Windows.Forms.RadioButton()
         Me.RadioButton6 = New System.Windows.Forms.RadioButton()
         Me.ButtonsGroupBox = New System.Windows.Forms.GroupBox()
+        Me.UpdateButton = New System.Windows.Forms.Button()
         Me.OptionsGroupBox = New System.Windows.Forms.GroupBox()
         Me.RecordInfoGroupBox = New System.Windows.Forms.GroupBox()
         Me.MainToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
-        Me.UpdateButton = New System.Windows.Forms.Button()
         Me.ButtonsGroupBox.SuspendLayout()
         Me.OptionsGroupBox.SuspendLayout()
         Me.RecordInfoGroupBox.SuspendLayout()
@@ -244,6 +244,16 @@ Partial Class InventoryControlForm
         Me.ButtonsGroupBox.TabIndex = 2
         Me.ButtonsGroupBox.TabStop = False
         '
+        'UpdateButton
+        '
+        Me.UpdateButton.Location = New System.Drawing.Point(6, 25)
+        Me.UpdateButton.Name = "UpdateButton"
+        Me.UpdateButton.Size = New System.Drawing.Size(130, 51)
+        Me.UpdateButton.TabIndex = 13
+        Me.UpdateButton.Text = "&Update"
+        Me.MainToolTip.SetToolTip(Me.UpdateButton, "Click here to clear form")
+        Me.UpdateButton.UseVisualStyleBackColor = True
+        '
         'OptionsGroupBox
         '
         Me.OptionsGroupBox.Controls.Add(Me.CheckBox1)
@@ -269,10 +279,10 @@ Partial Class InventoryControlForm
         Me.RecordInfoGroupBox.Controls.Add(Me.DescriptionLabel)
         Me.RecordInfoGroupBox.Controls.Add(Me.DescriptionTextBox)
         Me.RecordInfoGroupBox.Controls.Add(Me.PartNumberTextBox)
-        Me.RecordInfoGroupBox.Controls.Add(Me.VendorTextBox)
         Me.RecordInfoGroupBox.Controls.Add(Me.LocationTextBox)
-        Me.RecordInfoGroupBox.Controls.Add(Me.DataSheetTextBox)
+        Me.RecordInfoGroupBox.Controls.Add(Me.VendorTextBox)
         Me.RecordInfoGroupBox.Controls.Add(Me.ManufacturerTextBox)
+        Me.RecordInfoGroupBox.Controls.Add(Me.DataSheetTextBox)
         Me.RecordInfoGroupBox.Location = New System.Drawing.Point(12, 12)
         Me.RecordInfoGroupBox.Name = "RecordInfoGroupBox"
         Me.RecordInfoGroupBox.Size = New System.Drawing.Size(338, 323)
@@ -283,16 +293,6 @@ Partial Class InventoryControlForm
         'OpenFileDialog
         '
         Me.OpenFileDialog.FileName = "OpenFileDialog1"
-        '
-        'UpdateButton
-        '
-        Me.UpdateButton.Location = New System.Drawing.Point(6, 25)
-        Me.UpdateButton.Name = "UpdateButton"
-        Me.UpdateButton.Size = New System.Drawing.Size(130, 51)
-        Me.UpdateButton.TabIndex = 13
-        Me.UpdateButton.Text = "&Update"
-        Me.MainToolTip.SetToolTip(Me.UpdateButton, "Click here to clear form")
-        Me.UpdateButton.UseVisualStyleBackColor = True
         '
         'InventoryControlForm
         '
