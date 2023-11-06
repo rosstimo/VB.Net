@@ -49,6 +49,7 @@ Partial Class InventoryControlForm
         Me.RecordInfoGroupBox = New System.Windows.Forms.GroupBox()
         Me.MainToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
+        Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
         Me.ButtonsGroupBox.SuspendLayout()
         Me.OptionsGroupBox.SuspendLayout()
         Me.RecordInfoGroupBox.SuspendLayout()
@@ -341,4 +342,5 @@ Partial Class InventoryControlForm
     Friend WithEvents MainToolTip As ToolTip
     Friend WithEvents OpenFileDialog As OpenFileDialog
     Friend WithEvents UpdateButton As Button
+    Friend WithEvents SaveFileDialog As SaveFileDialog
 End Class
