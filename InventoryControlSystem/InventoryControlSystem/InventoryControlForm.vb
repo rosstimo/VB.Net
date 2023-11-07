@@ -67,6 +67,25 @@ Public Class InventoryControlForm
         Return isValid
     End Function
 
+    Sub AppendRecordToFile(newRecord As String, fileName As String) 'TODO pass record as array of strings, list could contain arrays or lists
+        Dim fileNumber As Integer = FreeFile()
+        Dim temp() As String
+        temp = Split(newRecord, ",")
+
+        Try
+            FileOpen(fileNumber, fileName, OpenMode.Append)
+            'iterate through the record array
+            'append each field to the file
+            For Each field In temp
+                Write(fileNumber, field)
+            Next
+            WriteLine(fileNumber)
+            FileClose(fileNumber)
+        Catch ex As Exception
+            MsgBox("in file append, got: " & vbCrLf & ex.Message)
+        End Try
+    End Sub
+
     ' Event Handlers Below
     Private Sub InventoryControlForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         SetDefaults()
@@ -83,7 +102,8 @@ Public Class InventoryControlForm
             'TODO add record to file
             'back up file first use of the day
             'work with new file or temp file
-            '
+            AppendRecordToFile(inventoryItems.Last, "..\..\temp.txt")
+
         End If
     End Sub
 End Class
