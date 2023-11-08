@@ -4,7 +4,7 @@
 '[ ] Update Record
 Public Class InventoryControlForm
 
-    Private inventoryItems As New List(Of String)
+    Private inventoryItems As New List(Of String())
     Private fileName As String = "..\..\partsInventory.txt"
 
     Sub SetDefaults()
@@ -15,19 +15,23 @@ Public Class InventoryControlForm
         'Dim fileName As String = "..\..\partsInventory.txt"
         Dim fileNumber As Integer = FreeFile()
         Dim currentField As String = ""
-        Dim currentRecord As String = ""
+        Dim currentRecord() As String
 
         Try
             FileOpen(fileNumber, Me.fileName, OpenMode.Input)
             Do Until EOF(fileNumber)
-                For i = 0 To 6
-                    Input(fileNumber, currentField)
-                    currentRecord &= currentField & ","
-                Next
-                Me.inventoryItems.Add(currentRecord)
-                currentRecord = ""
-            Loop
+                'For i = 0 To 6
+                '    Input(fileNumber, currentField)
+                '    currentRecord &= currentField & ","
+                'Next
+                'currentRecord = Split(LineInput(fileNumber), ",")
 
+                currentRecord = Split(Replace(LineInput(fileNumber), Chr(34), ""), ",")
+                'TODO eliminate last empty array element
+                Me.inventoryItems.Add(currentRecord)
+                'currentRecord = ""
+            Loop
+            FileClose(fileNumber)
         Catch ioException As IO.IOException
             With OpenFileDialog
                 .Title = "Open File"
@@ -67,19 +71,20 @@ Public Class InventoryControlForm
         Return isValid
     End Function
 
-    Sub AppendRecordToFile(newRecord As String, fileName As String) 'TODO pass record as array of strings, list could contain arrays or lists
+    Sub AppendRecordToFile(newRecord() As String, fileName As String) 'TODO pass record as array of strings, list could contain arrays or lists
         Dim fileNumber As Integer = FreeFile()
-        Dim temp() As String
-        temp = Split(newRecord, ",")
+        'Dim temp() As String
+        'temp = Split(newRecord, ",")
 
         Try
             FileOpen(fileNumber, fileName, OpenMode.Append)
             'iterate through the record array
             'append each field to the file
-            For Each field In temp
-                Write(fileNumber, field)
-            Next
+            'For Each field In temp
+            '    Write(fileNumber, field)
+            'Next
             WriteLine(fileNumber)
+            Write(fileNumber, newRecord)
             FileClose(fileNumber)
         Catch ex As Exception
             MsgBox("in file append, got: " & vbCrLf & ex.Message)
@@ -98,10 +103,12 @@ Public Class InventoryControlForm
 
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
         If ValidateUserInput() Then
-            inventoryItems.Add($"{"12345"},{DescriptionTextBox.Text},{PartNumberTextBox.Text},{LocationTextBox.Text},{VendorTextBox.Text},{ManufacturerTextBox.Text},{DataSheetTextBox.Text}")
+            'inventoryItems.Add($"{"12345"},{DescriptionTextBox.Text},{PartNumberTextBox.Text},{LocationTextBox.Text},{VendorTextBox.Text},{ManufacturerTextBox.Text},{DataSheetTextBox.Text}")
             'TODO add record to file
             'back up file first use of the day
             'work with new file or temp file
+            Dim temp() = {"54321", DescriptionTextBox.Text, PartNumberTextBox.Text, LocationTextBox.Text, VendorTextBox.Text, ManufacturerTextBox.Text, DataSheetTextBox.Text}
+            Me.inventoryItems.Add(temp)
             AppendRecordToFile(inventoryItems.Last, "..\..\temp.txt")
 
         End If
