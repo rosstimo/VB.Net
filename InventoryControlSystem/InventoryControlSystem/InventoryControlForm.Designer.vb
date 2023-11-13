@@ -380,7 +380,7 @@ Partial Class InventoryControlForm
         'AboutTopMenuItem
         '
         Me.AboutTopMenuItem.Name = "AboutTopMenuItem"
-        Me.AboutTopMenuItem.Size = New System.Drawing.Size(164, 34)
+        Me.AboutTopMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.AboutTopMenuItem.Text = "&About"
         '
         'InventoryControlForm

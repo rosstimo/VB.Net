@@ -117,4 +117,9 @@ Public Class InventoryControlForm
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click, ClearTopMenuItem.Click, ClearContextMenuItem.Click
         SetDefaults()
     End Sub
+
+    Private Sub AboutTopMenuItem_Click(sender As Object, e As EventArgs) Handles AboutTopMenuItem.Click
+        Me.Hide()
+        AboutForm.Show()
+    End Sub
 End Class
