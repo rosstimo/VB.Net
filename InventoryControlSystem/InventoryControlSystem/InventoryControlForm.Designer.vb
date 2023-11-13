@@ -47,12 +47,25 @@ Partial Class InventoryControlForm
         Me.UpdateButton = New System.Windows.Forms.Button()
         Me.OptionsGroupBox = New System.Windows.Forms.GroupBox()
         Me.RecordInfoGroupBox = New System.Windows.Forms.GroupBox()
+        Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.UpdateContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
+        Me.TopMenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UpdateTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ButtonsGroupBox.SuspendLayout()
         Me.OptionsGroupBox.SuspendLayout()
         Me.RecordInfoGroupBox.SuspendLayout()
+        Me.ContextMenuStrip.SuspendLayout()
+        Me.TopMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'ExitButton
@@ -263,15 +276,16 @@ Partial Class InventoryControlForm
         Me.OptionsGroupBox.Controls.Add(Me.CheckBox3)
         Me.OptionsGroupBox.Controls.Add(Me.RadioButton5)
         Me.OptionsGroupBox.Controls.Add(Me.RadioButton4)
-        Me.OptionsGroupBox.Location = New System.Drawing.Point(372, 12)
+        Me.OptionsGroupBox.Location = New System.Drawing.Point(356, 68)
         Me.OptionsGroupBox.Name = "OptionsGroupBox"
-        Me.OptionsGroupBox.Size = New System.Drawing.Size(416, 323)
+        Me.OptionsGroupBox.Size = New System.Drawing.Size(416, 216)
         Me.OptionsGroupBox.TabIndex = 1
         Me.OptionsGroupBox.TabStop = False
         Me.OptionsGroupBox.Text = "Options"
         '
         'RecordInfoGroupBox
         '
+        Me.RecordInfoGroupBox.ContextMenuStrip = Me.ContextMenuStrip
         Me.RecordInfoGroupBox.Controls.Add(Me.DataSheetLabel)
         Me.RecordInfoGroupBox.Controls.Add(Me.ManufacturerLabel)
         Me.RecordInfoGroupBox.Controls.Add(Me.VendorLabel)
@@ -284,16 +298,90 @@ Partial Class InventoryControlForm
         Me.RecordInfoGroupBox.Controls.Add(Me.VendorTextBox)
         Me.RecordInfoGroupBox.Controls.Add(Me.ManufacturerTextBox)
         Me.RecordInfoGroupBox.Controls.Add(Me.DataSheetTextBox)
-        Me.RecordInfoGroupBox.Location = New System.Drawing.Point(12, 12)
+        Me.RecordInfoGroupBox.Location = New System.Drawing.Point(12, 68)
         Me.RecordInfoGroupBox.Name = "RecordInfoGroupBox"
         Me.RecordInfoGroupBox.Size = New System.Drawing.Size(338, 323)
         Me.RecordInfoGroupBox.TabIndex = 0
         Me.RecordInfoGroupBox.TabStop = False
         Me.RecordInfoGroupBox.Text = "Record Info"
         '
+        'ContextMenuStrip
+        '
+        Me.ContextMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.ContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UpdateContextMenuItem, Me.ClearContextMenuItem})
+        Me.ContextMenuStrip.Name = "ContextMenuStrip"
+        Me.ContextMenuStrip.Size = New System.Drawing.Size(143, 68)
+        '
+        'UpdateContextMenuItem
+        '
+        Me.UpdateContextMenuItem.Name = "UpdateContextMenuItem"
+        Me.UpdateContextMenuItem.Size = New System.Drawing.Size(142, 32)
+        Me.UpdateContextMenuItem.Text = "&Update"
+        '
+        'ClearContextMenuItem
+        '
+        Me.ClearContextMenuItem.Name = "ClearContextMenuItem"
+        Me.ClearContextMenuItem.Size = New System.Drawing.Size(142, 32)
+        Me.ClearContextMenuItem.Text = "&Clear"
+        '
         'OpenFileDialog
         '
         Me.OpenFileDialog.FileName = "OpenFileDialog1"
+        '
+        'TopMenuStrip
+        '
+        Me.TopMenuStrip.GripMargin = New System.Windows.Forms.Padding(2, 2, 0, 2)
+        Me.TopMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.TopMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.TopMenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.TopMenuStrip.Name = "TopMenuStrip"
+        Me.TopMenuStrip.Size = New System.Drawing.Size(800, 33)
+        Me.TopMenuStrip.TabIndex = 3
+        Me.TopMenuStrip.Text = "MenuStrip1"
+        '
+        'FileToolStripMenuItem
+        '
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UpdateTopMenuItem, Me.ClearTopMenuItem, Me.ExitTopMenuItem})
+        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(54, 29)
+        Me.FileToolStripMenuItem.Text = "&File"
+        '
+        'UpdateTopMenuItem
+        '
+        Me.UpdateTopMenuItem.Name = "UpdateTopMenuItem"
+        Me.UpdateTopMenuItem.Size = New System.Drawing.Size(172, 34)
+        Me.UpdateTopMenuItem.Text = "&Update"
+        '
+        'ClearTopMenuItem
+        '
+        Me.ClearTopMenuItem.Name = "ClearTopMenuItem"
+        Me.ClearTopMenuItem.Size = New System.Drawing.Size(172, 34)
+        Me.ClearTopMenuItem.Text = "&Clear"
+        '
+        'ExitTopMenuItem
+        '
+        Me.ExitTopMenuItem.Name = "ExitTopMenuItem"
+        Me.ExitTopMenuItem.Size = New System.Drawing.Size(172, 34)
+        Me.ExitTopMenuItem.Text = "&Exit"
+        '
+        'EditToolStripMenuItem
+        '
+        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(58, 29)
+        Me.EditToolStripMenuItem.Text = "&Edit"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutTopMenuItem})
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 29)
+        Me.HelpToolStripMenuItem.Text = "&Help"
+        '
+        'AboutTopMenuItem
+        '
+        Me.AboutTopMenuItem.Name = "AboutTopMenuItem"
+        Me.AboutTopMenuItem.Size = New System.Drawing.Size(164, 34)
+        Me.AboutTopMenuItem.Text = "&About"
         '
         'InventoryControlForm
         '
@@ -303,7 +391,9 @@ Partial Class InventoryControlForm
         Me.Controls.Add(Me.RecordInfoGroupBox)
         Me.Controls.Add(Me.OptionsGroupBox)
         Me.Controls.Add(Me.ButtonsGroupBox)
+        Me.Controls.Add(Me.TopMenuStrip)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.MainMenuStrip = Me.TopMenuStrip
         Me.Name = "InventoryControlForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Parts Inventory"
@@ -312,7 +402,11 @@ Partial Class InventoryControlForm
         Me.OptionsGroupBox.PerformLayout()
         Me.RecordInfoGroupBox.ResumeLayout(False)
         Me.RecordInfoGroupBox.PerformLayout()
+        Me.ContextMenuStrip.ResumeLayout(False)
+        Me.TopMenuStrip.ResumeLayout(False)
+        Me.TopMenuStrip.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -343,4 +437,15 @@ Partial Class InventoryControlForm
     Friend WithEvents OpenFileDialog As OpenFileDialog
     Friend WithEvents UpdateButton As Button
     Friend WithEvents SaveFileDialog As SaveFileDialog
+    Friend WithEvents TopMenuStrip As MenuStrip
+    Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents UpdateTopMenuItem As ToolStripMenuItem
+    Friend WithEvents ClearTopMenuItem As ToolStripMenuItem
+    Friend WithEvents ExitTopMenuItem As ToolStripMenuItem
+    Friend WithEvents AboutTopMenuItem As ToolStripMenuItem
+    Friend WithEvents ContextMenuStrip As ContextMenuStrip
+    Friend WithEvents UpdateContextMenuItem As ToolStripMenuItem
+    Friend WithEvents ClearContextMenuItem As ToolStripMenuItem
 End Class

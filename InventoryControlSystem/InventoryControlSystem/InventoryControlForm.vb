@@ -97,11 +97,11 @@ Public Class InventoryControlForm
         LoadInventoryFile()
     End Sub
 
-    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click, ExitTopMenuItem.Click
         Me.Close()
     End Sub
 
-    Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
+    Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click, UpdateTopMenuItem.Click, UpdateContextMenuItem.Click
         If ValidateUserInput() Then
             'inventoryItems.Add($"{"12345"},{DescriptionTextBox.Text},{PartNumberTextBox.Text},{LocationTextBox.Text},{VendorTextBox.Text},{ManufacturerTextBox.Text},{DataSheetTextBox.Text}")
             'TODO add record to file
@@ -112,5 +112,9 @@ Public Class InventoryControlForm
             AppendRecordToFile(inventoryItems.Last, "..\..\temp.txt")
 
         End If
+    End Sub
+
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click, ClearTopMenuItem.Click, ClearContextMenuItem.Click
+        SetDefaults()
     End Sub
 End Class
