@@ -22,10 +22,82 @@ Partial Class GraphicsForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container()
+        Me.DisplayGroupBox = New System.Windows.Forms.GroupBox()
+        Me.ButtonGroupBox = New System.Windows.Forms.GroupBox()
+        Me.DrawingPictureBox = New System.Windows.Forms.PictureBox()
+        Me.ClearButton = New System.Windows.Forms.Button()
+        Me.ExitButton = New System.Windows.Forms.Button()
+        Me.DisplayGroupBox.SuspendLayout()
+        Me.ButtonGroupBox.SuspendLayout()
+        CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'DisplayGroupBox
+        '
+        Me.DisplayGroupBox.Controls.Add(Me.DrawingPictureBox)
+        Me.DisplayGroupBox.Location = New System.Drawing.Point(12, 12)
+        Me.DisplayGroupBox.Name = "DisplayGroupBox"
+        Me.DisplayGroupBox.Size = New System.Drawing.Size(776, 311)
+        Me.DisplayGroupBox.TabIndex = 0
+        Me.DisplayGroupBox.TabStop = False
+        '
+        'ButtonGroupBox
+        '
+        Me.ButtonGroupBox.Controls.Add(Me.ExitButton)
+        Me.ButtonGroupBox.Controls.Add(Me.ClearButton)
+        Me.ButtonGroupBox.Location = New System.Drawing.Point(12, 329)
+        Me.ButtonGroupBox.Name = "ButtonGroupBox"
+        Me.ButtonGroupBox.Size = New System.Drawing.Size(776, 109)
+        Me.ButtonGroupBox.TabIndex = 0
+        Me.ButtonGroupBox.TabStop = False
+        '
+        'DrawingPictureBox
+        '
+        Me.DrawingPictureBox.Location = New System.Drawing.Point(6, 14)
+        Me.DrawingPictureBox.Name = "DrawingPictureBox"
+        Me.DrawingPictureBox.Size = New System.Drawing.Size(764, 291)
+        Me.DrawingPictureBox.TabIndex = 0
+        Me.DrawingPictureBox.TabStop = False
+        '
+        'ClearButton
+        '
+        Me.ClearButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.ClearButton.Location = New System.Drawing.Point(480, 25)
+        Me.ClearButton.Name = "ClearButton"
+        Me.ClearButton.Size = New System.Drawing.Size(142, 78)
+        Me.ClearButton.TabIndex = 0
+        Me.ClearButton.Text = "&Clear"
+        Me.ClearButton.UseVisualStyleBackColor = True
+        '
+        'ExitButton
+        '
+        Me.ExitButton.Location = New System.Drawing.Point(628, 25)
+        Me.ExitButton.Name = "ExitButton"
+        Me.ExitButton.Size = New System.Drawing.Size(142, 78)
+        Me.ExitButton.TabIndex = 1
+        Me.ExitButton.Text = "E&xit"
+        Me.ExitButton.UseVisualStyleBackColor = True
+        '
+        'GraphicsForm
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.ClearButton
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Text = "Form1"
+        Me.Controls.Add(Me.ButtonGroupBox)
+        Me.Controls.Add(Me.DisplayGroupBox)
+        Me.Name = "GraphicsForm"
+        Me.Text = "Draw App"
+        Me.DisplayGroupBox.ResumeLayout(False)
+        Me.ButtonGroupBox.ResumeLayout(False)
+        CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
     End Sub
 
+    Friend WithEvents DisplayGroupBox As GroupBox
+    Friend WithEvents DrawingPictureBox As PictureBox
+    Friend WithEvents ButtonGroupBox As GroupBox
+    Friend WithEvents ExitButton As Button
+    Friend WithEvents ClearButton As Button
 End Class
