@@ -12,6 +12,11 @@ Public Class GraphicsForm
         Me.Backgroundcolor = Color.LightBlue
 
         DrawingPictureBox.BackColor = Me.backgroundColor
+
+        'clear picture box
+        DrawingPictureBox.Refresh()
+
+
     End Sub
 
     Sub drawLine(x1%, y1%, x2%, y2%)
@@ -36,7 +41,6 @@ Public Class GraphicsForm
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         SetDefaults()
-        drawLine(0, 0, 100, 100)
     End Sub
 
     Private Sub DrawingPictureBox_MouseMove(sender As Object, e As MouseEventArgs) Handles DrawingPictureBox.MouseMove, DrawingPictureBox.MouseDown
