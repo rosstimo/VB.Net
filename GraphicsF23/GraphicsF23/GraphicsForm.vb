@@ -1,16 +1,25 @@
-﻿Public Class GraphicsForm
+﻿
+Option Strict On
+Option Explicit On
 
+
+Public Class GraphicsForm
+    Dim backgroundColor As Color
+    Dim foregroundColor As Color
 
     Sub SetDefaults()
-        DrawingPictureBox.BackColor = Color.LightBlue
+        Me.foregroundColor = Color.Black
+        Me.Backgroundcolor = Color.LightBlue
+
+        DrawingPictureBox.BackColor = Me.backgroundColor
     End Sub
 
-    Sub drawLine()
+    Sub drawLine(x1%, y1%, x2%, y2%)
         'initialize graphics object and set drawing surface to picture box
         Dim g As Graphics = DrawingPictureBox.CreateGraphics
-        Dim pen As New Pen(Color.Black)
+        Dim pen As New Pen(Me.foregroundColor)
 
-        g.DrawLine(pen, 10, 10, DrawingPictureBox.Width - 10, DrawingPictureBox.Height - 10)
+        g.DrawLine(pen, x1, y1, x2, y2)
 
         pen.Dispose()
         g.Dispose()
@@ -27,10 +36,21 @@
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         SetDefaults()
-        drawLine()
+        drawLine(0, 0, 100, 100)
     End Sub
 
     Private Sub DrawingPictureBox_MouseMove(sender As Object, e As MouseEventArgs) Handles DrawingPictureBox.MouseMove
+        Static oldx%, oldy%
+        Me.Text = $"({e.X},{e.Y}) Button: {e.Button.ToString}"
+
+        drawLine(oldx, oldy, e.X, e.Y)
+
+        oldx = e.X
+        oldy = e.Y
+
+    End Sub
+
+    Private Sub DrawingPictureBox_MouseDown(sender As Object, e As MouseEventArgs) Handles DrawingPictureBox.MouseDown
         Me.Text = $"({e.X},{e.Y}) Button: {e.Button.ToString}"
     End Sub
 End Class
