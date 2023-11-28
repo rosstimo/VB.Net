@@ -39,18 +39,19 @@ Public Class GraphicsForm
         drawLine(0, 0, 100, 100)
     End Sub
 
-    Private Sub DrawingPictureBox_MouseMove(sender As Object, e As MouseEventArgs) Handles DrawingPictureBox.MouseMove
+    Private Sub DrawingPictureBox_MouseMove(sender As Object, e As MouseEventArgs) Handles DrawingPictureBox.MouseMove, DrawingPictureBox.MouseDown
+
         Static oldx%, oldy%
         Me.Text = $"({e.X},{e.Y}) Button: {e.Button.ToString}"
 
-        drawLine(oldx, oldy, e.X, e.Y)
+        Select Case True
+            Case e.Button = MouseButtons.Left
+                drawLine(oldx, oldy, e.X, e.Y)
+        End Select
 
         oldx = e.X
         oldy = e.Y
 
     End Sub
 
-    Private Sub DrawingPictureBox_MouseDown(sender As Object, e As MouseEventArgs) Handles DrawingPictureBox.MouseDown
-        Me.Text = $"({e.X},{e.Y}) Button: {e.Button.ToString}"
-    End Sub
 End Class
