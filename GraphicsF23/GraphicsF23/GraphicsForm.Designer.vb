@@ -23,7 +23,6 @@ Partial Class GraphicsForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.DisplayGroupBox = New System.Windows.Forms.GroupBox()
         Me.DrawingPictureBox = New System.Windows.Forms.PictureBox()
         Me.ButtonGroupBox = New System.Windows.Forms.GroupBox()
         Me.ExitButton = New System.Windows.Forms.Button()
@@ -33,27 +32,17 @@ Partial Class GraphicsForm
         Me.ColorContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ForegroundContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BackgroundContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DisplayGroupBox.SuspendLayout()
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ButtonGroupBox.SuspendLayout()
         Me.ContextMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
-        'DisplayGroupBox
-        '
-        Me.DisplayGroupBox.Controls.Add(Me.DrawingPictureBox)
-        Me.DisplayGroupBox.Location = New System.Drawing.Point(12, 12)
-        Me.DisplayGroupBox.Name = "DisplayGroupBox"
-        Me.DisplayGroupBox.Size = New System.Drawing.Size(776, 311)
-        Me.DisplayGroupBox.TabIndex = 0
-        Me.DisplayGroupBox.TabStop = False
-        '
         'DrawingPictureBox
         '
         Me.DrawingPictureBox.ContextMenuStrip = Me.ContextMenuStrip
-        Me.DrawingPictureBox.Location = New System.Drawing.Point(6, 14)
+        Me.DrawingPictureBox.Location = New System.Drawing.Point(12, 32)
         Me.DrawingPictureBox.Name = "DrawingPictureBox"
-        Me.DrawingPictureBox.Size = New System.Drawing.Size(764, 291)
+        Me.DrawingPictureBox.Size = New System.Drawing.Size(776, 291)
         Me.DrawingPictureBox.TabIndex = 0
         Me.DrawingPictureBox.TabStop = False
         '
@@ -118,20 +107,17 @@ Partial Class GraphicsForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ClearButton
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.DrawingPictureBox)
         Me.Controls.Add(Me.ButtonGroupBox)
-        Me.Controls.Add(Me.DisplayGroupBox)
         Me.Name = "GraphicsForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Draw App"
-        Me.DisplayGroupBox.ResumeLayout(False)
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ButtonGroupBox.ResumeLayout(False)
         Me.ContextMenuStrip.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents DisplayGroupBox As GroupBox
     Friend WithEvents DrawingPictureBox As PictureBox
     Friend WithEvents ButtonGroupBox As GroupBox
     Friend WithEvents ExitButton As Button
