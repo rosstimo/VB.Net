@@ -39,26 +39,31 @@ Partial Class GraphicsForm
         '
         'DrawingPictureBox
         '
+        Me.DrawingPictureBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DrawingPictureBox.ContextMenuStrip = Me.ContextMenuStrip
         Me.DrawingPictureBox.Location = New System.Drawing.Point(12, 32)
         Me.DrawingPictureBox.Name = "DrawingPictureBox"
-        Me.DrawingPictureBox.Size = New System.Drawing.Size(776, 291)
+        Me.DrawingPictureBox.Size = New System.Drawing.Size(752, 420)
         Me.DrawingPictureBox.TabIndex = 0
         Me.DrawingPictureBox.TabStop = False
         '
         'ButtonGroupBox
         '
+        Me.ButtonGroupBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ButtonGroupBox.Controls.Add(Me.ExitButton)
         Me.ButtonGroupBox.Controls.Add(Me.ClearButton)
-        Me.ButtonGroupBox.Location = New System.Drawing.Point(12, 329)
+        Me.ButtonGroupBox.Location = New System.Drawing.Point(457, 458)
         Me.ButtonGroupBox.Name = "ButtonGroupBox"
-        Me.ButtonGroupBox.Size = New System.Drawing.Size(776, 109)
+        Me.ButtonGroupBox.Size = New System.Drawing.Size(307, 128)
         Me.ButtonGroupBox.TabIndex = 0
         Me.ButtonGroupBox.TabStop = False
         '
         'ExitButton
         '
-        Me.ExitButton.Location = New System.Drawing.Point(628, 25)
+        Me.ExitButton.Location = New System.Drawing.Point(154, 25)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(142, 78)
         Me.ExitButton.TabIndex = 1
@@ -68,7 +73,7 @@ Partial Class GraphicsForm
         'ClearButton
         '
         Me.ClearButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.ClearButton.Location = New System.Drawing.Point(480, 25)
+        Me.ClearButton.Location = New System.Drawing.Point(6, 25)
         Me.ClearButton.Name = "ClearButton"
         Me.ClearButton.Size = New System.Drawing.Size(142, 78)
         Me.ClearButton.TabIndex = 0
@@ -106,9 +111,10 @@ Partial Class GraphicsForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ClearButton
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(776, 598)
         Me.Controls.Add(Me.DrawingPictureBox)
         Me.Controls.Add(Me.ButtonGroupBox)
+        Me.MinimumSize = New System.Drawing.Size(500, 500)
         Me.Name = "GraphicsForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Draw App"

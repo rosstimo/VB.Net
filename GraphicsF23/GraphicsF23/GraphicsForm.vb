@@ -55,7 +55,7 @@ Public Class GraphicsForm
     End Sub
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
-        'SetDefaults()
+        SetDefaults()
 
     End Sub
 
