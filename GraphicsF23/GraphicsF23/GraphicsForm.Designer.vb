@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class GraphicsForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,16 +20,23 @@ Partial Class GraphicsForm
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.DisplayGroupBox = New System.Windows.Forms.GroupBox()
         Me.DrawingPictureBox = New System.Windows.Forms.PictureBox()
         Me.ButtonGroupBox = New System.Windows.Forms.GroupBox()
         Me.ExitButton = New System.Windows.Forms.Button()
         Me.ClearButton = New System.Windows.Forms.Button()
+        Me.ColorDialog = New System.Windows.Forms.ColorDialog()
+        Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ColorContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ForegroundContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BackgroundContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DisplayGroupBox.SuspendLayout()
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ButtonGroupBox.SuspendLayout()
+        Me.ContextMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'DisplayGroupBox
@@ -43,6 +50,7 @@ Partial Class GraphicsForm
         '
         'DrawingPictureBox
         '
+        Me.DrawingPictureBox.ContextMenuStrip = Me.ContextMenuStrip
         Me.DrawingPictureBox.Location = New System.Drawing.Point(6, 14)
         Me.DrawingPictureBox.Name = "DrawingPictureBox"
         Me.DrawingPictureBox.Size = New System.Drawing.Size(764, 291)
@@ -78,6 +86,32 @@ Partial Class GraphicsForm
         Me.ClearButton.Text = "&Clear"
         Me.ClearButton.UseVisualStyleBackColor = True
         '
+        'ContextMenuStrip
+        '
+        Me.ContextMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.ContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ColorContextMenuItem})
+        Me.ContextMenuStrip.Name = "ContextMenuStrip"
+        Me.ContextMenuStrip.Size = New System.Drawing.Size(193, 36)
+        '
+        'ColorContextMenuItem
+        '
+        Me.ColorContextMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ForegroundContextMenuItem, Me.BackgroundContextMenuItem})
+        Me.ColorContextMenuItem.Name = "ColorContextMenuItem"
+        Me.ColorContextMenuItem.Size = New System.Drawing.Size(240, 32)
+        Me.ColorContextMenuItem.Text = "Change Color"
+        '
+        'ForegroundContextMenuItem
+        '
+        Me.ForegroundContextMenuItem.Name = "ForegroundContextMenuItem"
+        Me.ForegroundContextMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.ForegroundContextMenuItem.Text = "Foreground"
+        '
+        'BackgroundContextMenuItem
+        '
+        Me.BackgroundContextMenuItem.Name = "BackgroundContextMenuItem"
+        Me.BackgroundContextMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.BackgroundContextMenuItem.Text = "Background"
+        '
         'GraphicsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -92,6 +126,7 @@ Partial Class GraphicsForm
         Me.DisplayGroupBox.ResumeLayout(False)
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ButtonGroupBox.ResumeLayout(False)
+        Me.ContextMenuStrip.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -101,4 +136,9 @@ Partial Class GraphicsForm
     Friend WithEvents ButtonGroupBox As GroupBox
     Friend WithEvents ExitButton As Button
     Friend WithEvents ClearButton As Button
+    Friend WithEvents ColorDialog As ColorDialog
+    Friend WithEvents ContextMenuStrip As ContextMenuStrip
+    Friend WithEvents ColorContextMenuItem As ToolStripMenuItem
+    Friend WithEvents ForegroundContextMenuItem As ToolStripMenuItem
+    Friend WithEvents BackgroundContextMenuItem As ToolStripMenuItem
 End Class

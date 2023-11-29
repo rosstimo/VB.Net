@@ -30,6 +30,21 @@ Public Class GraphicsForm
         g.Dispose()
     End Sub
 
+    ''' <summary>
+    ''' Change the foreground color by default. 
+    ''' Change th background color by setting second parameter to False.
+    ''' </summary>
+    ''' <param name="newColor">newColor as Color</param>
+    ''' <param name="foreground">True = foreground, False = background</param>
+    Sub ChangeColor(newColor As Color, Optional foreground As Boolean = True)
+        If foreground Then
+            Me.foregroundColor = newColor
+        Else
+            Me.backgroundColor = newColor
+            DrawingPictureBox.BackColor = Me.backgroundColor
+        End If
+    End Sub
+
     ' Event handlers below
     Private Sub GraphicsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SetDefaults()
@@ -40,7 +55,8 @@ Public Class GraphicsForm
     End Sub
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
-        SetDefaults()
+        'SetDefaults()
+
     End Sub
 
     Private Sub DrawingPictureBox_MouseMove(sender As Object, e As MouseEventArgs) Handles DrawingPictureBox.MouseMove, DrawingPictureBox.MouseDown
@@ -58,4 +74,13 @@ Public Class GraphicsForm
 
     End Sub
 
+    Private Sub ForegroundContextMenuItem_Click(sender As Object, e As EventArgs) Handles ForegroundContextMenuItem.Click
+        ColorDialog.ShowDialog()
+        ChangeColor(ColorDialog.Color)
+    End Sub
+
+    Private Sub BackgroundContextMenuItem_Click(sender As Object, e As EventArgs) Handles BackgroundContextMenuItem.Click
+        ColorDialog.ShowDialog()
+        ChangeColor(ColorDialog.Color, False)
+    End Sub
 End Class
