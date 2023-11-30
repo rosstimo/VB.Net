@@ -2,6 +2,7 @@
 Option Strict On
 Option Explicit On
 
+Imports System.Math
 
 Public Class GraphicsForm
     Dim backgroundColor As Color
@@ -45,6 +46,20 @@ Public Class GraphicsForm
         End If
     End Sub
 
+    Sub DrawWave()
+        Dim oldX%, oldY%, newX%, newY%
+        Dim ymax% = DrawingPictureBox.Height \ 2
+
+        For i# = 0 To DrawingPictureBox.Width Step DrawingPictureBox.Width / 360
+            newX = CInt((DrawingPictureBox.Width / 360) * i)
+            newY = CInt(ymax * Sin(((i * PI) / 180) + PI) + ymax)
+            drawLine(oldX, oldY, newX, newY)
+            oldX = newX
+            oldY = newY
+        Next
+
+    End Sub
+
     ' Event handlers below
     Private Sub GraphicsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SetDefaults()
@@ -55,8 +70,8 @@ Public Class GraphicsForm
     End Sub
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
-        SetDefaults()
-
+        'SetDefaults()
+        DrawWave()
     End Sub
 
     Private Sub DrawingPictureBox_MouseMove(sender As Object, e As MouseEventArgs) Handles DrawingPictureBox.MouseMove, DrawingPictureBox.MouseDown
