@@ -22,7 +22,7 @@
 
 
     Private Sub GraphicsForm_Click(sender As Object, e As EventArgs) Handles Me.Click
-        'DrawLine()
+        DrawLine()
         'DrawRectangle()
         'DrawElipse()
         'ColorDialog1.ShowDialog()
@@ -30,11 +30,13 @@
 
     Sub DrawLine()
         'instantiate new graphics object and tell it what to draw on 
-        Dim g As Graphics = Me.CreateGraphics
+        'Dim g As Graphics = Me.CreateGraphics
+        Dim g As Graphics = PictureBox1.CreateGraphics
         Dim pen As New Pen(Color.Black)
 
-        g.DrawLine(pen, 100, 100, 200, 200)
+        'g.DrawLine(pen, 100, 100, 200, 200)
         'g.DrawLine(pen, 0, 0, Me.Width, Me.Height)
+        g.DrawLine(pen, 0, 0, PictureBox1.Width, PictureBox1.Height)
 
         pen.Dispose()
         g.Dispose()
@@ -88,5 +90,9 @@
 
     Private Sub GraphicsForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         currentColor = Color.Black
+    End Sub
+
+    Private Sub PictureBox1_MouseHover(sender As Object, e As EventArgs) Handles PictureBox1.MouseHover
+        PictureBox1.Cursor = Cursors.Cross
     End Sub
 End Class

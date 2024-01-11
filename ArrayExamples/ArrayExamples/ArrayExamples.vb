@@ -1,10 +1,11 @@
 ﻿Module ArrayExamples
 
     Sub Main()
+        'Dim test As Array()
         'SimpleArray()
-        'TwoDimensionArrayLoop()
+        TwoDimensionArrayLoop()
         'ArrayBoundries()
-        DeclareWithData()
+        'DeclareWithData()
 
         Console.ReadLine()
 
@@ -21,7 +22,7 @@
         names(4) = "Sally"
 
         'exception
-        'names(6) = "xxx"
+        names(6) = "xxx"
 
         'access an element
         Console.WriteLine(names(2))
