@@ -54,6 +54,8 @@ Module Operators
         Console.WriteLine($"You have {num} {fruit}(s)")
 
         Console.Read() 'wait for user response here
+
+
     End Sub
 
 End Module
