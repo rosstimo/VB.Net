@@ -21,6 +21,8 @@ Module SecondModule
         Randomize()
         'determine the random number within the range
         'randomNumber = CInt(Rnd() * range) ' test shows not random at max and min
+        range += 1 'floor causes max to no longer be inclusive
+        randomNumber = CInt(Math.Floor(CDbl(Rnd() * range)))
 
         'add to min to assure it is between min and max
         randomNumber += min
@@ -33,9 +35,9 @@ Module SecondModule
 
         Dim counts(16) As Integer
 
-        For i = 1 To 10000
+        For i = 1 To 1000000
 
-            counts(RandomNumberBetween(3, 11)) += 1
+            counts(RandomNumberBetween(5, 10)) += 1
 
         Next
 
