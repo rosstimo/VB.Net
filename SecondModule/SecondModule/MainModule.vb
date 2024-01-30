@@ -1,7 +1,10 @@
 ﻿Module MainModule
 
     Sub Main()
-        SayHello()
+        'SayHello()
+        'SayGoodBye()
+        'SecondModule.test = "the test"
+        SecondModule.testRandom()
         Console.Read()
     End Sub
 
