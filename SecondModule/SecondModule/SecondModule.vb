@@ -14,6 +14,12 @@ Module SecondModule
         Console.WriteLine("Shhhhh.....")
     End Sub
 
+    ''' <summary>
+    ''' Returns a random integer between max and min
+    ''' </summary>
+    ''' <param name="min"></param>
+    ''' <param name="max"></param>
+    ''' <returns></returns>
     Public Function RandomNumberBetween(min As Integer, max As Integer) As Integer
         Dim randomNumber As Integer
         'determine the absolute range or difference from min to max 
@@ -44,5 +50,18 @@ Module SecondModule
         Console.WriteLine("ding")
 
     End Sub
+
+
+    Function RunningTotal(Optional newValue As Integer = 0, Optional clear As Boolean = False) As Integer
+        Static _runningTotal As Integer
+
+        If clear Then
+            _runningTotal = 0
+        Else
+            _runningTotal += newValue
+        End If
+
+        Return _runningTotal
+    End Function
 
 End Module
