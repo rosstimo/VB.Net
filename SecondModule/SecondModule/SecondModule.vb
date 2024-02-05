@@ -64,4 +64,29 @@ Module SecondModule
         Return _runningTotal
     End Function
 
+    Sub MakeATable(dimensions As Integer)
+        Dim temp$ = "X |"
+
+        Console.Clear()
+
+        For row = 1 To dimensions
+            For column = 1 To dimensions
+                temp = CStr(row + column) & " |"
+                Console.Write(temp.PadLeft(5))
+            Next
+            Console.WriteLine()
+        Next
+        'Console.Beep()
+
+    End Sub
+
+    Sub PlayTune()
+
+        Console.Beep(392, 500) 'G4'
+        Console.Beep(440, 500) 'A4'
+        Console.Beep(349, 750) 'F4'
+        Console.Beep(196, 750) 'G3'
+        Console.Beep(262, 900) 'C4'
+
+    End Sub
 End Module
