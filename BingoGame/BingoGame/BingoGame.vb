@@ -3,6 +3,7 @@
 
 Option Strict On
 Option Explicit On
+Option Compare Text
 
 
 'TODO
@@ -17,8 +18,17 @@ Module BingoGame
 
 
     Sub Main()
-        Display()
-        Console.Read()
+        Dim userInput As String
+        Dim tracker(14, 4) As Boolean ' each letter has 15 unique numbers
+
+        Do
+            NewGame()
+            Display()
+            Console.WriteLine("prompt")
+            userInput = Console.ReadLine()
+
+
+        Loop Until userInput = "q"
     End Sub
 
     Sub NewGame()
@@ -29,9 +39,21 @@ Module BingoGame
 
     End Sub
 
+    Sub UpdateTracker()
+
+    End Sub
+
     Sub Display()
 
         Dim temp(14, 4) As Boolean
+
+        Dim header() = {"B", "I", "N", "G", "O"}
+        Console.Clear()
+
+        For Each letter In header
+            Console.Write(letter.PadLeft(2).PadRight(4))
+        Next
+        Console.WriteLine()
 
         temp(7, 3) = True
         temp(3, 4) = True
