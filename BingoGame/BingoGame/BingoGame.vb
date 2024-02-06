@@ -1,9 +1,12 @@
-﻿'Bingo Game
-'Spring 2024
-
-Option Strict On
+﻿Option Strict On
 Option Explicit On
 Option Compare Text
+'Bingo Game
+'Spring 2024
+
+Imports System.Runtime.Remoting.Channels
+
+
 
 
 'TODO
@@ -20,12 +23,21 @@ Module BingoGame
     Sub Main()
         Dim userInput As String
         Dim tracker(14, 4) As Boolean ' each letter has 15 unique numbers
+        Dim ballsDrawn As Integer = 0
+        Dim message As String = "Welcome To Bingo!!"
 
+        NewGame()
         Do
-            NewGame()
-            Display()
-            Console.WriteLine("prompt")
+            Display(tracker)
+            Console.WriteLine(message)
             userInput = Console.ReadLine()
+            If ballsDrawn >= 75 Then
+                message = "All balls have been drawn..."
+            Else
+                DrawBall(tracker)
+                ballsDrawn += 1
+                message = "Press Enter to draw, N for new game, or Q to quit."
+            End If
 
 
         Loop Until userInput = "q"
@@ -35,17 +47,38 @@ Module BingoGame
 
     End Sub
 
-    Sub DrawBall()
+    Sub DrawBall(ByRef tracker(,) As Boolean)
+        Dim currentLetter As Integer
+        Dim currentNumber As Integer
+
+        'loop until we get a ball that has not yet been drawn
+        'then mark the new ball as drawn
+        Do
+            'potential endless loope here
+            currentNumber = RandomNumberZeroTo(14)
+            currentLetter = RandomNumberZeroTo(4)
+        Loop While tracker(currentNumber, currentLetter)
+
+        tracker(currentNumber, currentLetter) = True
 
     End Sub
+
+    Private Function RandomNumberZeroTo(max As Integer) As Integer
+        Dim _randomNumber As Integer
+        Randomize()
+        _randomNumber = CInt(Math.Floor((Rnd() * (max + 1))))
+        Return _randomNumber
+    End Function
 
     Sub UpdateTracker()
-
+        ' not needed??
     End Sub
 
-    Sub Display()
+    Sub Display(tracker(,) As Boolean)
 
         Dim temp(14, 4) As Boolean
+
+        temp = tracker
 
         Dim header() = {"B", "I", "N", "G", "O"}
         Console.Clear()
@@ -55,8 +88,6 @@ Module BingoGame
         Next
         Console.WriteLine()
 
-        temp(7, 3) = True
-        temp(3, 4) = True
 
         For row = 0 To 14
             For column = 0 To 4
