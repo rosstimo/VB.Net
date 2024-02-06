@@ -11,9 +11,9 @@ Imports System.Runtime.Remoting.Channels
 
 'TODO
 '[ ] Start New Game
-'[ ] Draw One Ball
-'[ ] Track drawn balls
-'[ ] Display drawn balls on the console
+'[x] Draw One Ball
+'[x] Track drawn balls
+'[x] Display drawn balls on the console
 
 
 
@@ -26,25 +26,30 @@ Module BingoGame
         Dim ballsDrawn As Integer = 0
         Dim message As String = "Welcome To Bingo!!"
 
-        NewGame()
+        NewGame(tracker)
         Do
             Display(tracker)
             Console.WriteLine(message)
             userInput = Console.ReadLine()
-            If ballsDrawn >= 75 Then
-                message = "All balls have been drawn..."
+            If userInput = "n" Then
+                NewGame(tracker)
             Else
-                DrawBall(tracker)
-                ballsDrawn += 1
-                message = "Press Enter to draw, N for new game, or Q to quit."
+                If ballsDrawn >= 75 Then
+                    message = "All balls have been drawn..."
+                Else
+                    DrawBall(tracker)
+                    ballsDrawn += 1
+                    message = "Press Enter to draw, N for new game, or Q to quit."
+                End If
             End If
+
 
 
         Loop Until userInput = "q"
     End Sub
 
-    Sub NewGame()
-
+    Sub NewGame(ByRef tracker(,) As Boolean)
+        ReDim tracker(14, 4)
     End Sub
 
     Sub DrawBall(ByRef tracker(,) As Boolean)
@@ -92,7 +97,7 @@ Module BingoGame
         For row = 0 To 14
             For column = 0 To 4
                 If temp(row, column) Then
-                    Console.Write($" X |")
+                    Console.Write($" {(column * 15) + (row + 1)} |")
                 Else
                     Console.Write("   |")
                 End If
