@@ -31,7 +31,14 @@ Module FileIOConsoleExample
         'append record to the end of an existing file
         'creates it if it does not exist
         FileOpen(1, "..\..\AppendMe.txt", OpenMode.Append)
-        Write(1, "Follow the white rabbit...")
+        'Write(1, "Follow the white rabbit...")
+        Write(1, False)
+        Write(1, True)
+        Write(1, DateTime.Now)
+        Write(1, 42)
+        Write(1, 0.12345)
+
+
         FileClose(1)
 
     End Sub
@@ -57,7 +64,7 @@ Module FileIOConsoleExample
         Dim currentRecord As String
         Try
 
-            FileOpen(1, "ShinyNewFile.txt", OpenMode.Input)
+            FileOpen(1, "..\..\AppendMe.txt", OpenMode.Input) '"ShinyNewFile.txt"
 
             Do Until EOF(1)
                 Input(1, currentRecord)
