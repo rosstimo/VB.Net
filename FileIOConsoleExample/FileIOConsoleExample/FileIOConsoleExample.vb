@@ -84,13 +84,29 @@ Module FileIOConsoleExample
 
     Sub ReadCustomerData()
         Dim currentRecord As String
+        Dim firstName$, lastName$, city$, email$
+        Dim temp() As String
+
         Try
             FileOpen(1, "..\..\email.txt", OpenMode.Input)
 
             Do Until EOF(1)
-                Input(1, currentRecord)
+                Input(1, firstName)
+                Input(1, lastName)
+                Input(1, city)
+                Input(1, email)
+                'Input(1, currentRecord)
                 'currentRecord = LineInput(1)
-                Console.WriteLine(currentRecord)
+                'Console.WriteLine(currentRecord)
+
+                'temp = Split(firstName, "$$")
+                'firstName = temp(1)
+
+                Console.WriteLine($"First Name: {firstName}")
+                Console.WriteLine($"Last Name: {lastName}")
+                Console.WriteLine($"City: {city}")
+                Console.WriteLine($"Email: {email}")
+                Console.ReadLine()
             Loop
 
             FileClose(1)
