@@ -12,7 +12,8 @@ Module FileIOConsoleExample
         'WriteAsOutPut()
         'AppendToExistingFile()
         'ReadOneRecordFromFile()
-        ReadAllRecordsFromFile()
+        'ReadAllRecordsFromFile()
+        ReadCustomerData()
         Console.Read()
     End Sub
 
@@ -80,6 +81,24 @@ Module FileIOConsoleExample
         End Try
     End Sub
 
+
+    Sub ReadCustomerData()
+        Dim currentRecord As String
+        Try
+            FileOpen(1, "..\..\email.txt", OpenMode.Input)
+
+            Do Until EOF(1)
+                Input(1, currentRecord)
+                'currentRecord = LineInput(1)
+                Console.WriteLine(currentRecord)
+            Loop
+
+            FileClose(1)
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
 
 
 End Module

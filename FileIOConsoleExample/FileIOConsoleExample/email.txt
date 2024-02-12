@@ -1,5 +1,4 @@
-﻿"",
-"$$James,Smith,Ammon,JamesSmith@aol.com",
+﻿"$$James,Smith,Ammon,JamesSmith@aol.com",
 "$$John,Johnson,Boise,JohnJohnson@gmail.com",
 "$$Robert,Williams,Caldwell,RobertWilliams@hotmail.com",
 "$$Michael,Brown ,Chubbuck,MichaelBrown @yahoo.com",
