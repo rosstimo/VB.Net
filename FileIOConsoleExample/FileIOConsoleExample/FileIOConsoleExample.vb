@@ -5,7 +5,7 @@ Option Strict On
 Module FileIOConsoleExample
 
     Sub Main()
-
+        Dim junk As String
         'WriteAsOutPut()
         'WriteAsOutPut()
         'WriteAsOutPut()
@@ -13,7 +13,13 @@ Module FileIOConsoleExample
         'AppendToExistingFile()
         'ReadOneRecordFromFile()
         'ReadAllRecordsFromFile()
-        ReadCustomerData()
+
+        For i = 0 To 254
+            Console.WriteLine($"{i}: {ChrW(i)}")
+            'junk &= $"{i}: {ChrW(i)}" & vbNewLine
+        Next
+        'MsgBox(junk)
+        'ReadCustomerData()
         Console.Read()
     End Sub
 
@@ -88,25 +94,39 @@ Module FileIOConsoleExample
         Dim temp() As String
 
         Try
-            FileOpen(1, "..\..\email.txt", OpenMode.Input)
+            FileOpen(1, "..\..\UserData.txt", OpenMode.Input)
 
             Do Until EOF(1)
-                Input(1, firstName)
-                Input(1, lastName)
-                Input(1, city)
-                Input(1, email)
+                'Input(1, firstName)
+                'Input(1, lastName)
+                'Input(1, city)
+                'Input(1, email)
                 'Input(1, currentRecord)
-                'currentRecord = LineInput(1)
-                'Console.WriteLine(currentRecord)
+                'Input(1, currentRecord)
+                currentRecord = LineInput(1)
+                'Console.Write($"Current Record: {currentRecord}")
 
-                'temp = Split(firstName, "$$")
-                'firstName = temp(1)
+                temp = Split(currentRecord, ",")
+                firstName = temp(0)
+                lastName = temp(1)
+                city = temp(2)
+                email = temp(3)
+
+                temp = Split(firstName, "$$")
+                firstName = temp(1)
+
+                email = Replace(email, Chr(34), "")
+                email = Replace(email, " ", "")
+                If InStr(email, " ") > 0 Then
+                    MsgBox($"{email}, {Asc(" ")}")
+                    ' Asc(" ")
+                End If
 
                 Console.WriteLine($"First Name: {firstName}")
                 Console.WriteLine($"Last Name: {lastName}")
                 Console.WriteLine($"City: {city}")
                 Console.WriteLine($"Email: {email}")
-                Console.ReadLine()
+                'Console.ReadLine()
             Loop
 
             FileClose(1)
