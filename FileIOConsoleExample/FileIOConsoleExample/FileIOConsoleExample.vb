@@ -14,12 +14,12 @@ Module FileIOConsoleExample
         'ReadOneRecordFromFile()
         'ReadAllRecordsFromFile()
 
-        For i = 0 To 254
-            Console.WriteLine($"{i}: {ChrW(i)}")
-            'junk &= $"{i}: {ChrW(i)}" & vbNewLine
-        Next
+        'For i = 0 To 254
+        '    Console.WriteLine($"{i}: {ChrW(i)}")
+        '    'junk &= $"{i}: {ChrW(i)}" & vbNewLine
+        'Next
         'MsgBox(junk)
-        'ReadCustomerData()
+        ReadCustomerData()
         Console.Read()
     End Sub
 
@@ -87,11 +87,15 @@ Module FileIOConsoleExample
         End Try
     End Sub
 
-
+    'TODO
+    'write clean file
+    'video stop customer data
+    'add phone, street addr, customer ID number
     Sub ReadCustomerData()
         Dim currentRecord As String
         Dim firstName$, lastName$, city$, email$
         Dim temp() As String
+        Dim customerID As Integer = 62000000
 
         Try
             FileOpen(1, "..\..\UserData.txt", OpenMode.Input)
@@ -106,22 +110,37 @@ Module FileIOConsoleExample
                 currentRecord = LineInput(1)
                 'Console.Write($"Current Record: {currentRecord}")
 
+
+                'read each line and parse fields manually
                 temp = Split(currentRecord, ",")
                 firstName = temp(0)
                 lastName = temp(1)
                 city = temp(2)
                 email = temp(3)
 
+                'clean name field
                 temp = Split(firstName, "$$")
                 firstName = temp(1)
 
-                email = Replace(email, Chr(34), "")
-                email = Replace(email, " ", "")
-                If InStr(email, " ") > 0 Then
-                    MsgBox($"{email}, {Asc(" ")}")
-                    ' Asc(" ")
-                End If
+                'clean lastName field
+                lastName = Replace(lastName, Chr(34), "")
+                lastName = Replace(lastName, Chr(160), "")
+                lastName = Replace(lastName, Chr(194), "")
 
+                'clean email field
+                email = Replace(email, Chr(34), "")
+                email = Replace(email, Chr(160), "")
+                email = Replace(email, Chr(194), "")
+
+
+                'If InStr(email, " ") > 0 Then
+                '    MsgBox($"{email}, {Asc(" ")}")
+                '    ' Asc(" ")
+                'End If
+                customerID += 1
+                'first, last, street, city, state, zip, email, phone, customer ID#, current balance
+                temp = {firstName, lastName, "", city, "", "", email, "", CStr(customerID), ""}
+                AppendCustomerRecord("..\..\QuickStopDB.txt", temp)
                 Console.WriteLine($"First Name: {firstName}")
                 Console.WriteLine($"Last Name: {lastName}")
                 Console.WriteLine($"City: {city}")
@@ -136,5 +155,19 @@ Module FileIOConsoleExample
 
     End Sub
 
+    Sub AppendCustomerRecord(fileName As String, customerRecord() As String)
+        Dim fileNumber As Integer = FreeFile()
+
+        Try
+            FileOpen(fileNumber, fileName, OpenMode.Append)
+            For i = LBound(customerRecord) To UBound(customerRecord)
+                Write(fileNumber, customerRecord(i))
+            Next
+            FileClose(fileNumber)
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
 
 End Module
