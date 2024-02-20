@@ -33,8 +33,8 @@ Partial Class ExampleForm
         Me.SubmitButton.Location = New System.Drawing.Point(416, 400)
         Me.SubmitButton.Name = "SubmitButton"
         Me.SubmitButton.Size = New System.Drawing.Size(197, 93)
-        Me.SubmitButton.TabIndex = 0
-        Me.SubmitButton.Text = "Submit"
+        Me.SubmitButton.TabIndex = 1
+        Me.SubmitButton.Text = "&Submit"
         Me.SubmitButton.UseVisualStyleBackColor = True
         '
         'UserInputLabel
@@ -43,7 +43,7 @@ Partial Class ExampleForm
         Me.UserInputLabel.Location = New System.Drawing.Point(12, 15)
         Me.UserInputLabel.Name = "UserInputLabel"
         Me.UserInputLabel.Size = New System.Drawing.Size(84, 20)
-        Me.UserInputLabel.TabIndex = 1
+        Me.UserInputLabel.TabIndex = 0
         Me.UserInputLabel.Text = "User Input"
         '
         'UserInputTextBox
@@ -51,27 +51,30 @@ Partial Class ExampleForm
         Me.UserInputTextBox.Location = New System.Drawing.Point(102, 12)
         Me.UserInputTextBox.Name = "UserInputTextBox"
         Me.UserInputTextBox.Size = New System.Drawing.Size(345, 26)
-        Me.UserInputTextBox.TabIndex = 2
+        Me.UserInputTextBox.TabIndex = 0
         '
         'ExitButton
         '
         Me.ExitButton.Location = New System.Drawing.Point(619, 400)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(197, 93)
-        Me.ExitButton.TabIndex = 3
-        Me.ExitButton.Text = "Exit"
+        Me.ExitButton.TabIndex = 2
+        Me.ExitButton.Text = "E&xit"
         Me.ExitButton.UseVisualStyleBackColor = True
         '
         'ExampleForm
         '
+        Me.AcceptButton = Me.SubmitButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.ExitButton
         Me.ClientSize = New System.Drawing.Size(828, 505)
         Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.UserInputTextBox)
         Me.Controls.Add(Me.UserInputLabel)
         Me.Controls.Add(Me.SubmitButton)
         Me.Name = "ExampleForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Windows Form Example"
         Me.ResumeLayout(False)
         Me.PerformLayout()
