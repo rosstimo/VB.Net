@@ -34,12 +34,12 @@ Partial Class ExampleForm
         Me.RadioButton5 = New System.Windows.Forms.RadioButton()
         Me.RadioButton6 = New System.Windows.Forms.RadioButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.LengthCheckBox = New System.Windows.Forms.CheckBox()
+        Me.RemoveSpacesCheckBox = New System.Windows.Forms.CheckBox()
+        Me.ReverseCheckBox = New System.Windows.Forms.CheckBox()
+        Me.LowerCaseRadioButton = New System.Windows.Forms.RadioButton()
+        Me.UpperCaseRadioButton = New System.Windows.Forms.RadioButton()
+        Me.NoChangeRadioButton = New System.Windows.Forms.RadioButton()
         Me.RadioButton7 = New System.Windows.Forms.RadioButton()
         Me.RadioButton8 = New System.Windows.Forms.RadioButton()
         Me.RadioButton9 = New System.Windows.Forms.RadioButton()
@@ -163,12 +163,12 @@ Partial Class ExampleForm
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.CheckBox3)
-        Me.GroupBox2.Controls.Add(Me.CheckBox2)
-        Me.GroupBox2.Controls.Add(Me.CheckBox1)
-        Me.GroupBox2.Controls.Add(Me.RadioButton3)
-        Me.GroupBox2.Controls.Add(Me.RadioButton2)
-        Me.GroupBox2.Controls.Add(Me.RadioButton1)
+        Me.GroupBox2.Controls.Add(Me.LengthCheckBox)
+        Me.GroupBox2.Controls.Add(Me.RemoveSpacesCheckBox)
+        Me.GroupBox2.Controls.Add(Me.ReverseCheckBox)
+        Me.GroupBox2.Controls.Add(Me.LowerCaseRadioButton)
+        Me.GroupBox2.Controls.Add(Me.UpperCaseRadioButton)
+        Me.GroupBox2.Controls.Add(Me.NoChangeRadioButton)
         Me.GroupBox2.Location = New System.Drawing.Point(10, 93)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(400, 301)
@@ -176,66 +176,66 @@ Partial Class ExampleForm
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "GroupBox2"
         '
-        'CheckBox3
+        'LengthCheckBox
         '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(158, 120)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(116, 24)
-        Me.CheckBox3.TabIndex = 3
-        Me.CheckBox3.Text = "CheckBox3"
-        Me.CheckBox3.UseVisualStyleBackColor = True
+        Me.LengthCheckBox.AutoSize = True
+        Me.LengthCheckBox.Location = New System.Drawing.Point(158, 120)
+        Me.LengthCheckBox.Name = "LengthCheckBox"
+        Me.LengthCheckBox.Size = New System.Drawing.Size(116, 24)
+        Me.LengthCheckBox.TabIndex = 3
+        Me.LengthCheckBox.Text = "Get Length"
+        Me.LengthCheckBox.UseVisualStyleBackColor = True
         '
-        'CheckBox2
+        'RemoveSpacesCheckBox
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(158, 90)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(116, 24)
-        Me.CheckBox2.TabIndex = 2
-        Me.CheckBox2.Text = "CheckBox2"
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.RemoveSpacesCheckBox.AutoSize = True
+        Me.RemoveSpacesCheckBox.Location = New System.Drawing.Point(158, 90)
+        Me.RemoveSpacesCheckBox.Name = "RemoveSpacesCheckBox"
+        Me.RemoveSpacesCheckBox.Size = New System.Drawing.Size(152, 24)
+        Me.RemoveSpacesCheckBox.TabIndex = 2
+        Me.RemoveSpacesCheckBox.Text = "Remove Spaces"
+        Me.RemoveSpacesCheckBox.UseVisualStyleBackColor = True
         '
-        'CheckBox1
+        'ReverseCheckBox
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(158, 59)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(116, 24)
-        Me.CheckBox1.TabIndex = 1
-        Me.CheckBox1.Text = "CheckBox1"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.ReverseCheckBox.AutoSize = True
+        Me.ReverseCheckBox.Location = New System.Drawing.Point(158, 59)
+        Me.ReverseCheckBox.Name = "ReverseCheckBox"
+        Me.ReverseCheckBox.Size = New System.Drawing.Size(94, 24)
+        Me.ReverseCheckBox.TabIndex = 1
+        Me.ReverseCheckBox.Text = "Reverse"
+        Me.ReverseCheckBox.UseVisualStyleBackColor = True
         '
-        'RadioButton3
+        'LowerCaseRadioButton
         '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(6, 119)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(133, 24)
-        Me.RadioButton3.TabIndex = 0
-        Me.RadioButton3.Text = "RadioButton3"
-        Me.RadioButton3.UseVisualStyleBackColor = True
+        Me.LowerCaseRadioButton.AutoSize = True
+        Me.LowerCaseRadioButton.Location = New System.Drawing.Point(6, 119)
+        Me.LowerCaseRadioButton.Name = "LowerCaseRadioButton"
+        Me.LowerCaseRadioButton.Size = New System.Drawing.Size(118, 24)
+        Me.LowerCaseRadioButton.TabIndex = 0
+        Me.LowerCaseRadioButton.Text = "Lower Case"
+        Me.LowerCaseRadioButton.UseVisualStyleBackColor = True
         '
-        'RadioButton2
+        'UpperCaseRadioButton
         '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(6, 89)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(133, 24)
-        Me.RadioButton2.TabIndex = 0
-        Me.RadioButton2.Text = "RadioButton2"
-        Me.RadioButton2.UseVisualStyleBackColor = True
+        Me.UpperCaseRadioButton.AutoSize = True
+        Me.UpperCaseRadioButton.Location = New System.Drawing.Point(6, 89)
+        Me.UpperCaseRadioButton.Name = "UpperCaseRadioButton"
+        Me.UpperCaseRadioButton.Size = New System.Drawing.Size(119, 24)
+        Me.UpperCaseRadioButton.TabIndex = 0
+        Me.UpperCaseRadioButton.Text = "Upper Case"
+        Me.UpperCaseRadioButton.UseVisualStyleBackColor = True
         '
-        'RadioButton1
+        'NoChangeRadioButton
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(6, 59)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(133, 24)
-        Me.RadioButton1.TabIndex = 0
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "RadioButton1"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.NoChangeRadioButton.AutoSize = True
+        Me.NoChangeRadioButton.Location = New System.Drawing.Point(6, 59)
+        Me.NoChangeRadioButton.Name = "NoChangeRadioButton"
+        Me.NoChangeRadioButton.Size = New System.Drawing.Size(72, 24)
+        Me.NoChangeRadioButton.TabIndex = 0
+        Me.NoChangeRadioButton.TabStop = True
+        Me.NoChangeRadioButton.Text = "None"
+        Me.NoChangeRadioButton.UseVisualStyleBackColor = True
         '
         'RadioButton7
         '
@@ -318,17 +318,17 @@ Partial Class ExampleForm
     Friend WithEvents RadioButton5 As RadioButton
     Friend WithEvents RadioButton6 As RadioButton
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents RadioButton3 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents LowerCaseRadioButton As RadioButton
+    Friend WithEvents UpperCaseRadioButton As RadioButton
+    Friend WithEvents NoChangeRadioButton As RadioButton
     Friend WithEvents RadioButton7 As RadioButton
     Friend WithEvents RadioButton8 As RadioButton
     Friend WithEvents RadioButton9 As RadioButton
     Friend WithEvents CheckBox4 As CheckBox
     Friend WithEvents CheckBox5 As CheckBox
     Friend WithEvents CheckBox6 As CheckBox
-    Friend WithEvents CheckBox3 As CheckBox
-    Friend WithEvents CheckBox2 As CheckBox
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents LengthCheckBox As CheckBox
+    Friend WithEvents RemoveSpacesCheckBox As CheckBox
+    Friend WithEvents ReverseCheckBox As CheckBox
     Friend WithEvents ClearButton As Button
 End Class
