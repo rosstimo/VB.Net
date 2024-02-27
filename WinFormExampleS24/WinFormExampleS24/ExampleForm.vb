@@ -41,6 +41,8 @@ Public Class ExampleForm
     End Sub
 
     Sub ValidateUserFields()
+        Dim age As Integer
+        Dim message As String
         'TODO
         '[ ] first can not be blank
         '[ ] last can not be blank
@@ -49,6 +51,29 @@ Public Class ExampleForm
         '[ ] age must be within range. valid range TBD
         '[ ] email optional. if given check if valid email
 
+        'validate names
+        If FirstNameTextBox.Text = "" Then
+            'MsgBox("First name is required!", MsgBoxStyle.Critical, "User Error, Bad User!!!")
+            message &= "First name is required!" & vbNewLine
+        End If
+
+        If LastNameTextBox.Text = "" Then
+            'MsgBox("Last name is required!", MsgBoxStyle.Critical, "User Error, Bad User!!!")
+            message &= "Last name is required!" & vbNewLine
+        End If
+
+        Try
+            age = CInt(AgeTextBox.Text)
+        Catch ex As Exception
+            'MsgBox("Age must be a whole number!", MsgBoxStyle.Critical, "User Error, Bad User!!!")
+            message &= "Age must be a whole number!" & vbNewLine
+        End Try
+
+
+        'Don't alert if no problem
+        If message <> "" Then
+            MsgBox(message, MsgBoxStyle.Critical, "User Error, Bad User!!!")
+        End If
 
     End Sub
 
@@ -60,7 +85,7 @@ Public Class ExampleForm
 
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
         ChangeString()
-
+        ValidateUserFields()
     End Sub
 
     Private Sub ExampleForm_Load(sender As Object, e As EventArgs) Handles Me.Load
