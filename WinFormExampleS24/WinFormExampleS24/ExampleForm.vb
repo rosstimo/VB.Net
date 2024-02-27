@@ -8,15 +8,12 @@ Public Class ExampleForm
 
     Sub SetDefaults()
         UserInputTextBox.Text = ""
+
         NoChangeRadioButton.Checked = True
-        RadioButton6.Checked = True
-        RadioButton9.Checked = True
         ReverseCheckBox.Checked = False
         RemoveSpacesCheckBox.Checked = False
         LengthCheckBox.Checked = False
-        CheckBox4.Checked = False
-        CheckBox5.Checked = False
-        CheckBox6.Checked = False
+
         UserInputTextBox.Focus()
     End Sub
 
@@ -40,6 +37,18 @@ Public Class ExampleForm
         If LengthCheckBox.Checked Then
             MsgBox($"{UserInputTextBox.Text} has {Len(UserInputTextBox.Text)} characters!")
         End If
+
+    End Sub
+
+    Sub ValidateUserFields()
+        'TODO
+        '[ ] first can not be blank
+        '[ ] last can not be blank
+        '[ ] age can not be blank
+        '[ ] age must be a posative whole number
+        '[ ] age must be within range. valid range TBD
+        '[ ] email optional. if given check if valid email
+
 
     End Sub
 
