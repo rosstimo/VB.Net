@@ -41,34 +41,45 @@ Public Class ExampleForm
     End Sub
 
     Sub ValidateUserFields()
-        Dim age As Integer
+        Dim age As UShort
         Dim message As String
         'TODO
-        '[ ] first can not be blank
-        '[ ] last can not be blank
-        '[ ] age can not be blank
+        '[x] first can not be blank
+        '[x] last can not be blank
+        '[x] age can not be blank
         '[ ] age must be a posative whole number
         '[ ] age must be within range. valid range TBD
         '[ ] email optional. if given check if valid email
 
         'validate names
         If FirstNameTextBox.Text = "" Then
-            'MsgBox("First name is required!", MsgBoxStyle.Critical, "User Error, Bad User!!!")
             message &= "First name is required!" & vbNewLine
         End If
 
         If LastNameTextBox.Text = "" Then
-            'MsgBox("Last name is required!", MsgBoxStyle.Critical, "User Error, Bad User!!!")
             message &= "Last name is required!" & vbNewLine
         End If
 
+        'validate age
         Try
-            age = CInt(AgeTextBox.Text)
+            age = CUShort(AgeTextBox.Text)
+
+            Select Case age
+                Case 0 To 5
+                    message &= "Did somene lose a kid?" & vbNewLine
+                Case 6 To 17
+                    message &= "Where are your parents?" & vbNewLine
+                Case 18 To 65
+
+                Case 66 To 100
+                    message &= "Please check with you doctor before continuing" & vbNewLine
+                Case >= 101
+                    message &= "Wow! You old!!" & vbNewLine
+            End Select
+
         Catch ex As Exception
-            'MsgBox("Age must be a whole number!", MsgBoxStyle.Critical, "User Error, Bad User!!!")
             message &= "Age must be a whole number!" & vbNewLine
         End Try
-
 
         'Don't alert if no problem
         If message <> "" Then
