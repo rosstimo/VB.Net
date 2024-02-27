@@ -26,13 +26,6 @@ Partial Class ExampleForm
         Me.UserInputLabel = New System.Windows.Forms.Label()
         Me.UserInputTextBox = New System.Windows.Forms.TextBox()
         Me.ExitButton = New System.Windows.Forms.Button()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox5 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox6 = New System.Windows.Forms.CheckBox()
-        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton5 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton6 = New System.Windows.Forms.RadioButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.LengthCheckBox = New System.Windows.Forms.CheckBox()
         Me.RemoveSpacesCheckBox = New System.Windows.Forms.CheckBox()
@@ -40,27 +33,35 @@ Partial Class ExampleForm
         Me.LowerCaseRadioButton = New System.Windows.Forms.RadioButton()
         Me.UpperCaseRadioButton = New System.Windows.Forms.RadioButton()
         Me.NoChangeRadioButton = New System.Windows.Forms.RadioButton()
-        Me.RadioButton7 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton8 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton9 = New System.Windows.Forms.RadioButton()
         Me.ClearButton = New System.Windows.Forms.Button()
-        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.LastNameTextBox = New System.Windows.Forms.TextBox()
+        Me.LastNameLabel = New System.Windows.Forms.Label()
+        Me.AgeTextBox = New System.Windows.Forms.TextBox()
+        Me.AgeLabel = New System.Windows.Forms.Label()
+        Me.FirstNameTextBox = New System.Windows.Forms.TextBox()
+        Me.FirstNameLabel = New System.Windows.Forms.Label()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.EmailTextBox = New System.Windows.Forms.TextBox()
+        Me.EmailLabel = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'SubmitButton
         '
-        Me.SubmitButton.Location = New System.Drawing.Point(416, 400)
+        Me.SubmitButton.Location = New System.Drawing.Point(214, 25)
         Me.SubmitButton.Name = "SubmitButton"
         Me.SubmitButton.Size = New System.Drawing.Size(197, 93)
-        Me.SubmitButton.TabIndex = 4
+        Me.SubmitButton.TabIndex = 0
         Me.SubmitButton.Text = "&Submit"
         Me.SubmitButton.UseVisualStyleBackColor = True
         '
         'UserInputLabel
         '
         Me.UserInputLabel.AutoSize = True
-        Me.UserInputLabel.Location = New System.Drawing.Point(12, 15)
+        Me.UserInputLabel.Location = New System.Drawing.Point(47, 28)
         Me.UserInputLabel.Name = "UserInputLabel"
         Me.UserInputLabel.Size = New System.Drawing.Size(84, 20)
         Me.UserInputLabel.TabIndex = 0
@@ -68,98 +69,20 @@ Partial Class ExampleForm
         '
         'UserInputTextBox
         '
-        Me.UserInputTextBox.Location = New System.Drawing.Point(102, 12)
+        Me.UserInputTextBox.Location = New System.Drawing.Point(137, 25)
         Me.UserInputTextBox.Name = "UserInputTextBox"
-        Me.UserInputTextBox.Size = New System.Drawing.Size(345, 26)
+        Me.UserInputTextBox.Size = New System.Drawing.Size(252, 26)
         Me.UserInputTextBox.TabIndex = 0
         '
         'ExitButton
         '
         Me.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.ExitButton.Location = New System.Drawing.Point(619, 400)
+        Me.ExitButton.Location = New System.Drawing.Point(417, 25)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(197, 93)
-        Me.ExitButton.TabIndex = 5
+        Me.ExitButton.TabIndex = 0
         Me.ExitButton.Text = "E&xit"
         Me.ExitButton.UseVisualStyleBackColor = True
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.CheckBox4)
-        Me.GroupBox1.Controls.Add(Me.CheckBox5)
-        Me.GroupBox1.Controls.Add(Me.CheckBox6)
-        Me.GroupBox1.Controls.Add(Me.RadioButton4)
-        Me.GroupBox1.Controls.Add(Me.RadioButton5)
-        Me.GroupBox1.Controls.Add(Me.RadioButton6)
-        Me.GroupBox1.Location = New System.Drawing.Point(416, 93)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(400, 301)
-        Me.GroupBox1.TabIndex = 2
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "GroupBox1"
-        '
-        'CheckBox4
-        '
-        Me.CheckBox4.AutoSize = True
-        Me.CheckBox4.Location = New System.Drawing.Point(161, 120)
-        Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(116, 24)
-        Me.CheckBox4.TabIndex = 3
-        Me.CheckBox4.Text = "CheckBox4"
-        Me.CheckBox4.UseVisualStyleBackColor = True
-        '
-        'CheckBox5
-        '
-        Me.CheckBox5.AutoSize = True
-        Me.CheckBox5.Location = New System.Drawing.Point(161, 90)
-        Me.CheckBox5.Name = "CheckBox5"
-        Me.CheckBox5.Size = New System.Drawing.Size(116, 24)
-        Me.CheckBox5.TabIndex = 2
-        Me.CheckBox5.Text = "CheckBox5"
-        Me.CheckBox5.UseVisualStyleBackColor = True
-        '
-        'CheckBox6
-        '
-        Me.CheckBox6.AutoSize = True
-        Me.CheckBox6.Location = New System.Drawing.Point(161, 59)
-        Me.CheckBox6.Name = "CheckBox6"
-        Me.CheckBox6.Size = New System.Drawing.Size(116, 24)
-        Me.CheckBox6.TabIndex = 1
-        Me.CheckBox6.Text = "CheckBox6"
-        Me.CheckBox6.UseVisualStyleBackColor = True
-        '
-        'RadioButton4
-        '
-        Me.RadioButton4.AutoSize = True
-        Me.RadioButton4.Location = New System.Drawing.Point(6, 119)
-        Me.RadioButton4.Name = "RadioButton4"
-        Me.RadioButton4.Size = New System.Drawing.Size(133, 24)
-        Me.RadioButton4.TabIndex = 5
-        Me.RadioButton4.TabStop = True
-        Me.RadioButton4.Text = "RadioButton4"
-        Me.RadioButton4.UseVisualStyleBackColor = True
-        '
-        'RadioButton5
-        '
-        Me.RadioButton5.AutoSize = True
-        Me.RadioButton5.Location = New System.Drawing.Point(6, 89)
-        Me.RadioButton5.Name = "RadioButton5"
-        Me.RadioButton5.Size = New System.Drawing.Size(133, 24)
-        Me.RadioButton5.TabIndex = 4
-        Me.RadioButton5.TabStop = True
-        Me.RadioButton5.Text = "RadioButton5"
-        Me.RadioButton5.UseVisualStyleBackColor = True
-        '
-        'RadioButton6
-        '
-        Me.RadioButton6.AutoSize = True
-        Me.RadioButton6.Location = New System.Drawing.Point(6, 59)
-        Me.RadioButton6.Name = "RadioButton6"
-        Me.RadioButton6.Size = New System.Drawing.Size(133, 24)
-        Me.RadioButton6.TabIndex = 0
-        Me.RadioButton6.TabStop = True
-        Me.RadioButton6.Text = "RadioButton6"
-        Me.RadioButton6.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
@@ -169,17 +92,18 @@ Partial Class ExampleForm
         Me.GroupBox2.Controls.Add(Me.LowerCaseRadioButton)
         Me.GroupBox2.Controls.Add(Me.UpperCaseRadioButton)
         Me.GroupBox2.Controls.Add(Me.NoChangeRadioButton)
-        Me.GroupBox2.Location = New System.Drawing.Point(10, 93)
+        Me.GroupBox2.Controls.Add(Me.UserInputTextBox)
+        Me.GroupBox2.Controls.Add(Me.UserInputLabel)
+        Me.GroupBox2.Location = New System.Drawing.Point(416, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(400, 301)
+        Me.GroupBox2.Size = New System.Drawing.Size(400, 179)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "GroupBox2"
         '
         'LengthCheckBox
         '
         Me.LengthCheckBox.AutoSize = True
-        Me.LengthCheckBox.Location = New System.Drawing.Point(158, 120)
+        Me.LengthCheckBox.Location = New System.Drawing.Point(203, 118)
         Me.LengthCheckBox.Name = "LengthCheckBox"
         Me.LengthCheckBox.Size = New System.Drawing.Size(116, 24)
         Me.LengthCheckBox.TabIndex = 3
@@ -189,7 +113,7 @@ Partial Class ExampleForm
         'RemoveSpacesCheckBox
         '
         Me.RemoveSpacesCheckBox.AutoSize = True
-        Me.RemoveSpacesCheckBox.Location = New System.Drawing.Point(158, 90)
+        Me.RemoveSpacesCheckBox.Location = New System.Drawing.Point(203, 88)
         Me.RemoveSpacesCheckBox.Name = "RemoveSpacesCheckBox"
         Me.RemoveSpacesCheckBox.Size = New System.Drawing.Size(152, 24)
         Me.RemoveSpacesCheckBox.TabIndex = 2
@@ -199,7 +123,7 @@ Partial Class ExampleForm
         'ReverseCheckBox
         '
         Me.ReverseCheckBox.AutoSize = True
-        Me.ReverseCheckBox.Location = New System.Drawing.Point(158, 59)
+        Me.ReverseCheckBox.Location = New System.Drawing.Point(203, 57)
         Me.ReverseCheckBox.Name = "ReverseCheckBox"
         Me.ReverseCheckBox.Size = New System.Drawing.Size(94, 24)
         Me.ReverseCheckBox.TabIndex = 1
@@ -209,7 +133,7 @@ Partial Class ExampleForm
         'LowerCaseRadioButton
         '
         Me.LowerCaseRadioButton.AutoSize = True
-        Me.LowerCaseRadioButton.Location = New System.Drawing.Point(6, 119)
+        Me.LowerCaseRadioButton.Location = New System.Drawing.Point(51, 117)
         Me.LowerCaseRadioButton.Name = "LowerCaseRadioButton"
         Me.LowerCaseRadioButton.Size = New System.Drawing.Size(118, 24)
         Me.LowerCaseRadioButton.TabIndex = 0
@@ -219,7 +143,7 @@ Partial Class ExampleForm
         'UpperCaseRadioButton
         '
         Me.UpperCaseRadioButton.AutoSize = True
-        Me.UpperCaseRadioButton.Location = New System.Drawing.Point(6, 89)
+        Me.UpperCaseRadioButton.Location = New System.Drawing.Point(51, 87)
         Me.UpperCaseRadioButton.Name = "UpperCaseRadioButton"
         Me.UpperCaseRadioButton.Size = New System.Drawing.Size(119, 24)
         Me.UpperCaseRadioButton.TabIndex = 0
@@ -229,7 +153,7 @@ Partial Class ExampleForm
         'NoChangeRadioButton
         '
         Me.NoChangeRadioButton.AutoSize = True
-        Me.NoChangeRadioButton.Location = New System.Drawing.Point(6, 59)
+        Me.NoChangeRadioButton.Location = New System.Drawing.Point(51, 57)
         Me.NoChangeRadioButton.Name = "NoChangeRadioButton"
         Me.NoChangeRadioButton.Size = New System.Drawing.Size(72, 24)
         Me.NoChangeRadioButton.TabIndex = 0
@@ -237,48 +161,107 @@ Partial Class ExampleForm
         Me.NoChangeRadioButton.Text = "None"
         Me.NoChangeRadioButton.UseVisualStyleBackColor = True
         '
-        'RadioButton7
-        '
-        Me.RadioButton7.AutoSize = True
-        Me.RadioButton7.Location = New System.Drawing.Point(16, 460)
-        Me.RadioButton7.Name = "RadioButton7"
-        Me.RadioButton7.Size = New System.Drawing.Size(133, 24)
-        Me.RadioButton7.TabIndex = 7
-        Me.RadioButton7.TabStop = True
-        Me.RadioButton7.Text = "RadioButton7"
-        Me.RadioButton7.UseVisualStyleBackColor = True
-        '
-        'RadioButton8
-        '
-        Me.RadioButton8.AutoSize = True
-        Me.RadioButton8.Location = New System.Drawing.Point(16, 430)
-        Me.RadioButton8.Name = "RadioButton8"
-        Me.RadioButton8.Size = New System.Drawing.Size(133, 24)
-        Me.RadioButton8.TabIndex = 6
-        Me.RadioButton8.TabStop = True
-        Me.RadioButton8.Text = "RadioButton8"
-        Me.RadioButton8.UseVisualStyleBackColor = True
-        '
-        'RadioButton9
-        '
-        Me.RadioButton9.AutoSize = True
-        Me.RadioButton9.Location = New System.Drawing.Point(16, 400)
-        Me.RadioButton9.Name = "RadioButton9"
-        Me.RadioButton9.Size = New System.Drawing.Size(133, 24)
-        Me.RadioButton9.TabIndex = 3
-        Me.RadioButton9.TabStop = True
-        Me.RadioButton9.Text = "RadioButton9"
-        Me.RadioButton9.UseVisualStyleBackColor = True
-        '
         'ClearButton
         '
         Me.ClearButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.ClearButton.Location = New System.Drawing.Point(213, 400)
+        Me.ClearButton.Location = New System.Drawing.Point(11, 25)
         Me.ClearButton.Name = "ClearButton"
         Me.ClearButton.Size = New System.Drawing.Size(197, 93)
         Me.ClearButton.TabIndex = 8
+        Me.ClearButton.TabStop = False
         Me.ClearButton.Text = "&Clear"
         Me.ClearButton.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.EmailTextBox)
+        Me.GroupBox1.Controls.Add(Me.EmailLabel)
+        Me.GroupBox1.Controls.Add(Me.FirstNameTextBox)
+        Me.GroupBox1.Controls.Add(Me.FirstNameLabel)
+        Me.GroupBox1.Controls.Add(Me.AgeTextBox)
+        Me.GroupBox1.Controls.Add(Me.AgeLabel)
+        Me.GroupBox1.Controls.Add(Me.LastNameTextBox)
+        Me.GroupBox1.Controls.Add(Me.LastNameLabel)
+        Me.GroupBox1.Location = New System.Drawing.Point(13, 12)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(397, 179)
+        Me.GroupBox1.TabIndex = 0
+        Me.GroupBox1.TabStop = False
+        '
+        'LastNameTextBox
+        '
+        Me.LastNameTextBox.Location = New System.Drawing.Point(52, 48)
+        Me.LastNameTextBox.Name = "LastNameTextBox"
+        Me.LastNameTextBox.Size = New System.Drawing.Size(252, 26)
+        Me.LastNameTextBox.TabIndex = 2
+        '
+        'LastNameLabel
+        '
+        Me.LastNameLabel.AutoSize = True
+        Me.LastNameLabel.Location = New System.Drawing.Point(6, 54)
+        Me.LastNameLabel.Name = "LastNameLabel"
+        Me.LastNameLabel.Size = New System.Drawing.Size(40, 20)
+        Me.LastNameLabel.TabIndex = 2
+        Me.LastNameLabel.Text = "Last"
+        '
+        'AgeTextBox
+        '
+        Me.AgeTextBox.Location = New System.Drawing.Point(52, 81)
+        Me.AgeTextBox.Name = "AgeTextBox"
+        Me.AgeTextBox.Size = New System.Drawing.Size(47, 26)
+        Me.AgeTextBox.TabIndex = 3
+        '
+        'AgeLabel
+        '
+        Me.AgeLabel.AutoSize = True
+        Me.AgeLabel.Location = New System.Drawing.Point(6, 87)
+        Me.AgeLabel.Name = "AgeLabel"
+        Me.AgeLabel.Size = New System.Drawing.Size(38, 20)
+        Me.AgeLabel.TabIndex = 4
+        Me.AgeLabel.Text = "Age"
+        '
+        'FirstNameTextBox
+        '
+        Me.FirstNameTextBox.Location = New System.Drawing.Point(52, 16)
+        Me.FirstNameTextBox.Name = "FirstNameTextBox"
+        Me.FirstNameTextBox.Size = New System.Drawing.Size(252, 26)
+        Me.FirstNameTextBox.TabIndex = 1
+        '
+        'FirstNameLabel
+        '
+        Me.FirstNameLabel.AutoSize = True
+        Me.FirstNameLabel.Location = New System.Drawing.Point(6, 22)
+        Me.FirstNameLabel.Name = "FirstNameLabel"
+        Me.FirstNameLabel.Size = New System.Drawing.Size(40, 20)
+        Me.FirstNameLabel.TabIndex = 6
+        Me.FirstNameLabel.Text = "First"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.SubmitButton)
+        Me.GroupBox3.Controls.Add(Me.ExitButton)
+        Me.GroupBox3.Controls.Add(Me.ClearButton)
+        Me.GroupBox3.Location = New System.Drawing.Point(191, 197)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(625, 134)
+        Me.GroupBox3.TabIndex = 2
+        Me.GroupBox3.TabStop = False
+        '
+        'EmailTextBox
+        '
+        Me.EmailTextBox.Location = New System.Drawing.Point(52, 115)
+        Me.EmailTextBox.Name = "EmailTextBox"
+        Me.EmailTextBox.Size = New System.Drawing.Size(252, 26)
+        Me.EmailTextBox.TabIndex = 7
+        '
+        'EmailLabel
+        '
+        Me.EmailLabel.AutoSize = True
+        Me.EmailLabel.Location = New System.Drawing.Point(6, 121)
+        Me.EmailLabel.Name = "EmailLabel"
+        Me.EmailLabel.Size = New System.Drawing.Size(46, 20)
+        Me.EmailLabel.TabIndex = 8
+        Me.EmailLabel.Text = "email"
         '
         'ExampleForm
         '
@@ -286,26 +269,19 @@ Partial Class ExampleForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ClearButton
-        Me.ClientSize = New System.Drawing.Size(828, 505)
-        Me.Controls.Add(Me.ClearButton)
-        Me.Controls.Add(Me.RadioButton7)
-        Me.Controls.Add(Me.RadioButton8)
-        Me.Controls.Add(Me.RadioButton9)
-        Me.Controls.Add(Me.GroupBox2)
+        Me.ClientSize = New System.Drawing.Size(828, 363)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.ExitButton)
-        Me.Controls.Add(Me.UserInputTextBox)
-        Me.Controls.Add(Me.UserInputLabel)
-        Me.Controls.Add(Me.SubmitButton)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Name = "ExampleForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Windows Form Example"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -313,22 +289,22 @@ Partial Class ExampleForm
     Friend WithEvents UserInputLabel As Label
     Friend WithEvents UserInputTextBox As TextBox
     Friend WithEvents ExitButton As Button
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents RadioButton4 As RadioButton
-    Friend WithEvents RadioButton5 As RadioButton
-    Friend WithEvents RadioButton6 As RadioButton
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents LowerCaseRadioButton As RadioButton
     Friend WithEvents UpperCaseRadioButton As RadioButton
     Friend WithEvents NoChangeRadioButton As RadioButton
-    Friend WithEvents RadioButton7 As RadioButton
-    Friend WithEvents RadioButton8 As RadioButton
-    Friend WithEvents RadioButton9 As RadioButton
-    Friend WithEvents CheckBox4 As CheckBox
-    Friend WithEvents CheckBox5 As CheckBox
-    Friend WithEvents CheckBox6 As CheckBox
     Friend WithEvents LengthCheckBox As CheckBox
     Friend WithEvents RemoveSpacesCheckBox As CheckBox
     Friend WithEvents ReverseCheckBox As CheckBox
     Friend WithEvents ClearButton As Button
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents FirstNameTextBox As TextBox
+    Friend WithEvents FirstNameLabel As Label
+    Friend WithEvents AgeTextBox As TextBox
+    Friend WithEvents AgeLabel As Label
+    Friend WithEvents LastNameTextBox As TextBox
+    Friend WithEvents LastNameLabel As Label
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents EmailTextBox As TextBox
+    Friend WithEvents EmailLabel As Label
 End Class
