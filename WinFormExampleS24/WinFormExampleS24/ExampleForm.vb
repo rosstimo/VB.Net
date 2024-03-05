@@ -47,7 +47,7 @@ Public Class ExampleForm
         '[x] first can not be blank
         '[x] last can not be blank
         '[x] age can not be blank
-        '[ ] age must be a posative whole number
+        '[ ] age must be a positive whole number
         '[ ] age must be within range. valid range TBD
         '[ ] email optional. if given check if valid email
 
@@ -66,7 +66,7 @@ Public Class ExampleForm
 
             Select Case age
                 Case 0 To 5
-                    message &= "Did somene lose a kid?" & vbNewLine
+                    message &= "Did someone lose a kid?" & vbNewLine
                 Case 6 To 17
                     message &= "Where are your parents?" & vbNewLine
                 Case 18 To 65
