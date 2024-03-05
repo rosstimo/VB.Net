@@ -6,6 +6,31 @@ Option Explicit On
 
 Public Class ExampleForm
 
+    Sub ListExample()
+        Dim names As New List(Of String)
+
+        names.Add("Bob")
+        names.Add("Mary")
+        names.Add("Jim")
+        names.Add("Billy")
+        names.Add("Jane")
+        names.Add("Jim")
+        names.Add("Frank")
+        names.Add("Sue")
+        names.Add("Emily")
+
+        Console.WriteLine(names.Count)
+
+        names.Sort()
+        names.Reverse()
+
+        For Each _name In names
+            Console.WriteLine(_name)
+
+        Next
+
+    End Sub
+
     Sub SetDefaults()
         UserInputTextBox.Text = ""
 
@@ -88,6 +113,18 @@ Public Class ExampleForm
 
     End Sub
 
+    Sub AddToList()
+
+        If DisplayListBox.Items.Contains(FirstNameTextBox.Text) Then
+
+        Else
+            DisplayListBox.Items.Add(FirstNameTextBox.Text)
+        End If
+
+
+
+    End Sub
+
     'Event Handlers Below Here
 
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
@@ -97,6 +134,7 @@ Public Class ExampleForm
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
         ChangeString()
         ValidateUserFields()
+        AddToList()
     End Sub
 
     Private Sub ExampleForm_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -105,5 +143,6 @@ Public Class ExampleForm
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         SetDefaults()
+        'ListExample()
     End Sub
 End Class

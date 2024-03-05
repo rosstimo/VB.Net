@@ -35,15 +35,16 @@ Partial Class ExampleForm
         Me.NoChangeRadioButton = New System.Windows.Forms.RadioButton()
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.LastNameTextBox = New System.Windows.Forms.TextBox()
-        Me.LastNameLabel = New System.Windows.Forms.Label()
-        Me.AgeTextBox = New System.Windows.Forms.TextBox()
-        Me.AgeLabel = New System.Windows.Forms.Label()
-        Me.FirstNameTextBox = New System.Windows.Forms.TextBox()
-        Me.FirstNameLabel = New System.Windows.Forms.Label()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.EmailTextBox = New System.Windows.Forms.TextBox()
         Me.EmailLabel = New System.Windows.Forms.Label()
+        Me.FirstNameTextBox = New System.Windows.Forms.TextBox()
+        Me.FirstNameLabel = New System.Windows.Forms.Label()
+        Me.AgeTextBox = New System.Windows.Forms.TextBox()
+        Me.AgeLabel = New System.Windows.Forms.Label()
+        Me.LastNameTextBox = New System.Windows.Forms.TextBox()
+        Me.LastNameLabel = New System.Windows.Forms.Label()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.DisplayListBox = New System.Windows.Forms.ListBox()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -188,37 +189,21 @@ Partial Class ExampleForm
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
-        'LastNameTextBox
+        'EmailTextBox
         '
-        Me.LastNameTextBox.Location = New System.Drawing.Point(52, 48)
-        Me.LastNameTextBox.Name = "LastNameTextBox"
-        Me.LastNameTextBox.Size = New System.Drawing.Size(252, 26)
-        Me.LastNameTextBox.TabIndex = 2
+        Me.EmailTextBox.Location = New System.Drawing.Point(52, 115)
+        Me.EmailTextBox.Name = "EmailTextBox"
+        Me.EmailTextBox.Size = New System.Drawing.Size(252, 26)
+        Me.EmailTextBox.TabIndex = 7
         '
-        'LastNameLabel
+        'EmailLabel
         '
-        Me.LastNameLabel.AutoSize = True
-        Me.LastNameLabel.Location = New System.Drawing.Point(6, 54)
-        Me.LastNameLabel.Name = "LastNameLabel"
-        Me.LastNameLabel.Size = New System.Drawing.Size(40, 20)
-        Me.LastNameLabel.TabIndex = 2
-        Me.LastNameLabel.Text = "Last"
-        '
-        'AgeTextBox
-        '
-        Me.AgeTextBox.Location = New System.Drawing.Point(52, 81)
-        Me.AgeTextBox.Name = "AgeTextBox"
-        Me.AgeTextBox.Size = New System.Drawing.Size(47, 26)
-        Me.AgeTextBox.TabIndex = 3
-        '
-        'AgeLabel
-        '
-        Me.AgeLabel.AutoSize = True
-        Me.AgeLabel.Location = New System.Drawing.Point(6, 87)
-        Me.AgeLabel.Name = "AgeLabel"
-        Me.AgeLabel.Size = New System.Drawing.Size(38, 20)
-        Me.AgeLabel.TabIndex = 4
-        Me.AgeLabel.Text = "Age"
+        Me.EmailLabel.AutoSize = True
+        Me.EmailLabel.Location = New System.Drawing.Point(6, 121)
+        Me.EmailLabel.Name = "EmailLabel"
+        Me.EmailLabel.Size = New System.Drawing.Size(46, 20)
+        Me.EmailLabel.TabIndex = 8
+        Me.EmailLabel.Text = "email"
         '
         'FirstNameTextBox
         '
@@ -236,32 +221,58 @@ Partial Class ExampleForm
         Me.FirstNameLabel.TabIndex = 6
         Me.FirstNameLabel.Text = "First"
         '
+        'AgeTextBox
+        '
+        Me.AgeTextBox.Location = New System.Drawing.Point(52, 81)
+        Me.AgeTextBox.Name = "AgeTextBox"
+        Me.AgeTextBox.Size = New System.Drawing.Size(47, 26)
+        Me.AgeTextBox.TabIndex = 3
+        '
+        'AgeLabel
+        '
+        Me.AgeLabel.AutoSize = True
+        Me.AgeLabel.Location = New System.Drawing.Point(6, 87)
+        Me.AgeLabel.Name = "AgeLabel"
+        Me.AgeLabel.Size = New System.Drawing.Size(38, 20)
+        Me.AgeLabel.TabIndex = 4
+        Me.AgeLabel.Text = "Age"
+        '
+        'LastNameTextBox
+        '
+        Me.LastNameTextBox.Location = New System.Drawing.Point(52, 48)
+        Me.LastNameTextBox.Name = "LastNameTextBox"
+        Me.LastNameTextBox.Size = New System.Drawing.Size(252, 26)
+        Me.LastNameTextBox.TabIndex = 2
+        '
+        'LastNameLabel
+        '
+        Me.LastNameLabel.AutoSize = True
+        Me.LastNameLabel.Location = New System.Drawing.Point(6, 54)
+        Me.LastNameLabel.Name = "LastNameLabel"
+        Me.LastNameLabel.Size = New System.Drawing.Size(40, 20)
+        Me.LastNameLabel.TabIndex = 2
+        Me.LastNameLabel.Text = "Last"
+        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.SubmitButton)
         Me.GroupBox3.Controls.Add(Me.ExitButton)
         Me.GroupBox3.Controls.Add(Me.ClearButton)
-        Me.GroupBox3.Location = New System.Drawing.Point(191, 197)
+        Me.GroupBox3.Location = New System.Drawing.Point(191, 443)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(625, 134)
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         '
-        'EmailTextBox
+        'DisplayListBox
         '
-        Me.EmailTextBox.Location = New System.Drawing.Point(52, 115)
-        Me.EmailTextBox.Name = "EmailTextBox"
-        Me.EmailTextBox.Size = New System.Drawing.Size(252, 26)
-        Me.EmailTextBox.TabIndex = 7
-        '
-        'EmailLabel
-        '
-        Me.EmailLabel.AutoSize = True
-        Me.EmailLabel.Location = New System.Drawing.Point(6, 121)
-        Me.EmailLabel.Name = "EmailLabel"
-        Me.EmailLabel.Size = New System.Drawing.Size(46, 20)
-        Me.EmailLabel.TabIndex = 8
-        Me.EmailLabel.Text = "email"
+        Me.DisplayListBox.FormattingEnabled = True
+        Me.DisplayListBox.ItemHeight = 20
+        Me.DisplayListBox.Location = New System.Drawing.Point(13, 227)
+        Me.DisplayListBox.Name = "DisplayListBox"
+        Me.DisplayListBox.Size = New System.Drawing.Size(803, 224)
+        Me.DisplayListBox.TabIndex = 4
+        Me.DisplayListBox.TabStop = False
         '
         'ExampleForm
         '
@@ -269,7 +280,8 @@ Partial Class ExampleForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ClearButton
-        Me.ClientSize = New System.Drawing.Size(828, 363)
+        Me.ClientSize = New System.Drawing.Size(828, 589)
+        Me.Controls.Add(Me.DisplayListBox)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
@@ -307,4 +319,5 @@ Partial Class ExampleForm
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents EmailTextBox As TextBox
     Friend WithEvents EmailLabel As Label
+    Friend WithEvents DisplayListBox As ListBox
 End Class
