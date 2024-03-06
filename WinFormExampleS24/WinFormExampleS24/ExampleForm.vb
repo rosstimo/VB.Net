@@ -65,16 +65,18 @@ Public Class ExampleForm
 
     End Sub
 
-    Sub ValidateUserFields()
+    Function ValidateUserFields() As Boolean
         Dim age As UShort
         Dim message As String
+
         'TODO
         '[x] first can not be blank
         '[x] last can not be blank
         '[x] age can not be blank
-        '[ ] age must be a positive whole number
-        '[ ] age must be within range. valid range TBD
+        '[x] age must be a positive whole number
+        '[x] age must be within range. valid range TBD
         '[ ] email optional. if given check if valid email
+        '[ ] check for duplicate records
 
         'validate names
         If FirstNameTextBox.Text = "" Then
@@ -109,21 +111,24 @@ Public Class ExampleForm
         'Don't alert if no problem
         If message <> "" Then
             MsgBox(message, MsgBoxStyle.Critical, "User Error, Bad User!!!")
+            Return False
+        Else
+            Return True
         End If
 
-    End Sub
+    End Function
 
     Sub AddToList()
 
-        If DisplayListBox.Items.Contains(FirstNameTextBox.Text) Then
+        If ValidateUserFields() Then
+            If DisplayListBox.Items.Contains(FirstNameTextBox.Text) Then 'TODO check for duplicate records in ValidateUserFields()
 
-        Else
-            DisplayListBox.Items.Add(FirstNameTextBox.Text)
-            RecordsComboBox.Items.Add(FirstNameTextBox.Text)
+            Else
+                DisplayListBox.Items.Add(FirstNameTextBox.Text)
+                RecordsComboBox.Items.Add(FirstNameTextBox.Text)
+            End If
+
         End If
-
-
-
     End Sub
 
     'Event Handlers Below Here
@@ -134,7 +139,7 @@ Public Class ExampleForm
 
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
         ChangeString()
-        ValidateUserFields()
+        'ValidateUserFields()
         AddToList()
     End Sub
 
