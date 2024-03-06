@@ -33,8 +33,8 @@ Public Class ExampleForm
 
     Sub SetDefaults()
         'TODO
-        '[ ] select 1st item in listbox
-        '[ ] select the first item in combobox, or insert "Select" item
+        '[ ] clear selection in listbox
+        '[ ] clear selection in combobox
         UserInputTextBox.Text = ""
         NoChangeRadioButton.Checked = True
         ReverseCheckBox.Checked = False
