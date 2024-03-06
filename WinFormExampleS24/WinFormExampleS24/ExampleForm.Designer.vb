@@ -45,6 +45,7 @@ Partial Class ExampleForm
         Me.LastNameLabel = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.DisplayListBox = New System.Windows.Forms.ListBox()
+        Me.RecordsComboBox = New System.Windows.Forms.ComboBox()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -268,11 +269,20 @@ Partial Class ExampleForm
         '
         Me.DisplayListBox.FormattingEnabled = True
         Me.DisplayListBox.ItemHeight = 20
-        Me.DisplayListBox.Location = New System.Drawing.Point(13, 227)
+        Me.DisplayListBox.Location = New System.Drawing.Point(13, 247)
         Me.DisplayListBox.Name = "DisplayListBox"
-        Me.DisplayListBox.Size = New System.Drawing.Size(803, 224)
+        Me.DisplayListBox.Size = New System.Drawing.Size(803, 184)
         Me.DisplayListBox.TabIndex = 4
         Me.DisplayListBox.TabStop = False
+        '
+        'RecordsComboBox
+        '
+        Me.RecordsComboBox.FormattingEnabled = True
+        Me.RecordsComboBox.Location = New System.Drawing.Point(65, 213)
+        Me.RecordsComboBox.Name = "RecordsComboBox"
+        Me.RecordsComboBox.Size = New System.Drawing.Size(252, 28)
+        Me.RecordsComboBox.TabIndex = 5
+        Me.RecordsComboBox.TabStop = False
         '
         'ExampleForm
         '
@@ -281,6 +291,7 @@ Partial Class ExampleForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ClearButton
         Me.ClientSize = New System.Drawing.Size(828, 589)
+        Me.Controls.Add(Me.RecordsComboBox)
         Me.Controls.Add(Me.DisplayListBox)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)
@@ -320,4 +331,5 @@ Partial Class ExampleForm
     Friend WithEvents EmailTextBox As TextBox
     Friend WithEvents EmailLabel As Label
     Friend WithEvents DisplayListBox As ListBox
+    Friend WithEvents RecordsComboBox As ComboBox
 End Class

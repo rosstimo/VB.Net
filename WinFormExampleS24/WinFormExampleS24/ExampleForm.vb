@@ -119,6 +119,7 @@ Public Class ExampleForm
 
         Else
             DisplayListBox.Items.Add(FirstNameTextBox.Text)
+            RecordsComboBox.Items.Add(FirstNameTextBox.Text)
         End If
 
 
