@@ -32,14 +32,23 @@ Public Class ExampleForm
     End Sub
 
     Sub SetDefaults()
+        'TODO
+        '[ ] select 1st item in listbox
+        '[ ] select the first item in combobox, or insert "Select" item
         UserInputTextBox.Text = ""
-
         NoChangeRadioButton.Checked = True
         ReverseCheckBox.Checked = False
         RemoveSpacesCheckBox.Checked = False
         LengthCheckBox.Checked = False
 
-        UserInputTextBox.Focus()
+        FirstNameTextBox.Text = ""
+        LastNameTextBox.Text = ""
+        AgeTextBox.Text = ""
+        EmailTextBox.Text = ""
+
+        DisplayListBox.SelectedIndex = -1
+
+        FirstNameTextBox.Focus()
     End Sub
 
     Sub ChangeString()
@@ -141,6 +150,7 @@ Public Class ExampleForm
         ChangeString()
         'ValidateUserFields()
         AddToList()
+        SetDefaults()
     End Sub
 
     Private Sub ExampleForm_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -150,5 +160,13 @@ Public Class ExampleForm
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         SetDefaults()
         'ListExample()
+    End Sub
+
+    Private Sub DisplayListBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DisplayListBox.SelectedIndexChanged
+        RecordsComboBox.SelectedIndex = DisplayListBox.SelectedIndex
+    End Sub
+
+    Private Sub RecordsComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles RecordsComboBox.SelectedIndexChanged
+        DisplayListBox.SelectedIndex = RecordsComboBox.SelectedIndex
     End Sub
 End Class
