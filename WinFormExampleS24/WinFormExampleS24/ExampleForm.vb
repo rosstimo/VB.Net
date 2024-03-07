@@ -6,6 +6,19 @@ Option Explicit On
 
 Public Class ExampleForm
 
+    Dim customerData As New List(Of String)
+
+    'Public Property customerData() As List(Of String)
+    '    Get
+    '        Return _customerData
+    '    End Get
+    '    Set(ByVal value As String)
+    '        _customerData.Add(value)
+    '    End Set
+    'End Property
+
+    'junk As String
+
     Sub ListExample()
         Dim names As New List(Of String)
 
@@ -128,16 +141,27 @@ Public Class ExampleForm
     End Function
 
     Sub AddToList()
+        Dim currentRecord As String
+        currentRecord = $"{FirstNameTextBox.Text},{LastNameTextBox.Text},{AgeTextBox.Text},{EmailTextBox.Text}"
 
         If ValidateUserFields() Then
-            If DisplayListBox.Items.Contains(FirstNameTextBox.Text) Then 'TODO check for duplicate records in ValidateUserFields()
-
-            Else
-                DisplayListBox.Items.Add(FirstNameTextBox.Text)
-                RecordsComboBox.Items.Add(FirstNameTextBox.Text)
-            End If
-
+            Me.customerData.Add(currentRecord)
+            Display()
         End If
+
+    End Sub
+
+    Sub Display()
+        Dim temp() As String
+
+        DisplayListBox.Items.Clear()
+        RecordsComboBox.Items.Clear()
+        For Each record In Me.customerData
+            DisplayListBox.Items.Add(record)
+            temp = Split(record, ",")
+            RecordsComboBox.Items.Add(temp(1))
+        Next
+
     End Sub
 
     'Event Handlers Below Here
