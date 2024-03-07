@@ -22,6 +22,7 @@ Partial Class ExampleForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.SubmitButton = New System.Windows.Forms.Button()
         Me.UserInputLabel = New System.Windows.Forms.Label()
         Me.UserInputTextBox = New System.Windows.Forms.TextBox()
@@ -46,6 +47,7 @@ Partial Class ExampleForm
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.DisplayListBox = New System.Windows.Forms.ListBox()
         Me.RecordsComboBox = New System.Windows.Forms.ComboBox()
+        Me.MainToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -58,6 +60,7 @@ Partial Class ExampleForm
         Me.SubmitButton.Size = New System.Drawing.Size(197, 93)
         Me.SubmitButton.TabIndex = 0
         Me.SubmitButton.Text = "&Submit"
+        Me.MainToolTip.SetToolTip(Me.SubmitButton, "Add Record (Enter, Alt+S)")
         Me.SubmitButton.UseVisualStyleBackColor = True
         '
         'UserInputLabel
@@ -84,6 +87,7 @@ Partial Class ExampleForm
         Me.ExitButton.Size = New System.Drawing.Size(197, 93)
         Me.ExitButton.TabIndex = 0
         Me.ExitButton.Text = "E&xit"
+        Me.MainToolTip.SetToolTip(Me.ExitButton, "Alt+x")
         Me.ExitButton.UseVisualStyleBackColor = True
         '
         'GroupBox2
@@ -101,6 +105,7 @@ Partial Class ExampleForm
         Me.GroupBox2.Size = New System.Drawing.Size(400, 179)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
+        Me.MainToolTip.SetToolTip(Me.GroupBox2, "Manipulate Text Here")
         '
         'LengthCheckBox
         '
@@ -172,6 +177,7 @@ Partial Class ExampleForm
         Me.ClearButton.TabIndex = 8
         Me.ClearButton.TabStop = False
         Me.ClearButton.Text = "&Clear"
+        Me.MainToolTip.SetToolTip(Me.ClearButton, "Clear Form (Esc, Alt+C)")
         Me.ClearButton.UseVisualStyleBackColor = True
         '
         'GroupBox1
@@ -189,6 +195,7 @@ Partial Class ExampleForm
         Me.GroupBox1.Size = New System.Drawing.Size(397, 179)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
+        Me.MainToolTip.SetToolTip(Me.GroupBox1, "Enter Customer Data Here")
         '
         'EmailTextBox
         '
@@ -274,6 +281,7 @@ Partial Class ExampleForm
         Me.DisplayListBox.Size = New System.Drawing.Size(803, 184)
         Me.DisplayListBox.TabIndex = 4
         Me.DisplayListBox.TabStop = False
+        Me.MainToolTip.SetToolTip(Me.DisplayListBox, "Custmer Data")
         '
         'RecordsComboBox
         '
@@ -332,4 +340,5 @@ Partial Class ExampleForm
     Friend WithEvents EmailLabel As Label
     Friend WithEvents DisplayListBox As ListBox
     Friend WithEvents RecordsComboBox As ComboBox
+    Friend WithEvents MainToolTip As ToolTip
 End Class
