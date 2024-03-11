@@ -274,11 +274,12 @@ Partial Class ExampleForm
         '
         'DisplayListBox
         '
+        Me.DisplayListBox.Font = New System.Drawing.Font("Consolas", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DisplayListBox.FormattingEnabled = True
-        Me.DisplayListBox.ItemHeight = 20
+        Me.DisplayListBox.ItemHeight = 19
         Me.DisplayListBox.Location = New System.Drawing.Point(13, 247)
         Me.DisplayListBox.Name = "DisplayListBox"
-        Me.DisplayListBox.Size = New System.Drawing.Size(803, 184)
+        Me.DisplayListBox.Size = New System.Drawing.Size(803, 175)
         Me.DisplayListBox.TabIndex = 4
         Me.DisplayListBox.TabStop = False
         Me.MainToolTip.SetToolTip(Me.DisplayListBox, "Custmer Data")
