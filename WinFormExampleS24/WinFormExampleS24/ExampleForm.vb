@@ -173,7 +173,8 @@ Public Class ExampleForm
         Me.Close()
     End Sub
 
-    Private Sub Submit_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click, SubmitTopMenuItem.Click
+    Private Sub Submit_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click, SubmitTopMenuItem.Click, SubmitContextMenuItem.Click
+
         ChangeString()
         'ValidateUserFields()
         AddToList()
@@ -181,7 +182,7 @@ Public Class ExampleForm
     End Sub
 
 
-    Private Sub Clear_Click(sender As Object, e As EventArgs) Handles ClearButton.Click, ClearTopMenuItem.Click
+    Private Sub Clear_Click(sender As Object, e As EventArgs) Handles ClearButton.Click, ClearTopMenuItem.Click, ClearContextMenuItem.Click
         SetDefaults()
         'ListExample()
     End Sub
