@@ -165,23 +165,23 @@ Public Class ExampleForm
     End Sub
 
     'Event Handlers Below Here
+    Private Sub ExampleForm_Load(sender As Object, e As EventArgs) Handles Me.Load
+        SetDefaults()
+    End Sub
 
-    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+    Private Sub Exit_Click(sender As Object, e As EventArgs) Handles ExitButton.Click, ExitTopMenuItem.Click
         Me.Close()
     End Sub
 
-    Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
+    Private Sub Submit_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click, SubmitTopMenuItem.Click
         ChangeString()
         'ValidateUserFields()
         AddToList()
         SetDefaults()
     End Sub
 
-    Private Sub ExampleForm_Load(sender As Object, e As EventArgs) Handles Me.Load
-        SetDefaults()
-    End Sub
 
-    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+    Private Sub Clear_Click(sender As Object, e As EventArgs) Handles ClearButton.Click, ClearTopMenuItem.Click
         SetDefaults()
         'ListExample()
     End Sub
@@ -193,4 +193,5 @@ Public Class ExampleForm
     Private Sub RecordsComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles RecordsComboBox.SelectedIndexChanged
         DisplayListBox.SelectedIndex = RecordsComboBox.SelectedIndex
     End Sub
+
 End Class

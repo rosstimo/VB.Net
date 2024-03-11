@@ -48,9 +48,17 @@ Partial Class ExampleForm
         Me.DisplayListBox = New System.Windows.Forms.ListBox()
         Me.RecordsComboBox = New System.Windows.Forms.ComboBox()
         Me.MainToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TopMenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SubmitTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.TopMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'SubmitButton
@@ -100,7 +108,7 @@ Partial Class ExampleForm
         Me.GroupBox2.Controls.Add(Me.NoChangeRadioButton)
         Me.GroupBox2.Controls.Add(Me.UserInputTextBox)
         Me.GroupBox2.Controls.Add(Me.UserInputLabel)
-        Me.GroupBox2.Location = New System.Drawing.Point(416, 12)
+        Me.GroupBox2.Location = New System.Drawing.Point(415, 52)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(400, 179)
         Me.GroupBox2.TabIndex = 1
@@ -190,7 +198,7 @@ Partial Class ExampleForm
         Me.GroupBox1.Controls.Add(Me.AgeLabel)
         Me.GroupBox1.Controls.Add(Me.LastNameTextBox)
         Me.GroupBox1.Controls.Add(Me.LastNameLabel)
-        Me.GroupBox1.Location = New System.Drawing.Point(13, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 52)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(397, 179)
         Me.GroupBox1.TabIndex = 0
@@ -266,7 +274,7 @@ Partial Class ExampleForm
         Me.GroupBox3.Controls.Add(Me.SubmitButton)
         Me.GroupBox3.Controls.Add(Me.ExitButton)
         Me.GroupBox3.Controls.Add(Me.ClearButton)
-        Me.GroupBox3.Location = New System.Drawing.Point(191, 443)
+        Me.GroupBox3.Location = New System.Drawing.Point(190, 483)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(625, 134)
         Me.GroupBox3.TabIndex = 2
@@ -277,7 +285,7 @@ Partial Class ExampleForm
         Me.DisplayListBox.Font = New System.Drawing.Font("Consolas", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DisplayListBox.FormattingEnabled = True
         Me.DisplayListBox.ItemHeight = 19
-        Me.DisplayListBox.Location = New System.Drawing.Point(13, 247)
+        Me.DisplayListBox.Location = New System.Drawing.Point(12, 287)
         Me.DisplayListBox.Name = "DisplayListBox"
         Me.DisplayListBox.Size = New System.Drawing.Size(803, 175)
         Me.DisplayListBox.TabIndex = 4
@@ -287,11 +295,60 @@ Partial Class ExampleForm
         'RecordsComboBox
         '
         Me.RecordsComboBox.FormattingEnabled = True
-        Me.RecordsComboBox.Location = New System.Drawing.Point(65, 213)
+        Me.RecordsComboBox.Location = New System.Drawing.Point(64, 253)
         Me.RecordsComboBox.Name = "RecordsComboBox"
         Me.RecordsComboBox.Size = New System.Drawing.Size(252, 28)
         Me.RecordsComboBox.TabIndex = 5
         Me.RecordsComboBox.TabStop = False
+        '
+        'TopMenuStrip
+        '
+        Me.TopMenuStrip.GripMargin = New System.Windows.Forms.Padding(2, 2, 0, 2)
+        Me.TopMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.TopMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.TopMenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.TopMenuStrip.Name = "TopMenuStrip"
+        Me.TopMenuStrip.Size = New System.Drawing.Size(841, 33)
+        Me.TopMenuStrip.TabIndex = 6
+        Me.TopMenuStrip.Text = "MenuStrip1"
+        '
+        'FileToolStripMenuItem
+        '
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubmitTopMenuItem, Me.ClearTopMenuItem, Me.ExitTopMenuItem})
+        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(54, 29)
+        Me.FileToolStripMenuItem.Text = "&File"
+        '
+        'SubmitTopMenuItem
+        '
+        Me.SubmitTopMenuItem.Name = "SubmitTopMenuItem"
+        Me.SubmitTopMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.SubmitTopMenuItem.Text = "&Submit"
+        '
+        'ClearTopMenuItem
+        '
+        Me.ClearTopMenuItem.Name = "ClearTopMenuItem"
+        Me.ClearTopMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.ClearTopMenuItem.Text = "&Clear"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 29)
+        Me.HelpToolStripMenuItem.Text = "&Help"
+        '
+        'ExitTopMenuItem
+        '
+        Me.ExitTopMenuItem.Name = "ExitTopMenuItem"
+        Me.ExitTopMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.ExitTopMenuItem.Text = "E&xit"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.AboutToolStripMenuItem.Text = "&About"
         '
         'ExampleForm
         '
@@ -299,12 +356,14 @@ Partial Class ExampleForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ClearButton
-        Me.ClientSize = New System.Drawing.Size(828, 589)
+        Me.ClientSize = New System.Drawing.Size(841, 634)
         Me.Controls.Add(Me.RecordsComboBox)
         Me.Controls.Add(Me.DisplayListBox)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.TopMenuStrip)
+        Me.MainMenuStrip = Me.TopMenuStrip
         Me.Name = "ExampleForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Windows Form Example"
@@ -313,7 +372,10 @@ Partial Class ExampleForm
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
+        Me.TopMenuStrip.ResumeLayout(False)
+        Me.TopMenuStrip.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -342,4 +404,11 @@ Partial Class ExampleForm
     Friend WithEvents DisplayListBox As ListBox
     Friend WithEvents RecordsComboBox As ComboBox
     Friend WithEvents MainToolTip As ToolTip
+    Friend WithEvents TopMenuStrip As MenuStrip
+    Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SubmitTopMenuItem As ToolStripMenuItem
+    Friend WithEvents ClearTopMenuItem As ToolStripMenuItem
+    Friend WithEvents ExitTopMenuItem As ToolStripMenuItem
+    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
 End Class
