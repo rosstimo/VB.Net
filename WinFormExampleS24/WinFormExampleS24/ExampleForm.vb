@@ -146,7 +146,7 @@ Public Class ExampleForm
 
         If ValidateUserFields() Then
             Me.customerData.Add(currentRecord)
-            Display()
+            'Display()
         End If
 
     End Sub
@@ -178,6 +178,7 @@ Public Class ExampleForm
         ChangeString()
         'ValidateUserFields()
         AddToList()
+        Display()
         SetDefaults()
     End Sub
 
