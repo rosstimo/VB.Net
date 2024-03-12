@@ -164,9 +164,36 @@ Public Class ExampleForm
 
     End Sub
 
+    Sub ReadCustomerDataBase()
+        'TODO
+        '[ ] read data file into list
+        Dim currentRecord As String
+        Dim temp As String
+        Try
+            FileOpen(1, "C:\Users\rosstimo\Documents\repos\VB.Net\ListsAndListBoxExample\ListsAndListBoxExample\QuickStopDB.txt", OpenMode.Input)
+
+            Do Until EOF(1)
+                For i = 1 To 10
+                    Input(1, currentRecord)
+                    temp &= currentRecord & ","
+
+                Next
+                DisplayListBox.Items.Add(temp)
+                temp = ""
+            Loop
+
+            FileClose(1)
+        Catch ex As Exception
+            MsgBox(ex.StackTrace.ToString)
+        End Try
+    End Sub
+
+
     'Event Handlers Below Here
     Private Sub ExampleForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         SetDefaults()
+        ReadCustomerDataBase()
+        ' Display()
     End Sub
 
     Private Sub Exit_Click(sender As Object, e As EventArgs) Handles ExitButton.Click, ExitTopMenuItem.Click
@@ -186,6 +213,25 @@ Public Class ExampleForm
     Private Sub Clear_Click(sender As Object, e As EventArgs) Handles ClearButton.Click, ClearTopMenuItem.Click, ClearContextMenuItem.Click
         SetDefaults()
         'ListExample()
+
+        'OpenFileDialog.Filter = "image files|*.png;*.bmp;*.jpg;*.gif|txt files (*.txt)|*.txt|All files (*.*)|*.*"
+        'OpenFileDialog.ShowDialog()
+
+        'Me.Text = OpenFileDialog.FileName
+
+        'Try
+        '    FileOpen(1, OpenFileDialog.FileName, OpenMode.Input)
+
+        '    Do Until EOF(1)
+        '        Input(1, currentRecord)
+        '        DisplayListBox.Items.Add(currentRecord)
+        '    Loop
+
+        '    FileClose(1)
+        'Catch ex As Exception
+
+        'End Try
+
     End Sub
 
     Private Sub DisplayListBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DisplayListBox.SelectedIndexChanged

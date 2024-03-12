@@ -58,6 +58,7 @@ Partial Class ExampleForm
         Me.ExitTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.ContextMenuStrip.SuspendLayout()
@@ -346,19 +347,19 @@ Partial Class ExampleForm
         'SubmitTopMenuItem
         '
         Me.SubmitTopMenuItem.Name = "SubmitTopMenuItem"
-        Me.SubmitTopMenuItem.Size = New System.Drawing.Size(171, 34)
+        Me.SubmitTopMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.SubmitTopMenuItem.Text = "&Submit"
         '
         'ClearTopMenuItem
         '
         Me.ClearTopMenuItem.Name = "ClearTopMenuItem"
-        Me.ClearTopMenuItem.Size = New System.Drawing.Size(171, 34)
+        Me.ClearTopMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.ClearTopMenuItem.Text = "&Clear"
         '
         'ExitTopMenuItem
         '
         Me.ExitTopMenuItem.Name = "ExitTopMenuItem"
-        Me.ExitTopMenuItem.Size = New System.Drawing.Size(171, 34)
+        Me.ExitTopMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.ExitTopMenuItem.Text = "E&xit"
         '
         'HelpToolStripMenuItem
@@ -371,7 +372,7 @@ Partial Class ExampleForm
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(164, 34)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.AboutToolStripMenuItem.Text = "&About"
         '
         'ExampleForm
@@ -381,7 +382,6 @@ Partial Class ExampleForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ClearButton
         Me.ClientSize = New System.Drawing.Size(841, 634)
-        Me.ContextMenuStrip = Me.ContextMenuStrip
         Me.Controls.Add(Me.RecordsComboBox)
         Me.Controls.Add(Me.DisplayListBox)
         Me.Controls.Add(Me.GroupBox3)
@@ -440,4 +440,5 @@ Partial Class ExampleForm
     Friend WithEvents ContextMenuStrip As ContextMenuStrip
     Friend WithEvents SubmitContextMenuItem As ToolStripMenuItem
     Friend WithEvents ClearContextMenuItem As ToolStripMenuItem
+    Friend WithEvents OpenFileDialog As OpenFileDialog
 End Class
