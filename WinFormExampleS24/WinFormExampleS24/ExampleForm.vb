@@ -164,6 +164,19 @@ Public Class ExampleForm
 
     End Sub
 
+    Sub DisplayRecord(recordIndex As Integer)
+        Dim temp() As String
+        Try
+            temp = Split(customerData(recordIndex), ",")
+            FirstNameTextBox.Text = temp(0)
+            LastNameTextBox.Text = temp(1)
+
+        Catch ex As Exception
+            'TODO write debug info to log file
+        End Try
+
+    End Sub
+
     Sub ReadCustomerDataBase()
         'TODO
         '[ ] read data file into list
@@ -178,7 +191,8 @@ Public Class ExampleForm
                     temp &= currentRecord & ","
 
                 Next
-                DisplayListBox.Items.Add(temp)
+                'DisplayListBox.Items.Add(temp)
+                Me.customerData.Add(temp)
                 temp = ""
             Loop
 
@@ -236,6 +250,7 @@ Public Class ExampleForm
 
     Private Sub DisplayListBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DisplayListBox.SelectedIndexChanged
         RecordsComboBox.SelectedIndex = DisplayListBox.SelectedIndex
+        DisplayRecord(DisplayListBox.SelectedIndex)
     End Sub
 
     Private Sub RecordsComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles RecordsComboBox.SelectedIndexChanged
