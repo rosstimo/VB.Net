@@ -3,6 +3,16 @@
 Option Strict On
 Option Explicit On
 
+'TODO
+'[ ]Add text boxes to match record data
+'[ ]display records in nice columns within list box
+'[ ]add filter options
+'[ ]populate combo box based on filter selection
+'[ ]update list box when combo box changes
+'[ ]backup database file
+'[ ]update database file
+'[ ]add error.log file with debug switch
+
 
 Public Class ExampleForm
 
