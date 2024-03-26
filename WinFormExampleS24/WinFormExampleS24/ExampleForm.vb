@@ -266,5 +266,4 @@ Public Class ExampleForm
     Private Sub RecordsComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles RecordsComboBox.SelectedIndexChanged
         DisplayListBox.SelectedIndex = RecordsComboBox.SelectedIndex
     End Sub
-
 End Class
