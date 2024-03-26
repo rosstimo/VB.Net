@@ -18,55 +18,23 @@ Public Class ExampleForm
 
     Dim customerData As New List(Of String)
 
-    'Public Property customerData() As List(Of String)
-    '    Get
-    '        Return _customerData
-    '    End Get
-    '    Set(ByVal value As String)
-    '        _customerData.Add(value)
-    '    End Set
-    'End Property
-
-    'junk As String
-
-    Sub ListExample()
-        Dim names As New List(Of String)
-
-        names.Add("Bob")
-        names.Add("Mary")
-        names.Add("Jim")
-        names.Add("Billy")
-        names.Add("Jane")
-        names.Add("Jim")
-        names.Add("Frank")
-        names.Add("Sue")
-        names.Add("Emily")
-
-        Console.WriteLine(names.Count)
-
-        names.Sort()
-        names.Reverse()
-
-        For Each _name In names
-            Console.WriteLine(_name)
-
-        Next
-
-    End Sub
 
     Sub SetDefaults()
-        'TODO
-        '[ ] clear selection in listbox
-        '[ ] clear selection in combobox
+
         UserInputTextBox.Text = ""
         NoChangeRadioButton.Checked = True
         ReverseCheckBox.Checked = False
         RemoveSpacesCheckBox.Checked = False
         LengthCheckBox.Checked = False
 
+        IDTextBox.Text = ""
         FirstNameTextBox.Text = ""
         LastNameTextBox.Text = ""
-        AgeTextBox.Text = ""
+        StreetTextBox.Text = ""
+        CityTextBox.Text = ""
+        ZipTextBox.Text = ""
+        StateTextBox.Text = ""
+        PhoneTextBox.Text = ""
         EmailTextBox.Text = ""
 
         DisplayListBox.SelectedIndex = -1
@@ -104,9 +72,6 @@ Public Class ExampleForm
         'TODO
         '[x] first can not be blank
         '[x] last can not be blank
-        '[x] age can not be blank
-        '[x] age must be a positive whole number
-        '[x] age must be within range. valid range TBD
         '[ ] email optional. if given check if valid email
         '[ ] check for duplicate records
 
@@ -119,26 +84,6 @@ Public Class ExampleForm
             message &= "Last name is required!" & vbNewLine
         End If
 
-        'validate age
-        Try
-            age = CUShort(AgeTextBox.Text)
-
-            Select Case age
-                Case 0 To 5
-                    message &= "Did someone lose a kid?" & vbNewLine
-                Case 6 To 17
-                    message &= "Where are your parents?" & vbNewLine
-                Case 18 To 65
-
-                Case 66 To 100
-                    message &= "Please check with you doctor before continuing" & vbNewLine
-                Case >= 101
-                    message &= "Wow! You old!!" & vbNewLine
-            End Select
-
-        Catch ex As Exception
-            message &= "Age must be a whole number!" & vbNewLine
-        End Try
 
         'Don't alert if no problem
         If message <> "" Then
@@ -152,7 +97,7 @@ Public Class ExampleForm
 
     Sub AddToList()
         Dim currentRecord As String
-        currentRecord = $"{FirstNameTextBox.Text},{LastNameTextBox.Text},{AgeTextBox.Text},{EmailTextBox.Text}"
+        currentRecord = $"{FirstNameTextBox.Text},{LastNameTextBox.Text},{StreetTextBox.Text},{CityTextBox.Text},{StateTextBox.Text},{ZipTextBox.Text},{EmailTextBox.Text},{PhoneTextBox.Text},{IDTextBox.Text},"
 
         If ValidateUserFields() Then
             Me.customerData.Add(currentRecord)
@@ -178,8 +123,16 @@ Public Class ExampleForm
         Dim temp() As String
         Try
             temp = Split(customerData(recordIndex), ",")
+            IDTextBox.Text = temp(8)
             FirstNameTextBox.Text = temp(0)
             LastNameTextBox.Text = temp(1)
+            StreetTextBox.Text = temp(2)
+            CityTextBox.Text = temp(3)
+            StateTextBox.Text = temp(4)
+            ZipTextBox.Text = temp(5)
+            EmailTextBox.Text = temp(6)
+            PhoneTextBox.Text = temp(7)
+
 
         Catch ex As Exception
             'TODO write debug info to log file

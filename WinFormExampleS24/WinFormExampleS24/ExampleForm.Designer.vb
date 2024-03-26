@@ -50,8 +50,8 @@ Partial Class ExampleForm
         Me.EmailLabel = New System.Windows.Forms.Label()
         Me.FirstNameTextBox = New System.Windows.Forms.TextBox()
         Me.FirstNameLabel = New System.Windows.Forms.Label()
-        Me.AgeTextBox = New System.Windows.Forms.TextBox()
-        Me.AgeLabel = New System.Windows.Forms.Label()
+        Me.PhoneTextBox = New System.Windows.Forms.TextBox()
+        Me.PhoneLabel = New System.Windows.Forms.Label()
         Me.LastNameTextBox = New System.Windows.Forms.TextBox()
         Me.LastNameLabel = New System.Windows.Forms.Label()
         Me.ButtonsGroupBox = New System.Windows.Forms.GroupBox()
@@ -230,8 +230,8 @@ Partial Class ExampleForm
         Me.CustomerInfoGroupBox.Controls.Add(Me.EmailLabel)
         Me.CustomerInfoGroupBox.Controls.Add(Me.FirstNameTextBox)
         Me.CustomerInfoGroupBox.Controls.Add(Me.FirstNameLabel)
-        Me.CustomerInfoGroupBox.Controls.Add(Me.AgeTextBox)
-        Me.CustomerInfoGroupBox.Controls.Add(Me.AgeLabel)
+        Me.CustomerInfoGroupBox.Controls.Add(Me.PhoneTextBox)
+        Me.CustomerInfoGroupBox.Controls.Add(Me.PhoneLabel)
         Me.CustomerInfoGroupBox.Controls.Add(Me.LastNameTextBox)
         Me.CustomerInfoGroupBox.Controls.Add(Me.LastNameLabel)
         Me.CustomerInfoGroupBox.Location = New System.Drawing.Point(12, 52)
@@ -340,21 +340,21 @@ Partial Class ExampleForm
         Me.FirstNameLabel.TabIndex = 6
         Me.FirstNameLabel.Text = "First"
         '
-        'AgeTextBox
+        'PhoneTextBox
         '
-        Me.AgeTextBox.Location = New System.Drawing.Point(73, 122)
-        Me.AgeTextBox.Name = "AgeTextBox"
-        Me.AgeTextBox.Size = New System.Drawing.Size(47, 26)
-        Me.AgeTextBox.TabIndex = 3
+        Me.PhoneTextBox.Location = New System.Drawing.Point(73, 122)
+        Me.PhoneTextBox.Name = "PhoneTextBox"
+        Me.PhoneTextBox.Size = New System.Drawing.Size(252, 26)
+        Me.PhoneTextBox.TabIndex = 3
         '
-        'AgeLabel
+        'PhoneLabel
         '
-        Me.AgeLabel.AutoSize = True
-        Me.AgeLabel.Location = New System.Drawing.Point(14, 128)
-        Me.AgeLabel.Name = "AgeLabel"
-        Me.AgeLabel.Size = New System.Drawing.Size(38, 20)
-        Me.AgeLabel.TabIndex = 4
-        Me.AgeLabel.Text = "Age"
+        Me.PhoneLabel.AutoSize = True
+        Me.PhoneLabel.Location = New System.Drawing.Point(14, 128)
+        Me.PhoneLabel.Name = "PhoneLabel"
+        Me.PhoneLabel.Size = New System.Drawing.Size(55, 20)
+        Me.PhoneLabel.TabIndex = 4
+        Me.PhoneLabel.Text = "Phone"
         '
         'LastNameTextBox
         '
@@ -520,8 +520,8 @@ Partial Class ExampleForm
     Friend WithEvents CustomerInfoGroupBox As GroupBox
     Friend WithEvents FirstNameTextBox As TextBox
     Friend WithEvents FirstNameLabel As Label
-    Friend WithEvents AgeTextBox As TextBox
-    Friend WithEvents AgeLabel As Label
+    Friend WithEvents PhoneTextBox As TextBox
+    Friend WithEvents PhoneLabel As Label
     Friend WithEvents LastNameTextBox As TextBox
     Friend WithEvents LastNameLabel As Label
     Friend WithEvents ButtonsGroupBox As GroupBox
