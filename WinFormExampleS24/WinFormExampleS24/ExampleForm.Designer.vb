@@ -40,6 +40,10 @@ Partial Class ExampleForm
         Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.SubmitContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IDTextBox = New System.Windows.Forms.TextBox()
+        Me.IDLabel = New System.Windows.Forms.Label()
+        Me.ZipTextBox = New System.Windows.Forms.TextBox()
+        Me.ZipLabel = New System.Windows.Forms.Label()
         Me.StateTextBox = New System.Windows.Forms.TextBox()
         Me.StateLabel = New System.Windows.Forms.Label()
         Me.CityTextBox = New System.Windows.Forms.TextBox()
@@ -65,10 +69,6 @@ Partial Class ExampleForm
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
-        Me.ZipTextBox = New System.Windows.Forms.TextBox()
-        Me.ZipLabel = New System.Windows.Forms.Label()
-        Me.IDTextBox = New System.Windows.Forms.TextBox()
-        Me.IDLabel = New System.Windows.Forms.Label()
         Me.FilterGroupBox.SuspendLayout()
         Me.CustomerInfoGroupBox.SuspendLayout()
         Me.ContextMenuStrip.SuspendLayout()
@@ -78,6 +78,7 @@ Partial Class ExampleForm
         '
         'SubmitButton
         '
+        Me.SubmitButton.Enabled = False
         Me.SubmitButton.Location = New System.Drawing.Point(214, 25)
         Me.SubmitButton.Name = "SubmitButton"
         Me.SubmitButton.Size = New System.Drawing.Size(197, 93)
@@ -124,7 +125,7 @@ Partial Class ExampleForm
         Me.FilterGroupBox.Controls.Add(Me.NoChangeRadioButton)
         Me.FilterGroupBox.Controls.Add(Me.UserInputTextBox)
         Me.FilterGroupBox.Controls.Add(Me.UserInputLabel)
-        Me.FilterGroupBox.Location = New System.Drawing.Point(474, 52)
+        Me.FilterGroupBox.Location = New System.Drawing.Point(466, 52)
         Me.FilterGroupBox.Name = "FilterGroupBox"
         Me.FilterGroupBox.Size = New System.Drawing.Size(400, 329)
         Me.FilterGroupBox.TabIndex = 1
@@ -260,6 +261,38 @@ Partial Class ExampleForm
         Me.ClearContextMenuItem.Size = New System.Drawing.Size(141, 32)
         Me.ClearContextMenuItem.Text = "Clear"
         '
+        'IDTextBox
+        '
+        Me.IDTextBox.Location = New System.Drawing.Point(73, 25)
+        Me.IDTextBox.Name = "IDTextBox"
+        Me.IDTextBox.Size = New System.Drawing.Size(252, 26)
+        Me.IDTextBox.TabIndex = 0
+        '
+        'IDLabel
+        '
+        Me.IDLabel.AutoSize = True
+        Me.IDLabel.Location = New System.Drawing.Point(14, 31)
+        Me.IDLabel.Name = "IDLabel"
+        Me.IDLabel.Size = New System.Drawing.Size(35, 20)
+        Me.IDLabel.TabIndex = 18
+        Me.IDLabel.Text = "ID#"
+        '
+        'ZipTextBox
+        '
+        Me.ZipTextBox.Location = New System.Drawing.Point(73, 250)
+        Me.ZipTextBox.Name = "ZipTextBox"
+        Me.ZipTextBox.Size = New System.Drawing.Size(252, 26)
+        Me.ZipTextBox.TabIndex = 7
+        '
+        'ZipLabel
+        '
+        Me.ZipLabel.AutoSize = True
+        Me.ZipLabel.Location = New System.Drawing.Point(14, 256)
+        Me.ZipLabel.Name = "ZipLabel"
+        Me.ZipLabel.Size = New System.Drawing.Size(31, 20)
+        Me.ZipLabel.TabIndex = 16
+        Me.ZipLabel.Text = "Zip"
+        '
         'StateTextBox
         '
         Me.StateTextBox.Location = New System.Drawing.Point(73, 218)
@@ -377,7 +410,7 @@ Partial Class ExampleForm
         Me.ButtonsGroupBox.Controls.Add(Me.SubmitButton)
         Me.ButtonsGroupBox.Controls.Add(Me.ExitButton)
         Me.ButtonsGroupBox.Controls.Add(Me.ClearButton)
-        Me.ButtonsGroupBox.Location = New System.Drawing.Point(249, 595)
+        Me.ButtonsGroupBox.Location = New System.Drawing.Point(241, 598)
         Me.ButtonsGroupBox.Name = "ButtonsGroupBox"
         Me.ButtonsGroupBox.Size = New System.Drawing.Size(625, 134)
         Me.ButtonsGroupBox.TabIndex = 2
@@ -390,7 +423,7 @@ Partial Class ExampleForm
         Me.DisplayListBox.ItemHeight = 19
         Me.DisplayListBox.Location = New System.Drawing.Point(12, 414)
         Me.DisplayListBox.Name = "DisplayListBox"
-        Me.DisplayListBox.Size = New System.Drawing.Size(862, 175)
+        Me.DisplayListBox.Size = New System.Drawing.Size(854, 156)
         Me.DisplayListBox.TabIndex = 4
         Me.DisplayListBox.TabStop = False
         Me.MainToolTip.SetToolTip(Me.DisplayListBox, "Custmer Data")
@@ -402,7 +435,7 @@ Partial Class ExampleForm
         Me.TopMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.TopMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.TopMenuStrip.Name = "TopMenuStrip"
-        Me.TopMenuStrip.Size = New System.Drawing.Size(886, 33)
+        Me.TopMenuStrip.Size = New System.Drawing.Size(884, 33)
         Me.TopMenuStrip.TabIndex = 6
         Me.TopMenuStrip.Text = "MenuStrip1"
         '
@@ -444,51 +477,20 @@ Partial Class ExampleForm
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(164, 34)
         Me.AboutToolStripMenuItem.Text = "&About"
         '
-        'ZipTextBox
-        '
-        Me.ZipTextBox.Location = New System.Drawing.Point(73, 250)
-        Me.ZipTextBox.Name = "ZipTextBox"
-        Me.ZipTextBox.Size = New System.Drawing.Size(252, 26)
-        Me.ZipTextBox.TabIndex = 7
-        '
-        'ZipLabel
-        '
-        Me.ZipLabel.AutoSize = True
-        Me.ZipLabel.Location = New System.Drawing.Point(14, 256)
-        Me.ZipLabel.Name = "ZipLabel"
-        Me.ZipLabel.Size = New System.Drawing.Size(31, 20)
-        Me.ZipLabel.TabIndex = 16
-        Me.ZipLabel.Text = "Zip"
-        '
-        'IDTextBox
-        '
-        Me.IDTextBox.Location = New System.Drawing.Point(73, 25)
-        Me.IDTextBox.Name = "IDTextBox"
-        Me.IDTextBox.Size = New System.Drawing.Size(252, 26)
-        Me.IDTextBox.TabIndex = 0
-        '
-        'IDLabel
-        '
-        Me.IDLabel.AutoSize = True
-        Me.IDLabel.Location = New System.Drawing.Point(14, 31)
-        Me.IDLabel.Name = "IDLabel"
-        Me.IDLabel.Size = New System.Drawing.Size(35, 20)
-        Me.IDLabel.TabIndex = 18
-        Me.IDLabel.Text = "ID#"
-        '
         'ExampleForm
         '
         Me.AcceptButton = Me.SubmitButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ClearButton
-        Me.ClientSize = New System.Drawing.Size(886, 741)
+        Me.ClientSize = New System.Drawing.Size(884, 761)
         Me.Controls.Add(Me.DisplayListBox)
         Me.Controls.Add(Me.ButtonsGroupBox)
         Me.Controls.Add(Me.CustomerInfoGroupBox)
         Me.Controls.Add(Me.FilterGroupBox)
         Me.Controls.Add(Me.TopMenuStrip)
         Me.MainMenuStrip = Me.TopMenuStrip
+        Me.MinimumSize = New System.Drawing.Size(900, 800)
         Me.Name = "ExampleForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Windows Form Example"

@@ -21,6 +21,8 @@ Public Class ExampleForm
 
     Sub SetDefaults()
 
+        'SubmitButton.Enabled = False
+
         UserInputTextBox.Text = ""
         NoChangeRadioButton.Checked = True
         ReverseCheckBox.Checked = False
@@ -78,18 +80,26 @@ Public Class ExampleForm
         'validate names
         If FirstNameTextBox.Text = "" Then
             message &= "First name is required!" & vbNewLine
+            FirstNameTextBox.BackColor = Color.LightYellow
+        Else
+            FirstNameTextBox.BackColor = Color.White
         End If
 
         If LastNameTextBox.Text = "" Then
             message &= "Last name is required!" & vbNewLine
+            LastNameTextBox.BackColor = Color.LightYellow
+        Else
+            LastNameTextBox.BackColor = Color.White
         End If
 
 
         'Don't alert if no problem
         If message <> "" Then
-            MsgBox(message, MsgBoxStyle.Critical, "User Error, Bad User!!!")
+            'MsgBox(message, MsgBoxStyle.Critical, "User Error, Bad User!!!")
+            SubmitButton.Enabled = False
             Return False
         Else
+            SubmitButton.Enabled = True
             Return True
         End If
 
@@ -218,5 +228,16 @@ Public Class ExampleForm
 
     Private Sub RecordsComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles RecordsComboBox.SelectedIndexChanged
         DisplayListBox.SelectedIndex = RecordsComboBox.SelectedIndex
+    End Sub
+
+    Private Sub TextBox_Leave(sender As Object, e As EventArgs) Handles IDTextBox.Leave,
+                                                                        FirstNameTextBox.Leave,
+                                                                        LastNameTextBox.Leave, PhoneTextBox.Leave,
+                                                                        StreetTextBox.Leave,
+                                                                        CityTextBox.Leave,
+                                                                        StateTextBox.Leave,
+                                                                        ZipTextBox.Leave,
+                                                                        EmailTextBox.Leave
+        ValidateUserFields()
     End Sub
 End Class
