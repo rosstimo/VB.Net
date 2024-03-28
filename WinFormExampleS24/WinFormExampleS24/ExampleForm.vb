@@ -1,10 +1,13 @@
-﻿'header stuff
-
-Option Strict On
+﻿Option Strict On
 Option Explicit On
+'header stuff
+
+Imports System.CodeDom.Compiler
+
+
 
 'TODO
-'[ ]Add text boxes to match record data
+'[x]Add text boxes to match record data
 '[ ]display records in nice columns within list box
 '[ ]add filter options
 '[ ]populate combo box based on filter selection
@@ -22,7 +25,7 @@ Public Class ExampleForm
     Sub SetDefaults()
 
         'SubmitButton.Enabled = False
-
+        RecordsComboBox.Items.Add("~ Select All ~")
         UserInputTextBox.Text = ""
         NoChangeRadioButton.Checked = True
         ReverseCheckBox.Checked = False
@@ -49,7 +52,7 @@ Public Class ExampleForm
         Select Case True
             Case LowerCaseRadioButton.Checked
                 UserInputTextBox.Text = LCase(UserInputTextBox.Text)
-            Case UpperCaseRadioButton.Checked
+            Case CityRadioButton.Checked
                 UserInputTextBox.Text = UCase(UserInputTextBox.Text)
         End Select
 
@@ -74,8 +77,9 @@ Public Class ExampleForm
         'TODO
         '[x] first can not be blank
         '[x] last can not be blank
+        '[x] check for valid phone
         '[ ] email optional. if given check if valid email
-        '[ ] check for duplicate records
+        '[ ] check for duplicate records, ID, phone, last name
 
         'validate names
         If FirstNameTextBox.Text = "" Then
@@ -117,15 +121,31 @@ Public Class ExampleForm
     End Sub
 
     Sub Display()
+        'TODO
+        '[ ] make pretty columns
+        '[ ] add based on filter selection
         Dim temp() As String
 
-        DisplayListBox.Items.Clear()
-        RecordsComboBox.Items.Clear()
-        For Each record In Me.customerData
-            DisplayListBox.Items.Add(record)
-            temp = Split(record, ",")
-            RecordsComboBox.Items.Add(temp(1))
-        Next
+        If RecordsComboBox.SelectedItem Is Nothing Then
+            MsgBox("oops!!")
+        Else
+            Try
+                DisplayListBox.Items.Clear()
+                'RecordsComboBox.Items.Clear()
+                For Each record In Me.customerData
+                    temp = Split(record, ",")
+                    If temp(3) = RecordsComboBox.SelectedItem.ToString Then
+                        DisplayListBox.Items.Add(record)
+
+                    End If
+                    'RecordsComboBox.Items.Add(temp(1))
+                Next
+            Catch ex As Exception
+                'log
+            End Try
+
+        End If
+
 
     End Sub
 
@@ -152,7 +172,8 @@ Public Class ExampleForm
 
     Sub ReadCustomerDataBase()
         'TODO
-        '[ ] read data file into list
+        '[X] read data file into list
+        '[ ] fix file path
         Dim currentRecord As String
         Dim temp As String
         Try
@@ -178,9 +199,9 @@ Public Class ExampleForm
 
     'Event Handlers Below Here
     Private Sub ExampleForm_Load(sender As Object, e As EventArgs) Handles Me.Load
-        SetDefaults()
         ReadCustomerDataBase()
-        ' Display()
+        SetDefaults()
+
     End Sub
 
     Private Sub Exit_Click(sender As Object, e As EventArgs) Handles ExitButton.Click, ExitTopMenuItem.Click
@@ -222,12 +243,13 @@ Public Class ExampleForm
     End Sub
 
     Private Sub DisplayListBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DisplayListBox.SelectedIndexChanged
-        RecordsComboBox.SelectedIndex = DisplayListBox.SelectedIndex
+        'RecordsComboBox.SelectedIndex = DisplayListBox.SelectedIndex
         DisplayRecord(DisplayListBox.SelectedIndex)
     End Sub
 
     Private Sub RecordsComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles RecordsComboBox.SelectedIndexChanged
-        DisplayListBox.SelectedIndex = RecordsComboBox.SelectedIndex
+        'DisplayListBox.SelectedIndex = RecordsComboBox.SelectedIndex
+        Display()
     End Sub
 
     Private Sub TextBox_Leave(sender As Object, e As EventArgs) Handles IDTextBox.Leave,
@@ -239,5 +261,19 @@ Public Class ExampleForm
                                                                         ZipTextBox.Leave,
                                                                         EmailTextBox.Leave
         ValidateUserFields()
+    End Sub
+
+    Private Sub CityRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles CityRadioButton.CheckedChanged
+        Dim temp() As String
+        If CityRadioButton.Checked Then
+            For Each customerRecord In Me.customerData
+                temp = Split(customerRecord, ",")
+                If Not (RecordsComboBox.Items.Contains(temp(3))) Then
+                    RecordsComboBox.Items.Add(temp(3))
+                End If
+            Next
+            RecordsComboBox.Sorted = True
+        End If
+
     End Sub
 End Class
