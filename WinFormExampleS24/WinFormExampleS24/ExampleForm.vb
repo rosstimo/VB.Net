@@ -276,4 +276,9 @@ Public Class ExampleForm
         End If
 
     End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        Me.Hide()
+        AboutForm.Show()
+    End Sub
 End Class

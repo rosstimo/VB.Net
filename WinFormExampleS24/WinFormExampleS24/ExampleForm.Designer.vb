@@ -80,7 +80,7 @@ Partial Class ExampleForm
         '
         Me.SubmitButton.Enabled = False
         Me.SubmitButton.Location = New System.Drawing.Point(143, 16)
-        Me.SubmitButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.SubmitButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.SubmitButton.Name = "SubmitButton"
         Me.SubmitButton.Size = New System.Drawing.Size(131, 60)
         Me.SubmitButton.TabIndex = 0
@@ -101,7 +101,7 @@ Partial Class ExampleForm
         'UserInputTextBox
         '
         Me.UserInputTextBox.Location = New System.Drawing.Point(91, 16)
-        Me.UserInputTextBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.UserInputTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.UserInputTextBox.Name = "UserInputTextBox"
         Me.UserInputTextBox.Size = New System.Drawing.Size(169, 20)
         Me.UserInputTextBox.TabIndex = 0
@@ -110,7 +110,7 @@ Partial Class ExampleForm
         '
         Me.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.ExitButton.Location = New System.Drawing.Point(278, 16)
-        Me.ExitButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.ExitButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(131, 60)
         Me.ExitButton.TabIndex = 0
@@ -130,9 +130,9 @@ Partial Class ExampleForm
         Me.FilterGroupBox.Controls.Add(Me.UserInputTextBox)
         Me.FilterGroupBox.Controls.Add(Me.UserInputLabel)
         Me.FilterGroupBox.Location = New System.Drawing.Point(311, 34)
-        Me.FilterGroupBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.FilterGroupBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.FilterGroupBox.Name = "FilterGroupBox"
-        Me.FilterGroupBox.Padding = New System.Windows.Forms.Padding(2)
+        Me.FilterGroupBox.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.FilterGroupBox.Size = New System.Drawing.Size(267, 214)
         Me.FilterGroupBox.TabIndex = 1
         Me.FilterGroupBox.TabStop = False
@@ -142,7 +142,7 @@ Partial Class ExampleForm
         '
         Me.LengthCheckBox.AutoSize = True
         Me.LengthCheckBox.Location = New System.Drawing.Point(135, 77)
-        Me.LengthCheckBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.LengthCheckBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.LengthCheckBox.Name = "LengthCheckBox"
         Me.LengthCheckBox.Size = New System.Drawing.Size(79, 17)
         Me.LengthCheckBox.TabIndex = 3
@@ -153,7 +153,7 @@ Partial Class ExampleForm
         '
         Me.RecordsComboBox.FormattingEnabled = True
         Me.RecordsComboBox.Location = New System.Drawing.Point(4, 179)
-        Me.RecordsComboBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.RecordsComboBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.RecordsComboBox.Name = "RecordsComboBox"
         Me.RecordsComboBox.Size = New System.Drawing.Size(169, 21)
         Me.RecordsComboBox.TabIndex = 5
@@ -163,7 +163,7 @@ Partial Class ExampleForm
         '
         Me.RemoveSpacesCheckBox.AutoSize = True
         Me.RemoveSpacesCheckBox.Location = New System.Drawing.Point(135, 57)
-        Me.RemoveSpacesCheckBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.RemoveSpacesCheckBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.RemoveSpacesCheckBox.Name = "RemoveSpacesCheckBox"
         Me.RemoveSpacesCheckBox.Size = New System.Drawing.Size(105, 17)
         Me.RemoveSpacesCheckBox.TabIndex = 2
@@ -174,7 +174,7 @@ Partial Class ExampleForm
         '
         Me.ReverseCheckBox.AutoSize = True
         Me.ReverseCheckBox.Location = New System.Drawing.Point(135, 37)
-        Me.ReverseCheckBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.ReverseCheckBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ReverseCheckBox.Name = "ReverseCheckBox"
         Me.ReverseCheckBox.Size = New System.Drawing.Size(66, 17)
         Me.ReverseCheckBox.TabIndex = 1
@@ -185,7 +185,7 @@ Partial Class ExampleForm
         '
         Me.LowerCaseRadioButton.AutoSize = True
         Me.LowerCaseRadioButton.Location = New System.Drawing.Point(34, 76)
-        Me.LowerCaseRadioButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.LowerCaseRadioButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.LowerCaseRadioButton.Name = "LowerCaseRadioButton"
         Me.LowerCaseRadioButton.Size = New System.Drawing.Size(81, 17)
         Me.LowerCaseRadioButton.TabIndex = 0
@@ -196,7 +196,7 @@ Partial Class ExampleForm
         '
         Me.CityRadioButton.AutoSize = True
         Me.CityRadioButton.Location = New System.Drawing.Point(34, 57)
-        Me.CityRadioButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.CityRadioButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.CityRadioButton.Name = "CityRadioButton"
         Me.CityRadioButton.Size = New System.Drawing.Size(42, 17)
         Me.CityRadioButton.TabIndex = 0
@@ -207,7 +207,7 @@ Partial Class ExampleForm
         '
         Me.NoChangeRadioButton.AutoSize = True
         Me.NoChangeRadioButton.Location = New System.Drawing.Point(34, 37)
-        Me.NoChangeRadioButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.NoChangeRadioButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.NoChangeRadioButton.Name = "NoChangeRadioButton"
         Me.NoChangeRadioButton.Size = New System.Drawing.Size(51, 17)
         Me.NoChangeRadioButton.TabIndex = 0
@@ -219,7 +219,7 @@ Partial Class ExampleForm
         '
         Me.ClearButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.ClearButton.Location = New System.Drawing.Point(7, 16)
-        Me.ClearButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.ClearButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ClearButton.Name = "ClearButton"
         Me.ClearButton.Size = New System.Drawing.Size(131, 60)
         Me.ClearButton.TabIndex = 8
@@ -250,9 +250,9 @@ Partial Class ExampleForm
         Me.CustomerInfoGroupBox.Controls.Add(Me.LastNameTextBox)
         Me.CustomerInfoGroupBox.Controls.Add(Me.LastNameLabel)
         Me.CustomerInfoGroupBox.Location = New System.Drawing.Point(8, 34)
-        Me.CustomerInfoGroupBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.CustomerInfoGroupBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.CustomerInfoGroupBox.Name = "CustomerInfoGroupBox"
-        Me.CustomerInfoGroupBox.Padding = New System.Windows.Forms.Padding(2)
+        Me.CustomerInfoGroupBox.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.CustomerInfoGroupBox.Size = New System.Drawing.Size(265, 214)
         Me.CustomerInfoGroupBox.TabIndex = 0
         Me.CustomerInfoGroupBox.TabStop = False
@@ -280,7 +280,7 @@ Partial Class ExampleForm
         'IDTextBox
         '
         Me.IDTextBox.Location = New System.Drawing.Point(49, 16)
-        Me.IDTextBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.IDTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.IDTextBox.Name = "IDTextBox"
         Me.IDTextBox.Size = New System.Drawing.Size(169, 20)
         Me.IDTextBox.TabIndex = 0
@@ -298,7 +298,7 @@ Partial Class ExampleForm
         'ZipTextBox
         '
         Me.ZipTextBox.Location = New System.Drawing.Point(49, 166)
-        Me.ZipTextBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.ZipTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ZipTextBox.Name = "ZipTextBox"
         Me.ZipTextBox.Size = New System.Drawing.Size(169, 20)
         Me.ZipTextBox.TabIndex = 7
@@ -316,7 +316,7 @@ Partial Class ExampleForm
         'StateTextBox
         '
         Me.StateTextBox.Location = New System.Drawing.Point(49, 142)
-        Me.StateTextBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.StateTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.StateTextBox.Name = "StateTextBox"
         Me.StateTextBox.Size = New System.Drawing.Size(169, 20)
         Me.StateTextBox.TabIndex = 6
@@ -334,7 +334,7 @@ Partial Class ExampleForm
         'CityTextBox
         '
         Me.CityTextBox.Location = New System.Drawing.Point(49, 121)
-        Me.CityTextBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.CityTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.CityTextBox.Name = "CityTextBox"
         Me.CityTextBox.Size = New System.Drawing.Size(169, 20)
         Me.CityTextBox.TabIndex = 5
@@ -352,7 +352,7 @@ Partial Class ExampleForm
         'StreetTextBox
         '
         Me.StreetTextBox.Location = New System.Drawing.Point(49, 100)
-        Me.StreetTextBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.StreetTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.StreetTextBox.Name = "StreetTextBox"
         Me.StreetTextBox.Size = New System.Drawing.Size(169, 20)
         Me.StreetTextBox.TabIndex = 4
@@ -370,7 +370,7 @@ Partial Class ExampleForm
         'EmailTextBox
         '
         Me.EmailTextBox.Location = New System.Drawing.Point(49, 187)
-        Me.EmailTextBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.EmailTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.EmailTextBox.Name = "EmailTextBox"
         Me.EmailTextBox.Size = New System.Drawing.Size(169, 20)
         Me.EmailTextBox.TabIndex = 8
@@ -388,7 +388,7 @@ Partial Class ExampleForm
         'FirstNameTextBox
         '
         Me.FirstNameTextBox.Location = New System.Drawing.Point(49, 37)
-        Me.FirstNameTextBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.FirstNameTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.FirstNameTextBox.Name = "FirstNameTextBox"
         Me.FirstNameTextBox.Size = New System.Drawing.Size(169, 20)
         Me.FirstNameTextBox.TabIndex = 1
@@ -406,7 +406,7 @@ Partial Class ExampleForm
         'PhoneTextBox
         '
         Me.PhoneTextBox.Location = New System.Drawing.Point(49, 79)
-        Me.PhoneTextBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.PhoneTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PhoneTextBox.Name = "PhoneTextBox"
         Me.PhoneTextBox.Size = New System.Drawing.Size(169, 20)
         Me.PhoneTextBox.TabIndex = 3
@@ -424,7 +424,7 @@ Partial Class ExampleForm
         'LastNameTextBox
         '
         Me.LastNameTextBox.Location = New System.Drawing.Point(49, 58)
-        Me.LastNameTextBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.LastNameTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.LastNameTextBox.Name = "LastNameTextBox"
         Me.LastNameTextBox.Size = New System.Drawing.Size(169, 20)
         Me.LastNameTextBox.TabIndex = 2
@@ -445,9 +445,9 @@ Partial Class ExampleForm
         Me.ButtonsGroupBox.Controls.Add(Me.ExitButton)
         Me.ButtonsGroupBox.Controls.Add(Me.ClearButton)
         Me.ButtonsGroupBox.Location = New System.Drawing.Point(161, 389)
-        Me.ButtonsGroupBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.ButtonsGroupBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ButtonsGroupBox.Name = "ButtonsGroupBox"
-        Me.ButtonsGroupBox.Padding = New System.Windows.Forms.Padding(2)
+        Me.ButtonsGroupBox.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ButtonsGroupBox.Size = New System.Drawing.Size(417, 87)
         Me.ButtonsGroupBox.TabIndex = 2
         Me.ButtonsGroupBox.TabStop = False
@@ -457,9 +457,9 @@ Partial Class ExampleForm
         Me.DisplayListBox.Font = New System.Drawing.Font("Consolas", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DisplayListBox.FormattingEnabled = True
         Me.DisplayListBox.Location = New System.Drawing.Point(8, 269)
-        Me.DisplayListBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.DisplayListBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.DisplayListBox.Name = "DisplayListBox"
-        Me.DisplayListBox.Size = New System.Drawing.Size(571, 95)
+        Me.DisplayListBox.Size = New System.Drawing.Size(571, 82)
         Me.DisplayListBox.TabIndex = 4
         Me.DisplayListBox.TabStop = False
         Me.MainToolTip.SetToolTip(Me.DisplayListBox, "Custmer Data")
@@ -519,15 +519,15 @@ Partial Class ExampleForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ClearButton
-        Me.ClientSize = New System.Drawing.Size(589, 485)
+        Me.ClientSize = New System.Drawing.Size(589, 490)
         Me.Controls.Add(Me.DisplayListBox)
         Me.Controls.Add(Me.ButtonsGroupBox)
         Me.Controls.Add(Me.CustomerInfoGroupBox)
         Me.Controls.Add(Me.FilterGroupBox)
         Me.Controls.Add(Me.TopMenuStrip)
         Me.MainMenuStrip = Me.TopMenuStrip
-        Me.Margin = New System.Windows.Forms.Padding(2)
-        Me.MinimumSize = New System.Drawing.Size(605, 480)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MinimumSize = New System.Drawing.Size(603, 474)
         Me.Name = "ExampleForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Windows Form Example"
