@@ -27,17 +27,12 @@ Namespace My
             Me.IsSingleInstance = false
             Me.EnableVisualStyles = true
             Me.SaveMySettingsOnExit = true
-            Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
+            Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterAllFormsClose
         End Sub
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.WinFormExampleS24.ExampleForm
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
-        Protected Overrides Sub OnCreateSplashScreen()
-            Me.SplashScreen = Global.WinFormExampleS24.SplashForm
+            Me.MainForm = Global.WinFormExampleS24.SplashForm
         End Sub
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _

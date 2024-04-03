@@ -22,7 +22,14 @@ Partial Class SplashForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Me.SplashTimer = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
+        '
+        'SplashTimer
+        '
+        Me.SplashTimer.Enabled = True
+        Me.SplashTimer.Interval = 1500
         '
         'SplashForm
         '
@@ -39,4 +46,6 @@ Partial Class SplashForm
         Me.ResumeLayout(False)
 
     End Sub
+
+    Friend WithEvents SplashTimer As Timer
 End Class
