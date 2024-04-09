@@ -22,11 +22,17 @@ Public Class GrapicsForm
         pen.Dispose()
         g.Dispose()
     End Sub
-    Sub MouseDraw(newX As Integer, newY As Integer)
+    Sub MouseDraw(newX As Integer, newY As Integer, draw As Boolean)
         Dim g As Graphics = DrawingPictureBox.CreateGraphics
         Dim pen As New Pen(Color.Black)
+        Static oldX As Integer, oldY As Integer
 
-        g.DrawLine(pen, 0, 0, newX, newY)
+        If draw Then
+            g.DrawLine(pen, oldX, oldY, newX, newY)
+        End If
+
+        oldX = newX
+        oldY = newY
 
         pen.Dispose()
         g.Dispose()
@@ -70,21 +76,35 @@ Public Class GrapicsForm
         g.Dispose()
     End Sub
 
-    Private Sub GrapicsForm_Click(sender As Object, e As EventArgs) Handles Me.Click
-        DrawLine()
-        DrawEllipse()
-        DrawRectangle()
-        DrawString()
-
-    End Sub
+    ' Event Handlers Below Here
 
     Private Sub DrawingPictureBox_MouseMove(sender As Object, e As MouseEventArgs) Handles DrawingPictureBox.MouseMove
         Me.Text = $"({e.X},{e.Y}) Button: {e.Button}"
-        MouseDraw(e.X, e.Y)
+
+        If e.Button = MouseButtons.Left Then
+            MouseDraw(e.X, e.Y, True)
+        Else
+            MouseDraw(e.X, e.Y, False)
+        End If
 
     End Sub
 
     Private Sub DrawingPictureBox_MouseDown(sender As Object, e As MouseEventArgs) Handles DrawingPictureBox.MouseDown
         Me.Text = $"({e.X},{e.Y}) Button: {e.Button}"
+    End Sub
+
+    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+        Me.Close()
+    End Sub
+
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+        DrawingPictureBox.Refresh()
+    End Sub
+
+    Private Sub DrawButton_Click(sender As Object, e As EventArgs) Handles DrawButton.Click
+        DrawLine()
+        DrawEllipse()
+        DrawRectangle()
+        DrawString()
     End Sub
 End Class
