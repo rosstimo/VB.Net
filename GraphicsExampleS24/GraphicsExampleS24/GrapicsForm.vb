@@ -14,7 +14,7 @@ Public Class GrapicsForm
     End Sub
 
     Sub DrawLine()
-        Dim g As Graphics = Me.CreateGraphics
+        Dim g As Graphics = DrawingPictureBox.CreateGraphics
         Dim pen As New Pen(Color.Black)
 
         g.DrawLine(pen, 0, 0, 100, 100)
@@ -22,10 +22,18 @@ Public Class GrapicsForm
         pen.Dispose()
         g.Dispose()
     End Sub
+    Sub MouseDraw(newX As Integer, newY As Integer)
+        Dim g As Graphics = DrawingPictureBox.CreateGraphics
+        Dim pen As New Pen(Color.Black)
 
+        g.DrawLine(pen, 0, 0, newX, newY)
+
+        pen.Dispose()
+        g.Dispose()
+    End Sub
 
     Sub DrawEllipse()
-        Dim g As Graphics = Me.CreateGraphics
+        Dim g As Graphics = DrawingPictureBox.CreateGraphics
         Dim pen As New Pen(Color.Green)
 
         g.DrawEllipse(pen, 0, 0, 100, 100)
@@ -35,7 +43,7 @@ Public Class GrapicsForm
     End Sub
 
     Sub DrawRectangle()
-        Dim g As Graphics = Me.CreateGraphics
+        Dim g As Graphics = DrawingPictureBox.CreateGraphics
         Dim pen As New Pen(Color.Red)
 
         g.DrawRectangle(pen, 0, 0, 100, 100)
@@ -46,7 +54,7 @@ Public Class GrapicsForm
 
 
     Sub DrawString()
-        Dim g As Graphics = Me.CreateGraphics
+        Dim g As Graphics = DrawingPictureBox.CreateGraphics
         'Dim pen As New Pen(Color.Green)
         'Dim brush As Brush
         Dim drawFont As New Font("Arial", 16)
@@ -68,5 +76,15 @@ Public Class GrapicsForm
         DrawRectangle()
         DrawString()
 
+    End Sub
+
+    Private Sub DrawingPictureBox_MouseMove(sender As Object, e As MouseEventArgs) Handles DrawingPictureBox.MouseMove
+        Me.Text = $"({e.X},{e.Y}) Button: {e.Button}"
+        MouseDraw(e.X, e.Y)
+
+    End Sub
+
+    Private Sub DrawingPictureBox_MouseDown(sender As Object, e As MouseEventArgs) Handles DrawingPictureBox.MouseDown
+        Me.Text = $"({e.X},{e.Y}) Button: {e.Button}"
     End Sub
 End Class

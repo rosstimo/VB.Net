@@ -22,17 +22,30 @@ Partial Class GrapicsForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.DrawingPictureBox = New System.Windows.Forms.PictureBox()
+        CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'DrawingPictureBox
+        '
+        Me.DrawingPictureBox.Location = New System.Drawing.Point(12, 12)
+        Me.DrawingPictureBox.Name = "DrawingPictureBox"
+        Me.DrawingPictureBox.Size = New System.Drawing.Size(592, 296)
+        Me.DrawingPictureBox.TabIndex = 0
+        Me.DrawingPictureBox.TabStop = False
         '
         'GrapicsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(616, 381)
+        Me.Controls.Add(Me.DrawingPictureBox)
         Me.Name = "GrapicsForm"
         Me.Text = "Form1"
+        CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
+    Friend WithEvents DrawingPictureBox As PictureBox
 End Class
