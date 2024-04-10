@@ -22,13 +22,20 @@ Partial Class GrapicsForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.DrawingPictureBox = New System.Windows.Forms.PictureBox()
         Me.ButtonGroupBox = New System.Windows.Forms.GroupBox()
         Me.DrawButton = New System.Windows.Forms.Button()
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.ExitButton = New System.Windows.Forms.Button()
+        Me.PictureBoxContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ColorDialog = New System.Windows.Forms.ColorDialog()
+        Me.ColorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ForegroundToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BackgroundToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ButtonGroupBox.SuspendLayout()
+        Me.PictureBoxContextMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'DrawingPictureBox
@@ -37,6 +44,7 @@ Partial Class GrapicsForm
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DrawingPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.DrawingPictureBox.ContextMenuStrip = Me.PictureBoxContextMenuStrip
         Me.DrawingPictureBox.Cursor = System.Windows.Forms.Cursors.Cross
         Me.DrawingPictureBox.Location = New System.Drawing.Point(12, 12)
         Me.DrawingPictureBox.Name = "DrawingPictureBox"
@@ -83,6 +91,31 @@ Partial Class GrapicsForm
         Me.ExitButton.Text = "E&xit"
         Me.ExitButton.UseVisualStyleBackColor = True
         '
+        'PictureBoxContextMenuStrip
+        '
+        Me.PictureBoxContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ColorToolStripMenuItem})
+        Me.PictureBoxContextMenuStrip.Name = "PictureBoxContextMenuStrip"
+        Me.PictureBoxContextMenuStrip.Size = New System.Drawing.Size(181, 48)
+        '
+        'ColorToolStripMenuItem
+        '
+        Me.ColorToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ForegroundToolStripMenuItem, Me.BackgroundToolStripMenuItem})
+        Me.ColorToolStripMenuItem.Name = "ColorToolStripMenuItem"
+        Me.ColorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ColorToolStripMenuItem.Text = "Color"
+        '
+        'ForegroundToolStripMenuItem
+        '
+        Me.ForegroundToolStripMenuItem.Name = "ForegroundToolStripMenuItem"
+        Me.ForegroundToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ForegroundToolStripMenuItem.Text = "Foreground"
+        '
+        'BackgroundToolStripMenuItem
+        '
+        Me.BackgroundToolStripMenuItem.Name = "BackgroundToolStripMenuItem"
+        Me.BackgroundToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.BackgroundToolStripMenuItem.Text = "Background"
+        '
         'GrapicsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -94,6 +127,7 @@ Partial Class GrapicsForm
         Me.Text = "Form1"
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ButtonGroupBox.ResumeLayout(False)
+        Me.PictureBoxContextMenuStrip.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -103,4 +137,9 @@ Partial Class GrapicsForm
     Friend WithEvents DrawButton As Button
     Friend WithEvents ClearButton As Button
     Friend WithEvents ExitButton As Button
+    Friend WithEvents PictureBoxContextMenuStrip As ContextMenuStrip
+    Friend WithEvents ColorToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ForegroundToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BackgroundToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ColorDialog As ColorDialog
 End Class

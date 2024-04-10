@@ -5,6 +5,23 @@ Option Explicit On
 
 Public Class GrapicsForm
 
+    Sub SetDefaults()
+        ForegroundColor(Color.Black, True)
+    End Sub
+
+    Function ForegroundColor(Optional newColor As Color = Nothing, Optional update As Boolean = False) As Color
+        Static currentColor As Color
+
+        If update Then
+            currentColor = newColor
+        End If
+
+        Return currentColor
+
+    End Function
+
+
+
     Sub DrawLine()
         Dim g As Graphics = DrawingPictureBox.CreateGraphics
         Dim pen As New Pen(Color.Black)
@@ -16,7 +33,10 @@ Public Class GrapicsForm
     End Sub
     Sub MouseDraw(newX As Integer, newY As Integer, draw As Boolean)
         Dim g As Graphics = DrawingPictureBox.CreateGraphics
-        Dim pen As New Pen(Color.Black)
+
+        'Dim pen As New Pen(Color.Black)
+        Dim pen As New Pen(ForegroundColor())
+
         Static oldX As Integer, oldY As Integer
 
         If draw Then
@@ -91,6 +111,7 @@ Public Class GrapicsForm
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         DrawingPictureBox.Refresh()
+        SetDefaults()
     End Sub
 
     Private Sub DrawButton_Click(sender As Object, e As EventArgs) Handles DrawButton.Click
@@ -98,5 +119,17 @@ Public Class GrapicsForm
         DrawEllipse()
         DrawRectangle()
         DrawString()
+    End Sub
+
+    Private Sub ForegroundToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ForegroundToolStripMenuItem.Click
+
+        If ColorDialog.ShowDialog() = DialogResult.OK Then
+            ForegroundColor(ColorDialog.Color, True)
+        End If
+
+    End Sub
+
+    Private Sub GrapicsForm_Load(sender As Object, e As EventArgs) Handles Me.Load
+        SetDefaults()
     End Sub
 End Class
