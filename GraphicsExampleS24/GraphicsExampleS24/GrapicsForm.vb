@@ -4,14 +4,6 @@ Option Explicit On
 
 
 Public Class GrapicsForm
-    Public Sub New()
-
-        ' This call is required by the designer.
-        InitializeComponent()
-
-        ' Add any initialization after the InitializeComponent() call.
-
-    End Sub
 
     Sub DrawLine()
         Dim g As Graphics = DrawingPictureBox.CreateGraphics
