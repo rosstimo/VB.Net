@@ -85,6 +85,31 @@ Public Class GrapicsForm
         g.Dispose()
     End Sub
 
+    Sub DrawGrid() Handles DrawingPictureBox.DoubleClick
+        Dim g As Graphics = DrawingPictureBox.CreateGraphics
+        Dim pen As New Pen(Color.Black)
+
+        Const TOP = 0%, LEFT = 0%
+        Dim Bottom As Integer = DrawingPictureBox.Height
+        Dim Right As Integer = DrawingPictureBox.Width
+
+        Dim xIncrement = DrawingPictureBox.Width \ 10
+        Dim yIncrement = DrawingPictureBox.Height \ 8
+
+        'vertical lines
+
+        For x = xIncrement To Right - xIncrement Step xIncrement
+            g.DrawLine(pen, x, TOP, x, Bottom)
+        Next
+
+        For y = yIncrement To Bottom - yIncrement Step yIncrement
+            g.DrawLine(pen, LEFT, y, Right, y)
+        Next
+
+        pen.Dispose()
+        g.Dispose()
+    End Sub
+
     ' Event Handlers Below Here
 
     Private Sub DrawingPictureBox_MouseMove(sender As Object, e As MouseEventArgs) Handles DrawingPictureBox.MouseMove
