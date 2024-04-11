@@ -24,18 +24,18 @@ Partial Class GrapicsForm
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.DrawingPictureBox = New System.Windows.Forms.PictureBox()
+        Me.PictureBoxContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ColorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ForegroundToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BackgroundToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ButtonGroupBox = New System.Windows.Forms.GroupBox()
         Me.DrawButton = New System.Windows.Forms.Button()
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.ExitButton = New System.Windows.Forms.Button()
-        Me.PictureBoxContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ColorDialog = New System.Windows.Forms.ColorDialog()
-        Me.ColorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ForegroundToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BackgroundToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ButtonGroupBox.SuspendLayout()
         Me.PictureBoxContextMenuStrip.SuspendLayout()
+        Me.ButtonGroupBox.SuspendLayout()
         Me.SuspendLayout()
         '
         'DrawingPictureBox
@@ -46,11 +46,38 @@ Partial Class GrapicsForm
         Me.DrawingPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.DrawingPictureBox.ContextMenuStrip = Me.PictureBoxContextMenuStrip
         Me.DrawingPictureBox.Cursor = System.Windows.Forms.Cursors.Cross
-        Me.DrawingPictureBox.Location = New System.Drawing.Point(12, 12)
+        Me.DrawingPictureBox.Location = New System.Drawing.Point(18, 18)
+        Me.DrawingPictureBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DrawingPictureBox.Name = "DrawingPictureBox"
-        Me.DrawingPictureBox.Size = New System.Drawing.Size(600, 300)
+        Me.DrawingPictureBox.Size = New System.Drawing.Size(898, 459)
         Me.DrawingPictureBox.TabIndex = 0
         Me.DrawingPictureBox.TabStop = False
+        '
+        'PictureBoxContextMenuStrip
+        '
+        Me.PictureBoxContextMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.PictureBoxContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ColorToolStripMenuItem})
+        Me.PictureBoxContextMenuStrip.Name = "PictureBoxContextMenuStrip"
+        Me.PictureBoxContextMenuStrip.Size = New System.Drawing.Size(128, 36)
+        '
+        'ColorToolStripMenuItem
+        '
+        Me.ColorToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ForegroundToolStripMenuItem, Me.BackgroundToolStripMenuItem})
+        Me.ColorToolStripMenuItem.Name = "ColorToolStripMenuItem"
+        Me.ColorToolStripMenuItem.Size = New System.Drawing.Size(127, 32)
+        Me.ColorToolStripMenuItem.Text = "Color"
+        '
+        'ForegroundToolStripMenuItem
+        '
+        Me.ForegroundToolStripMenuItem.Name = "ForegroundToolStripMenuItem"
+        Me.ForegroundToolStripMenuItem.Size = New System.Drawing.Size(209, 34)
+        Me.ForegroundToolStripMenuItem.Text = "Foreground"
+        '
+        'BackgroundToolStripMenuItem
+        '
+        Me.BackgroundToolStripMenuItem.Name = "BackgroundToolStripMenuItem"
+        Me.BackgroundToolStripMenuItem.Size = New System.Drawing.Size(209, 34)
+        Me.BackgroundToolStripMenuItem.Text = "Background"
         '
         'ButtonGroupBox
         '
@@ -58,76 +85,57 @@ Partial Class GrapicsForm
         Me.ButtonGroupBox.Controls.Add(Me.DrawButton)
         Me.ButtonGroupBox.Controls.Add(Me.ClearButton)
         Me.ButtonGroupBox.Controls.Add(Me.ExitButton)
-        Me.ButtonGroupBox.Location = New System.Drawing.Point(272, 318)
+        Me.ButtonGroupBox.Location = New System.Drawing.Point(408, 489)
+        Me.ButtonGroupBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ButtonGroupBox.Name = "ButtonGroupBox"
-        Me.ButtonGroupBox.Size = New System.Drawing.Size(340, 100)
+        Me.ButtonGroupBox.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.ButtonGroupBox.Size = New System.Drawing.Size(510, 154)
         Me.ButtonGroupBox.TabIndex = 1
         Me.ButtonGroupBox.TabStop = False
         '
         'DrawButton
         '
-        Me.DrawButton.Location = New System.Drawing.Point(6, 19)
+        Me.DrawButton.Location = New System.Drawing.Point(9, 29)
+        Me.DrawButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DrawButton.Name = "DrawButton"
-        Me.DrawButton.Size = New System.Drawing.Size(104, 64)
+        Me.DrawButton.Size = New System.Drawing.Size(156, 98)
         Me.DrawButton.TabIndex = 2
         Me.DrawButton.Text = "&Draw"
         Me.DrawButton.UseVisualStyleBackColor = True
         '
         'ClearButton
         '
-        Me.ClearButton.Location = New System.Drawing.Point(116, 19)
+        Me.ClearButton.Location = New System.Drawing.Point(174, 29)
+        Me.ClearButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ClearButton.Name = "ClearButton"
-        Me.ClearButton.Size = New System.Drawing.Size(104, 64)
+        Me.ClearButton.Size = New System.Drawing.Size(156, 98)
         Me.ClearButton.TabIndex = 1
         Me.ClearButton.Text = "&Clear"
         Me.ClearButton.UseVisualStyleBackColor = True
         '
         'ExitButton
         '
-        Me.ExitButton.Location = New System.Drawing.Point(226, 19)
+        Me.ExitButton.Location = New System.Drawing.Point(339, 29)
+        Me.ExitButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ExitButton.Name = "ExitButton"
-        Me.ExitButton.Size = New System.Drawing.Size(104, 64)
+        Me.ExitButton.Size = New System.Drawing.Size(156, 98)
         Me.ExitButton.TabIndex = 0
         Me.ExitButton.Text = "E&xit"
         Me.ExitButton.UseVisualStyleBackColor = True
         '
-        'PictureBoxContextMenuStrip
-        '
-        Me.PictureBoxContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ColorToolStripMenuItem})
-        Me.PictureBoxContextMenuStrip.Name = "PictureBoxContextMenuStrip"
-        Me.PictureBoxContextMenuStrip.Size = New System.Drawing.Size(181, 48)
-        '
-        'ColorToolStripMenuItem
-        '
-        Me.ColorToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ForegroundToolStripMenuItem, Me.BackgroundToolStripMenuItem})
-        Me.ColorToolStripMenuItem.Name = "ColorToolStripMenuItem"
-        Me.ColorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ColorToolStripMenuItem.Text = "Color"
-        '
-        'ForegroundToolStripMenuItem
-        '
-        Me.ForegroundToolStripMenuItem.Name = "ForegroundToolStripMenuItem"
-        Me.ForegroundToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ForegroundToolStripMenuItem.Text = "Foreground"
-        '
-        'BackgroundToolStripMenuItem
-        '
-        Me.BackgroundToolStripMenuItem.Name = "BackgroundToolStripMenuItem"
-        Me.BackgroundToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.BackgroundToolStripMenuItem.Text = "Background"
-        '
         'GrapicsForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(624, 430)
+        Me.ClientSize = New System.Drawing.Size(936, 662)
         Me.Controls.Add(Me.ButtonGroupBox)
         Me.Controls.Add(Me.DrawingPictureBox)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "GrapicsForm"
         Me.Text = "Form1"
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ButtonGroupBox.ResumeLayout(False)
         Me.PictureBoxContextMenuStrip.ResumeLayout(False)
+        Me.ButtonGroupBox.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

@@ -20,8 +20,6 @@ Public Class GrapicsForm
 
     End Function
 
-
-
     Sub DrawLine()
         Dim g As Graphics = DrawingPictureBox.CreateGraphics
         Dim pen As New Pen(Color.Black)
@@ -69,7 +67,6 @@ Public Class GrapicsForm
         pen.Dispose()
         g.Dispose()
     End Sub
-
 
     Sub DrawString()
         Dim g As Graphics = DrawingPictureBox.CreateGraphics
