@@ -29,6 +29,7 @@ Public Class GrapicsForm
         pen.Dispose()
         g.Dispose()
     End Sub
+
     Sub MouseDraw(newX As Integer, newY As Integer, draw As Boolean)
         Dim g As Graphics = DrawingPictureBox.CreateGraphics
 
@@ -110,6 +111,43 @@ Public Class GrapicsForm
         g.Dispose()
     End Sub
 
+    Sub DrawSinWave()
+
+        Dim g As Graphics = DrawingPictureBox.CreateGraphics
+        Dim pen As New Pen(Color.Red)
+
+        Dim xMax As Single = 360 'new witdth 360 made up units wide
+        Dim xScale As Single = DrawingPictureBox.Width / xMax 'calculate the x scale factor
+
+        Dim yMax As Single = 100 'new height 100 made up units high 
+        Dim yScale As Single = CSng(DrawingPictureBox.Height / 2) / yMax * -1 'calculate the y scale factor and make up positive y
+
+        Dim oldX#, oldY#, newX#, newY#
+        Dim angle#
+
+        'apply the scale 
+        g.ScaleTransform(xScale, yScale)
+
+        'set the origin to the y middle of the picture box
+        g.TranslateTransform(0, yMax * -1)
+
+        For newX = 0 To 360
+            'convert current X from degrees to radians
+            angle = (Math.PI / 180) * newX
+            'find current y 
+            newY = (yMax - 10) * Math.Sin(angle)
+            'draw current line segment
+            g.DrawLine(pen, CInt(oldX), CInt(oldY), CInt(newX), CInt(newY))
+            'store values for start of next line segment
+            oldX = newX
+            oldY = newY
+        Next
+
+        pen.Dispose()
+        g.Dispose()
+    End Sub
+
+
     ' Event Handlers Below Here
 
     Private Sub DrawingPictureBox_MouseMove(sender As Object, e As MouseEventArgs) Handles DrawingPictureBox.MouseMove
@@ -137,10 +175,12 @@ Public Class GrapicsForm
     End Sub
 
     Private Sub DrawButton_Click(sender As Object, e As EventArgs) Handles DrawButton.Click
-        DrawLine()
-        DrawEllipse()
-        DrawRectangle()
-        DrawString()
+        'DrawLine()
+        'DrawEllipse()
+        'DrawRectangle()
+        'DrawString()
+        DrawSinWave()
+        DrawGrid()
     End Sub
 
     Private Sub ForegroundToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ForegroundToolStripMenuItem.Click
@@ -154,4 +194,5 @@ Public Class GrapicsForm
     Private Sub GrapicsForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         SetDefaults()
     End Sub
+
 End Class

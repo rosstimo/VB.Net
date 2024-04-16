@@ -48,8 +48,9 @@ Partial Class GrapicsForm
         Me.DrawingPictureBox.Cursor = System.Windows.Forms.Cursors.Cross
         Me.DrawingPictureBox.Location = New System.Drawing.Point(18, 18)
         Me.DrawingPictureBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.DrawingPictureBox.MinimumSize = New System.Drawing.Size(360, 200)
         Me.DrawingPictureBox.Name = "DrawingPictureBox"
-        Me.DrawingPictureBox.Size = New System.Drawing.Size(898, 459)
+        Me.DrawingPictureBox.Size = New System.Drawing.Size(720, 400)
         Me.DrawingPictureBox.TabIndex = 0
         Me.DrawingPictureBox.TabStop = False
         '
@@ -85,7 +86,7 @@ Partial Class GrapicsForm
         Me.ButtonGroupBox.Controls.Add(Me.DrawButton)
         Me.ButtonGroupBox.Controls.Add(Me.ClearButton)
         Me.ButtonGroupBox.Controls.Add(Me.ExitButton)
-        Me.ButtonGroupBox.Location = New System.Drawing.Point(408, 489)
+        Me.ButtonGroupBox.Location = New System.Drawing.Point(228, 423)
         Me.ButtonGroupBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ButtonGroupBox.Name = "ButtonGroupBox"
         Me.ButtonGroupBox.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
@@ -127,10 +128,11 @@ Partial Class GrapicsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(936, 662)
+        Me.ClientSize = New System.Drawing.Size(755, 591)
         Me.Controls.Add(Me.ButtonGroupBox)
         Me.Controls.Add(Me.DrawingPictureBox)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.MinimumSize = New System.Drawing.Size(550, 450)
         Me.Name = "GrapicsForm"
         Me.Text = "Form1"
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
