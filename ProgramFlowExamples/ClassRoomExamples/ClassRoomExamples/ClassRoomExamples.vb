@@ -5,6 +5,11 @@ Module ClassRoomExamples
 
     Sub Main()
 
+        Console.ReadLine()
+    End Sub
+
+
+    Sub ConsoleColors()
         'change entire background
         Console.BackgroundColor() = ConsoleColor.Red
         Console.Clear()
@@ -16,15 +21,16 @@ Module ClassRoomExamples
         Console.WriteLine("is this red???")
         Console.WriteLine("the pen is BLUE!!!!!!")
 
-        'play sounds
-        Console.Beep()
-        Console.Beep(200, 1000)
-
-
         'reset colors to default
         'Console.ResetColor()
 
-        Console.ReadLine()
+
+    End Sub
+
+    Sub ConsoleSounds()
+        'play sounds
+        Console.Beep()
+        Console.Beep(200, 1000)
     End Sub
 
     Sub MakeLunch()
