@@ -1,9 +1,22 @@
 ﻿
-
+Option Explicit On
+Option Strict On
 
 Module ClassRoomExamples
 
     Sub Main()
+        Dim userInput As String
+
+        Console.WriteLine("Please Enter a Number")
+        userInput = Console.ReadLine()
+        Console.WriteLine("You entered: " & userInput & "!")
+        'Console.ReadLine()
+
+        'Console.Clear()
+
+        Console.WriteLine("Please Enter a Number")
+        userInput = Console.ReadLine()
+        Console.WriteLine($"You entered: {userInput}!")
 
         Console.ReadLine()
     End Sub
