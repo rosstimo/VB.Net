@@ -1,4 +1,7 @@
-﻿Imports System.Globalization
+﻿Option Explicit Off
+Option Strict Off
+
+Imports System.Globalization
 
 Module Operators
 
@@ -40,7 +43,7 @@ Module Operators
 
         'Assignment Operators
         Dim num As Integer
-        Dim fruit As String
+        'Dim fruit As String
 
         num = 5 + 6
 
