@@ -9,10 +9,15 @@
         'Next
 
 
-        Console.WriteLine(firstNumber)
-        DoMath(3)
-        DoMath(firstNumber)
-        Console.WriteLine(firstNumber)
+        'Console.WriteLine(firstNumber)
+        'DoMath(3)
+        'DoMath(firstNumber)
+        'Console.WriteLine(firstNumber)
+
+
+        For i = 1 To 10
+            Console.WriteLine(GetRandomNumber())
+        Next
 
         Console.WriteLine("end of main")
         Console.ReadLine()
@@ -34,5 +39,11 @@
         Dim firstNumber As Integer = 5
         Console.WriteLine($"{firstNumber} + {secondNumber} = {firstNumber + secondNumber}")
     End Sub
+
+    Function GetRandomNumber() As Integer
+        Randomize()
+        Dim value As Integer = CInt(Int((6 * Rnd()) + 1))
+        Return value
+    End Function
 
 End Module
