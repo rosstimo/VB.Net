@@ -12,12 +12,18 @@ Module DataTypeConversions
         Console.WriteLine("enter a whole number")
         userInput = Console.ReadLine()
 
+        'firstNumber = CInt(userInput)
+
         Try
             firstNumber = CInt(userInput)
-        Catch ex As Exception
+        Catch ex As InvalidCastException
             Console.WriteLine($"you entered {userInput}")
-            Console.WriteLine($"{userInput} is not a whole number")
-
+            Console.WriteLine($"{userInput} is not a number")
+        Catch ex As OverflowException
+            Console.WriteLine($"you entered {userInput}")
+            Console.WriteLine($"{userInput} is too big, sorry...")
+        Catch ex As Exception
+            Console.WriteLine(ex.ToString)
         End Try
 
         Console.WriteLine("enter a whole number")
@@ -25,9 +31,14 @@ Module DataTypeConversions
 
         Try
             secondNumber = CInt(userInput)
-        Catch ex As Exception
+        Catch ex As InvalidCastException
             Console.WriteLine($"you entered {userInput}")
-            Console.WriteLine($"{userInput} is not a whole number")
+            Console.WriteLine($"{userInput} is not a number")
+        Catch ex As OverflowException
+            Console.WriteLine($"you entered {userInput}")
+            Console.WriteLine($"{userInput} is too big, sorry...")
+        Catch ex As Exception
+            Console.WriteLine(ex.ToString)
         End Try
 
         Console.WriteLine($"{firstNumber} + {secondNumber} = {firstNumber + secondNumber}")
