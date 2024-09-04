@@ -24,13 +24,34 @@ Module MethodCallExamples
 
         'Console.WriteLine(SumOf(3, 5))
 
-        Console.WriteLine(firstNumber)
-        Console.WriteLine(secondNumber)
+        'Console.WriteLine(firstNumber)
+        'Console.WriteLine(secondNumber)
 
-        PlayWithScope(firstNumber, secondNumber)
+        'PlayWithScope(firstNumber, secondNumber)
 
-        Console.WriteLine(firstNumber)
-        Console.WriteLine(secondNumber)
+        'Console.WriteLine(firstNumber)
+        'Console.WriteLine(secondNumber)
+
+        'For i = 1 To 10
+        '    'Console.WriteLine(RunningTotal(5, False))
+        '    RunningTotal(5, False)
+        'Next
+
+        ''get total no clear
+        'Console.WriteLine(RunningTotal(0, False))
+        'Console.WriteLine(RunningTotal(5))
+
+        ''clear total
+        'RunningTotal(0, True)
+        'RunningTotal(, True)
+
+        'For i = 1 To 10
+        '    Console.WriteLine(RunningTotal(5))
+        'Next
+
+        ExponentSeries(5)
+
+        ExponentSeries(8, 2)
 
         Console.WriteLine("end of main")
         Console.ReadLine()
@@ -78,5 +99,24 @@ Module MethodCallExamples
         Console.WriteLine("End PlayWithScope Sub")
     End Sub
 
+    Function RunningTotal(Optional currentNumber As Integer = 0, Optional clear As Boolean = False) As Integer
+        Static total As Integer
+
+        If clear Then
+            total = 0
+        Else
+            total += currentNumber
+        End If
+
+        Return total
+    End Function
+
+    Sub ExponentSeries(iterations As Integer, Optional base As Integer = 10)
+
+        For i = 0 To iterations
+            Console.WriteLine(base ^ i)
+        Next
+
+    End Sub
 
 End Module
