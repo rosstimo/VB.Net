@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{137ED93E-D3F0-488A-AFFB-889D823D2F77}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>WorkingWithArrays.Module1</StartupObject>
+    <StartupObject>WorkingWithArrays.WorkingWithArrays</StartupObject>
     <RootNamespace>WorkingWithArrays</RootNamespace>
     <AssemblyName>WorkingWithArrays</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -69,7 +69,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Module1.vb" />
+    <Compile Include="WorkingWithArrays.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
