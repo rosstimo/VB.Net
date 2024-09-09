@@ -16,7 +16,7 @@ Module WorkingWithArrays
 
                 'Console.WriteLine(GetRandomNumberBetween(0, 10))
 
-                randomNumbers(GetRandomNumberBetween(3, 8)) += 1
+                randomNumbers(GetRandomNumberBetween(8, 3)) += 1
 
             Next
 
@@ -74,16 +74,11 @@ Module WorkingWithArrays
     End Sub
 
 
-    Function GetRandomNumberBetween(min As Integer, max As Integer) As Integer
-        Dim value As Integer 'Single
+    Function GetRandomNumberBetween(Optional max As Integer = 10, Optional min As Integer = 0) As Integer
+        Dim value As Integer
 
         Randomize()
-
-        'int returns only the integer portion of the number. throwing away the decimal portion
-        'Cint converts to integer. if we only convert the max and min numbers will only hit half the frequency of the middle due to rounding.
         value = CInt(Int(Rnd() * ((max - min) + 1))) + min
-
-
 
         Return value
     End Function
