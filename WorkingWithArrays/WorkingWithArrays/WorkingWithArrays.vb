@@ -16,7 +16,7 @@ Module WorkingWithArrays
 
                 'Console.WriteLine(GetRandomNumberBetween(0, 10))
 
-                randomNumbers(GetRandomNumberBetween(5, 10)) += 1
+                randomNumbers(GetRandomNumberBetween(3, 8)) += 1
 
             Next
 
@@ -81,7 +81,7 @@ Module WorkingWithArrays
 
         'int returns only the integer portion of the number. throwing away the decimal portion
         'Cint converts to integer. if we only convert the max and min numbers will only hit half the frequency of the middle due to rounding.
-        value = CInt(Int(Rnd() * (max + 1)))
+        value = CInt(Int(Rnd() * ((max - min) + 1))) + min
 
 
 
