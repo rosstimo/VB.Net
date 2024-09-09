@@ -1,17 +1,35 @@
 ﻿Option Strict On
 Option Explicit On
+Option Compare Text
 
 Module WorkingWithArrays
 
     Sub Main()
 
-        'TODO test randomness with array
-        For i = 1 To 100
+        Dim randomNumbers(10) As Integer
+        Dim formated As String
+        Dim userInput As String
 
-            Console.WriteLine(GetRandomNumberBetween(0, 10))
-        Next
+        Do
+            'TODO test randomness with array
+            For i = 1 To 10000
 
-        Console.Read()
+                'Console.WriteLine(GetRandomNumberBetween(0, 10))
+
+                randomNumbers(GetRandomNumberBetween(5, 10)) += 1
+
+            Next
+
+
+            For i = LBound(randomNumbers) To UBound(randomNumbers)
+                formated = CStr(randomNumbers(i)) & " |"
+                formated = formated.PadLeft(7)
+                Console.Write(formated)
+            Next
+
+            userInput = Console.ReadLine()
+        Loop Until userInput = "q"
+
 
     End Sub
 
@@ -61,7 +79,11 @@ Module WorkingWithArrays
 
         Randomize()
 
-        value = CInt(Rnd() * max)
+        'int returns only the integer portion of the number. throwing away the decimal portion
+        'Cint converts to integer. if we only convert the max and min numbers will only hit half the frequency of the middle due to rounding.
+        value = CInt(Int(Rnd() * (max + 1)))
+
+
 
         Return value
     End Function
