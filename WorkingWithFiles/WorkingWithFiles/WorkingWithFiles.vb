@@ -5,7 +5,11 @@
         ' OpenFile()
         'DotNetExample()
         'AppendFile()
-        ReadFile()
+        'ReadFile()
+        'ReadEntireFile()
+        'GetUserData("C:\Users\tim\Documents\github\VB.Net\WorkingWithFiles\WorkingWithFiles\UserData.txt")
+        GetUserData("..\..\UserData.txt")
+
 
         Console.Read()
 
@@ -56,6 +60,24 @@
 
     End Sub
 
+    Sub ReadEntireFile()
+        Dim currentRecord As String
+
+        FileOpen(1, "testFile.txt", OpenMode.Input)
+
+
+        Do Until EOF(1)
+
+            Input(1, currentRecord)
+            'Console.WriteLine($"After input: {Seek(1)}")
+            Console.WriteLine(currentRecord)
+
+        Loop
+
+
+
+        FileClose(1)
+    End Sub
     Sub DotNetExample()
         ' see: https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.filesystem.write?view=netframework-4.7.2#Microsoft_VisualBasic_FileSystem_Write_System_Int32_System_Object___
         ' Open file for output.
@@ -101,5 +123,33 @@
         '"False is a Boolean value."
         '"2/12/1969 is a date."
     End Sub
+
+    Sub GetUserData(fileName As String)
+        Dim currentRecord As String
+        Dim originalFile As Integer
+        Dim newFile As Integer = FreeFile()
+        'TODO customer fields on same line
+        'each customer on new line
+        FileOpen(newFile, "..\..\cleanFile.txt", OpenMode.Output)
+        originalFile = FreeFile()
+
+        Try
+            FileOpen(originalFile, fileName, OpenMode.Input)
+            Do Until EOF(originalFile)
+                Input(originalFile, currentRecord)
+                If currentRecord <> "" Then
+                    WriteLine(newFile, currentRecord)
+                End If
+                Console.WriteLine(currentRecord)
+            Loop
+        Catch ex As Exception
+            Console.WriteLine($"file not found: {fileName}")
+        End Try
+
+        FileClose(originalFile)
+        FileClose(newFile)
+
+    End Sub
+
 
 End Module
