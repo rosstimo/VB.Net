@@ -128,6 +128,7 @@
         Dim currentRecord As String
         Dim originalFile As Integer
         Dim newFile As Integer = FreeFile()
+        Dim temp() As String
         'TODO customer fields on same line
         'each customer on new line
         FileOpen(newFile, "..\..\cleanFile.txt", OpenMode.Output)
@@ -136,11 +137,23 @@
         Try
             FileOpen(originalFile, fileName, OpenMode.Input)
             Do Until EOF(originalFile)
-                Input(originalFile, currentRecord)
-                If currentRecord <> "" Then
-                    WriteLine(newFile, currentRecord)
-                End If
+                'Input(originalFile, currentRecord)
+                'If currentRecord <> "" Then
+                '    WriteLine(newFile, currentRecord)
+                'End If
+                currentRecord = LineInput(originalFile)
                 Console.WriteLine(currentRecord)
+
+                temp = Split(currentRecord, Chr(34))
+                temp = Split(temp(1), ",")
+                temp(0) = Replace(temp(0), "$$", "")
+
+                Write(newFile, temp(0))
+                Write(newFile, temp(1))
+                Write(newFile, temp(2))
+                WriteLine(newFile, temp(3))
+
+
             Loop
         Catch ex As Exception
             Console.WriteLine($"file not found: {fileName}")
