@@ -10,7 +10,6 @@
 
     Private Sub WinFormExampleForm_Activated(sender As Object, e As EventArgs) Handles Me.Activated
         RadioButton1.Checked = True
-        RadioButton6.Checked = True
         RadioButton9.Checked = True
     End Sub
 End Class
