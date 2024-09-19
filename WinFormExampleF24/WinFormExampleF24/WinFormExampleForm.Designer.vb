@@ -37,21 +37,17 @@ Partial Class WinFormExampleForm
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.CheckBox7 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox8 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox9 = New System.Windows.Forms.CheckBox()
-        Me.RadioButton7 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton8 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton9 = New System.Windows.Forms.RadioButton()
         Me.DisplayPictureBox = New System.Windows.Forms.PictureBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DisplayPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'ExitButton
         '
         Me.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.ExitButton.Location = New System.Drawing.Point(365, 234)
+        Me.ExitButton.Location = New System.Drawing.Point(430, 18)
         Me.ExitButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(161, 51)
@@ -81,7 +77,7 @@ Partial Class WinFormExampleForm
         '
         'ActionButton
         '
-        Me.ActionButton.Location = New System.Drawing.Point(200, 234)
+        Me.ActionButton.Location = New System.Drawing.Point(265, 18)
         Me.ActionButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ActionButton.Name = "ActionButton"
         Me.ActionButton.Size = New System.Drawing.Size(161, 51)
@@ -111,7 +107,7 @@ Partial Class WinFormExampleForm
         Me.GroupBox1.Controls.Add(Me.RadioButton3)
         Me.GroupBox1.Controls.Add(Me.RadioButton2)
         Me.GroupBox1.Controls.Add(Me.RadioButton1)
-        Me.GroupBox1.Location = New System.Drawing.Point(9, 47)
+        Me.GroupBox1.Location = New System.Drawing.Point(11, 315)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
@@ -195,86 +191,28 @@ Partial Class WinFormExampleForm
         Me.RadioButton1.Text = "RadioButton1"
         Me.RadioButton1.UseVisualStyleBackColor = True
         '
-        'CheckBox7
-        '
-        Me.CheckBox7.AutoSize = True
-        Me.CheckBox7.Location = New System.Drawing.Point(115, 231)
-        Me.CheckBox7.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.CheckBox7.Name = "CheckBox7"
-        Me.CheckBox7.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox7.TabIndex = 13
-        Me.CheckBox7.TabStop = False
-        Me.CheckBox7.Text = "CheckBox7"
-        Me.CheckBox7.UseVisualStyleBackColor = True
-        '
-        'CheckBox8
-        '
-        Me.CheckBox8.AutoSize = True
-        Me.CheckBox8.Location = New System.Drawing.Point(115, 211)
-        Me.CheckBox8.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.CheckBox8.Name = "CheckBox8"
-        Me.CheckBox8.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox8.TabIndex = 12
-        Me.CheckBox8.TabStop = False
-        Me.CheckBox8.Text = "CheckBox8"
-        Me.CheckBox8.UseVisualStyleBackColor = True
-        '
-        'CheckBox9
-        '
-        Me.CheckBox9.AutoSize = True
-        Me.CheckBox9.Location = New System.Drawing.Point(115, 192)
-        Me.CheckBox9.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.CheckBox9.Name = "CheckBox9"
-        Me.CheckBox9.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox9.TabIndex = 11
-        Me.CheckBox9.TabStop = False
-        Me.CheckBox9.Text = "CheckBox9"
-        Me.CheckBox9.UseVisualStyleBackColor = True
-        '
-        'RadioButton7
-        '
-        Me.RadioButton7.AutoSize = True
-        Me.RadioButton7.Location = New System.Drawing.Point(9, 230)
-        Me.RadioButton7.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.RadioButton7.Name = "RadioButton7"
-        Me.RadioButton7.Size = New System.Drawing.Size(90, 17)
-        Me.RadioButton7.TabIndex = 10
-        Me.RadioButton7.Text = "RadioButton7"
-        Me.RadioButton7.UseVisualStyleBackColor = True
-        '
-        'RadioButton8
-        '
-        Me.RadioButton8.AutoSize = True
-        Me.RadioButton8.Location = New System.Drawing.Point(9, 211)
-        Me.RadioButton8.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.RadioButton8.Name = "RadioButton8"
-        Me.RadioButton8.Size = New System.Drawing.Size(90, 17)
-        Me.RadioButton8.TabIndex = 9
-        Me.RadioButton8.Text = "RadioButton8"
-        Me.RadioButton8.UseVisualStyleBackColor = True
-        '
-        'RadioButton9
-        '
-        Me.RadioButton9.AutoSize = True
-        Me.RadioButton9.Location = New System.Drawing.Point(9, 191)
-        Me.RadioButton9.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.RadioButton9.Name = "RadioButton9"
-        Me.RadioButton9.Size = New System.Drawing.Size(90, 17)
-        Me.RadioButton9.TabIndex = 8
-        Me.RadioButton9.Text = "RadioButton9"
-        Me.RadioButton9.UseVisualStyleBackColor = True
-        '
         'DisplayPictureBox
         '
         Me.DisplayPictureBox.BackgroundImage = Global.WinFormExampleF24.My.Resources.Resources.kitten
         Me.DisplayPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.DisplayPictureBox.Cursor = System.Windows.Forms.Cursors.Cross
-        Me.DisplayPictureBox.Location = New System.Drawing.Point(236, 47)
+        Me.DisplayPictureBox.Location = New System.Drawing.Point(51, 33)
         Me.DisplayPictureBox.Name = "DisplayPictureBox"
         Me.DisplayPictureBox.Size = New System.Drawing.Size(285, 181)
         Me.DisplayPictureBox.TabIndex = 14
         Me.DisplayPictureBox.TabStop = False
         Me.MainToolTip.SetToolTip(Me.DisplayPictureBox, "I like Kittens...")
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.ExitButton)
+        Me.GroupBox2.Controls.Add(Me.ActionButton)
+        Me.GroupBox2.Location = New System.Drawing.Point(9, 453)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(596, 88)
+        Me.GroupBox2.TabIndex = 15
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "GroupBox2"
         '
         'WinFormExampleForm
         '
@@ -282,19 +220,12 @@ Partial Class WinFormExampleForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ExitButton
-        Me.ClientSize = New System.Drawing.Size(533, 292)
+        Me.ClientSize = New System.Drawing.Size(628, 555)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.DisplayPictureBox)
-        Me.Controls.Add(Me.CheckBox7)
-        Me.Controls.Add(Me.CheckBox8)
-        Me.Controls.Add(Me.CheckBox9)
-        Me.Controls.Add(Me.RadioButton7)
-        Me.Controls.Add(Me.RadioButton8)
-        Me.Controls.Add(Me.RadioButton9)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.ActionButton)
         Me.Controls.Add(Me.ExampleLabel)
         Me.Controls.Add(Me.ExampleTextBox)
-        Me.Controls.Add(Me.ExitButton)
         Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "WinFormExampleForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -303,6 +234,7 @@ Partial Class WinFormExampleForm
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.DisplayPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -322,11 +254,6 @@ Partial Class WinFormExampleForm
     Friend WithEvents RadioButton3 As RadioButton
     Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents CheckBox7 As CheckBox
-    Friend WithEvents CheckBox8 As CheckBox
-    Friend WithEvents CheckBox9 As CheckBox
-    Friend WithEvents RadioButton7 As RadioButton
-    Friend WithEvents RadioButton8 As RadioButton
-    Friend WithEvents RadioButton9 As RadioButton
     Friend WithEvents DisplayPictureBox As PictureBox
+    Friend WithEvents GroupBox2 As GroupBox
 End Class
