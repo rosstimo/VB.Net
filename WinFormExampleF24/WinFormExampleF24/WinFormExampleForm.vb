@@ -1,5 +1,11 @@
 ﻿Public Class WinFormExampleForm
 
+    'TODO
+    ' [ ] add textbox.text to listbox/groupbox
+    ' [ ] remove item
+    ' [ ] sycnronize listbox/groupbox content
+    ' [ ] syncronized list/combobox selextions
+
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
     End Sub
