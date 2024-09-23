@@ -1,41 +1,58 @@
 ﻿Public Class WinFormExampleForm
 
     'TODO
-    ' [ ] add textbox.text to listbox/groupbox
+    ' [ ] add textbox.text to listbox/combobox
     ' [ ] remove item
-    ' [ ] sycnronize listbox/groupbox content
+    ' [ ] sycnronize listbox/combobox content
     ' [ ] syncronized list/combobox selextions
 
+
+    Sub GetSelection()
+        'Try
+        If MainListBox.SelectedItem IsNot Nothing Then
+            OutputTextBox.Text = MainListBox.SelectedItem.ToString
+        End If
+
+        'Catch ex As Exception
+
+        ' End Try
+
+    End Sub
+
+    ' Event handlers below here
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
     End Sub
 
     Private Sub ActionButton_Click(sender As Object, e As EventArgs) Handles ActionButton.Click
-        Dim names As New List(Of String)
 
-        Me.Text = ExampleTextBox.Text
+        MainListBox.Items.Add(ExampleTextBox.Text)
+        MainComboBox.Items.Add(ExampleTextBox.Text)
+        ExampleTextBox.Text = ""
 
-        names.Add("Jimmy")
-        names.Add("Mary")
-        names.Add("Bill")
-        names.Add("Bob")
-
-        'For Each _name In names
-        '    Console.WriteLine(_name)
-        'Next
-
-        Console.WriteLine(names.IndexOf("Bill"))
-        Console.WriteLine(names.Item(1))
-
-
-
-        names.Remove("Bill")
-
-        Console.Read()
 
     End Sub
 
     Private Sub WinFormExampleForm_Activated(sender As Object, e As EventArgs) Handles Me.Activated
         RadioButton1.Checked = True
+    End Sub
+
+    Private Sub MainListBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MainListBox.SelectedIndexChanged
+        ' Me.Text = MainListBox.SelectedIndex.ToString
+        MainComboBox.SelectedIndex = MainListBox.SelectedIndex
+        GetSelection()
+
+    End Sub
+
+    Private Sub MainComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MainComboBox.SelectedIndexChanged
+        MainListBox.SelectedIndex = MainComboBox.SelectedIndex
+        GetSelection()
+        ' Console.WriteLine("hit")
+    End Sub
+
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+        Dim _index As Integer = MainListBox.SelectedIndex
+        MainListBox.Items.RemoveAt(_index)
+        MainComboBox.Items.RemoveAt(_index)
     End Sub
 End Class
