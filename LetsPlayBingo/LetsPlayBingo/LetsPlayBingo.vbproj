@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DE14FEA5-7CA0-4053-9A25-B77619F7F245}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>LetsPlayBingo.Module1</StartupObject>
+    <StartupObject>LetsPlayBingo.LetsPlayBingo</StartupObject>
     <RootNamespace>LetsPlayBingo</RootNamespace>
     <AssemblyName>LetsPlayBingo</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -69,7 +69,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Module1.vb" />
+    <Compile Include="LetsPlayBingo.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
