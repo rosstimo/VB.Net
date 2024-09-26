@@ -15,8 +15,13 @@ Module LetsPlayBingo
             If ballsDrawn < 75 Then
                 DrawBall(ballCage)
                 ballsDrawn += 1
+                Console.WriteLine("Press Enter to draw a ball")
+            Else
+                Console.WriteLine("All Balls have been drawn")
             End If
 
+            Console.WriteLine("Press Q to quit")
+            Console.WriteLine("Press N to restart")
             userInput = Console.ReadLine()
 
             If userInput = "q" Then
