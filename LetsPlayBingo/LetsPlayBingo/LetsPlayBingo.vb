@@ -8,12 +8,24 @@ Module LetsPlayBingo
         Dim ballCage(14, 4) As Boolean
         Dim done As Boolean = False
         Dim userInput As String
+        Dim ballsDrawn As Integer = 0
 
         Do
             Display(ballCage)
-            DrawBall(ballCage)
+            If ballsDrawn < 75 Then
+                DrawBall(ballCage)
+                ballsDrawn += 1
+            End If
+
             userInput = Console.ReadLine()
-            If userInput = "q" Then done = True
+
+            If userInput = "q" Then
+                done = True
+            ElseIf userInput = "n" Then
+                ReDim ballCage(14, 4)
+                ballsDrawn = 0
+            End If
+
             Console.Clear()
         Loop Until done
 
