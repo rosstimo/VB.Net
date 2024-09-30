@@ -20,11 +20,11 @@
     End Sub
 
     ' Event handlers below here
-    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click, ExitToolStripMenuItem.Click
         Me.Close()
     End Sub
 
-    Private Sub ActionButton_Click(sender As Object, e As EventArgs) Handles ActionButton.Click
+    Private Sub ActionButton_Click(sender As Object, e As EventArgs) Handles ActionButton.Click, ActionToolStripMenuItem.Click
 
         MainListBox.Items.Add(ExampleTextBox.Text)
         MainComboBox.Items.Add(ExampleTextBox.Text)
@@ -50,9 +50,10 @@
         ' Console.WriteLine("hit")
     End Sub
 
-    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click, ClearToolStripMenuItem.Click
         Dim _index As Integer = MainListBox.SelectedIndex
         MainListBox.Items.RemoveAt(_index)
         MainComboBox.Items.RemoveAt(_index)
     End Sub
+
 End Class
