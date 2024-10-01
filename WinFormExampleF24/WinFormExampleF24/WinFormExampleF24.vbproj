@@ -96,6 +96,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -118,6 +119,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="SplashForm.resx">
+      <DependentUpon>SplashForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinFormExampleForm.resx">
       <DependentUpon>WinFormExampleForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -136,6 +140,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\kitten.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\code-8779047_1280.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
