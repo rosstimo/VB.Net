@@ -66,4 +66,16 @@
         Me.Hide()
         AboutForm.Show()
     End Sub
+
+    'Private Sub WinFormExampleForm_Load(sender As Object, e As EventArgs) Handles Me.Load
+    '    SplashForm.Show()
+    '    ' Me.Hide()
+    '    SplashTimer.Enabled = True
+    'End Sub
+
+    Private Sub SplashTimer_Tick(sender As Object, e As EventArgs) Handles SplashTimer.Tick
+        Me.Show()
+        SplashForm.Close()
+        SplashTimer.Enabled = False
+    End Sub
 End Class
