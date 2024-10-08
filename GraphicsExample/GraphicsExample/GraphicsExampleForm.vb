@@ -1,4 +1,6 @@
-﻿Public Class GraphicsExampleForm
+﻿Imports System.Net.NetworkInformation
+
+Public Class GraphicsExampleForm
 
     Private Sub GraphicsExampleForm_Click(sender As Object, e As EventArgs) Handles Me.Click
         DrawRectangle()
@@ -55,9 +57,19 @@
         g.Dispose()
     End Sub
 
+    Function PenColor(Optional newColor As Color = Nothing) As Color
+        Static _color As Color
+
+        If newColor <> Nothing Then
+            _color = newColor
+        End If
+
+        Return _color
+    End Function
+
     Sub MouseDraw(startX As Integer, startY As Integer, endX As Integer, endY As Integer)
         Dim g As Graphics = DrawingPictureBox.CreateGraphics()
-        Dim pen As New Pen(Color.Blue)
+        Dim pen As New Pen(PenColor())
 
         g.DrawLine(pen, startX, startY, endX, endY)
 
@@ -71,7 +83,7 @@
     End Sub
 
     Private Sub DrawingPictureBox_MouseMove(sender As Object, e As MouseEventArgs) Handles DrawingPictureBox.MouseDown, DrawingPictureBox.MouseMove
-        Me.Text = $"({e.X.ToString},{e.Y.ToString}) Button: {e.Button}"
+        Me.Text = $"({e.X.ToString},{e.Y.ToString}) Button: {e.Button} Color: {PenColor().Name}"
         Static oldX%, oldY%
         If e.Button = MouseButtons.Left Then
             MouseDraw(oldX, oldY, e.X, e.Y)
@@ -80,5 +92,26 @@
         oldX = e.X
         oldY = e.Y
 
+    End Sub
+
+    Private Sub ColorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ColorToolStripMenuItem.Click
+
+        ColorDialog.ShowDialog()
+        PenColor(ColorDialog.Color)
+
+    End Sub
+
+    Private Sub GraphicsExampleForm_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        PenColor(Color.Black)
+
+    End Sub
+
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+        DrawingPictureBox.Image = Nothing
+    End Sub
+
+    Private Sub BackGroundColorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BackGroundColorToolStripMenuItem.Click
+        ColorDialog.ShowDialog()
+        DrawingPictureBox.BackColor = ColorDialog.Color
     End Sub
 End Class
