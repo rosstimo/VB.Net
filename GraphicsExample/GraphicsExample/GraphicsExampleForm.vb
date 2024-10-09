@@ -76,6 +76,41 @@ Public Class GraphicsExampleForm
         g.Dispose()
     End Sub
 
+    Sub DrawDivisions()
+        Dim xSpace As Integer = DrawingPictureBox.Width \ 10
+        Dim ySpace As Integer = DrawingPictureBox.Height \ 8
+        DrawingPictureBox.BackColor = Color.Black
+        PenColor(Color.LightGray)
+
+        For i = 0 To xSpace * 10 Step xSpace
+            MouseDraw(i, 0, i, ySpace * 8)
+        Next
+
+        For i = 0 To ySpace * 8 Step ySpace
+            MouseDraw(0, i, xSpace * 10, i)
+        Next
+
+    End Sub
+
+    Sub DrawSinWave()
+        Dim degrees As Double = Math.PI / 180
+        Dim oneDegree As Integer = DrawingPictureBox.Width \ 360
+        Dim peak As Integer = DrawingPictureBox.Height \ 2
+        Dim currentY As Integer
+        Dim lastY As Integer
+        Dim lastX As Integer
+
+        PenColor(Color.Lime)
+        For i = 0 To 360 * oneDegree Step oneDegree
+            currentY = CInt(peak * Math.Sin(i * degrees)) + peak
+            MouseDraw(lastX, lastY, i, currentY)
+            lastX = i
+            lastY = currentY
+        Next
+
+
+    End Sub
+
     ' Event Handlers below here --------------------------------------------------------
 
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
@@ -113,5 +148,10 @@ Public Class GraphicsExampleForm
     Private Sub BackGroundColorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BackGroundColorToolStripMenuItem.Click
         ColorDialog.ShowDialog()
         DrawingPictureBox.BackColor = ColorDialog.Color
+    End Sub
+
+    Private Sub WaveButton_Click(sender As Object, e As EventArgs) Handles WaveButton.Click
+        DrawDivisions()
+        DrawSinWave()
     End Sub
 End Class

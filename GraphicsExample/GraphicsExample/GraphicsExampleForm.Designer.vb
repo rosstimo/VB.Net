@@ -26,11 +26,12 @@ Partial Class GraphicsExampleForm
         Me.DrawingPictureBox = New System.Windows.Forms.PictureBox()
         Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ColorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BackGroundColorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox = New System.Windows.Forms.GroupBox()
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.ExitButton = New System.Windows.Forms.Button()
         Me.ColorDialog = New System.Windows.Forms.ColorDialog()
-        Me.BackGroundColorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.WaveButton = New System.Windows.Forms.Button()
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip.SuspendLayout()
         Me.GroupBox.SuspendLayout()
@@ -55,30 +56,37 @@ Partial Class GraphicsExampleForm
         Me.ContextMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.ContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ColorToolStripMenuItem, Me.BackGroundColorToolStripMenuItem})
         Me.ContextMenuStrip.Name = "ContextMenuStrip"
-        Me.ContextMenuStrip.Size = New System.Drawing.Size(241, 101)
+        Me.ContextMenuStrip.Size = New System.Drawing.Size(234, 68)
         '
         'ColorToolStripMenuItem
         '
         Me.ColorToolStripMenuItem.Name = "ColorToolStripMenuItem"
-        Me.ColorToolStripMenuItem.Size = New System.Drawing.Size(127, 32)
+        Me.ColorToolStripMenuItem.Size = New System.Drawing.Size(233, 32)
         Me.ColorToolStripMenuItem.Text = "Color"
+        '
+        'BackGroundColorToolStripMenuItem
+        '
+        Me.BackGroundColorToolStripMenuItem.Name = "BackGroundColorToolStripMenuItem"
+        Me.BackGroundColorToolStripMenuItem.Size = New System.Drawing.Size(233, 32)
+        Me.BackGroundColorToolStripMenuItem.Text = "Back Ground Color"
         '
         'GroupBox
         '
         Me.GroupBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox.Controls.Add(Me.WaveButton)
         Me.GroupBox.Controls.Add(Me.ClearButton)
         Me.GroupBox.Controls.Add(Me.ExitButton)
-        Me.GroupBox.Location = New System.Drawing.Point(548, 482)
+        Me.GroupBox.Location = New System.Drawing.Point(418, 482)
         Me.GroupBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox.Name = "GroupBox"
         Me.GroupBox.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.GroupBox.Size = New System.Drawing.Size(255, 120)
+        Me.GroupBox.Size = New System.Drawing.Size(385, 120)
         Me.GroupBox.TabIndex = 1
         Me.GroupBox.TabStop = False
         '
         'ClearButton
         '
-        Me.ClearButton.Location = New System.Drawing.Point(8, 29)
+        Me.ClearButton.Location = New System.Drawing.Point(145, 29)
         Me.ClearButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ClearButton.Name = "ClearButton"
         Me.ClearButton.Size = New System.Drawing.Size(112, 66)
@@ -88,7 +96,7 @@ Partial Class GraphicsExampleForm
         '
         'ExitButton
         '
-        Me.ExitButton.Location = New System.Drawing.Point(128, 29)
+        Me.ExitButton.Location = New System.Drawing.Point(265, 29)
         Me.ExitButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(112, 66)
@@ -96,11 +104,15 @@ Partial Class GraphicsExampleForm
         Me.ExitButton.Text = "E&xit"
         Me.ExitButton.UseVisualStyleBackColor = True
         '
-        'BackGroundColorToolStripMenuItem
+        'WaveButton
         '
-        Me.BackGroundColorToolStripMenuItem.Name = "BackGroundColorToolStripMenuItem"
-        Me.BackGroundColorToolStripMenuItem.Size = New System.Drawing.Size(240, 32)
-        Me.BackGroundColorToolStripMenuItem.Text = "Back Ground Color"
+        Me.WaveButton.Location = New System.Drawing.Point(25, 29)
+        Me.WaveButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.WaveButton.Name = "WaveButton"
+        Me.WaveButton.Size = New System.Drawing.Size(112, 66)
+        Me.WaveButton.TabIndex = 2
+        Me.WaveButton.Text = "&Wave"
+        Me.WaveButton.UseVisualStyleBackColor = True
         '
         'GraphicsExampleForm
         '
@@ -126,4 +138,5 @@ Partial Class GraphicsExampleForm
     Friend WithEvents ContextMenuStrip As ContextMenuStrip
     Friend WithEvents ColorToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BackGroundColorToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents WaveButton As Button
 End Class
