@@ -28,10 +28,12 @@ Partial Class GraphicsExampleForm
         Me.ColorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BackGroundColorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox = New System.Windows.Forms.GroupBox()
+        Me.WaveButton = New System.Windows.Forms.Button()
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.ExitButton = New System.Windows.Forms.Button()
         Me.ColorDialog = New System.Windows.Forms.ColorDialog()
-        Me.WaveButton = New System.Windows.Forms.Button()
+        Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
+        Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip.SuspendLayout()
         Me.GroupBox.SuspendLayout()
@@ -84,6 +86,16 @@ Partial Class GraphicsExampleForm
         Me.GroupBox.TabIndex = 1
         Me.GroupBox.TabStop = False
         '
+        'WaveButton
+        '
+        Me.WaveButton.Location = New System.Drawing.Point(25, 29)
+        Me.WaveButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.WaveButton.Name = "WaveButton"
+        Me.WaveButton.Size = New System.Drawing.Size(112, 66)
+        Me.WaveButton.TabIndex = 2
+        Me.WaveButton.Text = "&Wave"
+        Me.WaveButton.UseVisualStyleBackColor = True
+        '
         'ClearButton
         '
         Me.ClearButton.Location = New System.Drawing.Point(145, 29)
@@ -104,15 +116,9 @@ Partial Class GraphicsExampleForm
         Me.ExitButton.Text = "E&xit"
         Me.ExitButton.UseVisualStyleBackColor = True
         '
-        'WaveButton
+        'OpenFileDialog
         '
-        Me.WaveButton.Location = New System.Drawing.Point(25, 29)
-        Me.WaveButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.WaveButton.Name = "WaveButton"
-        Me.WaveButton.Size = New System.Drawing.Size(112, 66)
-        Me.WaveButton.TabIndex = 2
-        Me.WaveButton.Text = "&Wave"
-        Me.WaveButton.UseVisualStyleBackColor = True
+        Me.OpenFileDialog.FileName = "OpenFileDialog1"
         '
         'GraphicsExampleForm
         '
@@ -139,4 +145,6 @@ Partial Class GraphicsExampleForm
     Friend WithEvents ColorToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BackGroundColorToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents WaveButton As Button
+    Friend WithEvents OpenFileDialog As OpenFileDialog
+    Friend WithEvents SaveFileDialog As SaveFileDialog
 End Class

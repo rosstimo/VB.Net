@@ -97,14 +97,17 @@ Public Class GraphicsExampleForm
         Dim oneDegree As Integer = DrawingPictureBox.Width \ 360
         Dim peak As Integer = DrawingPictureBox.Height \ 2
         Dim currentY As Integer
+        Dim currentX As Integer
         Dim lastY As Integer
         Dim lastX As Integer
 
         PenColor(Color.Lime)
-        For i = 0 To 360 * oneDegree Step oneDegree
+        For i = 0 To 360
+
             currentY = CInt(peak * Math.Sin(i * degrees)) + peak
-            MouseDraw(lastX, lastY, i, currentY)
-            lastX = i
+            currentX = lastX + oneDegree
+            MouseDraw(lastX, lastY, currentX, currentY)
+            lastX = currentX
             lastY = currentY
         Next
 
