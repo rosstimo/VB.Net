@@ -34,9 +34,15 @@ Partial Class GraphicsExampleForm
         Me.ColorDialog = New System.Windows.Forms.ColorDialog()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
+        Me.TopMenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip.SuspendLayout()
         Me.GroupBox.SuspendLayout()
+        Me.TopMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'DrawingPictureBox
@@ -120,19 +126,60 @@ Partial Class GraphicsExampleForm
         '
         Me.OpenFileDialog.FileName = "OpenFileDialog1"
         '
+        'TopMenuStrip
+        '
+        Me.TopMenuStrip.GripMargin = New System.Windows.Forms.Padding(2, 2, 0, 2)
+        Me.TopMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.TopMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.TopMenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.TopMenuStrip.Name = "TopMenuStrip"
+        Me.TopMenuStrip.Size = New System.Drawing.Size(816, 33)
+        Me.TopMenuStrip.TabIndex = 2
+        Me.TopMenuStrip.Text = "MenuStrip1"
+        '
+        'FileToolStripMenuItem
+        '
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveTopMenuItem, Me.OpenTopMenuItem})
+        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(54, 29)
+        Me.FileToolStripMenuItem.Text = "&File"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(65, 29)
+        Me.HelpToolStripMenuItem.Text = "&Help"
+        '
+        'SaveTopMenuItem
+        '
+        Me.SaveTopMenuItem.Name = "SaveTopMenuItem"
+        Me.SaveTopMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.SaveTopMenuItem.Text = "&Save"
+        '
+        'OpenTopMenuItem
+        '
+        Me.OpenTopMenuItem.Name = "OpenTopMenuItem"
+        Me.OpenTopMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.OpenTopMenuItem.Text = "&Open"
+        '
         'GraphicsExampleForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(816, 616)
+        Me.Controls.Add(Me.TopMenuStrip)
         Me.Controls.Add(Me.GroupBox)
         Me.Controls.Add(Me.DrawingPictureBox)
+        Me.MainMenuStrip = Me.TopMenuStrip
         Me.Name = "GraphicsExampleForm"
         Me.Text = "Form1"
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip.ResumeLayout(False)
         Me.GroupBox.ResumeLayout(False)
+        Me.TopMenuStrip.ResumeLayout(False)
+        Me.TopMenuStrip.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -147,4 +194,9 @@ Partial Class GraphicsExampleForm
     Friend WithEvents WaveButton As Button
     Friend WithEvents OpenFileDialog As OpenFileDialog
     Friend WithEvents SaveFileDialog As SaveFileDialog
+    Friend WithEvents TopMenuStrip As MenuStrip
+    Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SaveTopMenuItem As ToolStripMenuItem
+    Friend WithEvents OpenTopMenuItem As ToolStripMenuItem
 End Class

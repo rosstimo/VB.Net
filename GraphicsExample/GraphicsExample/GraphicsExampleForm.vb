@@ -6,7 +6,7 @@ Public Class GraphicsExampleForm
         DrawRectangle()
         DrawCircle()
         DrawText()
-        DrawImage()
+        'DrawImage()
     End Sub
 
     Sub DrawLine()
@@ -47,12 +47,12 @@ Public Class GraphicsExampleForm
         g.Dispose()
     End Sub
 
-    Sub DrawImage()
+    Sub DrawImage(imagePath As String)
         Dim g As Graphics = DrawingPictureBox.CreateGraphics()
-        Dim image As Image = Image.FromFile("c:\Users\tim\Downloads\kitten.jpg")
-        Dim newImage As New Bitmap(image, 500, 500)
+        Dim image As Image = Image.FromFile(imagePath)
+        Dim newImage As New Bitmap(image, DrawingPictureBox.Width, DrawingPictureBox.Height)
 
-        g.DrawImage(newImage, 150, 0)
+        g.DrawImage(newImage, 0, 0)
 
         g.Dispose()
     End Sub
@@ -156,5 +156,30 @@ Public Class GraphicsExampleForm
     Private Sub WaveButton_Click(sender As Object, e As EventArgs) Handles WaveButton.Click
         DrawDivisions()
         DrawSinWave()
+    End Sub
+
+    Private Sub OpenTopMenuItem_Click(sender As Object, e As EventArgs) Handles OpenTopMenuItem.Click
+        Dim newImage As Image
+        OpenFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures)
+        OpenFileDialog.FileName = ""
+        OpenFileDialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*"
+
+        OpenFileDialog.ShowDialog()
+
+        DrawImage(OpenFileDialog.FileName)
+
+
+    End Sub
+
+    Private Sub SaveTopMenuItem_Click(sender As Object, e As EventArgs) Handles SaveTopMenuItem.Click
+        SaveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures)
+        SaveFileDialog.FileName = $"Untitled-{DateTime.Today.ToString("yymmdd")}.bmp"
+        SaveFileDialog.ShowDialog()
+
+        'DrawingPictureBox.Image.Save(SaveFileDialog.FileName) TODO - Fix!!
+
+
+
+
     End Sub
 End Class
