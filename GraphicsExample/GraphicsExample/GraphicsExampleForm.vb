@@ -3,19 +3,22 @@
 Public Class GraphicsExampleForm
 
     Private Sub GraphicsExampleForm_Click(sender As Object, e As EventArgs) Handles Me.Click
-        DrawRectangle()
-        DrawCircle()
-        DrawText()
+        'DrawRectangle()
+        ' DrawCircle()
+        'DrawText()
         'DrawImage()
     End Sub
 
     Sub DrawLine()
-        Dim g As Graphics = DrawingPictureBox.CreateGraphics()
+        Dim bmp As New Bitmap(DrawingPictureBox.Image)
+
+        Dim g As Graphics = Graphics.FromImage(bmp)
         Dim pen As New Pen(Color.Blue)
 
         g.DrawLine(pen, 100, 100, 300, 300)
 
         g.Dispose()
+        DrawingPictureBox.Image = bmp
 
     End Sub
 
@@ -68,12 +71,16 @@ Public Class GraphicsExampleForm
     End Function
 
     Sub MouseDraw(startX As Integer, startY As Integer, endX As Integer, endY As Integer)
-        Dim g As Graphics = DrawingPictureBox.CreateGraphics()
+        Dim bmp As New Bitmap(DrawingPictureBox.Image)
+
+        Dim g As Graphics = Graphics.FromImage(bmp)
+
         Dim pen As New Pen(PenColor())
 
         g.DrawLine(pen, startX, startY, endX, endY)
 
         g.Dispose()
+        DrawingPictureBox.Image = bmp
     End Sub
 
     Sub DrawDivisions()
@@ -113,6 +120,28 @@ Public Class GraphicsExampleForm
 
 
     End Sub
+
+    Sub CreateBitmap()
+        Dim bmp As New Bitmap(DrawingPictureBox.Width, DrawingPictureBox.Height)
+        Dim g As Graphics = Graphics.FromImage(bmp)
+        Dim pen As New Pen(Color.Blue)
+
+        'g.DrawLine(pen, 100, 100, 300, 300)
+        g.Clear(DrawingPictureBox.BackColor)
+
+        g.Dispose()
+        DrawingPictureBox.Image = bmp
+    End Sub
+
+    Function getBitMap() As Bitmap
+        Dim bmp As New Bitmap(DrawingPictureBox.Width, DrawingPictureBox.Height)
+        'get the current image from drawingpicturebox
+        Dim g As Graphics = Graphics.FromImage(bmp)
+        DrawingPictureBox.DrawToBitmap(bmp, DrawingPictureBox.ClientRectangle)
+
+
+        Return bmp
+    End Function
 
     ' Event Handlers below here --------------------------------------------------------
 
@@ -154,8 +183,10 @@ Public Class GraphicsExampleForm
     End Sub
 
     Private Sub WaveButton_Click(sender As Object, e As EventArgs) Handles WaveButton.Click
-        DrawDivisions()
-        DrawSinWave()
+        'DrawDivisions()
+        'DrawSinWave()
+        'CreateBitmap()
+        DrawLine()
     End Sub
 
     Private Sub OpenTopMenuItem_Click(sender As Object, e As EventArgs) Handles OpenTopMenuItem.Click
@@ -172,14 +203,19 @@ Public Class GraphicsExampleForm
     End Sub
 
     Private Sub SaveTopMenuItem_Click(sender As Object, e As EventArgs) Handles SaveTopMenuItem.Click
+
         SaveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures)
-        SaveFileDialog.FileName = $"Untitled-{DateTime.Today.ToString("yymmdd")}.bmp"
+        SaveFileDialog.FileName = $"Untitled-{DateTime.Today.Now.ToString("yyMMddhhmmss")}.bmp"
         SaveFileDialog.ShowDialog()
 
-        'DrawingPictureBox.Image.Save(SaveFileDialog.FileName) TODO - Fix!!
+        'save the current graphics to a file
+        DrawingPictureBox.Image.Save(SaveFileDialog.FileName, Imaging.ImageFormat.Bmp)
 
 
 
+    End Sub
 
+    Private Sub GraphicsExampleForm_Load(sender As Object, e As EventArgs) Handles Me.Load
+        CreateBitmap()
     End Sub
 End Class
