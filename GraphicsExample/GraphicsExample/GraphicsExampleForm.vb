@@ -1,6 +1,18 @@
 ﻿Imports System.Net.NetworkInformation
+Imports System.Windows.Forms.AxHost
 
 Public Class GraphicsExampleForm
+
+    Function StoreBMP(Optional image As Image = Nothing) As Image
+        Static bmp As Bitmap
+        If image Is Nothing Then
+            Return bmp
+        Else
+            bmp = New Bitmap(image)
+            Return bmp
+        End If
+
+    End Function
 
     Private Sub GraphicsExampleForm_Click(sender As Object, e As EventArgs) Handles Me.Click
         'DrawRectangle()
@@ -71,16 +83,15 @@ Public Class GraphicsExampleForm
     End Function
 
     Sub MouseDraw(startX As Integer, startY As Integer, endX As Integer, endY As Integer)
-        Dim bmp As New Bitmap(DrawingPictureBox.Image)
+        'Dim bmp As New Bitmap(DrawingPictureBox.Image)
 
-        Dim g As Graphics = Graphics.FromImage(bmp)
-
+        Dim g As Graphics = Graphics.FromImage(StoreBMP)
         Dim pen As New Pen(PenColor())
 
         g.DrawLine(pen, startX, startY, endX, endY)
 
         g.Dispose()
-        DrawingPictureBox.Image = bmp
+        DrawingPictureBox.Image = StoreBMP()
     End Sub
 
     Sub DrawDivisions()
@@ -121,17 +132,16 @@ Public Class GraphicsExampleForm
 
     End Sub
 
-    Sub CreateBitmap()
+    Function CreateBitmap() As Image
         Dim bmp As New Bitmap(DrawingPictureBox.Width, DrawingPictureBox.Height)
         Dim g As Graphics = Graphics.FromImage(bmp)
-        Dim pen As New Pen(Color.Blue)
 
-        'g.DrawLine(pen, 100, 100, 300, 300)
         g.Clear(DrawingPictureBox.BackColor)
 
         g.Dispose()
-        DrawingPictureBox.Image = bmp
-    End Sub
+
+        Return bmp
+    End Function
 
     Function getBitMap() As Bitmap
         Dim bmp As New Bitmap(DrawingPictureBox.Width, DrawingPictureBox.Height)
@@ -142,6 +152,10 @@ Public Class GraphicsExampleForm
 
         Return bmp
     End Function
+
+    Sub ClearPictureBox()
+        DrawingPictureBox.Image = StoreBMP(CreateBitmap)
+    End Sub
 
     ' Event Handlers below here --------------------------------------------------------
 
@@ -174,7 +188,7 @@ Public Class GraphicsExampleForm
     End Sub
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
-        DrawingPictureBox.Image = Nothing
+        ClearPictureBox()
     End Sub
 
     Private Sub BackGroundColorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BackGroundColorToolStripMenuItem.Click
@@ -183,10 +197,10 @@ Public Class GraphicsExampleForm
     End Sub
 
     Private Sub WaveButton_Click(sender As Object, e As EventArgs) Handles WaveButton.Click
-        'DrawDivisions()
-        'DrawSinWave()
+        DrawDivisions()
+        DrawSinWave()
         'CreateBitmap()
-        DrawLine()
+        'DrawLine()
     End Sub
 
     Private Sub OpenTopMenuItem_Click(sender As Object, e As EventArgs) Handles OpenTopMenuItem.Click
@@ -216,6 +230,17 @@ Public Class GraphicsExampleForm
     End Sub
 
     Private Sub GraphicsExampleForm_Load(sender As Object, e As EventArgs) Handles Me.Load
-        CreateBitmap()
+        'StoreBMP(CreateBitmap)
+        ClearPictureBox()
+    End Sub
+
+    Private Sub DrawingPictureBox_Resize(sender As Object, e As EventArgs) Handles DrawingPictureBox.Resize
+        'Dim oldBMP As New Bitmap(DrawingPictureBox.Image)
+        If Me.Visible Then
+
+            Dim newImage As New Bitmap(StoreBMP(), DrawingPictureBox.Width, DrawingPictureBox.Height)
+            DrawingPictureBox.Image = StoreBMP(newImage)
+        End If
+
     End Sub
 End Class
