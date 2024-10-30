@@ -17,10 +17,12 @@ Imports System.Threading.Thread
 Module GalacticIntruders
 
     Sub Main()
+        Dim frame(,) As String
         'Console.WriteLine($"H:{Console.WindowHeight} W:{Console.WindowWidth}")
         Console.Title = "Galactic Intruders!!!"
 
-        UpdateFrame(Enemy(), 1, 1)
+        frame = UpdateFrame(Enemy1(), 1, 1)
+        DrawFrame(frame)
 
 
         Console.Read()
@@ -51,13 +53,20 @@ Module GalacticIntruders
         'Dim frame(120, 30) As String
         Dim frame(,) As String = EmptyFrame()
 
+        'draw sprite relative within frame
+        'x,y is where the top left corner of the sprite
         For s = 0 To 1
             For i = 0 To sprite(s).Length - 1
-                frame(i + x, 2) = sprite(s)(i)
+                frame(i + x, s + y) = sprite(s)(i)
             Next
 
         Next
 
+        Return frame
+
+    End Function
+
+    Sub DrawFrame(frame(,) As String)
 
         For row = 0 To frame.GetUpperBound(1)
             For column = 0 To frame.GetUpperBound(0)
@@ -67,17 +76,44 @@ Module GalacticIntruders
             Console.WriteLine()
         Next
 
-    End Function
+    End Sub
 
-    Function Enemy() As String()
-        Dim _enemy(3) As String
+    Function Enemy1(Optional pose% = 1) As String()
+        Dim _enemy(1) As String
 
         'basic pose 1
         _enemy(0) = "-/8\-"
         _enemy(1) = " o o "
-        'basic pose 2
-        _enemy(2) = "-\8/-"
-        _enemy(3) = "  V  "
+        Select Case pose
+            Case 1
+                'pass
+            Case 2
+                'basic pose 2
+                _enemy(0) = "-\8/-"
+                _enemy(1) = "  V  "
+            Case Else
+                'pass
+        End Select
+
+        Return _enemy
+    End Function
+
+    Function Enemy2(Optional pose% = 1) As String()
+        Dim _enemy(1) As String
+
+        'basic pose 1
+        _enemy(0) = "/o-O\"
+        _enemy(1) = " l L "
+        Select Case pose
+            Case 1
+                'pass
+            Case 2
+                'basic pose 2
+                _enemy(0) = "/O-o\"
+                _enemy(1) = " J l "
+            Case Else
+                'pass
+        End Select
 
         Return _enemy
     End Function
@@ -85,22 +121,22 @@ Module GalacticIntruders
     Sub TestEnemyDraw()
         Do
             For i = 1 To 6
-                Console.Write(Enemy(0).PadRight(7))
+                Console.Write(Enemy1(0)(0).PadRight(7))
             Next
             Console.WriteLine()
             For i = 1 To 6
-                Console.Write(Enemy(1).PadRight(7))
+                Console.Write(Enemy1(1)(1).PadRight(7))
             Next
             Console.WriteLine()
             Sleep(500)
             Console.Clear()
 
             For i = 1 To 6
-                Console.Write(Enemy(2).PadRight(7))
+                Console.Write(Enemy1(0)(0).PadRight(7))
             Next
             Console.WriteLine()
             For i = 1 To 6
-                Console.Write(Enemy(3).PadRight(7))
+                Console.Write(Enemy1(1)(1).PadRight(7))
             Next
             Console.WriteLine()
             Sleep(500)
