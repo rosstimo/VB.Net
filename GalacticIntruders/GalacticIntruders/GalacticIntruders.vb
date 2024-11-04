@@ -1,5 +1,7 @@
 ﻿Option Strict On
 Option Explicit On
+Imports System.Runtime.InteropServices.WindowsRuntime
+Imports System.Runtime.Versioning
 Imports System.Threading.Thread
 
 'TODO
@@ -18,11 +20,24 @@ Module GalacticIntruders
 
     Sub Main()
         Dim frame(,) As String
+        Dim frameDelay As Integer = 300
+        Dim pose As Integer = 1
         'Console.WriteLine($"H:{Console.WindowHeight} W:{Console.WindowWidth}")
         Console.Title = "Galactic Intruders!!!"
+        Sleep(500)
+        'Console.Beep()
+        For x = 1 To 10
+            'frame = UpdateFrame(Enemy1(pose), x, 1)
 
-        frame = UpdateFrame(Enemy1(), 1, 1)
-        DrawFrame(frame)
+            frame = DrawEnemies(frame, pose, x, 2)
+            DrawFrame(frame)
+            Sleep(frameDelay)
+            If pose = 1 Then
+                pose = 2
+            Else
+                pose = 1
+            End If
+        Next
 
 
         Console.Read()
@@ -37,11 +52,11 @@ Module GalacticIntruders
         For row = 0 To Height
             For column = 0 To Width
                 If column = 0 Or column = Width Then
-                    frame(column, row) = "|"
+                    frame(column, row) = " " '"|"
                 ElseIf row = 0 Or row = Height Then
-                    frame(column, row) = "_"
+                    frame(column, row) = " " '"_"
                 Else
-                    frame(column, row) = "." 'replace "." with space after debug
+                    frame(column, row) = " " 'replace "." with space after debug
                 End If
             Next
         Next
@@ -49,9 +64,12 @@ Module GalacticIntruders
 
     End Function
 
-    Function UpdateFrame(sprite() As String, x As Integer, y As Integer) As String(,)
+    Function UpdateFrame(sprite() As String, x As Integer, y As Integer, Optional frame(,) As String = Nothing) As String(,)
         'Dim frame(120, 30) As String
-        Dim frame(,) As String = EmptyFrame()
+        ' Dim frame(,) As String = EmptyFrame()
+        If frame Is Nothing Then
+            frame = EmptyFrame()
+        End If
 
         'draw sprite relative within frame
         'x,y is where the top left corner of the sprite
@@ -67,13 +85,17 @@ Module GalacticIntruders
     End Function
 
     Sub DrawFrame(frame(,) As String)
+        Console.Clear()
+        Dim currentRow As String
 
         For row = 0 To frame.GetUpperBound(1)
+            currentRow = ""
             For column = 0 To frame.GetUpperBound(0)
 
-                Console.Write(frame(column, row))
+                'Console.Write(frame(column, row))
+                currentRow &= frame(column, row)
             Next
-            Console.WriteLine()
+            Console.WriteLine(currentRow)
         Next
 
     End Sub
@@ -118,6 +140,48 @@ Module GalacticIntruders
         Return _enemy
     End Function
 
+    'this could probably be kept  in main
+    Function EnemyStatus(Optional enemyTracker(,) As Boolean = Nothing, Optional clear As Boolean = False) As Boolean(,)
+        Static _enemyTracker(3, 5) As Boolean
+        If clear Then
+            ReDim _enemyTracker(3, 5)
+        ElseIf enemyTracker IsNot Nothing Then
+            _enemyTracker = enemyTracker
+        Else
+            'pass
+        End If
+
+        Return _enemyTracker
+
+    End Function
+
+
+    Function DrawEnemies(frame(,) As String, pose%, x%, y%) As String(,)
+        'EnemyStatus is sized so there are 4 rows of 6 enemies
+        'each enemy is 2 rows by 5 characters wide
+        'probably should pad around 2 spaces in between enemies
+        Dim row% = 0, column% = 1
+        Dim killed As Boolean = True
+        Dim _enemyStatus(,) As Boolean = EnemyStatus()
+        ' Dim pose% = 1, x%, y%
+
+        For enemyColumn = 0 To _enemyStatus.GetUpperBound(column)
+            ' check if enemy is killed
+            ' skip if killed
+
+            y += 0
+            If _enemyStatus(enemyColumn, 0) <> killed Then
+                x += Len(Enemy1(pose))
+                frame = UpdateFrame(Enemy1(pose), x, y)
+                frame = UpdateFrame(Enemy1(pose), x, y + 1)
+            End If
+
+        Next
+
+
+        Return frame
+    End Function
+
     Sub TestEnemyDraw()
         Do
             For i = 1 To 6
@@ -149,6 +213,8 @@ Module GalacticIntruders
         'Console.SetWindowSize()
         'Loop
         'Console.WriteLine(Enemy)
+
+
     End Sub
 
 End Module
