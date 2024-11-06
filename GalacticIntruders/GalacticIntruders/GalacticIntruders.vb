@@ -19,25 +19,41 @@ Imports System.Threading.Thread
 Module GalacticIntruders
 
     Sub Main()
-        Dim frame(,) As String
+        Dim frame(,) As String = EmptyFrame()
         Dim frameDelay As Integer = 300
         Dim pose As Integer = 1
         'Console.WriteLine($"H:{Console.WindowHeight} W:{Console.WindowWidth}")
         Console.Title = "Galactic Intruders!!!"
         Sleep(500)
         'Console.Beep()
-        For x = 1 To 10
-            'frame = UpdateFrame(Enemy1(pose), x, 1)
+        'For x = 1 To 10
+        'frame = UpdateFrame(Enemy1(pose), x, 1)
 
-            frame = DrawEnemies(frame, pose, x, 2)
-            DrawFrame(frame)
-            Sleep(frameDelay)
-            If pose = 1 Then
-                pose = 2
-            Else
-                pose = 1
-            End If
-        Next
+        'frame = DrawEnemies(frame, pose, 2, 2)
+        Dim x%, y%
+        'x = 2
+        ''y = 2
+        'frame = UpdateFrame(Enemy1(1), x, y, EmptyFrame())
+        'x += 7
+        ''y += 7
+        'frame = UpdateFrame(Enemy1(1), x, y, frame)
+        'x += 7
+        ''y += 7
+        'frame = UpdateFrame(Enemy1(1), x, y, frame)
+        'x += 7
+        ''y += 7
+        'frame = UpdateFrame(Enemy1(1), x, y, frame)
+
+        frame = DrawEnemies(frame, 1, 2, 2)
+
+        DrawFrame(frame)
+        'Sleep(frameDelay)
+        'If pose = 1 Then
+        '    pose = 2
+        'Else
+        '    pose = 1
+        'End If
+        'Next
 
 
         Console.Read()
@@ -140,6 +156,46 @@ Module GalacticIntruders
         Return _enemy
     End Function
 
+    Function Enemy3(Optional pose% = 1) As String()
+        Dim _enemy(1) As String
+
+        'basic pose 1
+        _enemy(0) = "/o-O\"
+        _enemy(1) = " l L "
+        Select Case pose
+            Case 1
+                'pass
+            Case 2
+                'basic pose 2
+                _enemy(0) = "/O-o\"
+                _enemy(1) = " J l "
+            Case Else
+                'pass
+        End Select
+
+        Return _enemy
+    End Function
+
+    Function Enemy4(Optional pose% = 1) As String()
+        Dim _enemy(1) As String
+
+        'basic pose 1
+        _enemy(0) = "/o-O\"
+        _enemy(1) = " l L "
+        Select Case pose
+            Case 1
+                'pass
+            Case 2
+                'basic pose 2
+                _enemy(0) = "/O-o\"
+                _enemy(1) = " J l "
+            Case Else
+                'pass
+        End Select
+
+        Return _enemy
+    End Function
+
     'this could probably be kept  in main
     Function EnemyStatus(Optional enemyTracker(,) As Boolean = Nothing, Optional clear As Boolean = False) As Boolean(,)
         Static _enemyTracker(3, 5) As Boolean
@@ -157,27 +213,41 @@ Module GalacticIntruders
 
 
     Function DrawEnemies(frame(,) As String, pose%, x%, y%) As String(,)
-        'EnemyStatus is sized so there are 4 rows of 6 enemies
-        'each enemy is 2 rows by 5 characters wide
-        'probably should pad around 2 spaces in between enemies
-        Dim row% = 0, column% = 1
-        Dim killed As Boolean = True
         Dim _enemyStatus(,) As Boolean = EnemyStatus()
-        ' Dim pose% = 1, x%, y%
+        Dim numberOfEnemiesPerRow% = _enemyStatus.GetUpperBound(1)
+        Dim numberOfRows% = _enemyStatus.GetUpperBound(0)
+        Dim killed As Boolean = True 'TODO - implement collision detection
+        Dim _enemy() As String = Enemy1(pose)
+        Dim enemyType% = 0
+        Dim enemyLength% = Len(_enemy(0)), enemyHeight% = _enemy.Length
+        Dim enemyPadding = 2
 
-        For enemyColumn = 0 To _enemyStatus.GetUpperBound(column)
-            ' check if enemy is killed
-            ' skip if killed
-
-            y += 0
-            If _enemyStatus(enemyColumn, 0) <> killed Then
-                x += Len(Enemy1(pose))
-                frame = UpdateFrame(Enemy1(pose), x, y)
-                frame = UpdateFrame(Enemy1(pose), x, y + 1)
-            End If
+        For j = y To (numberOfRows * (enemyHeight + (enemyPadding \ 2))) + y Step enemyHeight + (enemyPadding \ 2)
+            'next enemy type
+            enemyType += 1
+            Select Case enemyType
+                Case 1
+                    _enemy = Enemy1(pose)
+                Case 2
+                    _enemy = Enemy2(pose)
+                Case 3
+                    _enemy = Enemy3(pose)
+                Case 4
+                    _enemy = Enemy4(pose)
+                Case Else
+                    'reset enemy type
+                    enemyType = 1
+                    _enemy = Enemy1(pose)
+            End Select
+            'get enemy dimensions
+            enemyLength = Len(_enemy(0))
+            enemyHeight = _enemy.Length
+            'add enemies to their place relative within the frame
+            For i = x To (numberOfEnemiesPerRow * (enemyLength + enemyPadding)) + x Step enemyLength + enemyPadding
+                frame = UpdateFrame(_enemy, i, j, frame)
+            Next
 
         Next
-
 
         Return frame
     End Function
