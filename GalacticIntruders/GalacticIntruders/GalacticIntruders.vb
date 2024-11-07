@@ -44,7 +44,7 @@ Module GalacticIntruders
         ''y += 7
         'frame = UpdateFrame(Enemy1(1), x, y, frame)
 
-        frame = DrawEnemies(frame, 1, 2, 2)
+        frame = DrawEnemies(frame, 1, 2, 2) ' TODO animate
 
         DrawFrame(frame)
         'Sleep(frameDelay)
@@ -60,6 +60,12 @@ Module GalacticIntruders
 
     End Sub
 
+    ''' <summary>
+    ''' Create an empty frame to draw on based on the console window size
+    ''' </summary>
+    ''' <returns>
+    '''  A 2D array of strings representing the frame
+    ''' </returns>
     Function EmptyFrame() As String(,)
         Dim Height% = Console.WindowHeight - 2, Width% = Console.WindowWidth - 2
         Dim frame(Width, Height) As String
@@ -80,6 +86,17 @@ Module GalacticIntruders
 
     End Function
 
+    ''' <summary>
+    ''' Update the frame with a sprite at a given x,y origin position. origin is the top left corner of the sprite.<br>
+    ''' If no frame is provided, an empty frame is created.
+    ''' </summary>
+    ''' <param name="sprite"></param>
+    ''' <param name="x"></param>
+    ''' <param name="y"></param>
+    ''' <param name="frame"></param>
+    ''' <returns>
+    ''' A 2D array of strings representing the frame updated with the sprite.
+    ''' </returns>
     Function UpdateFrame(sprite() As String, x As Integer, y As Integer, Optional frame(,) As String = Nothing) As String(,)
         'Dim frame(120, 30) As String
         ' Dim frame(,) As String = EmptyFrame()
@@ -100,6 +117,10 @@ Module GalacticIntruders
 
     End Function
 
+    ''' <summary>
+    ''' Draw the frame to the console
+    ''' </summary>
+    ''' <param name="frame"></param>
     Sub DrawFrame(frame(,) As String)
         Console.Clear()
         Dim currentRow As String
@@ -116,6 +137,18 @@ Module GalacticIntruders
 
     End Sub
 
+    ''' <summary>
+    ''' visual representation of an enemy sprite. <br>
+    ''' The sprite is a 2D array of strings. <br>
+    ''' The first element is the top row of the sprite, the second element is the bottom row of the sprite.<br>
+    ''' the sprite can be drawn in different poses by passing a pose number.
+    ''' the default pose is 1. If the pose number doesn't exits pose 1 is used. <br>
+    ''' The sprite is a 5 character wide by 2 character high sprite, but can vary in size.
+    ''' </summary>
+    ''' <param name="pose%"></param>
+    ''' <returns>
+    ''' A 2D array of strings representing the enemy sprite
+    ''' </returns>
     Function Enemy1(Optional pose% = 1) As String()
         Dim _enemy(1) As String
 
@@ -136,6 +169,18 @@ Module GalacticIntruders
         Return _enemy
     End Function
 
+    ''' <summary>
+    ''' visual representation of an enemy sprite. <br>
+    ''' The sprite is a 2D array of strings. <br>
+    ''' The first element is the top row of the sprite, the second element is the bottom row of the sprite.<br>
+    ''' the sprite can be drawn in different poses by passing a pose number.
+    ''' the default pose is 1. If the pose number doesn't exits pose 1 is used. <br>
+    ''' The sprite is a 5 character wide by 2 character high sprite, but can vary in size.
+    ''' </summary>
+    ''' <param name="pose%"></param>
+    ''' <returns>
+    ''' A 2D array of strings representing the enemy sprite
+    ''' </returns>
     Function Enemy2(Optional pose% = 1) As String()
         Dim _enemy(1) As String
 
@@ -156,6 +201,18 @@ Module GalacticIntruders
         Return _enemy
     End Function
 
+    ''' <summary>
+    ''' visual representation of an enemy sprite. <br>
+    ''' The sprite is a 2D array of strings. <br>
+    ''' The first element is the top row of the sprite, the second element is the bottom row of the sprite.<br>
+    ''' the sprite can be drawn in different poses by passing a pose number.
+    ''' the default pose is 1. If the pose number doesn't exits pose 1 is used. <br>
+    ''' The sprite is a 5 character wide by 2 character high sprite, but can vary in size.
+    ''' </summary>
+    ''' <param name="pose%"></param>
+    ''' <returns>
+    ''' A 2D array of strings representing the enemy sprite
+    ''' </returns>
     Function Enemy3(Optional pose% = 1) As String()
         Dim _enemy(1) As String
 
@@ -176,6 +233,18 @@ Module GalacticIntruders
         Return _enemy
     End Function
 
+    ''' <summary>
+    ''' visual representation of an enemy sprite. <br>
+    ''' The sprite is a 2D array of strings. <br>
+    ''' The first element is the top row of the sprite, the second element is the bottom row of the sprite.<br>
+    ''' the sprite can be drawn in different poses by passing a pose number.
+    ''' the default pose is 1. If the pose number doesn't exits pose 1 is used. <br>
+    ''' The sprite is a 5 character wide by 2 character high sprite, but can vary in size.
+    ''' </summary>
+    ''' <param name="pose%"></param>
+    ''' <returns>
+    ''' A 2D array of strings representing the enemy sprite
+    ''' </returns>
     Function Enemy4(Optional pose% = 1) As String()
         Dim _enemy(1) As String
 
@@ -196,7 +265,21 @@ Module GalacticIntruders
         Return _enemy
     End Function
 
-    'this could probably be kept  in main
+    ''' <summary>
+    ''' This holds an array representing the enemy sprites. it is meant to keep track of enemies that are alive or dead so that we know if they should be drawn and considered in collision detection.<br>
+    ''' optional parameters are used to set the enemy status array, clear the array, or return the array.<br>
+    ''' clear resets the array to all false values. indicating that all enemies are alive.<br>
+    ''' if the enemyTracker is not provided, the function returns the current enemy status array.<br>
+    ''' if the enemyTracker is provided, the function sets the enemy status array to the provided array. so updates are handled externally.<br>
+    ''' enemyTracker is a 2D array of booleans. <br>
+    ''' The first dimension represents the row of enemies, the second dimension represents the enemy in that row.<br>
+    ''' </summary>
+    ''' <param name="enemyTracker"></param>
+    ''' <param name="clear"></param>
+    ''' <returns>
+    ''' A 2D array of booleans representing the status of the enemies. 
+    ''' True indicates that the enemy has been killed, False indicates that the enemy is has not been killed.
+    ''' </returns>
     Function EnemyStatus(Optional enemyTracker(,) As Boolean = Nothing, Optional clear As Boolean = False) As Boolean(,)
         Static _enemyTracker(3, 5) As Boolean
         If clear Then
@@ -211,7 +294,18 @@ Module GalacticIntruders
 
     End Function
 
-
+    ''' <summary>
+    ''' Updates the given frame with the main group of enemies based on their status.<br></br> 
+    ''' The enemies are drawn in rows and columns. The number of enemies per row and the number of rows is set by the enemy status array.<br></br>
+    ''' The enemies are drawn in a grid like pattern with padding between them.<br></br>
+    ''' The enemies are drawn in a specific pose. The pose is passed as an argument.<br></br>
+    ''' The enemies are drawn relative to the given x,y origin position. The origin is the top left corner. <br></br>
+    ''' </summary>
+    ''' <param name="frame"></param>
+    ''' <param name="pose%"></param>
+    ''' <param name="x%"></param>
+    ''' <param name="y%"></param>
+    ''' <returns></returns>
     Function DrawEnemies(frame(,) As String, pose%, x%, y%) As String(,)
         Dim _enemyStatus(,) As Boolean = EnemyStatus()
         Dim numberOfEnemiesPerRow% = _enemyStatus.GetUpperBound(1)
