@@ -2,6 +2,7 @@
 Option Explicit On
 Imports System.Runtime.InteropServices.WindowsRuntime
 Imports System.Runtime.Versioning
+Imports System.Threading
 Imports System.Threading.Thread
 
 'TODO
@@ -18,43 +19,27 @@ Imports System.Threading.Thread
 '
 Module GalacticIntruders
 
+
+
     Sub Main()
         Dim frame(,) As String = EmptyFrame()
         Dim frameDelay As Integer = 300
         Dim pose As Integer = 1
         'Console.WriteLine($"H:{Console.WindowHeight} W:{Console.WindowWidth}")
         Console.Title = "Galactic Intruders!!!"
+        Dim keyInfo As ConsoleKeyInfo
         Sleep(500)
-        'Console.Beep()
-        'For x = 1 To 10
-        'frame = UpdateFrame(Enemy1(pose), x, 1)
 
-        'frame = DrawEnemies(frame, pose, 2, 2)
-        Dim x%, y%
-        'x = 2
-        ''y = 2
-        'frame = UpdateFrame(Enemy1(1), x, y, EmptyFrame())
-        'x += 7
-        ''y += 7
-        'frame = UpdateFrame(Enemy1(1), x, y, frame)
-        'x += 7
-        ''y += 7
-        'frame = UpdateFrame(Enemy1(1), x, y, frame)
-        'x += 7
-        ''y += 7
-        'frame = UpdateFrame(Enemy1(1), x, y, frame)
+        'Dim x%, y%
+        'frame = DrawEnemies(frame, 1, 2, 2) ' TODO animate
+        'DrawFrame(frame)
+        'keys()
 
-        frame = DrawEnemies(frame, 1, 2, 2) ' TODO animate
-
-        DrawFrame(frame)
-        'Sleep(frameDelay)
-        'If pose = 1 Then
-        '    pose = 2
-        'Else
-        '    pose = 1
-        'End If
-        'Next
-
+        Do
+            Console.Clear()
+            keyInfo = CheckKeys()
+            Console.WriteLine(keyInfo.Key.ToString)
+        Loop Until keyInfo.Key = ConsoleKey.Q
 
         Console.Read()
 
@@ -346,6 +331,8 @@ Module GalacticIntruders
         Return frame
     End Function
 
+    'Testing ------------------------------------------------------------------------------------------------
+
     Sub TestEnemyDraw()
         Do
             For i = 1 To 6
@@ -381,4 +368,24 @@ Module GalacticIntruders
 
     End Sub
 
+    Sub keys()
+        Dim cki As ConsoleKeyInfo
+
+        Do
+            Console.WriteLine(vbCrLf & "Press a key to display; press the 'x' key to quit.")
+
+            ' Your code could perform some useful task in the following loop. However, 
+            ' for the sake of this example we'll merely pause for a quarter second.
+
+            While Console.KeyAvailable = False
+                Thread.Sleep(250) ' Loop until input is entered.
+            End While
+            cki = Console.ReadKey(True)
+            Console.WriteLine("You pressed the '{0}' key.", cki.Key)
+        Loop While cki.Key <> ConsoleKey.X
+    End Sub
+    Function CheckKeys() As ConsoleKeyInfo
+        Dim _keyInfo As ConsoleKeyInfo = Console.ReadKey(True)
+        Return _keyInfo
+    End Function
 End Module
