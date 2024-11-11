@@ -22,23 +22,41 @@ Module GalacticIntruders
 
 
     Sub Main()
+        'animation parameters
         Dim frame(,) As String = EmptyFrame()
         Dim frameDelay As Integer = 300
-        Dim pose As Integer = 1
-        'Console.WriteLine($"H:{Console.WindowHeight} W:{Console.WindowWidth}")
-        Console.Title = "Galactic Intruders!!!"
         Dim keyInfo As ConsoleKeyInfo
+        Dim currentTime As Integer = (DateTime.Now.Second * 1000) + DateTime.Now.Millisecond
+
+        'enemy group parameters
+        Dim enemyX%, enemyY%
+        Dim pose As Integer = 1
+        'Dim enemyProjectiles(6,1) as Boolean 'TODO need a way to spawn and track enemy projectiles
+
+        'special enemy parameters
+
+        'player parameters
+        Dim playerX%, playerY%
+        Dim playerProjectileX%, playerProjectileY%
+
+
+        'setup
+
+        Console.Title = "Galactic Intruders!!!"
+        'Start
+
         Sleep(500)
 
-        'Dim x%, y%
-        'frame = DrawEnemies(frame, 1, 2, 2) ' TODO animate
-        'DrawFrame(frame)
-        'keys()
+
+
 
         Do
-            Console.Clear()
+            'Console.Clear()
+            'frame = DrawEnemies(frame, 1, 2, 2) ' TODO animate
             keyInfo = CheckKeys()
-            Console.WriteLine(keyInfo.Key.ToString)
+            frame = DrawPlayer(frame, 1, 2, 2)
+            'Console.WriteLine(keyInfo.Key.ToString)
+            DrawFrame(frame)
         Loop Until keyInfo.Key = ConsoleKey.Q
 
         Console.Read()
@@ -251,6 +269,36 @@ Module GalacticIntruders
     End Function
 
     ''' <summary>
+    ''' visual representation of a player sprite. <br></br>
+    ''' The sprite is a 2D array of strings. <br></br>
+    ''' The first element is the top row of the sprite, the second element is the bottom row of the sprite.<br></br>
+    ''' the sprite can be drawn in different poses by passing a pose number.
+    ''' the default pose is 1. If the pose number doesn't exits pose 1 is used. <br></br>
+    ''' The sprite is a 5 character wide by 2 character high sprite, but can vary in size.
+    ''' </summary>
+    ''' <param name="pose%"></param>
+    ''' <returns></returns>
+    Function Player(Optional pose% = 1) As String()
+        Dim _player(1) As String
+
+        'basic pose 1
+        _player(0) = "  |  "
+        _player(1) = " / \ "
+        Select Case pose
+            Case 1
+                'pass
+            Case 2
+                'basic pose 2
+                _player(0) = "  |  "
+                _player(1) = " / \ "
+            Case Else
+                'pass
+        End Select
+
+        Return _player
+    End Function
+
+    ''' <summary>
     ''' This holds an array representing the enemy sprites. it is meant to keep track of enemies that are alive or dead so that we know if they should be drawn and considered in collision detection.<br>
     ''' optional parameters are used to set the enemy status array, clear the array, or return the array.<br>
     ''' clear resets the array to all false values. indicating that all enemies are alive.<br>
@@ -331,6 +379,35 @@ Module GalacticIntruders
         Return frame
     End Function
 
+    ''' <summary>
+    ''' Updates the given frame with the player sprite based on the given x,y origin position.<br></br>
+    ''' The player sprite is drawn in a specific pose. The pose is passed as an argument.<br></br>
+    ''' The player sprite is drawn relative to the given x,y origin position. The origin is the top left corner. <br></br>
+    ''' </summary>
+    ''' <param name="frame"></param>
+    ''' <param name="pose%"></param>
+    ''' <param name="x%"></param>
+    ''' <param name="y%"></param>
+    ''' <returns></returns>
+    Function DrawPlayer(frame(,) As String, pose%, x%, y%) As String(,)
+        Dim _player() As String = Player(pose)
+        Dim playerLength% = Len(_player(0)), playerHeight% = _player.Length
+        Dim playerPadding = 2
+
+        frame = UpdateFrame(_player, x, y, frame)
+
+        Return frame
+    End Function
+
+
+    ''' <summary>
+    ''' Check for key presses
+    ''' </summary>
+    ''' <returns> ConsoleKeyInfo </returns>
+    Function CheckKeys() As ConsoleKeyInfo
+        Dim _keyInfo As ConsoleKeyInfo = Console.ReadKey(True)
+        Return _keyInfo
+    End Function
     'Testing ------------------------------------------------------------------------------------------------
 
     Sub TestEnemyDraw()
@@ -384,8 +461,5 @@ Module GalacticIntruders
             Console.WriteLine("You pressed the '{0}' key.", cki.Key)
         Loop While cki.Key <> ConsoleKey.X
     End Sub
-    Function CheckKeys() As ConsoleKeyInfo
-        Dim _keyInfo As ConsoleKeyInfo = Console.ReadKey(True)
-        Return _keyInfo
-    End Function
+
 End Module
