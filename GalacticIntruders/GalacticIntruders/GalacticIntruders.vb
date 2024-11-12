@@ -24,9 +24,9 @@ Module GalacticIntruders
     Sub Main()
         'animation parameters
         Dim frame(,) As String = EmptyFrame()
-        Dim frameDelay As Integer = 300
+        Dim frameDelay As Integer = 100
         Dim keyInfo As ConsoleKeyInfo
-        Dim currentTime As Integer = (DateTime.Now.Second * 1000) + DateTime.Now.Millisecond
+        Dim currentTime As Integer = (DateTime.Now.Second * 1000) + DateTime.Now.Millisecond 'use this for non blocking delays
 
         'enemy group parameters
         Dim enemyX%, enemyY%
@@ -38,9 +38,13 @@ Module GalacticIntruders
         'player parameters
         Dim playerX%, playerY%
         Dim playerProjectileX%, playerProjectileY%
+        Dim updatePlayerPosition As Boolean
 
 
         'setup
+
+        playerY = frame.GetUpperBound(1) - 3
+        playerX = 0
 
         Console.Title = "Galactic Intruders!!!"
         'Start
@@ -53,11 +57,32 @@ Module GalacticIntruders
         Do
             'Console.Clear()
             'frame = DrawEnemies(frame, 1, 2, 2) ' TODO animate
-            keyInfo = CheckKeys()
-            frame = DrawPlayer(frame, 1, 2, 2)
+            updatePlayerPosition = True
+            Do While Console.KeyAvailable
+
+                keyInfo = CheckKeys()
+                If updatePlayerPosition Then
+
+                    Select Case keyInfo.Key
+                        Case ConsoleKey.LeftArrow
+                            playerX -= 1
+                        Case ConsoleKey.RightArrow
+                            playerX += 1
+                    End Select
+
+                    updatePlayerPosition = False
+                End If
+
+            Loop
+
+            frame = DrawPlayer(frame, 1, playerX, playerY)
             'Console.WriteLine(keyInfo.Key.ToString)
             DrawFrame(frame)
+            Sleep(100) 'TODO replace with non blocking
         Loop Until keyInfo.Key = ConsoleKey.Q
+
+        Console.Clear()
+        Console.WriteLine("Have a Nice Day!")
 
         Console.Read()
 
@@ -389,10 +414,17 @@ Module GalacticIntruders
     ''' <param name="x%"></param>
     ''' <param name="y%"></param>
     ''' <returns></returns>
-    Function DrawPlayer(frame(,) As String, pose%, x%, y%) As String(,)
+    Function DrawPlayer(frame(,) As String, pose%, ByRef x%, ByRef y%) As String(,)
         Dim _player() As String = Player(pose)
         Dim playerLength% = Len(_player(0)), playerHeight% = _player.Length
         Dim playerPadding = 2
+
+        Select Case x
+            Case < 0
+                x = 0
+            Case > frame.GetUpperBound(0) - playerLength - playerPadding
+                x = frame.GetUpperBound(0) - playerLength - playerPadding
+        End Select
 
         frame = UpdateFrame(_player, x, y, frame)
 
