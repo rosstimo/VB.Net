@@ -39,6 +39,7 @@ Module GalacticIntruders
         Dim playerX%, playerY%
         Dim playerProjectileX%, playerProjectileY%
         Dim updatePlayerPosition As Boolean
+        Dim updatePlayerDelay As Integer = 100
 
 
         'setup
@@ -57,6 +58,7 @@ Module GalacticIntruders
         Do
             'Console.Clear()
             'frame = DrawEnemies(frame, 1, 2, 2) ' TODO animate
+
             updatePlayerPosition = True
             Do While Console.KeyAvailable
 
@@ -77,8 +79,10 @@ Module GalacticIntruders
 
             frame = DrawPlayer(frame, 1, playerX, playerY)
             'Console.WriteLine(keyInfo.Key.ToString)
-            DrawFrame(frame)
+            'DrawFrame(frame)
             Sleep(100) 'TODO replace with non blocking
+            Console.Clear()
+            Console.WriteLine(millis())
         Loop Until keyInfo.Key = ConsoleKey.Q
 
         Console.Clear()
@@ -88,6 +92,7 @@ Module GalacticIntruders
 
     End Sub
 
+    ' Console Animation Frame Stuff -------------------------------------------
     ''' <summary>
     ''' Create an empty frame to draw on based on the console window size
     ''' </summary>
@@ -165,6 +170,143 @@ Module GalacticIntruders
 
     End Sub
 
+    ''' <summary>
+    ''' Updates the given frame with the main group of enemies based on their status.<br></br> 
+    ''' The enemies are drawn in rows and columns. The number of enemies per row and the number of rows is set by the enemy status array.<br></br>
+    ''' The enemies are drawn in a grid like pattern with padding between them.<br></br>
+    ''' The enemies are drawn in a specific pose. The pose is passed as an argument.<br></br>
+    ''' The enemies are drawn relative to the given x,y origin position. The origin is the top left corner. <br></br>
+    ''' </summary>
+    ''' <param name="frame"></param>
+    ''' <param name="pose%"></param>
+    ''' <param name="x%"></param>
+    ''' <param name="y%"></param>
+    ''' <returns></returns>
+    Function DrawEnemies(frame(,) As String, pose%, x%, y%) As String(,)
+        Dim _enemyStatus(,) As Boolean = EnemyStatus()
+        Dim numberOfEnemiesPerRow% = _enemyStatus.GetUpperBound(1)
+        Dim numberOfRows% = _enemyStatus.GetUpperBound(0)
+        Dim killed As Boolean = True 'TODO - implement collision detection
+        Dim _enemy() As String = Enemy1(pose)
+        Dim enemyType% = 0
+        Dim enemyLength% = Len(_enemy(0)), enemyHeight% = _enemy.Length
+        Dim enemyPadding = 2
+
+        For j = y To (numberOfRows * (enemyHeight + (enemyPadding \ 2))) + y Step enemyHeight + (enemyPadding \ 2)
+            'next enemy type
+            enemyType += 1
+            Select Case enemyType
+                Case 1
+                    _enemy = Enemy1(pose)
+                Case 2
+                    _enemy = Enemy2(pose)
+                Case 3
+                    _enemy = Enemy3(pose)
+                Case 4
+                    _enemy = Enemy4(pose)
+                Case Else
+                    'reset enemy type
+                    enemyType = 1
+                    _enemy = Enemy1(pose)
+            End Select
+            'get enemy dimensions
+            enemyLength = Len(_enemy(0))
+            enemyHeight = _enemy.Length
+            'add enemies to their place relative within the frame
+            For i = x To (numberOfEnemiesPerRow * (enemyLength + enemyPadding)) + x Step enemyLength + enemyPadding
+                frame = UpdateFrame(_enemy, i, j, frame)
+            Next
+
+        Next
+
+        Return frame
+    End Function
+
+    ''' <summary>
+    ''' Updates the given frame with the player sprite based on the given x,y origin position.<br></br>
+    ''' The player sprite is drawn in a specific pose. The pose is passed as an argument.<br></br>
+    ''' The player sprite is drawn relative to the given x,y origin position. The origin is the top left corner. <br></br>
+    ''' </summary>
+    ''' <param name="frame"></param>
+    ''' <param name="pose%"></param>
+    ''' <param name="x%"></param>
+    ''' <param name="y%"></param>
+    ''' <returns></returns>
+    Function DrawPlayer(frame(,) As String, pose%, ByRef x%, ByRef y%) As String(,)
+        Dim _player() As String = Player(pose)
+        Dim playerLength% = Len(_player(0)), playerHeight% = _player.Length
+        Dim playerPadding = 2
+
+        Select Case x
+            Case < 0
+                x = 0
+            Case > frame.GetUpperBound(0) - playerLength - playerPadding
+                x = frame.GetUpperBound(0) - playerLength - playerPadding
+        End Select
+
+        frame = UpdateFrame(_player, x, y, frame)
+
+        Return frame
+    End Function
+
+
+    ' Game Mechanics ----------------------------------------------------------
+
+    ''' <summary>
+    ''' This holds an array representing the enemy sprites. it is meant to keep track of enemies that are alive or dead so that we know if they should be drawn and considered in collision detection.<br>
+    ''' optional parameters are used to set the enemy status array, clear the array, or return the array.<br>
+    ''' clear resets the array to all false values. indicating that all enemies are alive.<br>
+    ''' if the enemyTracker is not provided, the function returns the current enemy status array.<br>
+    ''' if the enemyTracker is provided, the function sets the enemy status array to the provided array. so updates are handled externally.<br>
+    ''' enemyTracker is a 2D array of booleans. <br>
+    ''' The first dimension represents the row of enemies, the second dimension represents the enemy in that row.<br>
+    ''' </summary>
+    ''' <param name="enemyTracker"></param>
+    ''' <param name="clear"></param>
+    ''' <returns>
+    ''' A 2D array of booleans representing the status of the enemies. 
+    ''' True indicates that the enemy has been killed, False indicates that the enemy is has not been killed.
+    ''' </returns>
+    Function EnemyStatus(Optional enemyTracker(,) As Boolean = Nothing, Optional clear As Boolean = False) As Boolean(,)
+        Static _enemyTracker(3, 5) As Boolean
+        If clear Then
+            ReDim _enemyTracker(3, 5)
+        ElseIf enemyTracker IsNot Nothing Then
+            _enemyTracker = enemyTracker
+        Else
+            'pass
+        End If
+
+        Return _enemyTracker
+
+    End Function
+
+    ''' <summary>
+    ''' Check for key presses
+    ''' </summary>
+    ''' <returns> ConsoleKeyInfo </returns>
+    Function CheckKeys() As ConsoleKeyInfo
+        Dim _keyInfo As ConsoleKeyInfo = Console.ReadKey(True)
+        Return _keyInfo
+    End Function
+
+    Function millis() As Integer
+        Dim _time As Integer = CInt((((DateTime.Now.Hour * (60 ^ 2)) + (DateTime.Now.Minute * 60) + DateTime.Now.Second) * 1000) + DateTime.Now.Millisecond)
+        Return _time
+    End Function
+
+    Function TimeToUpdatePlayer(Optional delay As Integer = -1) As Boolean
+        Static _time As Integer
+
+        If delay >= 0 Then
+            _time = millis() + delay
+        End If
+
+        Return millis() >= _time
+
+    End Function
+
+    ' Enemy Sprites -----------------------------------------------------------
     ''' <summary>
     ''' visual representation of an enemy sprite. <br>
     ''' The sprite is a 2D array of strings. <br>
@@ -293,6 +435,7 @@ Module GalacticIntruders
         Return _enemy
     End Function
 
+    'Player Sprites -----------------------------------------------------------
     ''' <summary>
     ''' visual representation of a player sprite. <br></br>
     ''' The sprite is a 2D array of strings. <br></br>
@@ -321,124 +464,6 @@ Module GalacticIntruders
         End Select
 
         Return _player
-    End Function
-
-    ''' <summary>
-    ''' This holds an array representing the enemy sprites. it is meant to keep track of enemies that are alive or dead so that we know if they should be drawn and considered in collision detection.<br>
-    ''' optional parameters are used to set the enemy status array, clear the array, or return the array.<br>
-    ''' clear resets the array to all false values. indicating that all enemies are alive.<br>
-    ''' if the enemyTracker is not provided, the function returns the current enemy status array.<br>
-    ''' if the enemyTracker is provided, the function sets the enemy status array to the provided array. so updates are handled externally.<br>
-    ''' enemyTracker is a 2D array of booleans. <br>
-    ''' The first dimension represents the row of enemies, the second dimension represents the enemy in that row.<br>
-    ''' </summary>
-    ''' <param name="enemyTracker"></param>
-    ''' <param name="clear"></param>
-    ''' <returns>
-    ''' A 2D array of booleans representing the status of the enemies. 
-    ''' True indicates that the enemy has been killed, False indicates that the enemy is has not been killed.
-    ''' </returns>
-    Function EnemyStatus(Optional enemyTracker(,) As Boolean = Nothing, Optional clear As Boolean = False) As Boolean(,)
-        Static _enemyTracker(3, 5) As Boolean
-        If clear Then
-            ReDim _enemyTracker(3, 5)
-        ElseIf enemyTracker IsNot Nothing Then
-            _enemyTracker = enemyTracker
-        Else
-            'pass
-        End If
-
-        Return _enemyTracker
-
-    End Function
-
-    ''' <summary>
-    ''' Updates the given frame with the main group of enemies based on their status.<br></br> 
-    ''' The enemies are drawn in rows and columns. The number of enemies per row and the number of rows is set by the enemy status array.<br></br>
-    ''' The enemies are drawn in a grid like pattern with padding between them.<br></br>
-    ''' The enemies are drawn in a specific pose. The pose is passed as an argument.<br></br>
-    ''' The enemies are drawn relative to the given x,y origin position. The origin is the top left corner. <br></br>
-    ''' </summary>
-    ''' <param name="frame"></param>
-    ''' <param name="pose%"></param>
-    ''' <param name="x%"></param>
-    ''' <param name="y%"></param>
-    ''' <returns></returns>
-    Function DrawEnemies(frame(,) As String, pose%, x%, y%) As String(,)
-        Dim _enemyStatus(,) As Boolean = EnemyStatus()
-        Dim numberOfEnemiesPerRow% = _enemyStatus.GetUpperBound(1)
-        Dim numberOfRows% = _enemyStatus.GetUpperBound(0)
-        Dim killed As Boolean = True 'TODO - implement collision detection
-        Dim _enemy() As String = Enemy1(pose)
-        Dim enemyType% = 0
-        Dim enemyLength% = Len(_enemy(0)), enemyHeight% = _enemy.Length
-        Dim enemyPadding = 2
-
-        For j = y To (numberOfRows * (enemyHeight + (enemyPadding \ 2))) + y Step enemyHeight + (enemyPadding \ 2)
-            'next enemy type
-            enemyType += 1
-            Select Case enemyType
-                Case 1
-                    _enemy = Enemy1(pose)
-                Case 2
-                    _enemy = Enemy2(pose)
-                Case 3
-                    _enemy = Enemy3(pose)
-                Case 4
-                    _enemy = Enemy4(pose)
-                Case Else
-                    'reset enemy type
-                    enemyType = 1
-                    _enemy = Enemy1(pose)
-            End Select
-            'get enemy dimensions
-            enemyLength = Len(_enemy(0))
-            enemyHeight = _enemy.Length
-            'add enemies to their place relative within the frame
-            For i = x To (numberOfEnemiesPerRow * (enemyLength + enemyPadding)) + x Step enemyLength + enemyPadding
-                frame = UpdateFrame(_enemy, i, j, frame)
-            Next
-
-        Next
-
-        Return frame
-    End Function
-
-    ''' <summary>
-    ''' Updates the given frame with the player sprite based on the given x,y origin position.<br></br>
-    ''' The player sprite is drawn in a specific pose. The pose is passed as an argument.<br></br>
-    ''' The player sprite is drawn relative to the given x,y origin position. The origin is the top left corner. <br></br>
-    ''' </summary>
-    ''' <param name="frame"></param>
-    ''' <param name="pose%"></param>
-    ''' <param name="x%"></param>
-    ''' <param name="y%"></param>
-    ''' <returns></returns>
-    Function DrawPlayer(frame(,) As String, pose%, ByRef x%, ByRef y%) As String(,)
-        Dim _player() As String = Player(pose)
-        Dim playerLength% = Len(_player(0)), playerHeight% = _player.Length
-        Dim playerPadding = 2
-
-        Select Case x
-            Case < 0
-                x = 0
-            Case > frame.GetUpperBound(0) - playerLength - playerPadding
-                x = frame.GetUpperBound(0) - playerLength - playerPadding
-        End Select
-
-        frame = UpdateFrame(_player, x, y, frame)
-
-        Return frame
-    End Function
-
-
-    ''' <summary>
-    ''' Check for key presses
-    ''' </summary>
-    ''' <returns> ConsoleKeyInfo </returns>
-    Function CheckKeys() As ConsoleKeyInfo
-        Dim _keyInfo As ConsoleKeyInfo = Console.ReadKey(True)
-        Return _keyInfo
     End Function
     'Testing ------------------------------------------------------------------------------------------------
 
