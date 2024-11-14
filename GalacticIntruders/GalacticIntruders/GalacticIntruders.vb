@@ -26,11 +26,10 @@ Module GalacticIntruders
         Dim frame(,) As String = EmptyFrame()
         Dim frameDelay As Integer = 100
         Dim keyInfo As ConsoleKeyInfo
-        Dim currentTime As Integer = (DateTime.Now.Second * 1000) + DateTime.Now.Millisecond 'use this for non blocking delays
 
         'enemy group parameters
         Dim enemyX%, enemyY%
-        Dim pose As Integer = 1
+        Dim enemyPose As Integer = 1
         'Dim enemyProjectiles(6,1) as Boolean 'TODO need a way to spawn and track enemy projectiles
 
         'special enemy parameters
@@ -38,7 +37,7 @@ Module GalacticIntruders
         'player parameters
         Dim playerX%, playerY%
         Dim playerProjectileX%, playerProjectileY%
-        Dim updatePlayerPosition As Boolean
+        Dim updatePlayerPosition As Boolean = True
         Dim updatePlayerDelay As Integer = 100
 
 
@@ -55,11 +54,10 @@ Module GalacticIntruders
 
 
 
-        Do
-            'Console.Clear()
-            'frame = DrawEnemies(frame, 1, 2, 2) ' TODO animate
+        Do 'main animation loop
 
-            updatePlayerPosition = True
+            'always check keys and flush repeated keys
+            'player movement is only updated if updatePlayerPosition is True
             Do While Console.KeyAvailable
 
                 keyInfo = CheckKeys()
@@ -77,13 +75,34 @@ Module GalacticIntruders
 
             Loop
 
-            frame = DrawPlayer(frame, 1, playerX, playerY)
-            'Console.WriteLine(keyInfo.Key.ToString)
-            'DrawFrame(frame)
-            Sleep(100) 'TODO replace with non blocking
-            Console.Clear()
-            Console.WriteLine(millis())
-        Loop Until keyInfo.Key = ConsoleKey.Q
+            'non-blocking update player timing
+            If TimeToUpdatePlayer() Then
+                updatePlayerPosition = True
+                TimeToUpdatePlayer(100)
+            End If
+
+            'non-blocking update enemies timing
+            If TimeToUpdateEnemies() Then
+                Select Case enemyPose
+                    Case 2
+                        enemyPose = 1
+                    Case Else
+                        enemyPose = 2
+                End Select
+                'TODO update position here
+                TimeToUpdateEnemies(500)
+            End If
+
+            'non-blocking update/draw animation frame timing
+            If TimeToUpdateFrame() Then
+                frame = EmptyFrame()
+                frame = DrawEnemies(frame, enemyPose, enemyX, enemyY) ' TODO animate
+                frame = DrawPlayer(frame, 1, playerX, playerY)
+                DrawFrame(frame)
+                TimeToUpdateFrame(50)
+            End If
+
+        Loop Until keyInfo.Key = ConsoleKey.Q ' player quit
 
         Console.Clear()
         Console.WriteLine("Have a Nice Day!")
@@ -182,7 +201,7 @@ Module GalacticIntruders
     ''' <param name="x%"></param>
     ''' <param name="y%"></param>
     ''' <returns></returns>
-    Function DrawEnemies(frame(,) As String, pose%, x%, y%) As String(,)
+    Function DrawEnemies(frame(,) As String, pose%, ByRef x%, ByRef y%) As String(,)
         Dim _enemyStatus(,) As Boolean = EnemyStatus()
         Dim numberOfEnemiesPerRow% = _enemyStatus.GetUpperBound(1)
         Dim numberOfRows% = _enemyStatus.GetUpperBound(0)
@@ -214,11 +233,16 @@ Module GalacticIntruders
             enemyHeight = _enemy.Length
             'add enemies to their place relative within the frame
             For i = x To (numberOfEnemiesPerRow * (enemyLength + enemyPadding)) + x Step enemyLength + enemyPadding
-                frame = UpdateFrame(_enemy, i, j, frame)
+                frame = UpdateFrame(_enemy, i, j, frame) 'TODO build as strings so enemies can go all the way to the edges as outer ones die
             Next
 
         Next
 
+        Select Case x
+            Case > frame.GetUpperBound(0) - (numberOfEnemiesPerRow * (enemyLength + enemyPadding))
+                x = (numberOfEnemiesPerRow * (enemyLength + enemyPadding)) + x
+
+        End Select
         Return frame
     End Function
 
@@ -296,6 +320,27 @@ Module GalacticIntruders
     End Function
 
     Function TimeToUpdatePlayer(Optional delay As Integer = -1) As Boolean
+        Static _time As Integer
+
+        If delay >= 0 Then
+            _time = millis() + delay
+        End If
+
+        Return millis() >= _time
+
+    End Function
+
+    Function TimeToUpdateEnemies(Optional delay As Integer = -1) As Boolean
+        Static _time As Integer
+
+        If delay >= 0 Then
+            _time = millis() + delay
+        End If
+
+        Return millis() >= _time
+
+    End Function
+    Function TimeToUpdateFrame(Optional delay As Integer = -1) As Boolean
         Static _time As Integer
 
         If delay >= 0 Then
