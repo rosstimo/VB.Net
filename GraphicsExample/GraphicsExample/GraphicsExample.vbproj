@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BD27FB89-EA0E-45CB-A2A7-737A9845F470}</ProjectGuid>
+    <ProjectGuid>{8212FAE7-FAAA-4673-8EA9-2601DE54BD60}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <StartupObject>GraphicsExample.My.MyApplication</StartupObject>
     <RootNamespace>GraphicsExample</RootNamespace>
@@ -73,17 +73,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GraphicsForm.vb">
+    <Compile Include="GraphicsExampleForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GraphicsForm.Designer.vb">
-      <DependentUpon>GraphicsForm.vb</DependentUpon>
+    <Compile Include="GraphicsExampleForm.Designer.vb">
+      <DependentUpon>GraphicsExampleForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -97,8 +98,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="GraphicsForm.resx">
-      <DependentUpon>GraphicsForm.vb</DependentUpon>
+    <EmbeddedResource Include="GraphicsExampleForm.resx">
+      <DependentUpon>GraphicsExampleForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

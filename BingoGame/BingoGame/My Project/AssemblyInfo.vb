@@ -10,15 +10,15 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("BingoGame")>
 <Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyCompany("Idaho State University College of Technology")>
 <Assembly: AssemblyProduct("BingoGame")>
-<Assembly: AssemblyCopyright("Copyright ©  2022")>
+<Assembly: AssemblyCopyright("Copyright © Idaho State University College of Technology 2024")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("6c5eab39-d3b4-4cc4-8dc0-29603255d57f")>
+<Assembly: Guid("cfbbc245-64c2-494e-8f6d-76aef76c7f96")>
 
 ' Version information for an assembly consists of the following four values:
 '

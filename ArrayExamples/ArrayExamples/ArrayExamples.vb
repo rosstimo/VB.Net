@@ -1,9 +1,10 @@
 ﻿Module ArrayExamples
 
     Sub Main()
+
         'Dim test As Array()
         'SimpleArray()
-        TwoDimensionArrayLoop()
+        'TwoDimensionArrayLoop()
         'ArrayBoundries()
         'DeclareWithData()
 
@@ -22,7 +23,7 @@
         names(4) = "Sally"
 
         'exception
-        names(6) = "xxx"
+        'names(6) = "xxx"
 
         'access an element
         Console.WriteLine(names(2))
@@ -49,14 +50,7 @@
     End Sub
 
     Sub ArrayBoundries()
-        Dim fruits(5) As String
-
-        fruits(0) = "apple"
-        fruits(1) = "pear"
-        fruits(2) = "orange"
-        fruits(3) = "plum"
-        fruits(4) = "grape"
-        fruits(5) = "tomato"
+        Dim fruits As String() = {"apple", "pear", "orange", "plum", "grape", "tomato", "banana", "kiwi"}
 
         For i = LBound(fruits) To UBound(fruits)
             Console.WriteLine(fruits(i))
@@ -78,6 +72,7 @@
         grid(2, 4) = True
 
         Dim square = New Integer(,) {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
+
         'ReDim Preserve square(2, 4)
         Console.Read()
     End Sub

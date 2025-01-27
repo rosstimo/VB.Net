@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BFA5EAEB-2A40-4386-82D0-3C21F79670C0}</ProjectGuid>
+    <ProjectGuid>{459F90E2-1C08-41EF-BA7E-8214E3F49892}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <StartupObject>BingoGame.BingoGame</StartupObject>
     <RootNamespace>BingoGame</RootNamespace>
@@ -42,7 +42,7 @@
     <OptionCompare>Binary</OptionCompare>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionStrict>On</OptionStrict>
+    <OptionStrict>Off</OptionStrict>
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>

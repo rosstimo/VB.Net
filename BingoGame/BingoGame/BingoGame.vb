@@ -1,104 +1,111 @@
-﻿Module BingoGame
-    'TODO how many balls for each letter
-    'TODO draw a random ball Letter - B - I - N - G - O - with number
-    'TODO track what balls have come up in an array
-    'TODO don't draw duplicates
-    'TODO clear tracking history on new game
-    'B  1 - 15
-    'I 16 - 30
-    'N 31 - 45
-    'G 46 - 60
-    'O 61 - 75
+﻿Option Strict On
+Option Explicit On
+Option Compare Text
+'Bingo Game
+'Spring 2024
+
+Imports System.Runtime.Remoting.Channels
+
+
+
+
+'TODO
+'[ ] Start New Game
+'[x] Draw One Ball
+'[x] Track drawn balls
+'[x] Display drawn balls on the console
+
+
+
+Module BingoGame
+
 
     Sub Main()
-        Dim bingoCage(4, 14) As Boolean
-        Dim letter As Integer
-        Dim number As Integer
-        Dim count As Integer
         Dim userInput As String
+        Dim tracker(14, 4) As Boolean ' each letter has 15 unique numbers
+        Dim ballsDrawn As Integer = 0
+        Dim message As String = "Welcome To Bingo!!"
 
-
-        'For i = 1 To 75
+        NewGame(tracker)
         Do
-            'test if ball has already been drawn
-            'True - try again
-            'False - good to go. mark the element True
-            Do
-                letter = RandomNumberInRange(4)
-                number = RandomNumberInRange(14)
-            Loop While bingoCage(letter, number) And count < 75
-            count += 1
-            bingoCage(letter, number) = True
-
-            'display 
-            Console.Clear()
-            DisplayBingoCage(bingoCage)
-            'Console.WriteLine(count)
-
-            'Next
+            Display(tracker)
+            Console.WriteLine(message)
             userInput = Console.ReadLine()
-
-            If userInput = "C" Then
-                ResetBingoCage(bingoCage)
-                count = 0
+            If userInput = "n" Then
+                NewGame(tracker)
+            Else
+                If ballsDrawn >= 75 Then
+                    message = "All balls have been drawn..."
+                Else
+                    DrawBall(tracker)
+                    ballsDrawn += 1
+                    message = "Press Enter to draw, N for new game, or Q to quit."
+                End If
             End If
 
-        Loop While userInput <> "Q"
 
-        'Console.Read()
+
+        Loop Until userInput = "q"
     End Sub
 
-    Sub DisplayBingoCage(ByRef bingoCage(,) As Boolean)
-        Dim header() As String = {"B", "I", "N", "G", "O"}
-        Dim columnWidth As Integer = 3
-        Dim columnData As String
+    Sub NewGame(ByRef tracker(,) As Boolean)
+        ReDim tracker(14, 4)
+    End Sub
 
-        For row = 0 To bingoCage.GetLength(1)
-            For column = 0 To bingoCage.GetLength(0) - 1
-                Select Case row
-                    Case 0 'first row is column headers
-                        columnData = header(column).PadLeft(columnWidth)
-                    Case Else
-                        If Not bingoCage(column, row - 1) Then 'mark if ball has been drawn
-                            columnData = "  "
-                        Else 'show number if ball hasn't been drawn
-                            columnData = CStr(((column) * bingoCage.GetLength(1)) + row)
-                        End If
-                End Select
-                Console.Write(columnData.PadLeft(columnWidth) & " |")
+    Sub DrawBall(ByRef tracker(,) As Boolean)
+        Dim currentLetter As Integer
+        Dim currentNumber As Integer
+
+        'loop until we get a ball that has not yet been drawn
+        'then mark the new ball as drawn
+        Do
+            'potential endless loope here
+            currentNumber = RandomNumberZeroTo(14)
+            currentLetter = RandomNumberZeroTo(4)
+        Loop While tracker(currentNumber, currentLetter)
+
+        tracker(currentNumber, currentLetter) = True
+
+    End Sub
+
+    Private Function RandomNumberZeroTo(max As Integer) As Integer
+        Dim _randomNumber As Integer
+        Randomize()
+        _randomNumber = CInt(Math.Floor((Rnd() * (max + 1))))
+        Return _randomNumber
+    End Function
+
+    Sub UpdateTracker()
+        ' not needed??
+    End Sub
+
+    Sub Display(tracker(,) As Boolean)
+
+        Dim temp(14, 4) As Boolean
+
+        temp = tracker
+
+        Dim header() = {"B", "I", "N", "G", "O"}
+        Console.Clear()
+
+        For Each letter In header
+            Console.Write(letter.PadLeft(2).PadRight(4))
+        Next
+        Console.WriteLine()
+
+
+        For row = 0 To 14
+            For column = 0 To 4
+                If temp(row, column) Then
+                    Console.Write($" {(column * 15) + (row + 1)} |")
+                Else
+                    Console.Write("   |")
+                End If
             Next
             Console.WriteLine()
-            Console.WriteLine(StrDup(25, "-"))
         Next
 
     End Sub
 
-    Sub ResetBingoCage(ByRef bingoCage(,) As Boolean)
-        'For row = 0 To 14
-        '    For column = 0 To 4
-        '        bingoCage(column, row) = False
-        '    Next
-        'Next
 
-        ReDim bingoCage(4, 14)
-
-    End Sub
-
-    ''' <summary>
-    ''' The default range is 0 - 10.
-    ''' The maximum number must be greater than minimum number.
-    ''' </summary>
-    ''' <param name="max%"></param>
-    ''' <param name="min%"></param>
-    ''' <returns>Returns a random integer within a range defined by the max and min arguments.</returns>
-    ''' <exception cref="System.ArgumentException">Thrown when <c>max > min</c></exception>
-    Function RandomNumberInRange(Optional max% = 10%, Optional min% = 0%) As Integer
-        Dim _max% = max - min
-        If _max < 0 Then
-            Throw New System.ArgumentException("Maximum number must be greater than minimum number")
-        End If
-        Randomize(DateTime.Now.Millisecond)
-        Return CInt(System.Math.Floor(Rnd() * (_max + 1))) + min
-    End Function
 End Module
-

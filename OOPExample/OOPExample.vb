@@ -16,35 +16,43 @@ Module OOPExample
 
         'Console.WriteLine(jim.Move)
         'Console.WriteLine(jim.Speak)
-        'Console.WriteLine()
+        'Console.WriteLine(jim.skinType)
+        ''Console.WriteLine()
 
         'Console.WriteLine(bob.Move)
         'Console.WriteLine(bob.Speak)
+        'Console.WriteLine(bob.skinType)
         'Console.WriteLine()
-
-        Console.WriteLine(scruffy.Move)
-        Console.WriteLine(scruffy.Speak)
-        Console.WriteLine()
 
         Todo.movement = "bite you When you Get too close"
         Todo.voice = "yap! yap! yap!  yipe!!"
+        Todo.skinType = "hairless. mom tattoo"
+
+        'Dog.voice = "bark"
+
+        Console.WriteLine(scruffy.Move)
+        Console.WriteLine(scruffy.Speak)
+        Console.WriteLine(scruffy.skinType)
+        Console.WriteLine()
+
         Console.WriteLine(Todo.Move)
         Console.WriteLine(Todo.Speak)
+        Console.WriteLine(Todo.skinType)
         Console.WriteLine()
 
-        Console.WriteLine(pepe.Move)
-        pepe.skinType = "A hairless little rat!"
-        Console.WriteLine(pepe.skinType)
-        Console.WriteLine(pepe.Speak)
-        Console.WriteLine()
+        'Console.WriteLine(pepe.Move)
+        'pepe.skinType = "A hairless little rat!"
+        'Console.WriteLine(pepe.skinType)
+        'Console.WriteLine(pepe.Speak)
+        'Console.WriteLine()
 
-        Console.WriteLine(polly.Move)
-        Console.WriteLine(polly.speak)
-        Console.WriteLine()
+        'Console.WriteLine(polly.Move)
+        'Console.WriteLine(polly.speak)
+        'Console.WriteLine()
 
-        Console.WriteLine("What does the fox say?")
-        Console.WriteLine(sly.Speak)
-        Console.WriteLine()
+        'Console.WriteLine("What does the fox say?")
+        'Console.WriteLine(sly.Speak)
+        'Console.WriteLine()
 
         Console.Read()
     End Sub
