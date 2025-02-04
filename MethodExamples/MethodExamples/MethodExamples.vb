@@ -8,6 +8,7 @@ Module MethodExamples
         Console.WriteLine("Hello from Sub Main!!")
         Console.WriteLine($"My lucky number is {myLuckyNumber}!")
         Console.WriteLine()
+
         ' MyOtherSub()
         Sandwich(myLuckyNumber)
 
@@ -27,6 +28,7 @@ Module MethodExamples
 
 
     Sub Sandwich(ByVal myLuckyNumber As Integer)
+        myLuckyNumber += 5
         Console.WriteLine("Hello from Sandwich!!")
         Console.WriteLine($"My lucky number is {myLuckyNumber}!")
         Console.WriteLine()
