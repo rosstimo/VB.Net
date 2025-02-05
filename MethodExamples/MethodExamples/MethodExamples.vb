@@ -79,4 +79,9 @@ Module MethodExamples
         Return CInt(myRandomNumber)
     End Function
 
+    Function RandomNumberBetween(min As Integer, max As Integer) As Integer 'inclusive
+        'actual code here!
+        Return 0
+    End Function
+
 End Module
