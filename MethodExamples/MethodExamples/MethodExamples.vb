@@ -1,5 +1,6 @@
 ﻿Option Explicit On
 Option Strict On
+Imports System.CodeDom.Compiler
 
 Module MethodExamples
     Sub Main()
@@ -26,8 +27,16 @@ Module MethodExamples
         '    Console.WriteLine(Rnd())
         'Next
 
-        For i = 1 To 100
-            Console.WriteLine(RandomNumber())
+        For i = 1 To 10
+            'Console.WriteLine(RandomNumber())
+            Console.WriteLine(RandomNumberBetween(3, 9))
+        Next
+
+        Console.WriteLine(StrDup(80, "*"))
+
+        For i = 1 To 10
+            'Console.WriteLine(RandomNumber())
+            Console.WriteLine(RandomNumberBetween(1, 4))
         Next
 
 
@@ -79,9 +88,19 @@ Module MethodExamples
         Return CInt(myRandomNumber)
     End Function
 
+    ''' <summary>
+    ''' Get a random number between min and max inclusively.
+    ''' </summary>
+    ''' <param name="min"></param>
+    ''' <param name="max"></param>
+    ''' <returns></returns>
     Function RandomNumberBetween(min As Integer, max As Integer) As Integer 'inclusive
-        'actual code here!
-        Return 0
+        Dim temp As Single
+        Randomize()
+        temp = Rnd()
+        temp *= max - min
+        temp += min
+        Return CInt(temp)
     End Function
 
 End Module
