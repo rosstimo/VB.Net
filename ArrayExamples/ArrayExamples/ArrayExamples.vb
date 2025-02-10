@@ -8,6 +8,11 @@ Module ArrayExamples
 
     Sub Main()
 
+        MultiDimentionalArrays()
+
+    End Sub
+
+    Sub SimpleArrays()
         'arrays are cools
         Dim fruits(5) As String
         Dim names() As String = {"john", "paul", "ringo", "jeff"}
@@ -29,11 +34,21 @@ Module ArrayExamples
         For i = LBound(names) To UBound(names)
             Console.WriteLine(names(i))
         Next
+    End Sub
+
+    Sub MultiDimentionalArrays()
+
+        Dim students(14, 2) As Single
+
+        students(3, 0) = 75.43
+        students(3, 1) = 85.66
+        students(3, 2) = 94.74
 
 
 
-
+        Console.WriteLine()
 
     End Sub
+
 
 End Module
