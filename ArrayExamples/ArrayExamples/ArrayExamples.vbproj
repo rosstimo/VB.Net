@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D3910F10-B859-43B9-BC9A-99F0FD7F2EF1}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>ArrayExamples.Module1</StartupObject>
+    <StartupObject>ArrayExamples.ArrayExamples</StartupObject>
     <RootNamespace>ArrayExamples</RootNamespace>
     <AssemblyName>ArrayExamples</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -69,7 +69,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Module1.vb" />
+    <Compile Include="ArrayExamples.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
