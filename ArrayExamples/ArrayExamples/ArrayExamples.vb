@@ -1,7 +1,8 @@
-﻿'header
-
-Option Strict On
+﻿Option Strict On
 Option Explicit On
+'header
+
+Imports System.Globalization
 
 Module ArrayExamples
 
@@ -9,6 +10,10 @@ Module ArrayExamples
 
         'arrays are cools
         Dim fruits(5) As String
+        Dim names() As String = {"john", "paul", "ringo", "jeff"}
+        Dim BeanCounts = New Integer() {12342, 343, 1234, 4646}
+
+
 
         fruits(0) = "banana"
 
@@ -16,7 +21,15 @@ Module ArrayExamples
 
         'fruits(6) = "apple"
 
-        Console.WriteLine()
+        'For i = 0 To 10
+        '    Console.WriteLine(names(i))
+
+        'Next
+
+        For i = LBound(names) To UBound(names)
+            Console.WriteLine(names(i))
+        Next
+
 
 
 
