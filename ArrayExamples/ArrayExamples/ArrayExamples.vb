@@ -8,8 +8,8 @@ Module ArrayExamples
 
     Sub Main()
 
-        MultiDimentionalArrays()
-
+        'MultiDimentionalArrays()
+        TestRandomness()
     End Sub
 
     Sub SimpleArrays()
@@ -52,6 +52,30 @@ Module ArrayExamples
         Console.WriteLine()
 
     End Sub
+
+
+    Sub TestRandomness()
+        Dim beanCounter(20) As Integer
+
+        For i = 1 To 10000
+            beanCounter(RandomNumberBetween(3, 10)) += 1
+
+        Next
+
+        For i = LBound(beanCounter) To UBound(beanCounter)
+            Console.WriteLine($"{CStr(i).PadLeft(4)} hit {CStr(beanCounter(i)).PadLeft(4)} times!")
+        Next
+    End Sub
+
+
+    Function RandomNumberBetween(min As Integer, max As Integer) As Integer
+        Dim temp As Single
+        Randomize()
+        temp = Rnd()
+        temp *= max - min
+        temp += min
+        Return CInt(temp)
+    End Function
 
 
 End Module
