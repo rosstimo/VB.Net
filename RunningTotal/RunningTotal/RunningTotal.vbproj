@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{3BEF0822-BBD0-47E0-BD88-3578DEE7513E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>RunningTotal.Module1</StartupObject>
+    <StartupObject>RunningTotal.RunningTotal</StartupObject>
     <RootNamespace>RunningTotal</RootNamespace>
     <AssemblyName>RunningTotal</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -69,7 +69,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Module1.vb" />
+    <Compile Include="RunningTotal.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
