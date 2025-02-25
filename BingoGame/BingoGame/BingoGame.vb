@@ -1,41 +1,62 @@
-﻿'Bingo Game Program
+﻿Option Strict On
+Option Explicit On
+'Bingo Game Program
 'Client: Shady Acres 
 'Spring 2025
 
-Option Strict On
-Option Explicit On
+Imports System.Net.NetworkInformation
+
+
 
 'TODO
-'[ ] Display Bingo Board
-'[ ] Draw a random ball that has not already been drawn
-'[ ] update display to show all drawn balls
+'[x] Display Bingo Board
+'[x] Draw a random ball that has not already been drawn
+'[x] update display to show all drawn balls
 '[ ] update display to show actual ball number
 '[ ] refresh tracking with "C" or when all balls have been drawn
 
 Module BingoGame
 
     Sub Main()
-        For i = 1 To 10
-            DrawBall()
-            DisplayBoard()
-            Console.Read()
+        Dim userInput As String
+
+        Do
             Console.Clear()
-        Next
+            DisplayBoard()
+            Console.WriteLine()
+            'prompt
+            userInput = Console.ReadLine()
+            Select Case userInput
+                Case "d"
+                    DrawBall()
+                Case "c"
+                    BingoTracker(0, 0,, True)
+                    DrawBall(True)
+                Case Else
+                    'pass
+            End Select
+
+        Loop Until userInput = "q"
+
+        Console.Clear()
+        Console.WriteLine("Have a nice day!")
 
     End Sub
 
-    Sub DrawBall()
+    Sub DrawBall(Optional clearCount As Boolean = False)
         Dim temp(,) As Boolean = BingoTracker(0, 0) 'create a local copy of ball tracker array
         Dim currentBallNumber As Integer
         Dim currentBallLetter As Integer
+        Static ballCounter As Integer
 
         'loop until the current random ball has not already been marked as drawn
         Do
             currentBallNumber = RandomNumberBetween(0, 14) 'get the row
             currentBallLetter = RandomNumberBetween(0, 4) ' get the column
-        Loop Until temp(currentBallNumber, currentBallLetter) = False
+        Loop Until temp(currentBallNumber, currentBallLetter) = False Or ballCounter >= 75
         'mark current ball as being drawn, updates the display
-        BingoTracker(currentBallNumber, currentBallLetter)
+        BingoTracker(currentBallNumber, currentBallLetter, True)
+        ballCounter += 1
 
         'for debug write valid ball draws to console
         Console.WriteLine($"the current row is {currentBallNumber} and column is {currentBallLetter}")
@@ -43,13 +64,31 @@ Module BingoGame
 
     End Sub
 
-    Function BingoTracker(ballNumber As Integer, ballLetter As Integer, Optional clear As Boolean = False) As Boolean(,)
+    ''' <summary>
+    ''' Contains a persistent array that tracks all possible bingo balls
+    ''' and whether they have been drawn during the current game.
+    ''' </summary>
+    ''' <param name="ballNumber"></param>
+    ''' <param name="ballLetter"></param>
+    ''' <param name="clear"></param>
+    ''' <returns>Current Tracking Array</returns>
+    Function BingoTracker(ballNumber As Integer, ballLetter As Integer, Optional update As Boolean = False, Optional clear As Boolean = False) As Boolean(,)
         Static _bingoTracker(14, 4) As Boolean
-        'actual code here
-        _bingoTracker(ballNumber, ballLetter) = True
+
+        If update Then
+            _bingoTracker(ballNumber, ballLetter) = True
+        End If
+
+        If clear Then
+            ReDim _bingoTracker(14, 4) 'clears the array. could also loop through array and set ell elements to false
+        End If
+
         Return _bingoTracker
     End Function
 
+    ''' <summary>
+    ''' Iterates through the tracker array and displays bingo board to the console.
+    ''' </summary>
     Sub DisplayBoard()
         Dim temp As String = " |"
         Dim heading() As String = {"B", "I", "N", "G", "O"}
@@ -57,6 +96,7 @@ Module BingoGame
         For Each letter In heading
             Console.Write(letter.PadLeft(2).PadRight(4))
         Next
+
         Console.WriteLine()
         Console.WriteLine(StrDup(20, "_"))
         For currentNumber = 0 To 14
@@ -72,6 +112,7 @@ Module BingoGame
                 Console.Write(temp)
 
             Next
+
             Console.WriteLine()
         Next
 
