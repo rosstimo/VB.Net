@@ -49,18 +49,22 @@ Module BingoGame
         Dim currentBallLetter As Integer
         Static ballCounter As Integer
 
-        'loop until the current random ball has not already been marked as drawn
-        Do
-            currentBallNumber = RandomNumberBetween(0, 14) 'get the row
-            currentBallLetter = RandomNumberBetween(0, 4) ' get the column
-        Loop Until temp(currentBallNumber, currentBallLetter) = False Or ballCounter >= 75
-        'mark current ball as being drawn, updates the display
-        BingoTracker(currentBallNumber, currentBallLetter, True)
-        ballCounter += 1
+        If clearCount Then
+            ballCounter = 0
+        Else
+            'loop until the current random ball has not already been marked as drawn
+            Do
+                currentBallNumber = RandomNumberBetween(0, 14) 'get the row
+                currentBallLetter = RandomNumberBetween(0, 4) ' get the column
+            Loop Until temp(currentBallNumber, currentBallLetter) = False Or ballCounter >= 75
+            'mark current ball as being drawn, updates the display
+            BingoTracker(currentBallNumber, currentBallLetter, True)
+            ballCounter += 1
 
-        'for debug write valid ball draws to console
-        Console.WriteLine($"the current row is {currentBallNumber} and column is {currentBallLetter}")
+            'for debug write valid ball draws to console
+            Console.WriteLine($"the current row is {currentBallNumber} and column is {currentBallLetter}")
 
+        End If
 
     End Sub
 
@@ -72,7 +76,11 @@ Module BingoGame
     ''' <param name="ballLetter"></param>
     ''' <param name="clear"></param>
     ''' <returns>Current Tracking Array</returns>
-    Function BingoTracker(ballNumber As Integer, ballLetter As Integer, Optional update As Boolean = False, Optional clear As Boolean = False) As Boolean(,)
+    Function BingoTracker(ballNumber As Integer,
+                          ballLetter As Integer,
+                          Optional update As Boolean = False,
+                          Optional clear As Boolean = False) As Boolean(,)
+
         Static _bingoTracker(14, 4) As Boolean
 
         If update Then
