@@ -111,7 +111,7 @@ Module BingoGame
             For currentLetter = 0 To 4
 
                 If tracker(currentNumber, currentLetter) Then
-                    temp = "X |" 'display for drawn balls
+                    temp = $"{FormatBallNumber(currentNumber, currentLetter)} |" 'display for drawn balls
                 Else
                     temp = " |" 'display for not drawn balls
                 End If
@@ -126,6 +126,11 @@ Module BingoGame
 
     End Sub
 
+    Function FormatBallNumber(ballNumber As Integer, ballLetter As Integer) As String
+        Dim _ballNumber As String
+        _ballNumber = CStr((ballNumber + 1) + (ballLetter * 15))
+        Return _ballNumber
+    End Function
     Function RandomNumberBetween(min As Integer, max As Integer) As Integer
         Dim temp As Single
         Randomize()
