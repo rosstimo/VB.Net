@@ -31,7 +31,7 @@ Partial Class WinFormExampleForm
         Me.ExitButton.Location = New System.Drawing.Point(594, 347)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(163, 91)
-        Me.ExitButton.TabIndex = 0
+        Me.ExitButton.TabIndex = 1
         Me.ExitButton.Text = "Exit"
         Me.ExitButton.UseVisualStyleBackColor = True
         '
@@ -40,7 +40,7 @@ Partial Class WinFormExampleForm
         Me.UpdateButton.Location = New System.Drawing.Point(425, 347)
         Me.UpdateButton.Name = "UpdateButton"
         Me.UpdateButton.Size = New System.Drawing.Size(163, 91)
-        Me.UpdateButton.TabIndex = 1
+        Me.UpdateButton.TabIndex = 0
         Me.UpdateButton.Text = "Update"
         Me.UpdateButton.UseVisualStyleBackColor = True
         '
