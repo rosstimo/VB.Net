@@ -22,10 +22,17 @@ Partial Class WinFormExampleForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container()
+        Me.SuspendLayout()
+        '
+        'WinFormExampleForm
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Text = "Form1"
+        Me.ClientSize = New System.Drawing.Size(769, 450)
+        Me.Name = "WinFormExampleForm"
+        Me.Text = "Windows Form Example"
+        Me.ResumeLayout(False)
+
     End Sub
 
 End Class
