@@ -10,6 +10,10 @@ Public Class WinFormExampleForm
         AgeTextBox.Text = ""
         UpperRadioButton.Checked = True
         FirstLastRadioButton.Checked = True
+        ReverseCheckBox.Checked = False
+        WhiteSpaceCheckBox.Checked = False
+        RandomCheckBox.Checked = False
+        FirstTextBox.Focus()
     End Sub
 
     Sub SetCase()
@@ -33,16 +37,61 @@ Public Class WinFormExampleForm
         End If
     End Sub
 
+    Sub ReverseString()
+        If ReverseCheckBox.Checked Then
+            Me.Text = StrReverse(Me.Text)
+        End If
+    End Sub
+
+    Sub RemoveWhiteSpace()
+        If WhiteSpaceCheckBox.Checked Then
+            Me.Text = Replace(Me.Text, " ", "")
+        End If
+    End Sub
+
+    Function UserInputIsValid() As Boolean
+        Dim valid As Boolean = True
+        Dim message As String
+
+        If IsNumeric(AgeTextBox.Text) = False Then
+            valid = False
+            AgeTextBox.Focus()
+            message &= "Please enter a valid age." & vbNewLine
+        End If
+
+        If LastTextBox.Text = "" Then
+            valid = False
+            LastTextBox.Focus()
+            message &= "Last name is required." & vbNewLine
+        End If
+
+        If FirstTextBox.Text = "" Then
+            valid = False
+            FirstTextBox.Focus()
+            message &= "First name is require." & vbNewLine
+        End If
+
+        If Not valid Then
+            MsgBox(message, MsgBoxStyle.Exclamation, "User Input Fail!!!")
+        End If
+
+        Return valid
+    End Function
+
     'Event Handlers ***********************************************************
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
     End Sub
+
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
         'Me.Text = "Forms Are Cool"
-        'Me.Text = StrReverse(Me.Text)
-        SetCase()
-        SetFormat()
-        SetDefaults()
+        If UserInputIsValid() Then
+            SetCase()
+            SetFormat()
+            ReverseString()
+            RemoveWhiteSpace()
+            SetDefaults()
+        End If
     End Sub
 
     Private Sub WinFormExampleForm_Load(sender As Object, e As EventArgs) Handles Me.Load
