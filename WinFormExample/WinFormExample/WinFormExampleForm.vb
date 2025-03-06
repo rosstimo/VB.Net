@@ -78,6 +78,24 @@ Public Class WinFormExampleForm
         Return valid
     End Function
 
+    Sub Scramble()
+        Dim temp As String = FirstTextBox.Text
+
+        Console.WriteLine($"The third letter is: {temp(2)}")
+
+        For i = 0 To Len(temp) - 1
+            Console.WriteLine($"The {i + 1} letter is: {temp(i)}")
+        Next
+
+        'For Each thingy In temp
+        '    Console.WriteLine(thingy)
+        'Next
+
+
+
+
+    End Sub
+
     'Event Handlers ***********************************************************
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
@@ -86,6 +104,7 @@ Public Class WinFormExampleForm
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
         'Me.Text = "Forms Are Cool"
         If UserInputIsValid() Then
+            Scramble()
             SetCase()
             SetFormat()
             ReverseString()
