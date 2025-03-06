@@ -45,20 +45,18 @@ Partial Class WinFormExampleForm
         '
         'ExitButton
         '
-        Me.ExitButton.Location = New System.Drawing.Point(396, 226)
-        Me.ExitButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ExitButton.Location = New System.Drawing.Point(594, 348)
         Me.ExitButton.Name = "ExitButton"
-        Me.ExitButton.Size = New System.Drawing.Size(109, 59)
+        Me.ExitButton.Size = New System.Drawing.Size(164, 91)
         Me.ExitButton.TabIndex = 10
         Me.ExitButton.Text = "E&xit"
         Me.ExitButton.UseVisualStyleBackColor = True
         '
         'UpdateButton
         '
-        Me.UpdateButton.Location = New System.Drawing.Point(283, 226)
-        Me.UpdateButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.UpdateButton.Location = New System.Drawing.Point(424, 348)
         Me.UpdateButton.Name = "UpdateButton"
-        Me.UpdateButton.Size = New System.Drawing.Size(109, 59)
+        Me.UpdateButton.Size = New System.Drawing.Size(164, 91)
         Me.UpdateButton.TabIndex = 9
         Me.UpdateButton.Text = "&Update"
         Me.UpdateButton.UseVisualStyleBackColor = True
@@ -66,64 +64,57 @@ Partial Class WinFormExampleForm
         'FirstLabel
         '
         Me.FirstLabel.AutoSize = True
-        Me.FirstLabel.Location = New System.Drawing.Point(1, 23)
-        Me.FirstLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.FirstLabel.Location = New System.Drawing.Point(2, 35)
         Me.FirstLabel.Name = "FirstLabel"
-        Me.FirstLabel.Size = New System.Drawing.Size(57, 13)
+        Me.FirstLabel.Size = New System.Drawing.Size(86, 20)
         Me.FirstLabel.TabIndex = 2
         Me.FirstLabel.Text = "First Name"
         '
         'FirstTextBox
         '
-        Me.FirstTextBox.Location = New System.Drawing.Point(62, 21)
-        Me.FirstTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.FirstTextBox.Location = New System.Drawing.Point(93, 32)
         Me.FirstTextBox.Name = "FirstTextBox"
-        Me.FirstTextBox.Size = New System.Drawing.Size(162, 20)
+        Me.FirstTextBox.Size = New System.Drawing.Size(241, 26)
         Me.FirstTextBox.TabIndex = 0
         '
         'LastTextBox
         '
-        Me.LastTextBox.Location = New System.Drawing.Point(62, 42)
-        Me.LastTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.LastTextBox.Location = New System.Drawing.Point(93, 65)
         Me.LastTextBox.Name = "LastTextBox"
-        Me.LastTextBox.Size = New System.Drawing.Size(162, 20)
+        Me.LastTextBox.Size = New System.Drawing.Size(241, 26)
         Me.LastTextBox.TabIndex = 1
         '
         'LastLabel
         '
         Me.LastLabel.AutoSize = True
-        Me.LastLabel.Location = New System.Drawing.Point(1, 44)
-        Me.LastLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LastLabel.Location = New System.Drawing.Point(2, 68)
         Me.LastLabel.Name = "LastLabel"
-        Me.LastLabel.Size = New System.Drawing.Size(58, 13)
+        Me.LastLabel.Size = New System.Drawing.Size(86, 20)
         Me.LastLabel.TabIndex = 4
         Me.LastLabel.Text = "Last Name"
         '
         'AgeTextBox
         '
-        Me.AgeTextBox.Location = New System.Drawing.Point(62, 63)
-        Me.AgeTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.AgeTextBox.Location = New System.Drawing.Point(93, 97)
         Me.AgeTextBox.Name = "AgeTextBox"
-        Me.AgeTextBox.Size = New System.Drawing.Size(62, 20)
+        Me.AgeTextBox.Size = New System.Drawing.Size(91, 26)
         Me.AgeTextBox.TabIndex = 2
         '
         'AgeLabel
         '
         Me.AgeLabel.AutoSize = True
-        Me.AgeLabel.Location = New System.Drawing.Point(33, 65)
-        Me.AgeLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.AgeLabel.Location = New System.Drawing.Point(50, 100)
         Me.AgeLabel.Name = "AgeLabel"
-        Me.AgeLabel.Size = New System.Drawing.Size(26, 13)
+        Me.AgeLabel.Size = New System.Drawing.Size(38, 20)
         Me.AgeLabel.TabIndex = 6
         Me.AgeLabel.Text = "Age"
         '
         'UpperRadioButton
         '
         Me.UpperRadioButton.AutoSize = True
-        Me.UpperRadioButton.Location = New System.Drawing.Point(4, 16)
-        Me.UpperRadioButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.UpperRadioButton.Location = New System.Drawing.Point(6, 25)
         Me.UpperRadioButton.Name = "UpperRadioButton"
-        Me.UpperRadioButton.Size = New System.Drawing.Size(81, 17)
+        Me.UpperRadioButton.Size = New System.Drawing.Size(119, 24)
         Me.UpperRadioButton.TabIndex = 11
         Me.UpperRadioButton.TabStop = True
         Me.UpperRadioButton.Text = "Upper Case"
@@ -132,10 +123,9 @@ Partial Class WinFormExampleForm
         'LowerRadioButton
         '
         Me.LowerRadioButton.AutoSize = True
-        Me.LowerRadioButton.Location = New System.Drawing.Point(4, 36)
-        Me.LowerRadioButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.LowerRadioButton.Location = New System.Drawing.Point(6, 55)
         Me.LowerRadioButton.Name = "LowerRadioButton"
-        Me.LowerRadioButton.Size = New System.Drawing.Size(81, 17)
+        Me.LowerRadioButton.Size = New System.Drawing.Size(118, 24)
         Me.LowerRadioButton.TabIndex = 12
         Me.LowerRadioButton.TabStop = True
         Me.LowerRadioButton.Text = "Lower Case"
@@ -144,10 +134,9 @@ Partial Class WinFormExampleForm
         'FirstLastRadioButton
         '
         Me.FirstLastRadioButton.AutoSize = True
-        Me.FirstLastRadioButton.Location = New System.Drawing.Point(4, 16)
-        Me.FirstLastRadioButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.FirstLastRadioButton.Location = New System.Drawing.Point(6, 25)
         Me.FirstLastRadioButton.Name = "FirstLastRadioButton"
-        Me.FirstLastRadioButton.Size = New System.Drawing.Size(67, 17)
+        Me.FirstLastRadioButton.Size = New System.Drawing.Size(100, 24)
         Me.FirstLastRadioButton.TabIndex = 13
         Me.FirstLastRadioButton.TabStop = True
         Me.FirstLastRadioButton.Text = "First Last"
@@ -156,10 +145,9 @@ Partial Class WinFormExampleForm
         'LastFirstRadioButton
         '
         Me.LastFirstRadioButton.AutoSize = True
-        Me.LastFirstRadioButton.Location = New System.Drawing.Point(4, 36)
-        Me.LastFirstRadioButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.LastFirstRadioButton.Location = New System.Drawing.Point(6, 55)
         Me.LastFirstRadioButton.Name = "LastFirstRadioButton"
-        Me.LastFirstRadioButton.Size = New System.Drawing.Size(70, 17)
+        Me.LastFirstRadioButton.Size = New System.Drawing.Size(104, 24)
         Me.LastFirstRadioButton.TabIndex = 14
         Me.LastFirstRadioButton.TabStop = True
         Me.LastFirstRadioButton.Text = "Last, First"
@@ -169,12 +157,10 @@ Partial Class WinFormExampleForm
         '
         Me.CaseGroupBox.Controls.Add(Me.UpperRadioButton)
         Me.CaseGroupBox.Controls.Add(Me.LowerRadioButton)
-        Me.CaseGroupBox.Location = New System.Drawing.Point(62, 84)
-        Me.CaseGroupBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.CaseGroupBox.Location = New System.Drawing.Point(93, 129)
         Me.CaseGroupBox.Name = "CaseGroupBox"
-        Me.CaseGroupBox.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.CaseGroupBox.Size = New System.Drawing.Size(99, 66)
-        Me.CaseGroupBox.TabIndex = 15
+        Me.CaseGroupBox.Size = New System.Drawing.Size(148, 102)
+        Me.CaseGroupBox.TabIndex = 3
         Me.CaseGroupBox.TabStop = False
         Me.CaseGroupBox.Text = "Case"
         '
@@ -182,50 +168,51 @@ Partial Class WinFormExampleForm
         '
         Me.FormatGroupBox.Controls.Add(Me.FirstLastRadioButton)
         Me.FormatGroupBox.Controls.Add(Me.LastFirstRadioButton)
-        Me.FormatGroupBox.Location = New System.Drawing.Point(165, 84)
-        Me.FormatGroupBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.FormatGroupBox.Location = New System.Drawing.Point(248, 129)
         Me.FormatGroupBox.Name = "FormatGroupBox"
-        Me.FormatGroupBox.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.FormatGroupBox.Size = New System.Drawing.Size(99, 66)
-        Me.FormatGroupBox.TabIndex = 16
+        Me.FormatGroupBox.Size = New System.Drawing.Size(148, 102)
+        Me.FormatGroupBox.TabIndex = 4
         Me.FormatGroupBox.TabStop = False
         Me.FormatGroupBox.Text = "Format"
         '
         'ReverseCheckBox
         '
         Me.ReverseCheckBox.AutoSize = True
-        Me.ReverseCheckBox.Location = New System.Drawing.Point(62, 155)
+        Me.ReverseCheckBox.Location = New System.Drawing.Point(93, 238)
+        Me.ReverseCheckBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ReverseCheckBox.Name = "ReverseCheckBox"
-        Me.ReverseCheckBox.Size = New System.Drawing.Size(66, 17)
-        Me.ReverseCheckBox.TabIndex = 17
+        Me.ReverseCheckBox.Size = New System.Drawing.Size(94, 24)
+        Me.ReverseCheckBox.TabIndex = 5
         Me.ReverseCheckBox.Text = "Reverse"
         Me.ReverseCheckBox.UseVisualStyleBackColor = True
         '
         'WhiteSpaceCheckBox
         '
         Me.WhiteSpaceCheckBox.AutoSize = True
-        Me.WhiteSpaceCheckBox.Location = New System.Drawing.Point(62, 178)
+        Me.WhiteSpaceCheckBox.Location = New System.Drawing.Point(93, 274)
+        Me.WhiteSpaceCheckBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.WhiteSpaceCheckBox.Name = "WhiteSpaceCheckBox"
-        Me.WhiteSpaceCheckBox.Size = New System.Drawing.Size(88, 17)
-        Me.WhiteSpaceCheckBox.TabIndex = 18
+        Me.WhiteSpaceCheckBox.Size = New System.Drawing.Size(126, 24)
+        Me.WhiteSpaceCheckBox.TabIndex = 6
         Me.WhiteSpaceCheckBox.Text = "White Space"
         Me.WhiteSpaceCheckBox.UseVisualStyleBackColor = True
         '
         'RandomCheckBox
         '
         Me.RandomCheckBox.AutoSize = True
-        Me.RandomCheckBox.Location = New System.Drawing.Point(62, 201)
+        Me.RandomCheckBox.Location = New System.Drawing.Point(93, 309)
+        Me.RandomCheckBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.RandomCheckBox.Name = "RandomCheckBox"
-        Me.RandomCheckBox.Size = New System.Drawing.Size(66, 17)
-        Me.RandomCheckBox.TabIndex = 19
+        Me.RandomCheckBox.Size = New System.Drawing.Size(96, 24)
+        Me.RandomCheckBox.TabIndex = 7
         Me.RandomCheckBox.Text = "Random"
         Me.RandomCheckBox.UseVisualStyleBackColor = True
         '
         'WinFormExampleForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(513, 292)
+        Me.ClientSize = New System.Drawing.Size(770, 449)
         Me.Controls.Add(Me.RandomCheckBox)
         Me.Controls.Add(Me.WhiteSpaceCheckBox)
         Me.Controls.Add(Me.ReverseCheckBox)
@@ -239,7 +226,6 @@ Partial Class WinFormExampleForm
         Me.Controls.Add(Me.FirstLabel)
         Me.Controls.Add(Me.UpdateButton)
         Me.Controls.Add(Me.ExitButton)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "WinFormExampleForm"
         Me.Text = "Windows Form Example"
         Me.CaseGroupBox.ResumeLayout(False)
