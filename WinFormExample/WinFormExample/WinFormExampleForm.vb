@@ -78,23 +78,49 @@ Public Class WinFormExampleForm
         Return valid
     End Function
 
-    Sub Scramble()
-        Dim temp As String = FirstTextBox.Text
+    Function Scramble(thisString As String) As String
+        Dim temp As String = ""
+        Dim position As Integer
+        Dim letters(Len(thisString) - 1) As String
+        Dim count As Integer = 0
 
-        Console.WriteLine($"The third letter is: {temp(2)}")
+        If RandomCheckBox.Checked Then
 
-        For i = 0 To Len(temp) - 1
-            Console.WriteLine($"The {i + 1} letter is: {temp(i)}")
-        Next
+            For i = 0 To UBound(letters)
+                letters(i) = thisString(i)
+            Next
 
-        'For Each thingy In temp
-        '    Console.WriteLine(thingy)
-        'Next
+            Do
+                position = RandomNumberInRange(UBound(letters))
+                If letters(position) <> "" Then
+                    temp &= letters(position)
+                    letters(position) = ""
+                    count = count + 1
+                End If
+            Loop Until count >= Len(thisString)
+        Else
+            temp = thisString
+        End If
 
+        Return temp
+    End Function
 
-
-
-    End Sub
+    ''' <summary>
+    ''' The default range is 0 - 10.
+    ''' The maximum number must be greater than minimum number.
+    ''' </summary>
+    ''' <param name="max%"></param>
+    ''' <param name="min%"></param>
+    ''' <returns>Returns a random integer within a range defined by the max and min arguments.</returns>
+    ''' <exception cref="System.ArgumentException">Thrown when <c>max > min</c></exception>
+    Function RandomNumberInRange(Optional max% = 10%, Optional min% = 0%) As Integer
+        Dim _max% = max - min
+        If _max < 0 Then
+            Throw New System.ArgumentException("Maximum number must be greater than minimum number")
+        End If
+        Randomize(DateTime.Now.Millisecond)
+        Return CInt(System.Math.Floor(Rnd() * (_max + 1))) + min
+    End Function
 
     'Event Handlers ***********************************************************
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
@@ -104,7 +130,8 @@ Public Class WinFormExampleForm
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
         'Me.Text = "Forms Are Cool"
         If UserInputIsValid() Then
-            Scramble()
+            FirstTextBox.Text = Scramble(FirstTextBox.Text)
+            LastTextBox.Text = Scramble(LastTextBox.Text)
             SetCase()
             SetFormat()
             ReverseString()
