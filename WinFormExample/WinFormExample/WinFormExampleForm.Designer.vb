@@ -39,6 +39,7 @@ Partial Class WinFormExampleForm
         Me.ReverseCheckBox = New System.Windows.Forms.CheckBox()
         Me.WhiteSpaceCheckBox = New System.Windows.Forms.CheckBox()
         Me.RandomCheckBox = New System.Windows.Forms.CheckBox()
+        Me.DataListBox = New System.Windows.Forms.ListBox()
         Me.CaseGroupBox.SuspendLayout()
         Me.FormatGroupBox.SuspendLayout()
         Me.SuspendLayout()
@@ -208,11 +209,21 @@ Partial Class WinFormExampleForm
         Me.RandomCheckBox.Text = "Random"
         Me.RandomCheckBox.UseVisualStyleBackColor = True
         '
+        'DataListBox
+        '
+        Me.DataListBox.FormattingEnabled = True
+        Me.DataListBox.ItemHeight = 20
+        Me.DataListBox.Location = New System.Drawing.Point(402, 32)
+        Me.DataListBox.Name = "DataListBox"
+        Me.DataListBox.Size = New System.Drawing.Size(356, 284)
+        Me.DataListBox.TabIndex = 11
+        '
         'WinFormExampleForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(770, 449)
+        Me.Controls.Add(Me.DataListBox)
         Me.Controls.Add(Me.RandomCheckBox)
         Me.Controls.Add(Me.WhiteSpaceCheckBox)
         Me.Controls.Add(Me.ReverseCheckBox)
@@ -254,4 +265,5 @@ Partial Class WinFormExampleForm
     Friend WithEvents ReverseCheckBox As CheckBox
     Friend WithEvents WhiteSpaceCheckBox As CheckBox
     Friend WithEvents RandomCheckBox As CheckBox
+    Friend WithEvents DataListBox As ListBox
 End Class

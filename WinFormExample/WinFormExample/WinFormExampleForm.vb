@@ -105,6 +105,10 @@ Public Class WinFormExampleForm
         Return temp
     End Function
 
+    Sub AddToList(thisString As String)
+        DataListBox.Items.Add(thisString)
+    End Sub
+
     ''' <summary>
     ''' The default range is 0 - 10.
     ''' The maximum number must be greater than minimum number.
@@ -136,11 +140,16 @@ Public Class WinFormExampleForm
             SetFormat()
             ReverseString()
             RemoveWhiteSpace()
+            AddToList(Me.Text)
             SetDefaults()
         End If
     End Sub
 
     Private Sub WinFormExampleForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         SetDefaults()
+    End Sub
+
+    Private Sub DataListBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DataListBox.SelectedIndexChanged
+        Me.Text = DataListBox.SelectedIndex.ToString
     End Sub
 End Class
