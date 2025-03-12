@@ -40,6 +40,7 @@ Partial Class WinFormExampleForm
         Me.WhiteSpaceCheckBox = New System.Windows.Forms.CheckBox()
         Me.RandomCheckBox = New System.Windows.Forms.CheckBox()
         Me.DataListBox = New System.Windows.Forms.ListBox()
+        Me.RemoveButton = New System.Windows.Forms.Button()
         Me.CaseGroupBox.SuspendLayout()
         Me.FormatGroupBox.SuspendLayout()
         Me.SuspendLayout()
@@ -217,12 +218,23 @@ Partial Class WinFormExampleForm
         Me.DataListBox.Name = "DataListBox"
         Me.DataListBox.Size = New System.Drawing.Size(356, 284)
         Me.DataListBox.TabIndex = 11
+        Me.DataListBox.TabStop = False
+        '
+        'RemoveButton
+        '
+        Me.RemoveButton.Location = New System.Drawing.Point(254, 346)
+        Me.RemoveButton.Name = "RemoveButton"
+        Me.RemoveButton.Size = New System.Drawing.Size(164, 91)
+        Me.RemoveButton.TabIndex = 8
+        Me.RemoveButton.Text = "&Remove"
+        Me.RemoveButton.UseVisualStyleBackColor = True
         '
         'WinFormExampleForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(770, 449)
+        Me.Controls.Add(Me.RemoveButton)
         Me.Controls.Add(Me.DataListBox)
         Me.Controls.Add(Me.RandomCheckBox)
         Me.Controls.Add(Me.WhiteSpaceCheckBox)
@@ -266,4 +278,5 @@ Partial Class WinFormExampleForm
     Friend WithEvents WhiteSpaceCheckBox As CheckBox
     Friend WithEvents RandomCheckBox As CheckBox
     Friend WithEvents DataListBox As ListBox
+    Friend WithEvents RemoveButton As Button
 End Class
