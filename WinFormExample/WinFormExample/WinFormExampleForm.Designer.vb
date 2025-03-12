@@ -41,6 +41,7 @@ Partial Class WinFormExampleForm
         Me.RandomCheckBox = New System.Windows.Forms.CheckBox()
         Me.DataListBox = New System.Windows.Forms.ListBox()
         Me.RemoveButton = New System.Windows.Forms.Button()
+        Me.DataComboBox = New System.Windows.Forms.ComboBox()
         Me.CaseGroupBox.SuspendLayout()
         Me.FormatGroupBox.SuspendLayout()
         Me.SuspendLayout()
@@ -214,7 +215,7 @@ Partial Class WinFormExampleForm
         '
         Me.DataListBox.FormattingEnabled = True
         Me.DataListBox.ItemHeight = 20
-        Me.DataListBox.Location = New System.Drawing.Point(402, 32)
+        Me.DataListBox.Location = New System.Drawing.Point(402, 49)
         Me.DataListBox.Name = "DataListBox"
         Me.DataListBox.Size = New System.Drawing.Size(356, 284)
         Me.DataListBox.TabIndex = 11
@@ -222,18 +223,27 @@ Partial Class WinFormExampleForm
         '
         'RemoveButton
         '
-        Me.RemoveButton.Location = New System.Drawing.Point(254, 346)
+        Me.RemoveButton.Location = New System.Drawing.Point(254, 348)
         Me.RemoveButton.Name = "RemoveButton"
         Me.RemoveButton.Size = New System.Drawing.Size(164, 91)
         Me.RemoveButton.TabIndex = 8
         Me.RemoveButton.Text = "&Remove"
         Me.RemoveButton.UseVisualStyleBackColor = True
         '
+        'DataComboBox
+        '
+        Me.DataComboBox.FormattingEnabled = True
+        Me.DataComboBox.Location = New System.Drawing.Point(402, 15)
+        Me.DataComboBox.Name = "DataComboBox"
+        Me.DataComboBox.Size = New System.Drawing.Size(356, 28)
+        Me.DataComboBox.TabIndex = 12
+        '
         'WinFormExampleForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(770, 449)
+        Me.Controls.Add(Me.DataComboBox)
         Me.Controls.Add(Me.RemoveButton)
         Me.Controls.Add(Me.DataListBox)
         Me.Controls.Add(Me.RandomCheckBox)
@@ -279,4 +289,5 @@ Partial Class WinFormExampleForm
     Friend WithEvents RandomCheckBox As CheckBox
     Friend WithEvents DataListBox As ListBox
     Friend WithEvents RemoveButton As Button
+    Friend WithEvents DataComboBox As ComboBox
 End Class

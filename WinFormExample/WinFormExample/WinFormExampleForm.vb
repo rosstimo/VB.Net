@@ -14,6 +14,7 @@ Public Class WinFormExampleForm
         WhiteSpaceCheckBox.Checked = False
         RandomCheckBox.Checked = False
         FirstTextBox.Focus()
+        RemoveButton.Enabled = False
     End Sub
 
     Sub SetCase()
@@ -107,6 +108,7 @@ Public Class WinFormExampleForm
 
     Sub AddToList(thisString As String)
         DataListBox.Items.Add(thisString)
+        DataComboBox.Items.Add(thisString)
     End Sub
 
     ''' <summary>
@@ -151,5 +153,19 @@ Public Class WinFormExampleForm
 
     Private Sub DataListBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DataListBox.SelectedIndexChanged
         Me.Text = DataListBox.SelectedIndex.ToString
+        If DataListBox.SelectedIndex = -1 Then
+            RemoveButton.Enabled = False
+        Else
+            RemoveButton.Enabled = True
+        End If
+    End Sub
+
+    Private Sub RemoveButton_Click(sender As Object, e As EventArgs) Handles RemoveButton.Click
+        'Console.WriteLine($"The item at index {DataListBox.SelectedIndex} is {DataListBox.SelectedItem}!")
+        DataListBox.Items.RemoveAt(DataListBox.SelectedIndex)
+    End Sub
+
+    Private Sub DataComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DataComboBox.SelectedIndexChanged
+        Me.Text = DataComboBox.SelectedIndex.ToString
     End Sub
 End Class
