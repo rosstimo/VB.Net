@@ -42,6 +42,7 @@ Partial Class WinFormExampleForm
         Me.DataListBox = New System.Windows.Forms.ListBox()
         Me.RemoveButton = New System.Windows.Forms.Button()
         Me.DataComboBox = New System.Windows.Forms.ComboBox()
+        Me.DisplayLabel = New System.Windows.Forms.Label()
         Me.CaseGroupBox.SuspendLayout()
         Me.FormatGroupBox.SuspendLayout()
         Me.SuspendLayout()
@@ -76,6 +77,7 @@ Partial Class WinFormExampleForm
         'FirstTextBox
         '
         Me.FirstTextBox.Location = New System.Drawing.Point(93, 32)
+        Me.FirstTextBox.MaxLength = 20
         Me.FirstTextBox.Name = "FirstTextBox"
         Me.FirstTextBox.Size = New System.Drawing.Size(241, 26)
         Me.FirstTextBox.TabIndex = 0
@@ -83,6 +85,7 @@ Partial Class WinFormExampleForm
         'LastTextBox
         '
         Me.LastTextBox.Location = New System.Drawing.Point(93, 65)
+        Me.LastTextBox.MaxLength = 20
         Me.LastTextBox.Name = "LastTextBox"
         Me.LastTextBox.Size = New System.Drawing.Size(241, 26)
         Me.LastTextBox.TabIndex = 1
@@ -99,6 +102,7 @@ Partial Class WinFormExampleForm
         'AgeTextBox
         '
         Me.AgeTextBox.Location = New System.Drawing.Point(93, 97)
+        Me.AgeTextBox.MaxLength = 3
         Me.AgeTextBox.Name = "AgeTextBox"
         Me.AgeTextBox.Size = New System.Drawing.Size(91, 26)
         Me.AgeTextBox.TabIndex = 2
@@ -213,11 +217,12 @@ Partial Class WinFormExampleForm
         '
         'DataListBox
         '
+        Me.DataListBox.Font = New System.Drawing.Font("Consolas", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DataListBox.FormattingEnabled = True
-        Me.DataListBox.ItemHeight = 20
+        Me.DataListBox.ItemHeight = 19
         Me.DataListBox.Location = New System.Drawing.Point(402, 49)
         Me.DataListBox.Name = "DataListBox"
-        Me.DataListBox.Size = New System.Drawing.Size(356, 284)
+        Me.DataListBox.Size = New System.Drawing.Size(356, 270)
         Me.DataListBox.TabIndex = 11
         Me.DataListBox.TabStop = False
         '
@@ -238,11 +243,20 @@ Partial Class WinFormExampleForm
         Me.DataComboBox.Size = New System.Drawing.Size(356, 28)
         Me.DataComboBox.TabIndex = 12
         '
+        'DisplayLabel
+        '
+        Me.DisplayLabel.Location = New System.Drawing.Point(6, 348)
+        Me.DisplayLabel.Name = "DisplayLabel"
+        Me.DisplayLabel.Size = New System.Drawing.Size(242, 91)
+        Me.DisplayLabel.TabIndex = 13
+        Me.DisplayLabel.Text = "Display"
+        '
         'WinFormExampleForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(770, 449)
+        Me.Controls.Add(Me.DisplayLabel)
         Me.Controls.Add(Me.DataComboBox)
         Me.Controls.Add(Me.RemoveButton)
         Me.Controls.Add(Me.DataListBox)
@@ -290,4 +304,5 @@ Partial Class WinFormExampleForm
     Friend WithEvents DataListBox As ListBox
     Friend WithEvents RemoveButton As Button
     Friend WithEvents DataComboBox As ComboBox
+    Friend WithEvents DisplayLabel As Label
 End Class

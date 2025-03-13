@@ -15,6 +15,7 @@ Public Class WinFormExampleForm
         RandomCheckBox.Checked = False
         FirstTextBox.Focus()
         RemoveButton.Enabled = False
+        DisplayLabel.Text = ""
     End Sub
 
     Sub SetCase()
@@ -108,7 +109,7 @@ Public Class WinFormExampleForm
 
     Sub AddToList(thisString As String)
         DataListBox.Items.Add(thisString)
-        DataComboBox.Items.Add(thisString)
+        'DataComboBox.Items.Add(thisString)
     End Sub
 
     ''' <summary>
@@ -142,7 +143,8 @@ Public Class WinFormExampleForm
             SetFormat()
             ReverseString()
             RemoveWhiteSpace()
-            AddToList(Me.Text)
+            'AddToList(Me.Text)
+            AddToList(FirstTextBox.Text.PadRight(10) & LastTextBox.Text.PadRight(10) & AgeTextBox.Text.PadLeft(3))
             SetDefaults()
         End If
     End Sub
@@ -152,7 +154,8 @@ Public Class WinFormExampleForm
     End Sub
 
     Private Sub DataListBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DataListBox.SelectedIndexChanged
-        Me.Text = DataListBox.SelectedIndex.ToString
+        DisplayLabel.Text = DataListBox.SelectedItem.ToString
+
         If DataListBox.SelectedIndex = -1 Then
             RemoveButton.Enabled = False
         Else
