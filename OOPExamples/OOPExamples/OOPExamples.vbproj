@@ -70,8 +70,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animal.vb" />
+    <Compile Include="Bird.vb" />
+    <Compile Include="Dog.vb" />
     <Compile Include="ExampleClass.vb" />
+    <Compile Include="Fish.vb" />
     <Compile Include="MainModule.vb" />
+    <Compile Include="Mammal.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
