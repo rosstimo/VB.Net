@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CB2439E6-901E-4372-8F33-56BC6959334D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>ConsoleFileIO.Module1</StartupObject>
+    <StartupObject>ConsoleFileIO.FileIO</StartupObject>
     <RootNamespace>ConsoleFileIO</RootNamespace>
     <AssemblyName>ConsoleFileIO</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -69,7 +69,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Module1.vb" />
+    <Compile Include="FileIO.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
