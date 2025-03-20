@@ -99,6 +99,13 @@ Module FileIO
         ' your system.
         WriteLine(1, aBool & " is a Boolean value.")
         WriteLine(1, aDate & " is a date.")
+
+        'Tim R here
+        WriteLine(1)
+        Write(1, aBool)
+        Write(1, aDate)
+        Write(1, 5)
+        Write(1, 1.2345)
         ' Close the file.
         FileClose(1)
 
@@ -122,7 +129,7 @@ Module FileIO
         Do Until EOF(1)
             count += 1
             Input(1, currentRecord)
-            Console.WriteLine($"Record {CStr(count).PadLeft(3)} contains: {currentRecord}")
+            Console.WriteLine($"Record {CStr(count).PadLeft(3)} is {CStr(Len(currentRecord)).PadLeft(3)} chars long and contains: {currentRecord}")
         Loop
         FileClose(1)
         'Catch ex As Exception
