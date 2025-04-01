@@ -20,7 +20,7 @@ Public Class GraphicsExamplesForm
         Dim g As Graphics = Me.CreateGraphics
         Dim pen As New Pen(Color.Black)
 
-        pen.Color = ForeGroundColor(Color.Lime)
+        'pen.Color = ForeGroundColor(Color.Lime)
 
         g.DrawLine(pen, 50, 50, 100, 100)
 
@@ -59,6 +59,7 @@ Public Class GraphicsExamplesForm
 
     ' Event Handlers ----------------------------------------------------------
     Private Sub GraphicsExamplesForm_Click(sender As Object, e As EventArgs) Handles Me.Click
+        Me.Refresh()
         DrawLine()
         DrawRectangle()
         DrawEllipse()
@@ -67,5 +68,10 @@ Public Class GraphicsExamplesForm
 
     Private Sub GraphicsExamplesForm_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove
         Me.Text = $"({e.X},{e.Y})"
+    End Sub
+
+    Private Sub ForegroundColorTopMenuItem_Click(sender As Object, e As EventArgs) Handles ForegroundColorTopMenuItem.Click
+        ColorDialog.ShowDialog()
+        ForeGroundColor(ColorDialog.Color)
     End Sub
 End Class
