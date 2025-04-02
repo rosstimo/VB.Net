@@ -76,11 +76,19 @@ Public Class GraphicsExamplesForm
         DrawString()
     End Sub
 
-    Private Sub GraphicsExamplesForm_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove
+    Private Sub GraphicsExamplesForm_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, Me.MouseDown
         Static oldX, oldY As Integer
-        Me.Text = $"({e.X},{e.Y})"
-        'TODO only draw when button is held down
-        DrawWithMouse(oldX, oldY, e.X, e.Y)
+        Me.Text = $"({e.X},{e.Y}) {e.Button.ToString}"
+        'Only draw when button is held down
+        Select Case e.Button.ToString
+            Case "Left"
+                DrawWithMouse(oldX, oldY, e.X, e.Y)
+            Case "Right"
+                'ignore and use context menu
+            Case "Middle"
+                'TODO
+        End Select
+
         oldX = e.X
         oldY = e.Y
     End Sub
