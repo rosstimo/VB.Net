@@ -91,25 +91,25 @@ Partial Class GraphicsExamplesForm
         'BackgroundColorContextMenuItem
         '
         Me.BackgroundColorContextMenuItem.Name = "BackgroundColorContextMenuItem"
-        Me.BackgroundColorContextMenuItem.Size = New System.Drawing.Size(251, 36)
+        Me.BackgroundColorContextMenuItem.Size = New System.Drawing.Size(270, 36)
         Me.BackgroundColorContextMenuItem.Text = "Background Color"
         '
         'WidthContextMenuItem
         '
         Me.WidthContextMenuItem.Name = "WidthContextMenuItem"
-        Me.WidthContextMenuItem.Size = New System.Drawing.Size(251, 36)
+        Me.WidthContextMenuItem.Size = New System.Drawing.Size(270, 36)
         Me.WidthContextMenuItem.Text = "Width"
         '
         'FontContextMenuItem
         '
         Me.FontContextMenuItem.Name = "FontContextMenuItem"
-        Me.FontContextMenuItem.Size = New System.Drawing.Size(251, 36)
+        Me.FontContextMenuItem.Size = New System.Drawing.Size(270, 36)
         Me.FontContextMenuItem.Text = "Font"
         '
         'ClearContextMenuItem
         '
         Me.ClearContextMenuItem.Name = "ClearContextMenuItem"
-        Me.ClearContextMenuItem.Size = New System.Drawing.Size(251, 36)
+        Me.ClearContextMenuItem.Size = New System.Drawing.Size(270, 36)
         Me.ClearContextMenuItem.Text = "Clear"
         '
         'GraphicsExamplesForm

@@ -20,7 +20,6 @@ Public Class GraphicsExamplesForm
         Dim g As Graphics = Me.CreateGraphics
         Dim pen As New Pen(ForeGroundColor)
 
-
         g.DrawLine(pen, oldX, oldY, newX, newY)
 
         g.Dispose()
@@ -100,5 +99,7 @@ Public Class GraphicsExamplesForm
         End If
     End Sub
 
-
+    Private Sub ClearContextMenuItem_Click(sender As Object, e As EventArgs) Handles ClearContextMenuItem.Click
+        Me.Refresh()
+    End Sub
 End Class
