@@ -17,7 +17,7 @@ Public Class GraphicsExamplesForm
     End Function
 
     Sub DrawWithMouse(oldX As Integer, oldY As Integer, newX As Integer, newY As Integer)
-        Dim g As Graphics = Me.CreateGraphics
+        Dim g As Graphics = DrawingPictureBox.CreateGraphics
         Dim pen As New Pen(ForeGroundColor)
 
         g.DrawLine(pen, oldX, oldY, newX, newY)
@@ -27,7 +27,7 @@ Public Class GraphicsExamplesForm
 
     ' Event Handlers ----------------------------------------------------------
 
-    Private Sub GraphicsExamplesForm_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, Me.MouseDown
+    Private Sub GraphicsExamplesForm_MouseMove(sender As Object, e As MouseEventArgs) Handles DrawingPictureBox.MouseMove, DrawingPictureBox.MouseDown
         Static oldX, oldY As Integer
         Me.Text = $"({e.X},{e.Y}) {e.Button.ToString} FG {ForeGroundColor.ToString}"
         'Only draw when button is held down
@@ -52,6 +52,6 @@ Public Class GraphicsExamplesForm
     End Sub
 
     Private Sub ClearContextMenuItem_Click(sender As Object, e As EventArgs) Handles ClearContextMenuItem.Click
-        Me.Refresh()
+        DrawingPictureBox.Refresh()
     End Sub
 End Class
