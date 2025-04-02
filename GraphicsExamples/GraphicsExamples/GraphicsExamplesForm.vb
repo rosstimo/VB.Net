@@ -78,7 +78,7 @@ Public Class GraphicsExamplesForm
 
     Private Sub GraphicsExamplesForm_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, Me.MouseDown
         Static oldX, oldY As Integer
-        Me.Text = $"({e.X},{e.Y}) {e.Button.ToString}"
+        Me.Text = $"({e.X},{e.Y}) {e.Button.ToString} FG {ForeGroundColor.ToString}"
         'Only draw when button is held down
         Select Case e.Button.ToString
             Case "Left"
@@ -93,10 +93,12 @@ Public Class GraphicsExamplesForm
         oldY = e.Y
     End Sub
 
-    Private Sub ForegroundColorTopMenuItem_Click(sender As Object, e As EventArgs) Handles ForegroundColorTopMenuItem.Click
+    Private Sub ChangeForegroundColor(sender As Object, e As EventArgs) Handles ForegroundColorTopMenuItem.Click, ForegroundColorContextMenuItem.Click
         Dim result As DialogResult = ColorDialog.ShowDialog()
         If result.ToString = "OK" Then
             ForeGroundColor(ColorDialog.Color)
         End If
     End Sub
+
+
 End Class
