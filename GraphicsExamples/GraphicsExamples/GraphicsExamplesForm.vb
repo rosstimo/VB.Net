@@ -40,9 +40,22 @@ Public Class GraphicsExamplesForm
 
         Return _backColor
     End Function
+
+    Function PenWidth(Optional newWidth As Integer = -1) As Integer
+        Static _penWidth As Integer = 1
+        'define valid range. Note widths > 1 look weird, maybe draw rectangles?
+        If newWidth > 100 Then
+            _penWidth = 100
+        ElseIf newWidth > 0 Then
+            _penWidth = newWidth
+        End If
+
+        Return _penWidth
+    End Function
+
     Sub DrawWithMouse(oldX As Integer, oldY As Integer, newX As Integer, newY As Integer)
         Dim g As Graphics = DrawingPictureBox.CreateGraphics
-        Dim pen As New Pen(ForegroundColor)
+        Dim pen As New Pen(ForegroundColor, PenWidth())
 
         g.DrawLine(pen, oldX, oldY, newX, newY)
 
