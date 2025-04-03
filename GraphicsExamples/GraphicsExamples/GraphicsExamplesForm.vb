@@ -1,8 +1,11 @@
-﻿'Graphics Examples
+﻿Option Strict On
+Option Explicit On
+'Graphics Examples
 'Spring 2025
 
-Option Strict On
-Option Explicit On
+Imports System.Runtime.CompilerServices
+
+
 
 'TODO 
 ' [ ] add functionality for all context menu items
@@ -19,7 +22,7 @@ Option Explicit On
 ' 
 Public Class GraphicsExamplesForm
 
-    Function ForeGroundColor(Optional newColor As Color = Nothing) As Color
+    Function ForegroundColor(Optional newColor As Color = Nothing) As Color
         Static _foreColor As Color = Color.Black
 
         If newColor <> Nothing Then
@@ -28,10 +31,18 @@ Public Class GraphicsExamplesForm
 
         Return _foreColor
     End Function
+    Function BackgroundColor(Optional newColor As Color = Nothing) As Color
+        Static _backColor As Color = Color.White
 
+        If newColor <> Nothing Then
+            _backColor = newColor
+        End If
+
+        Return _backColor
+    End Function
     Sub DrawWithMouse(oldX As Integer, oldY As Integer, newX As Integer, newY As Integer)
         Dim g As Graphics = DrawingPictureBox.CreateGraphics
-        Dim pen As New Pen(ForeGroundColor)
+        Dim pen As New Pen(ForegroundColor)
 
         g.DrawLine(pen, oldX, oldY, newX, newY)
 
@@ -42,7 +53,7 @@ Public Class GraphicsExamplesForm
 
     Private Sub GraphicsExamplesForm_MouseMove(sender As Object, e As MouseEventArgs) Handles DrawingPictureBox.MouseMove, DrawingPictureBox.MouseDown
         Static oldX, oldY As Integer
-        Me.Text = $"({e.X},{e.Y}) {e.Button.ToString} FG {ForeGroundColor.ToString}"
+        Me.Text = $"({e.X},{e.Y}) {e.Button.ToString} FG {ForegroundColor.ToString}"
         'Only draw when button is held down
         Select Case e.Button.ToString
             Case "Left"
@@ -57,14 +68,24 @@ Public Class GraphicsExamplesForm
         oldY = e.Y
     End Sub
 
-    Private Sub ChangeForegroundColor(sender As Object, e As EventArgs) Handles ForegroundColorTopMenuItem.Click, ForegroundColorContextMenuItem.Click
+    Private Sub ChangeforegroundColor(sender As Object, e As EventArgs) Handles ForegroundColorTopMenuItem.Click, ForegroundColorContextMenuItem.Click
         Dim result As DialogResult = ColorDialog.ShowDialog()
         If result.ToString = "OK" Then
-            ForeGroundColor(ColorDialog.Color)
+            ForegroundColor(ColorDialog.Color)
+        End If
+    End Sub
+
+    Private Sub BackgroundColorContextMenuItem_Click(sender As Object, e As EventArgs) Handles BackgroundColorTopMenuItem.Click, BackgroundColorContextMenuItem.Click
+        Dim result As DialogResult = ColorDialog.ShowDialog()
+        If result.ToString = "OK" Then
+            BackgroundColor(ColorDialog.Color)
+            'This erases everything
+            'DrawingPictureBox.BackColor = BackgroundColor()
         End If
     End Sub
 
     Private Sub ClearContextMenuItem_Click(sender As Object, e As EventArgs) Handles ClearContextMenuItem.Click
-        DrawingPictureBox.Refresh()
+        DrawingPictureBox.BackColor = BackgroundColor()
     End Sub
+
 End Class
