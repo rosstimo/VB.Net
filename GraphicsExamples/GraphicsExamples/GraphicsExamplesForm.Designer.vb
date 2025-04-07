@@ -41,6 +41,7 @@ Partial Class GraphicsExamplesForm
         Me.FontContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DrawingPictureBox = New System.Windows.Forms.PictureBox()
+        Me.DrawingToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.TopMenuStrip.SuspendLayout()
         Me.MainContextMenuStrip.SuspendLayout()
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -123,6 +124,7 @@ Partial Class GraphicsExamplesForm
         '
         'WidthPickContextMenuItemComboBox
         '
+        Me.WidthPickContextMenuItemComboBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.WidthPickContextMenuItemComboBox.Items.AddRange(New Object() {"1", "2", "3", "5", "10", "20", "50"})
         Me.WidthPickContextMenuItemComboBox.Name = "WidthPickContextMenuItemComboBox"
         Me.WidthPickContextMenuItemComboBox.Size = New System.Drawing.Size(121, 23)
@@ -165,6 +167,7 @@ Partial Class GraphicsExamplesForm
         Me.DrawingPictureBox.Size = New System.Drawing.Size(414, 184)
         Me.DrawingPictureBox.TabIndex = 2
         Me.DrawingPictureBox.TabStop = False
+        Me.DrawingToolTip.SetToolTip(Me.DrawingPictureBox, "Right Click For More Options")
         '
         'GraphicsExamplesForm
         '
@@ -179,6 +182,7 @@ Partial Class GraphicsExamplesForm
         Me.Name = "GraphicsExamplesForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
+        Me.DrawingToolTip.SetToolTip(Me, "This is the form")
         Me.TopMenuStrip.ResumeLayout(False)
         Me.TopMenuStrip.PerformLayout()
         Me.MainContextMenuStrip.ResumeLayout(False)
@@ -206,4 +210,5 @@ Partial Class GraphicsExamplesForm
     Friend WithEvents WidthPickContextMenuItemComboBox As ToolStripComboBox
     Friend WithEvents CustomToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents WidthPickContextMenuItemText As ToolStripTextBox
+    Friend WithEvents DrawingToolTip As ToolTip
 End Class
