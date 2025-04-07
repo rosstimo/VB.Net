@@ -5,11 +5,9 @@ Option Explicit On
 
 Imports System.Runtime.CompilerServices
 
-
-
 'TODO 
 ' [ ] add functionality for all context menu items
-'   [ ] background color
+'   [x] background color
 '   [ ] pen width as drop down or text input with max width defined
 '   [ ] font
 ' [ ] match functionality between context menu and top menu
