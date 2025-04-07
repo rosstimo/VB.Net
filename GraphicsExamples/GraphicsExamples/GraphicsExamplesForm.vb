@@ -11,7 +11,7 @@ Imports System.Runtime.CompilerServices
 '   [ ] pen width as drop down or text input with max width defined
 '   [ ] font
 ' [ ] match functionality between context menu and top menu
-' [ ] add tool tip on picture box
+' [x] add tool tip on picture box
 ' [ ] plot sin wave
 ' [ ] add erase mode
 ' [ ] draw shape(s) tool
@@ -99,4 +99,12 @@ Public Class GraphicsExamplesForm
         DrawingPictureBox.BackColor = BackgroundColor()
     End Sub
 
+    Private Sub DrawingPictureBox_Click(sender As Object, e As EventArgs) Handles DrawingPictureBox.Click
+
+    End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        Me.Hide()
+        AboutForm.Show()
+    End Sub
 End Class

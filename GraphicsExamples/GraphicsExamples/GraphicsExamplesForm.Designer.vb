@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class GraphicsExamplesForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class GraphicsExamplesForm
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ColorDialog = New System.Windows.Forms.ColorDialog()
@@ -42,6 +42,7 @@ Partial Class GraphicsExamplesForm
         Me.ClearContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DrawingPictureBox = New System.Windows.Forms.PictureBox()
         Me.DrawingToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TopMenuStrip.SuspendLayout()
         Me.MainContextMenuStrip.SuspendLayout()
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -85,6 +86,7 @@ Partial Class GraphicsExamplesForm
         '
         'HelpToolStripMenuItem
         '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 22)
         Me.HelpToolStripMenuItem.Text = "&Help"
@@ -124,7 +126,6 @@ Partial Class GraphicsExamplesForm
         '
         'WidthPickContextMenuItemComboBox
         '
-        Me.WidthPickContextMenuItemComboBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.WidthPickContextMenuItemComboBox.Items.AddRange(New Object() {"1", "2", "3", "5", "10", "20", "50"})
         Me.WidthPickContextMenuItemComboBox.Name = "WidthPickContextMenuItemComboBox"
         Me.WidthPickContextMenuItemComboBox.Size = New System.Drawing.Size(121, 23)
@@ -161,13 +162,19 @@ Partial Class GraphicsExamplesForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DrawingPictureBox.BackColor = System.Drawing.Color.White
         Me.DrawingPictureBox.Cursor = System.Windows.Forms.Cursors.Cross
-        Me.DrawingPictureBox.Location = New System.Drawing.Point(11, 26)
-        Me.DrawingPictureBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.DrawingPictureBox.Location = New System.Drawing.Point(11, 40)
+        Me.DrawingPictureBox.Margin = New System.Windows.Forms.Padding(2)
         Me.DrawingPictureBox.Name = "DrawingPictureBox"
         Me.DrawingPictureBox.Size = New System.Drawing.Size(414, 184)
         Me.DrawingPictureBox.TabIndex = 2
         Me.DrawingPictureBox.TabStop = False
         Me.DrawingToolTip.SetToolTip(Me.DrawingPictureBox, "Right Click For More Options")
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AboutToolStripMenuItem.Text = "&About"
         '
         'GraphicsExamplesForm
         '
@@ -178,7 +185,7 @@ Partial Class GraphicsExamplesForm
         Me.Controls.Add(Me.DrawingPictureBox)
         Me.Controls.Add(Me.TopMenuStrip)
         Me.MainMenuStrip = Me.TopMenuStrip
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "GraphicsExamplesForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
@@ -211,4 +218,5 @@ Partial Class GraphicsExamplesForm
     Friend WithEvents CustomToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents WidthPickContextMenuItemText As ToolStripTextBox
     Friend WithEvents DrawingToolTip As ToolTip
+    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
 End Class
