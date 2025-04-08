@@ -15,8 +15,8 @@ Imports System.Runtime.CompilerServices
 ' [ ] plot sin wave
 ' [ ] add erase mode
 ' [ ] draw shape(s) tool
-' [ ] add about form
-' [ ] add splash screen
+' [x] add about form
+' [x] add splash screen
 ' 
 Public Class GraphicsExamplesForm
 
