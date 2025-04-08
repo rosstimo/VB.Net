@@ -34,6 +34,7 @@ Partial Class SplashForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Black
         Me.BackgroundImage = Global.GraphicsExamples.My.Resources.Resources.crayon_4566306_1280
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(591, 392)
@@ -42,6 +43,9 @@ Partial Class SplashForm
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "SplashForm"
+        Me.TopMost = True
+        Me.TransparencyKey = System.Drawing.Color.Black
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub

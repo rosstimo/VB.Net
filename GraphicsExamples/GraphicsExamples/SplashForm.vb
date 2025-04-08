@@ -1,6 +1,7 @@
 ﻿Public Class SplashForm
 
     Private Sub SplashForm_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        GraphicsExamplesForm.SendToBack()
         GraphicsExamplesForm.Hide()
         SplashTimer.Enabled() = True
     End Sub

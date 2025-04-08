@@ -30,6 +30,7 @@ Partial Class GraphicsExamplesForm
         Me.ForegroundColorTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BackgroundColorTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ForegroundColorContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BackgroundColorContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -42,7 +43,6 @@ Partial Class GraphicsExamplesForm
         Me.ClearContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DrawingPictureBox = New System.Windows.Forms.PictureBox()
         Me.DrawingToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TopMenuStrip.SuspendLayout()
         Me.MainContextMenuStrip.SuspendLayout()
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -75,13 +75,13 @@ Partial Class GraphicsExamplesForm
         'ForegroundColorTopMenuItem
         '
         Me.ForegroundColorTopMenuItem.Name = "ForegroundColorTopMenuItem"
-        Me.ForegroundColorTopMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ForegroundColorTopMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.ForegroundColorTopMenuItem.Text = "&Foreground Color"
         '
         'BackgroundColorTopMenuItem
         '
         Me.BackgroundColorTopMenuItem.Name = "BackgroundColorTopMenuItem"
-        Me.BackgroundColorTopMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.BackgroundColorTopMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.BackgroundColorTopMenuItem.Text = "&Background Color"
         '
         'HelpToolStripMenuItem
@@ -90,6 +90,12 @@ Partial Class GraphicsExamplesForm
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 22)
         Me.HelpToolStripMenuItem.Text = "&Help"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.AboutToolStripMenuItem.Text = "&About"
         '
         'MainContextMenuStrip
         '
@@ -126,6 +132,7 @@ Partial Class GraphicsExamplesForm
         '
         'WidthPickContextMenuItemComboBox
         '
+        Me.WidthPickContextMenuItemComboBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.WidthPickContextMenuItemComboBox.Items.AddRange(New Object() {"1", "2", "3", "5", "10", "20", "50"})
         Me.WidthPickContextMenuItemComboBox.Name = "WidthPickContextMenuItemComboBox"
         Me.WidthPickContextMenuItemComboBox.Size = New System.Drawing.Size(121, 23)
@@ -169,12 +176,6 @@ Partial Class GraphicsExamplesForm
         Me.DrawingPictureBox.TabIndex = 2
         Me.DrawingPictureBox.TabStop = False
         Me.DrawingToolTip.SetToolTip(Me.DrawingPictureBox, "Right Click For More Options")
-        '
-        'AboutToolStripMenuItem
-        '
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.AboutToolStripMenuItem.Text = "&About"
         '
         'GraphicsExamplesForm
         '

@@ -112,8 +112,10 @@ Public Class GraphicsExamplesForm
     End Sub
 
     Private Sub GraphicsExamplesForm_Activated(sender As Object, e As EventArgs) Handles Me.Activated
-
-        SplashForm.Show()
-
+        Static isStartUp As Boolean = True
+        If isStartUp Then
+            SplashForm.Show()
+            isStartUp = False
+        End If
     End Sub
 End Class
