@@ -76,16 +76,6 @@ Public Class GraphicsExamplesForm
             g.DrawLine(pen, oldX, oldY, x, newY)
             oldX = x
             oldY = newY
-            Select Case x
-                Case 90
-                    Console.WriteLine($"x={x} y={newY}")
-                Case 180
-                    Console.WriteLine($"x={x} y={newY}")
-                Case 270
-                    Console.WriteLine($"x={x} y={newY}")
-                Case 360
-                    Console.WriteLine($"x={x} y={newY}")
-            End Select
 
         Next
 
