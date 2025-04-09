@@ -99,16 +99,9 @@ Public Class GraphicsExamplesForm
         DrawingPictureBox.BackColor = BackgroundColor()
     End Sub
 
-    Private Sub DrawingPictureBox_Click(sender As Object, e As EventArgs) Handles DrawingPictureBox.Click
-
-    End Sub
-
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
         Me.Hide()
         AboutForm.Show()
-    End Sub
-
-    Private Sub GraphicsExamplesForm_Load(sender As Object, e As EventArgs) Handles Me.Load
     End Sub
 
     Private Sub GraphicsExamplesForm_Activated(sender As Object, e As EventArgs) Handles Me.Activated
