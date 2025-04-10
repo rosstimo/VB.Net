@@ -69,5 +69,14 @@ Namespace My.Resources
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property shaker() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("shaker", resourceCulture)
+            End Get
+        End Property
     End Module
 End Namespace
