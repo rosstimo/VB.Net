@@ -12,7 +12,7 @@ Imports System.Runtime.CompilerServices
 '   [ ] font
 ' [ ] match functionality between context menu and top menu
 ' [x] add tool tip on picture box
-' [ ] plot sin wave
+' [x] plot sin wave
 ' [ ] add erase mode
 ' [ ] draw shape(s) tool
 ' [x] add about form
