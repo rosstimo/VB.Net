@@ -94,7 +94,11 @@ Public Class GraphicsExamplesForm
             Case "Right"
                 'ignore and use context menu
             Case "Middle"
-                'TODO
+                'manually draw a line from top to bottom in the middle
+                'DrawWithMouse(DrawingPictureBox.Width \ 2, 0, DrawingPictureBox.Width \ 2, DrawingPictureBox.Height)
+                'draw a line top to bottom on the current  mouse x location
+                DrawWithMouse(e.X, 0, e.X, DrawingPictureBox.Height)
+
         End Select
 
         oldX = e.X
