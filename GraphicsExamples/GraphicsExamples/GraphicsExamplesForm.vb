@@ -5,6 +5,7 @@ Option Explicit On
 
 Imports System.Media
 Imports System.Runtime.CompilerServices
+Imports System.Threading.Thread
 
 'TODO 
 ' [ ] add functionality for all context menu items
@@ -135,11 +136,21 @@ Public Class GraphicsExamplesForm
     End Sub
 
     Private Sub ClearContextMenuItem_Click(sender As Object, e As EventArgs) Handles ClearContextMenuItem.Click
+        Dim fudge As Integer = 100
         'https://freesound.org/
         Try
             My.Computer.Audio.Play(My.Resources.shaker, AudioPlayMode.Background)
         Catch ex As Exception
+            MsgBox(ex.Message)
+
         End Try
+
+        For i = 1 To 10
+            Me.Top += fudge
+            Me.Left += fudge
+            Sleep(100)
+            fudge *= -1
+        Next
 
         DrawingPictureBox.Refresh() '.BackColor = BackgroundColor()
 
