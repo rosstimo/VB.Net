@@ -25,7 +25,7 @@ Partial Class SuperVideoStopForm
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.UpdateButton = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.ExitButton = New System.Windows.Forms.Button()
         Me.SelectComboBox = New System.Windows.Forms.ComboBox()
@@ -47,7 +47,7 @@ Partial Class SuperVideoStopForm
         '
         Me.GroupBox2.Controls.Add(Me.ExitButton)
         Me.GroupBox2.Controls.Add(Me.Button2)
-        Me.GroupBox2.Controls.Add(Me.Button1)
+        Me.GroupBox2.Controls.Add(Me.UpdateButton)
         Me.GroupBox2.Location = New System.Drawing.Point(37, 475)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(1229, 177)
@@ -66,14 +66,14 @@ Partial Class SuperVideoStopForm
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "GroupBox3"
         '
-        'Button1
+        'UpdateButton
         '
-        Me.Button1.Location = New System.Drawing.Point(728, 48)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(161, 105)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.UpdateButton.Location = New System.Drawing.Point(728, 48)
+        Me.UpdateButton.Name = "UpdateButton"
+        Me.UpdateButton.Size = New System.Drawing.Size(161, 105)
+        Me.UpdateButton.TabIndex = 0
+        Me.UpdateButton.Text = "&Update"
+        Me.UpdateButton.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -131,7 +131,7 @@ Partial Class SuperVideoStopForm
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents ExitButton As Button
     Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents UpdateButton As Button
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents DisplayListBox As ListBox
     Friend WithEvents SelectComboBox As ComboBox
