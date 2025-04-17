@@ -10,12 +10,21 @@ Public Class SuperVideoStopForm
         Dim filePath As String = "..\..\UserData.txt"
         Dim fileNumber As Integer = FreeFile()
         Dim currentRecord As String = ""
+        Dim temp() As String ' use for splitting customer data
         Try
             FileOpen(fileNumber, filePath, OpenMode.Input)
 
-            Input(fileNumber, currentRecord)
+            Do Until EOF(fileNumber)
+                Input(fileNumber, currentRecord) ' read exactly one record
+                If currentRecord <> "" Then
 
-            DisplayListBox.Items.Add(currentRecord)
+                    DisplayListBox.Items.Add(currentRecord) 'add the record to the list box
+
+
+
+                End If
+            Loop
+
 
             FileClose(fileNumber)
         Catch bob As FileNotFoundException
@@ -42,4 +51,7 @@ Public Class SuperVideoStopForm
         ReadFromFile()
     End Sub
 
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+        DisplayListBox.Items.Clear()
+    End Sub
 End Class
