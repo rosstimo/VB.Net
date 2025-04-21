@@ -16,10 +16,23 @@ Public Class SuperVideoStopForm
 
             Do Until EOF(fileNumber)
                 Input(fileNumber, currentRecord) ' read exactly one record
-                If currentRecord <> "" Then
 
-                    DisplayListBox.Items.Add(currentRecord) 'add the record to the list box
+                If currentRecord <> "" Then 'ignore blank records
+                    temp = Split(currentRecord, ",")
 
+                    'DisplayListBox.Items.Add(currentRecord) 'add the record to the list box
+
+                    If temp.Length = 4 Then ' ignore malformed records
+                        temp(0) = Replace(temp(0), "$", "") 'clean first name
+                        DisplayListBox.Items.Add(temp(0))
+                        WriteToFile(temp(0))
+                        WriteToFile(temp(1))
+                        WriteToFile(temp(2))
+                        WriteToFile(temp(3))
+                        WriteToFile(vbNewLine)
+
+
+                    End If
 
 
                 End If
@@ -39,6 +52,19 @@ Public Class SuperVideoStopForm
 
     End Sub
 
+    Sub WriteToFile(newRecord As String)
+        Dim filePath As String = "..\..\CustomerData.txt"
+        Dim fileNumber As Integer = FreeFile()
+
+        Try
+            FileOpen(fileNumber, filePath, OpenMode.Append)
+            Write(fileNumber, newRecord)
+            FileClose(fileNumber)
+        Catch ex As Exception
+            MsgBox($"Error writing to {filePath}")
+        End Try
+
+    End Sub
 
 
     ' Event handlers below here ***********************************************
