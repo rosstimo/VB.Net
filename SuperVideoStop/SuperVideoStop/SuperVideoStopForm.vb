@@ -11,6 +11,7 @@ Public Class SuperVideoStopForm
         Dim fileNumber As Integer = FreeFile()
         Dim currentRecord As String = ""
         Dim temp() As String ' use for splitting customer data
+        Dim currentID As Integer = 699
         Try
             FileOpen(fileNumber, filePath, OpenMode.Input)
 
@@ -25,13 +26,16 @@ Public Class SuperVideoStopForm
                     If temp.Length = 4 Then ' ignore malformed records
                         temp(0) = Replace(temp(0), "$", "") 'clean first name
                         DisplayListBox.Items.Add(temp(0))
-                        WriteToFile(temp(0))
-                        WriteToFile(temp(1))
-                        WriteToFile(temp(2))
-                        WriteToFile(temp(3))
-                        WriteToFile(vbNewLine)
-
-
+                        WriteToFile(temp(0)) 'first name
+                        WriteToFile(temp(1)) 'last name
+                        WriteToFile("") 'place holder for street
+                        WriteToFile(temp(2))  'City
+                        WriteToFile("ID") 'state
+                        WriteToFile("") 'zip
+                        WriteToFile("") 'phone
+                        WriteToFile(temp(3)) 'email
+                        WriteToFile($"000631{currentID}", True) 'customer ID, add a new line at the last record for each customer
+                        currentID += 1
                     End If
 
 
@@ -52,13 +56,17 @@ Public Class SuperVideoStopForm
 
     End Sub
 
-    Sub WriteToFile(newRecord As String)
+    Sub WriteToFile(newRecord As String, Optional insertNewLine As Boolean = False)
         Dim filePath As String = "..\..\CustomerData.txt"
         Dim fileNumber As Integer = FreeFile()
 
         Try
             FileOpen(fileNumber, filePath, OpenMode.Append)
             Write(fileNumber, newRecord)
+            If insertNewLine Then
+                WriteLine(fileNumber)
+            End If
+
             FileClose(fileNumber)
         Catch ex As Exception
             MsgBox($"Error writing to {filePath}")

@@ -139,7 +139,7 @@ Partial Class SuperVideoStopForm
         '
         Me.DisplayListBox.FormattingEnabled = True
         Me.DisplayListBox.ItemHeight = 20
-        Me.DisplayListBox.Location = New System.Drawing.Point(211, 59)
+        Me.DisplayListBox.Location = New System.Drawing.Point(211, 57)
         Me.DisplayListBox.Name = "DisplayListBox"
         Me.DisplayListBox.Size = New System.Drawing.Size(515, 364)
         Me.DisplayListBox.TabIndex = 1
