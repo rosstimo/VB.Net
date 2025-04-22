@@ -74,6 +74,38 @@ Public Class SuperVideoStopForm
 
     End Sub
 
+    Sub LoadCustomerData()
+        Dim filePath As String = "..\..\CustomerData.dat"
+        Dim fileNumber As Integer = FreeFile()
+        Dim currentRecord As String
+        Dim InvalidFileName As Boolean = True
+
+        Do
+            Try
+                FileOpen(fileNumber, filePath, OpenMode.Input)
+                InvalidFileName = False
+                Do Until EOF(fileNumber)
+                    Input(fileNumber, currentRecord)
+                    MsgBox(currentRecord)
+
+                Loop
+
+                FileClose(fileNumber)
+            Catch noFile As FileNotFoundException
+                InvalidFileName = True
+                OpenFileDialog.FileName = ""
+                OpenFileDialog.InitialDirectory = "L:\github\VB.Net\SuperVideoStop\SuperVideoStop"
+                OpenFileDialog.Filter = "dat files (*.dat)|*.dat|All files (*.*)|*.*"
+                OpenFileDialog.ShowDialog()
+                filePath = OpenFileDialog.FileName
+                MsgBox($"The current file is {filePath}")
+
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        Loop While InvalidFileName
+
+    End Sub
 
     ' Event handlers below here ***********************************************
 
@@ -88,4 +120,9 @@ Public Class SuperVideoStopForm
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         DisplayListBox.Items.Clear()
     End Sub
+
+    Private Sub OpenTopMenuItem_Click(sender As Object, e As EventArgs) Handles OpenTopMenuItem.Click
+        LoadCustomerData()
+    End Sub
+
 End Class
