@@ -75,10 +75,12 @@ Public Class SuperVideoStopForm
     End Sub
 
     Sub LoadCustomerData()
-        Dim filePath As String = "..\..\CustomerData.dat"
+        Dim filePath As String = "..\..\CustomerDataX.dat"
         Dim fileNumber As Integer = FreeFile()
         Dim currentRecord As String
         Dim InvalidFileName As Boolean = True
+        Dim customers(NumberOfCustomers(filePath) - 1, 8) As String ' array for customer data
+        Dim currentCustomer As Integer = 0
 
         Do
             Try
@@ -86,11 +88,29 @@ Public Class SuperVideoStopForm
                 InvalidFileName = False
                 Do Until EOF(fileNumber)
                     Input(fileNumber, currentRecord)
-                    MsgBox(currentRecord)
+                    customers(currentCustomer, 0) = currentRecord 'first name
+                    Input(fileNumber, currentRecord)
+                    customers(currentCustomer, 1) = currentRecord 'last name
+                    Input(fileNumber, currentRecord)
+                    customers(currentCustomer, 2) = currentRecord
+                    Input(fileNumber, currentRecord)
+                    customers(currentCustomer, 3) = currentRecord
+                    Input(fileNumber, currentRecord)
+                    customers(currentCustomer, 4) = currentRecord
+                    Input(fileNumber, currentRecord)
+                    customers(currentCustomer, 5) = currentRecord
+                    Input(fileNumber, currentRecord)
+                    customers(currentCustomer, 6) = currentRecord
+                    Input(fileNumber, currentRecord)
+                    customers(currentCustomer, 7) = currentRecord
+                    Input(fileNumber, currentRecord)
+                    customers(currentCustomer, 8) = currentRecord
+                    Input(fileNumber, currentRecord) 'empty, discard
 
+                    currentCustomer += 1
                 Loop
-
                 FileClose(fileNumber)
+                'MsgBox($"there are {NumberOfCustomers(filePath)} customers")
             Catch noFile As FileNotFoundException
                 InvalidFileName = True
                 OpenFileDialog.FileName = ""
@@ -106,6 +126,27 @@ Public Class SuperVideoStopForm
         Loop While InvalidFileName
 
     End Sub
+
+    Function NumberOfCustomers(fileName As String) As Integer
+        Dim count As Integer = 0
+        Dim fileNumber As Integer = FreeFile()
+
+        Try
+            FileOpen(fileNumber, fileName, OpenMode.Input)
+            Do Until EOF(fileNumber)
+                LineInput(fileNumber)
+                count += 1
+            Loop
+
+            FileClose(fileNumber)
+        Catch ex As Exception
+            'pass
+            'maybe set count to -1 to indicate error
+        End Try
+
+        Return count
+    End Function
+
 
     ' Event handlers below here ***********************************************
 
