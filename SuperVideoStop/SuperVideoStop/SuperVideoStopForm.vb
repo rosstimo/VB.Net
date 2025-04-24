@@ -10,8 +10,12 @@ Public Class SuperVideoStopForm
         Dim _customers(,) As String = Customers()
 
         If _customers IsNot Nothing Then
-            For i = 0 To _customers.GetUpperBound(0) 'UBound(_customers)
-                DisplayListBox.Items.Add(_customers(i, 0))
+            For i = 0 To _customers.GetUpperBound(0) 'UBound(_customers) 
+                'DisplayListBox.Items.Add(_customers(i, 0))
+                SelectComboBox.Items.Add($"{_customers(i, 1)}, {_customers(i, 0)}")
+
+                SelectComboBox.SelectedIndex() = 0
+
             Next
         End If
 
@@ -51,7 +55,7 @@ Public Class SuperVideoStopForm
 
                     If temp.Length = 4 Then ' ignore malformed records
                         temp(0) = Replace(temp(0), "$", "") 'clean first name
-                        DisplayListBox.Items.Add(temp(0))
+                DisplayListBox.Items.Add(temp(0))
                         WriteToFile(temp(0)) 'first name
                         WriteToFile(temp(1)) 'last name
                         WriteToFile("") 'place holder for street
@@ -198,5 +202,9 @@ Public Class SuperVideoStopForm
 
     Private Sub SuperVideoStopForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         LoadCustomerData()
+    End Sub
+
+    Private Sub SelectComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SelectComboBox.SelectedIndexChanged
+        Me.Text = SelectComboBox.SelectedIndex.ToString
     End Sub
 End Class
