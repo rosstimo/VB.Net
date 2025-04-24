@@ -6,6 +6,32 @@ Imports System.IO
 
 Public Class SuperVideoStopForm
 
+    Sub DisplayData()
+        Dim _customers(,) As String = Customers()
+
+        If _customers IsNot Nothing Then
+            For i = 0 To _customers.GetUpperBound(0) 'UBound(_customers)
+                DisplayListBox.Items.Add(_customers(i, 0))
+            Next
+        End If
+
+    End Sub
+
+    ''' <summary>
+    ''' Used to store the customer data array.
+    ''' Update overwrites existing array.
+    ''' </summary>
+    ''' <param name="customerData"></param>
+    ''' <returns>array of string</returns>
+    Function Customers(Optional customerData(,) As String = Nothing) As String(,)
+        Static _customers(,) As String
+
+        If customerData IsNot Nothing Then
+            _customers = customerData
+        End If
+
+        Return _customers
+    End Function
     Sub ReadFromFile()
         Dim filePath As String = "..\..\UserData.txt"
         Dim fileNumber As Integer = FreeFile()
@@ -79,7 +105,7 @@ Public Class SuperVideoStopForm
         Dim fileNumber As Integer = FreeFile()
         Dim currentRecord As String
         Dim InvalidFileName As Boolean = True
-        Dim customers(NumberOfCustomers(filePath) - 1, 8) As String ' array for customer data
+        Dim _customers(NumberOfCustomers(filePath) - 1, 8) As String ' array for customer data
         Dim currentCustomer As Integer = 0
 
         Do
@@ -88,23 +114,23 @@ Public Class SuperVideoStopForm
                 InvalidFileName = False
                 Do Until EOF(fileNumber)
                     Input(fileNumber, currentRecord)
-                    customers(currentCustomer, 0) = currentRecord 'first name
+                    _customers(currentCustomer, 0) = currentRecord 'first name
                     Input(fileNumber, currentRecord)
-                    customers(currentCustomer, 1) = currentRecord 'last name
+                    _customers(currentCustomer, 1) = currentRecord 'last name
                     Input(fileNumber, currentRecord)
-                    customers(currentCustomer, 2) = currentRecord
+                    _customers(currentCustomer, 2) = currentRecord ' street
                     Input(fileNumber, currentRecord)
-                    customers(currentCustomer, 3) = currentRecord
+                    _customers(currentCustomer, 3) = currentRecord ' city    
                     Input(fileNumber, currentRecord)
-                    customers(currentCustomer, 4) = currentRecord
+                    _customers(currentCustomer, 4) = currentRecord ' state
                     Input(fileNumber, currentRecord)
-                    customers(currentCustomer, 5) = currentRecord
+                    _customers(currentCustomer, 5) = currentRecord ' zip
                     Input(fileNumber, currentRecord)
-                    customers(currentCustomer, 6) = currentRecord
+                    _customers(currentCustomer, 6) = currentRecord ' phone
                     Input(fileNumber, currentRecord)
-                    customers(currentCustomer, 7) = currentRecord
+                    _customers(currentCustomer, 7) = currentRecord ' email
                     Input(fileNumber, currentRecord)
-                    customers(currentCustomer, 8) = currentRecord
+                    _customers(currentCustomer, 8) = currentRecord ' customer ID
                     Input(fileNumber, currentRecord) 'empty, discard
 
                     currentCustomer += 1
@@ -124,6 +150,9 @@ Public Class SuperVideoStopForm
                 MsgBox(ex.Message)
             End Try
         Loop While InvalidFileName
+
+        Customers(_customers) 'store in array function for later use
+        FileNameStatusLabel.Text = filePath
 
     End Sub
 
@@ -155,7 +184,8 @@ Public Class SuperVideoStopForm
     End Sub
 
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
-        ReadFromFile()
+        'ReadFromFile()
+        DisplayData()
     End Sub
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
@@ -166,4 +196,7 @@ Public Class SuperVideoStopForm
         LoadCustomerData()
     End Sub
 
+    Private Sub SuperVideoStopForm_Load(sender As Object, e As EventArgs) Handles Me.Load
+        LoadCustomerData()
+    End Sub
 End Class

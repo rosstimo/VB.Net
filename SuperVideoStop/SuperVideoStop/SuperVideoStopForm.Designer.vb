@@ -61,10 +61,13 @@ Partial Class SuperVideoStopForm
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
+        Me.BottomStatusStrip = New System.Windows.Forms.StatusStrip()
+        Me.FileNameStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.InfoGroupBox.SuspendLayout()
         Me.ButtonsGroupBox.SuspendLayout()
         Me.DataGroupBox.SuspendLayout()
         Me.TopMenuStrip.SuspendLayout()
+        Me.BottomStatusStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'InfoGroupBox
@@ -242,15 +245,15 @@ Partial Class SuperVideoStopForm
         Me.ButtonsGroupBox.Controls.Add(Me.ExitButton)
         Me.ButtonsGroupBox.Controls.Add(Me.ClearButton)
         Me.ButtonsGroupBox.Controls.Add(Me.UpdateButton)
-        Me.ButtonsGroupBox.Location = New System.Drawing.Point(37, 475)
+        Me.ButtonsGroupBox.Location = New System.Drawing.Point(757, 492)
         Me.ButtonsGroupBox.Name = "ButtonsGroupBox"
-        Me.ButtonsGroupBox.Size = New System.Drawing.Size(1229, 177)
+        Me.ButtonsGroupBox.Size = New System.Drawing.Size(509, 147)
         Me.ButtonsGroupBox.TabIndex = 1
         Me.ButtonsGroupBox.TabStop = False
         '
         'ExitButton
         '
-        Me.ExitButton.Location = New System.Drawing.Point(1062, 48)
+        Me.ExitButton.Location = New System.Drawing.Point(340, 25)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(161, 105)
         Me.ExitButton.TabIndex = 2
@@ -259,7 +262,7 @@ Partial Class SuperVideoStopForm
         '
         'ClearButton
         '
-        Me.ClearButton.Location = New System.Drawing.Point(895, 48)
+        Me.ClearButton.Location = New System.Drawing.Point(173, 25)
         Me.ClearButton.Name = "ClearButton"
         Me.ClearButton.Size = New System.Drawing.Size(161, 105)
         Me.ClearButton.TabIndex = 1
@@ -268,7 +271,7 @@ Partial Class SuperVideoStopForm
         '
         'UpdateButton
         '
-        Me.UpdateButton.Location = New System.Drawing.Point(728, 48)
+        Me.UpdateButton.Location = New System.Drawing.Point(6, 25)
         Me.UpdateButton.Name = "UpdateButton"
         Me.UpdateButton.Size = New System.Drawing.Size(161, 105)
         Me.UpdateButton.TabIndex = 0
@@ -364,25 +367,25 @@ Partial Class SuperVideoStopForm
         'OpenTopMenuItem
         '
         Me.OpenTopMenuItem.Name = "OpenTopMenuItem"
-        Me.OpenTopMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.OpenTopMenuItem.Size = New System.Drawing.Size(178, 34)
         Me.OpenTopMenuItem.Text = "&Open"
         '
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(178, 34)
         Me.SaveToolStripMenuItem.Text = "&Save"
         '
         'BackUpToolStripMenuItem
         '
         Me.BackUpToolStripMenuItem.Name = "BackUpToolStripMenuItem"
-        Me.BackUpToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.BackUpToolStripMenuItem.Size = New System.Drawing.Size(178, 34)
         Me.BackUpToolStripMenuItem.Text = "&Back Up"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(178, 34)
         Me.ExitToolStripMenuItem.Text = "E&xit"
         '
         'HelpToolStripMenuItem
@@ -395,18 +398,35 @@ Partial Class SuperVideoStopForm
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(164, 34)
         Me.AboutToolStripMenuItem.Text = "&About"
         '
         'OpenFileDialog
         '
         Me.OpenFileDialog.FileName = "OpenFileDialog1"
         '
+        'BottomStatusStrip
+        '
+        Me.BottomStatusStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.BottomStatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileNameStatusLabel})
+        Me.BottomStatusStrip.Location = New System.Drawing.Point(0, 632)
+        Me.BottomStatusStrip.Name = "BottomStatusStrip"
+        Me.BottomStatusStrip.Size = New System.Drawing.Size(1278, 32)
+        Me.BottomStatusStrip.TabIndex = 4
+        Me.BottomStatusStrip.Text = "StatusStrip1"
+        '
+        'FileNameStatusLabel
+        '
+        Me.FileNameStatusLabel.Name = "FileNameStatusLabel"
+        Me.FileNameStatusLabel.Size = New System.Drawing.Size(55, 25)
+        Me.FileNameStatusLabel.Text = "None"
+        '
         'SuperVideoStopForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1278, 664)
+        Me.Controls.Add(Me.BottomStatusStrip)
         Me.Controls.Add(Me.DataGroupBox)
         Me.Controls.Add(Me.ButtonsGroupBox)
         Me.Controls.Add(Me.InfoGroupBox)
@@ -422,6 +442,8 @@ Partial Class SuperVideoStopForm
         Me.DataGroupBox.PerformLayout()
         Me.TopMenuStrip.ResumeLayout(False)
         Me.TopMenuStrip.PerformLayout()
+        Me.BottomStatusStrip.ResumeLayout(False)
+        Me.BottomStatusStrip.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -466,4 +488,6 @@ Partial Class SuperVideoStopForm
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OpenFileDialog As OpenFileDialog
+    Friend WithEvents BottomStatusStrip As StatusStrip
+    Friend WithEvents FileNameStatusLabel As ToolStripStatusLabel
 End Class
