@@ -20,6 +20,22 @@ Public Class SuperVideoStopForm
         End If
 
     End Sub
+    Sub DisplayFilterData()
+        Dim _customers(,) As String = Customers()
+        SelectComboBox.Items.Clear()
+
+        If _customers IsNot Nothing Then
+            For row = 0 To _customers.GetUpperBound(0) 'check every row
+                For column = 0 To _customers.GetUpperBound(1) 'check every column
+                    If SearchTextBox.Text = _customers(row, column) Then 'TODO contains search text
+                        SelectComboBox.Items.Add($"{_customers(row, 1)}, {_customers(row, 0)}")
+                    End If
+                Next
+                'SelectComboBox.SelectedIndex() = 0
+            Next
+        End If
+
+    End Sub
 
     ''' <summary>
     ''' Used to store the customer data array.
@@ -189,7 +205,7 @@ Public Class SuperVideoStopForm
 
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
         'ReadFromFile()
-        DisplayData()
+        'DisplayData()
     End Sub
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
@@ -202,6 +218,7 @@ Public Class SuperVideoStopForm
 
     Private Sub SuperVideoStopForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         LoadCustomerData()
+        DisplayData()
     End Sub
 
     Private Sub SelectComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SelectComboBox.SelectedIndexChanged
@@ -233,5 +250,9 @@ Public Class SuperVideoStopForm
             Next
         End If
 
+    End Sub
+
+    Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
+        DisplayFilterData()
     End Sub
 End Class
