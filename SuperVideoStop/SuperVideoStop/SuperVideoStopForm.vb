@@ -205,6 +205,33 @@ Public Class SuperVideoStopForm
     End Sub
 
     Private Sub SelectComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SelectComboBox.SelectedIndexChanged
-        Me.Text = SelectComboBox.SelectedIndex.ToString
+        Dim temp() As String
+        Dim _customers(,) As String = Customers()
+
+        temp = Split(SelectComboBox.SelectedItem.ToString, ",")
+
+        temp(1) = temp(1).Trim() 'remove whitespace from both ends of string
+
+        If _customers IsNot Nothing Then 'make sure the array has data
+            For i = 0 To _customers.GetUpperBound(0) 'iterate through rows
+
+                If temp(1) = _customers(i, 0) And temp(0) = _customers(i, 1) Then 'match first name and last name columns
+                    FirstNameTextBox.Text = _customers(i, 0)
+                    LastNameTextBox.Text = _customers(i, 1)
+                    StreetTextBox.Text = _customers(i, 2)
+                    CityTextBox.Text = _customers(i, 3)
+                    StateTextBox.Text = _customers(i, 4)
+                    ZipTextBox.Text = _customers(i, 5)
+                    PhoneTextBox.Text = _customers(i, 6)
+                    EmailTextBox.Text = _customers(i, 7)
+                    CustomerIDTextBox.Text = _customers(i, 8)
+
+
+
+                End If
+
+            Next
+        End If
+
     End Sub
 End Class
