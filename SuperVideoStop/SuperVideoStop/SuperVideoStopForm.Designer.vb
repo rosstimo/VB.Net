@@ -48,8 +48,8 @@ Partial Class SuperVideoStopForm
         Me.DataGroupBox = New System.Windows.Forms.GroupBox()
         Me.SearchButton = New System.Windows.Forms.Button()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.CityRadioButton = New System.Windows.Forms.RadioButton()
+        Me.NameButton = New System.Windows.Forms.RadioButton()
         Me.DisplayListBox = New System.Windows.Forms.ListBox()
         Me.SelectComboBox = New System.Windows.Forms.ComboBox()
         Me.TopMenuStrip = New System.Windows.Forms.MenuStrip()
@@ -63,6 +63,8 @@ Partial Class SuperVideoStopForm
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.BottomStatusStrip = New System.Windows.Forms.StatusStrip()
         Me.FileNameStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.CustomerIDRadioButton = New System.Windows.Forms.RadioButton()
+        Me.CaseSensativeCheckBox = New System.Windows.Forms.CheckBox()
         Me.InfoGroupBox.SuspendLayout()
         Me.ButtonsGroupBox.SuspendLayout()
         Me.DataGroupBox.SuspendLayout()
@@ -280,10 +282,12 @@ Partial Class SuperVideoStopForm
         '
         'DataGroupBox
         '
+        Me.DataGroupBox.Controls.Add(Me.CaseSensativeCheckBox)
+        Me.DataGroupBox.Controls.Add(Me.CustomerIDRadioButton)
         Me.DataGroupBox.Controls.Add(Me.SearchButton)
         Me.DataGroupBox.Controls.Add(Me.SearchTextBox)
-        Me.DataGroupBox.Controls.Add(Me.RadioButton2)
-        Me.DataGroupBox.Controls.Add(Me.RadioButton1)
+        Me.DataGroupBox.Controls.Add(Me.CityRadioButton)
+        Me.DataGroupBox.Controls.Add(Me.NameButton)
         Me.DataGroupBox.Controls.Add(Me.DisplayListBox)
         Me.DataGroupBox.Controls.Add(Me.SelectComboBox)
         Me.DataGroupBox.Location = New System.Drawing.Point(534, 28)
@@ -307,27 +311,27 @@ Partial Class SuperVideoStopForm
         Me.SearchTextBox.Size = New System.Drawing.Size(166, 26)
         Me.SearchTextBox.TabIndex = 18
         '
-        'RadioButton2
+        'CityRadioButton
         '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(24, 89)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(133, 24)
-        Me.RadioButton2.TabIndex = 3
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "RadioButton2"
-        Me.RadioButton2.UseVisualStyleBackColor = True
+        Me.CityRadioButton.AutoSize = True
+        Me.CityRadioButton.Location = New System.Drawing.Point(24, 89)
+        Me.CityRadioButton.Name = "CityRadioButton"
+        Me.CityRadioButton.Size = New System.Drawing.Size(60, 24)
+        Me.CityRadioButton.TabIndex = 3
+        Me.CityRadioButton.TabStop = True
+        Me.CityRadioButton.Text = "City"
+        Me.CityRadioButton.UseVisualStyleBackColor = True
         '
-        'RadioButton1
+        'NameButton
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(24, 59)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(133, 24)
-        Me.RadioButton1.TabIndex = 2
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "RadioButton1"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.NameButton.AutoSize = True
+        Me.NameButton.Location = New System.Drawing.Point(24, 59)
+        Me.NameButton.Name = "NameButton"
+        Me.NameButton.Size = New System.Drawing.Size(76, 24)
+        Me.NameButton.TabIndex = 2
+        Me.NameButton.TabStop = True
+        Me.NameButton.Text = "Name"
+        Me.NameButton.UseVisualStyleBackColor = True
         '
         'DisplayListBox
         '
@@ -421,6 +425,27 @@ Partial Class SuperVideoStopForm
         Me.FileNameStatusLabel.Size = New System.Drawing.Size(55, 25)
         Me.FileNameStatusLabel.Text = "None"
         '
+        'CustomerIDRadioButton
+        '
+        Me.CustomerIDRadioButton.AutoSize = True
+        Me.CustomerIDRadioButton.Location = New System.Drawing.Point(24, 119)
+        Me.CustomerIDRadioButton.Name = "CustomerIDRadioButton"
+        Me.CustomerIDRadioButton.Size = New System.Drawing.Size(124, 24)
+        Me.CustomerIDRadioButton.TabIndex = 19
+        Me.CustomerIDRadioButton.TabStop = True
+        Me.CustomerIDRadioButton.Text = "Customer ID"
+        Me.CustomerIDRadioButton.UseVisualStyleBackColor = True
+        '
+        'CaseSensativeCheckBox
+        '
+        Me.CaseSensativeCheckBox.AutoSize = True
+        Me.CaseSensativeCheckBox.Location = New System.Drawing.Point(24, 25)
+        Me.CaseSensativeCheckBox.Name = "CaseSensativeCheckBox"
+        Me.CaseSensativeCheckBox.Size = New System.Drawing.Size(142, 24)
+        Me.CaseSensativeCheckBox.TabIndex = 20
+        Me.CaseSensativeCheckBox.Text = "CaseSensative"
+        Me.CaseSensativeCheckBox.UseVisualStyleBackColor = True
+        '
         'SuperVideoStopForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -475,8 +500,8 @@ Partial Class SuperVideoStopForm
     Friend WithEvents LastNameTextBox As TextBox
     Friend WithEvents FirstNameLabel As Label
     Friend WithEvents FirstNameTextBox As TextBox
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents CityRadioButton As RadioButton
+    Friend WithEvents NameButton As RadioButton
     Friend WithEvents SearchButton As Button
     Friend WithEvents SearchTextBox As TextBox
     Friend WithEvents TopMenuStrip As MenuStrip
@@ -490,4 +515,6 @@ Partial Class SuperVideoStopForm
     Friend WithEvents OpenFileDialog As OpenFileDialog
     Friend WithEvents BottomStatusStrip As StatusStrip
     Friend WithEvents FileNameStatusLabel As ToolStripStatusLabel
+    Friend WithEvents CaseSensativeCheckBox As CheckBox
+    Friend WithEvents CustomerIDRadioButton As RadioButton
 End Class

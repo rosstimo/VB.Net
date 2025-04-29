@@ -3,6 +3,7 @@ Option Explicit On
 'header
 
 Imports System.IO
+Imports Microsoft.VisualBasic.Strings
 
 Public Class SuperVideoStopForm
 
@@ -14,24 +15,38 @@ Public Class SuperVideoStopForm
                 'DisplayListBox.Items.Add(_customers(i, 0))
                 SelectComboBox.Items.Add($"{_customers(i, 1)}, {_customers(i, 0)}")
 
-                SelectComboBox.SelectedIndex() = 0
 
             Next
+
+            SelectComboBox.Sorted = True
+            SelectComboBox.SelectedIndex() = 0
         End If
 
     End Sub
     Sub DisplayFilterData()
         Dim _customers(,) As String = Customers()
         SelectComboBox.Items.Clear()
-
+        'make sure the array has stuff
         If _customers IsNot Nothing Then
-            For row = 0 To _customers.GetUpperBound(0) 'check every row
-                For column = 0 To _customers.GetUpperBound(1) 'check every column
-                    If SearchTextBox.Text = _customers(row, column) Then 'TODO contains search text
-                        SelectComboBox.Items.Add($"{_customers(row, 1)}, {_customers(row, 0)}")
+            'check every row
+            For row = 0 To _customers.GetUpperBound(0)
+                'check every column
+                For column = 0 To _customers.GetUpperBound(1)
+                    'search within string
+                    If InStr(_customers(row, column), SearchTextBox.Text) > 0 Then
+                        'don't add duplicates
+                        If Not SelectComboBox.Items.Contains($"{_customers(row, 1)}, {_customers(row, 0)}") Then
+                            SelectComboBox.Items.Add($"{_customers(row, 1)}, {_customers(row, 0)}")
+                        End If
+
                     End If
                 Next
-                'SelectComboBox.SelectedIndex() = 0
+
+                SelectComboBox.Sorted = True
+                'if there are results select the first one
+                If SelectComboBox.Items.Count >= 1 Then
+                    SelectComboBox.SelectedIndex() = 0
+                End If
             Next
         End If
 
