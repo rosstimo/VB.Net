@@ -49,7 +49,7 @@ Partial Class SuperVideoStopForm
         Me.SearchButton = New System.Windows.Forms.Button()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
         Me.CityRadioButton = New System.Windows.Forms.RadioButton()
-        Me.NameButton = New System.Windows.Forms.RadioButton()
+        Me.NameRadioButton = New System.Windows.Forms.RadioButton()
         Me.DisplayListBox = New System.Windows.Forms.ListBox()
         Me.SelectComboBox = New System.Windows.Forms.ComboBox()
         Me.TopMenuStrip = New System.Windows.Forms.MenuStrip()
@@ -287,7 +287,7 @@ Partial Class SuperVideoStopForm
         Me.DataGroupBox.Controls.Add(Me.SearchButton)
         Me.DataGroupBox.Controls.Add(Me.SearchTextBox)
         Me.DataGroupBox.Controls.Add(Me.CityRadioButton)
-        Me.DataGroupBox.Controls.Add(Me.NameButton)
+        Me.DataGroupBox.Controls.Add(Me.NameRadioButton)
         Me.DataGroupBox.Controls.Add(Me.DisplayListBox)
         Me.DataGroupBox.Controls.Add(Me.SelectComboBox)
         Me.DataGroupBox.Location = New System.Drawing.Point(534, 28)
@@ -322,16 +322,16 @@ Partial Class SuperVideoStopForm
         Me.CityRadioButton.Text = "City"
         Me.CityRadioButton.UseVisualStyleBackColor = True
         '
-        'NameButton
+        'NameRadioButton
         '
-        Me.NameButton.AutoSize = True
-        Me.NameButton.Location = New System.Drawing.Point(24, 59)
-        Me.NameButton.Name = "NameButton"
-        Me.NameButton.Size = New System.Drawing.Size(76, 24)
-        Me.NameButton.TabIndex = 2
-        Me.NameButton.TabStop = True
-        Me.NameButton.Text = "Name"
-        Me.NameButton.UseVisualStyleBackColor = True
+        Me.NameRadioButton.AutoSize = True
+        Me.NameRadioButton.Location = New System.Drawing.Point(24, 59)
+        Me.NameRadioButton.Name = "NameRadioButton"
+        Me.NameRadioButton.Size = New System.Drawing.Size(76, 24)
+        Me.NameRadioButton.TabIndex = 2
+        Me.NameRadioButton.TabStop = True
+        Me.NameRadioButton.Text = "Name"
+        Me.NameRadioButton.UseVisualStyleBackColor = True
         '
         'DisplayListBox
         '
@@ -501,7 +501,7 @@ Partial Class SuperVideoStopForm
     Friend WithEvents FirstNameLabel As Label
     Friend WithEvents FirstNameTextBox As TextBox
     Friend WithEvents CityRadioButton As RadioButton
-    Friend WithEvents NameButton As RadioButton
+    Friend WithEvents NameRadioButton As RadioButton
     Friend WithEvents SearchButton As Button
     Friend WithEvents SearchTextBox As TextBox
     Friend WithEvents TopMenuStrip As MenuStrip

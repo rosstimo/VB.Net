@@ -34,10 +34,21 @@ Public Class SuperVideoStopForm
                 For column = 0 To _customers.GetUpperBound(1)
                     'search within string
                     If InStr(_customers(row, column), SearchTextBox.Text) > 0 Then
-                        'don't add duplicates
-                        If Not SelectComboBox.Items.Contains($"{_customers(row, 1)}, {_customers(row, 0)}") Then
-                            SelectComboBox.Items.Add($"{_customers(row, 1)}, {_customers(row, 0)}")
-                        End If
+                        Select Case True
+                            Case NameRadioButton.Checked
+                                'don't add duplicates
+                                If Not SelectComboBox.Items.Contains($"{_customers(row, 1)}, {_customers(row, 0)}") Then
+                                    SelectComboBox.Items.Add($"{_customers(row, 1)}, {_customers(row, 0)}")
+                                End If
+
+                            Case CityRadioButton.Checked
+                                'don't add duplicates
+                                If Not SelectComboBox.Items.Contains(_customers(row, 3)) Then
+                                    SelectComboBox.Items.Add(_customers(row, 3))
+                                End If
+                            Case CustomerIDRadioButton.Checked
+
+                        End Select
 
                     End If
                 Next
@@ -211,6 +222,11 @@ Public Class SuperVideoStopForm
         Return count
     End Function
 
+    Sub SetDefaults()
+        NameRadioButton.Checked = True
+
+    End Sub
+
 
     ' Event handlers below here ***********************************************
 
@@ -225,6 +241,7 @@ Public Class SuperVideoStopForm
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         DisplayListBox.Items.Clear()
+        SetDefaults()
     End Sub
 
     Private Sub OpenTopMenuItem_Click(sender As Object, e As EventArgs) Handles OpenTopMenuItem.Click
@@ -234,9 +251,14 @@ Public Class SuperVideoStopForm
     Private Sub SuperVideoStopForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         LoadCustomerData()
         DisplayData()
+        SetDefaults()
     End Sub
 
-    Private Sub SelectComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SelectComboBox.SelectedIndexChanged
+    'TODO
+    'treat combobox selection as filter
+    'populate list box
+    'listbox selection populate textboxes
+    Private Sub SelectComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) ' Handles SelectComboBox.SelectedIndexChanged
         Dim temp() As String
         Dim _customers(,) As String = Customers()
 
