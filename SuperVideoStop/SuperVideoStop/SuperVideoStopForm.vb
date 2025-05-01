@@ -32,37 +32,40 @@ Public Class SuperVideoStopForm
             For row = 0 To _customers.GetUpperBound(0)
                 'check every column
                 For column = 0 To _customers.GetUpperBound(1)
+
                     'search within string
                     If InStr(_customers(row, column), SearchTextBox.Text) > 0 Then
-
-                        Select Case True
-                            Case NameRadioButton.Checked
-                                'don't add duplicates
-                                If Not SelectComboBox.Items.Contains(_customers(row, 1)) Then
-                                    SelectComboBox.Items.Add(_customers(row, 1))
-                                End If
-                            Case CityRadioButton.Checked
-                                'don't add duplicates
-                                If Not SelectComboBox.Items.Contains(_customers(row, 3)) Then
-                                    SelectComboBox.Items.Add(_customers(row, 3))
-                                End If
-                            Case CustomerIDRadioButton.Checked
-                                'don't add duplicates
-                                If Not SelectComboBox.Items.Contains(_customers(row, 8)) Then
-                                    SelectComboBox.Items.Add(_customers(row, 8))
-                                End If
-                        End Select
-
+                        AddToListBox($"{(_customers(row, 1) & "," & _customers(row, 0)).PadRight(25)} {_customers(row, 3).PadRight(15)} ID#:{_customers(row, 8)} ")
                     End If
-                Next
 
-                SelectComboBox.Sorted = True
-                'if there are results select the first one
-                If SelectComboBox.Items.Count >= 1 Then
-                    SelectComboBox.SelectedIndex() = 0
-                End If
+                    Select Case True
+                        Case NameRadioButton.Checked
+                            'don't add duplicates
+                            If Not SelectComboBox.Items.Contains(_customers(row, 1)) Then
+                                SelectComboBox.Items.Add(_customers(row, 1))
+                            End If
+                        Case CityRadioButton.Checked
+                            'don't add duplicates
+                            If Not SelectComboBox.Items.Contains(_customers(row, 3)) Then
+                                SelectComboBox.Items.Add(_customers(row, 3))
+                            End If
+                        Case CustomerIDRadioButton.Checked
+                            'don't add duplicates
+                            If Not SelectComboBox.Items.Contains(_customers(row, 8)) Then
+                                SelectComboBox.Items.Add(_customers(row, 8))
+                            End If
+                    End Select
+                Next
             Next
+            SelectComboBox.Sorted = True
+            DisplayListBox.Sorted = True
+            SelectComboBox.Items.Insert(0, " All")
+            'if there are results select the first one
+            If SelectComboBox.Items.Count >= 1 Then
+                SelectComboBox.SelectedIndex() = 0
+            End If
         End If
+
 
     End Sub
 
@@ -74,10 +77,20 @@ Public Class SuperVideoStopForm
             'check every row
             For row = 0 To _customers.GetUpperBound(0)
                 If _customers(row, searchColumn) = SelectComboBox.SelectedItem.ToString() Then
-                    DisplayListBox.Items.Add($"{(_customers(row, 1) & "," & _customers(row, 0)).PadRight(25)} {_customers(row, 3).PadRight(15)} ID#:{_customers(row, 8)} ")
+                    AddToListBox($"{(_customers(row, 1) & "," & _customers(row, 0)).PadRight(25)} {_customers(row, 3).PadRight(15)} ID#:{_customers(row, 8)} ")
                 End If
             Next
+            DisplayListBox.Sorted = True
         End If
+
+    End Sub
+
+    Sub AddToListBox(newItem As String)
+
+        If Not DisplayListBox.Items.Contains(newItem) Then
+            DisplayListBox.Items.Add(newItem)
+        End If
+
     End Sub
 
     ''' <summary>
