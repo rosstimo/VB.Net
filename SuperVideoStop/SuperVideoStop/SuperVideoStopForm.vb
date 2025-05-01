@@ -74,7 +74,7 @@ Public Class SuperVideoStopForm
             'check every row
             For row = 0 To _customers.GetUpperBound(0)
                 If _customers(row, searchColumn) = SelectComboBox.SelectedItem.ToString() Then
-                    DisplayListBox.Items.Add($"{(_customers(row, 1) & "," & _customers(row, 0)).PadRight(25)} {_customers(row, 3).PadRight(15)} {_customers(row, 8)} ")
+                    DisplayListBox.Items.Add($"{(_customers(row, 1) & "," & _customers(row, 0)).PadRight(25)} {_customers(row, 3).PadRight(15)} ID#:{_customers(row, 8)} ")
                 End If
             Next
         End If
@@ -278,7 +278,7 @@ Public Class SuperVideoStopForm
     Private Sub SelectComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SelectComboBox.SelectedIndexChanged
         Select Case True
             Case NameRadioButton.Checked
-                FillListBox(2)
+                FillListBox(1)
             Case CityRadioButton.Checked
                 FillListBox(3)
             Case CustomerIDRadioButton.Checked
@@ -292,14 +292,14 @@ Public Class SuperVideoStopForm
         Dim temp() As String
         Dim _customers(,) As String = Customers()
 
-        temp = Split(SelectComboBox.SelectedItem.ToString, ",")
+        temp = Split(DisplayListBox.SelectedItem.ToString, "ID#:")
 
         temp(1) = temp(1).Trim() 'remove whitespace from both ends of string
 
         If _customers IsNot Nothing Then 'make sure the array has data
             For i = 0 To _customers.GetUpperBound(0) 'iterate through rows
 
-                If temp(1) = _customers(i, 0) And temp(0) = _customers(i, 1) Then 'match first name and last name columns
+                If temp(1) = _customers(i, 8) Then 'match id #
                     FirstNameTextBox.Text = _customers(i, 0)
                     LastNameTextBox.Text = _customers(i, 1)
                     StreetTextBox.Text = _customers(i, 2)
@@ -325,5 +325,9 @@ Public Class SuperVideoStopForm
 
     Private Sub FilterRadioButtons_CheckedChanged(sender As Object, e As EventArgs) Handles NameRadioButton.CheckedChanged, CityRadioButton.CheckedChanged, CustomerIDRadioButton.CheckedChanged
         DisplayFilterData()
+    End Sub
+
+    Private Sub DisplayListBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DisplayListBox.SelectedIndexChanged
+        FillTextBoxes()
     End Sub
 End Class
