@@ -2,7 +2,9 @@
 Option Explicit On
 'header
 
+Imports System.Data.Common
 Imports System.IO
+Imports System.Security.Policy
 Imports Microsoft.VisualBasic.Strings
 
 Public Class SuperVideoStopForm
@@ -34,9 +36,9 @@ Public Class SuperVideoStopForm
                 For column = 0 To _customers.GetUpperBound(1)
 
                     'search within string
-                    If InStr(_customers(row, column), SearchTextBox.Text) > 0 Then
-                        AddToListBox($"{(_customers(row, 1) & "," & _customers(row, 0)).PadRight(25)} {_customers(row, 3).PadRight(15)} ID#:{_customers(row, 8)} ")
-                    End If
+                    'If InStr(_customers(row, column), SearchTextBox.Text) > 0 Then
+                    ' AddToListBox($"{(_customers(row, 1) & "," & _customers(row, 0)).PadRight(25)} {_customers(row, 3).PadRight(15)} ID#:{_customers(row, 8)} ")
+                    'End If
 
                     Select Case True
                         Case NameRadioButton.Checked
@@ -58,7 +60,7 @@ Public Class SuperVideoStopForm
                 Next
             Next
             SelectComboBox.Sorted = True
-            DisplayListBox.Sorted = True
+            'DisplayListBox.Sorted = True
             SelectComboBox.Items.Insert(0, " All")
             'if there are results select the first one
             If SelectComboBox.Items.Count >= 1 Then
@@ -69,16 +71,41 @@ Public Class SuperVideoStopForm
 
     End Sub
 
-    Sub FillListBox(searchColumn As Integer)
+    Sub FillListBox()
         Dim _customers(,) As String = Customers()
+        Dim currentItem As String
+        Dim searchColumn As Integer
+
         DisplayListBox.Items.Clear()
+
+        'get current column filter selection
+        Select Case True
+            Case NameRadioButton.Checked
+                searchColumn = 1
+            Case CityRadioButton.Checked
+                searchColumn = 3
+            Case CustomerIDRadioButton.Checked
+                searchColumn = 8
+        End Select
+
         'make sure the array has stuff
         If _customers IsNot Nothing Then
             'check every row
             For row = 0 To _customers.GetUpperBound(0)
-                If _customers(row, searchColumn) = SelectComboBox.SelectedItem.ToString() Then
-                    AddToListBox($"{(_customers(row, 1) & "," & _customers(row, 0)).PadRight(25)} {_customers(row, 3).PadRight(15)} ID#:{_customers(row, 8)} ")
-                End If
+                'create string for list box item
+                currentItem = $"{(_customers(row, 1) & "," & _customers(row, 0)).PadRight(25)} {_customers(row, 3).PadRight(15)} ID#:{_customers(row, 8)}"
+                For column = 0 To _customers.GetUpperBound(1)
+
+                    If _customers(row, searchColumn) = SelectComboBox.SelectedItem.ToString() And InStr(_customers(row, column), SearchTextBox.Text) > 0 Then
+                        AddToListBox(currentItem)
+                    End If
+
+
+                    If SelectComboBox.SelectedItem.ToString = " All" And InStr(_customers(row, column), SearchTextBox.Text) > 0 Then
+                        AddToListBox(currentItem)
+                    End If
+
+                Next
             Next
             DisplayListBox.Sorted = True
         End If
@@ -289,15 +316,7 @@ Public Class SuperVideoStopForm
     'populate list box
     'listbox selection populate textboxes
     Private Sub SelectComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SelectComboBox.SelectedIndexChanged
-        Select Case True
-            Case NameRadioButton.Checked
-                FillListBox(1)
-            Case CityRadioButton.Checked
-                FillListBox(3)
-            Case CustomerIDRadioButton.Checked
-                FillListBox(8)
-        End Select
-
+        FillListBox()
     End Sub
 
     Sub FillTextBoxes()
@@ -333,7 +352,7 @@ Public Class SuperVideoStopForm
     End Sub
 
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
-        DisplayFilterData()
+        FillListBox()
     End Sub
 
     Private Sub FilterRadioButtons_CheckedChanged(sender As Object, e As EventArgs) Handles NameRadioButton.CheckedChanged, CityRadioButton.CheckedChanged, CustomerIDRadioButton.CheckedChanged
