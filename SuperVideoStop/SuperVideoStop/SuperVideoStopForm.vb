@@ -35,11 +35,6 @@ Public Class SuperVideoStopForm
                 'check every column
                 For column = 0 To _customers.GetUpperBound(1)
 
-                    'search within string
-                    'If InStr(_customers(row, column), SearchTextBox.Text) > 0 Then
-                    ' AddToListBox($"{(_customers(row, 1) & "," & _customers(row, 0)).PadRight(25)} {_customers(row, 3).PadRight(15)} ID#:{_customers(row, 8)} ")
-                    'End If
-
                     Select Case True
                         Case NameRadioButton.Checked
                             'don't add duplicates
@@ -59,6 +54,7 @@ Public Class SuperVideoStopForm
                     End Select
                 Next
             Next
+
             SelectComboBox.Sorted = True
             'DisplayListBox.Sorted = True
             SelectComboBox.Items.Insert(0, " All")
@@ -67,7 +63,6 @@ Public Class SuperVideoStopForm
                 SelectComboBox.SelectedIndex() = 0
             End If
         End If
-
 
     End Sub
 
@@ -94,29 +89,24 @@ Public Class SuperVideoStopForm
             For row = 0 To _customers.GetUpperBound(0)
                 'create string for list box item
                 currentItem = $"{(_customers(row, 1) & "," & _customers(row, 0)).PadRight(25)} {_customers(row, 3).PadRight(15)} ID#:{_customers(row, 8)}"
+                'check every column
                 For column = 0 To _customers.GetUpperBound(1)
-
-                    If _customers(row, searchColumn) = SelectComboBox.SelectedItem.ToString() And InStr(_customers(row, column), SearchTextBox.Text) > 0 Then
-                        AddToListBox(currentItem)
-                    End If
-
-
-                    If SelectComboBox.SelectedItem.ToString = " All" And InStr(_customers(row, column), SearchTextBox.Text) > 0 Then
-                        AddToListBox(currentItem)
-                    End If
-
+                    'add matching selection and/or matching search string
+                    Select Case SelectComboBox.SelectedItem.ToString
+                        Case _customers(row, searchColumn) 'this narrows search to selected
+                            If InStr(_customers(row, column), SearchTextBox.Text) > 0 And Not DisplayListBox.Items.Contains(currentItem) Then
+                                DisplayListBox.Items.Add(currentItem)
+                            End If
+                        Case " All" 'this allows for all items to be searched
+                            If InStr(_customers(row, column), SearchTextBox.Text) > 0 And Not DisplayListBox.Items.Contains(currentItem) Then
+                                DisplayListBox.Items.Add(currentItem)
+                            End If
+                    End Select
                 Next
             Next
-            DisplayListBox.Sorted = True
         End If
 
-    End Sub
-
-    Sub AddToListBox(newItem As String)
-
-        If Not DisplayListBox.Items.Contains(newItem) Then
-            DisplayListBox.Items.Add(newItem)
-        End If
+        DisplayListBox.Sorted = True
 
     End Sub
 
@@ -281,9 +271,9 @@ Public Class SuperVideoStopForm
 
     Sub SetDefaults()
         NameRadioButton.Checked = True
+        SearchTextBox.Text = ""
 
     End Sub
-
 
     ' Event handlers below here ***********************************************
 
@@ -309,14 +299,6 @@ Public Class SuperVideoStopForm
         LoadCustomerData()
         DisplayData()
         SetDefaults()
-    End Sub
-
-    'TODO
-    'treat combobox selection as filter
-    'populate list box
-    'listbox selection populate textboxes
-    Private Sub SelectComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SelectComboBox.SelectedIndexChanged
-        FillListBox()
     End Sub
 
     Sub FillTextBoxes()
@@ -351,7 +333,7 @@ Public Class SuperVideoStopForm
 
     End Sub
 
-    Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
+    Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click, SelectComboBox.SelectedIndexChanged
         FillListBox()
     End Sub
 
