@@ -34,20 +34,23 @@ Public Class SuperVideoStopForm
                 For column = 0 To _customers.GetUpperBound(1)
                     'search within string
                     If InStr(_customers(row, column), SearchTextBox.Text) > 0 Then
+
                         Select Case True
                             Case NameRadioButton.Checked
                                 'don't add duplicates
-                                If Not SelectComboBox.Items.Contains($"{_customers(row, 1)}, {_customers(row, 0)}") Then
-                                    SelectComboBox.Items.Add($"{_customers(row, 1)}, {_customers(row, 0)}")
+                                If Not SelectComboBox.Items.Contains(_customers(row, 1)) Then
+                                    SelectComboBox.Items.Add(_customers(row, 1))
                                 End If
-
                             Case CityRadioButton.Checked
                                 'don't add duplicates
                                 If Not SelectComboBox.Items.Contains(_customers(row, 3)) Then
                                     SelectComboBox.Items.Add(_customers(row, 3))
                                 End If
                             Case CustomerIDRadioButton.Checked
-
+                                'don't add duplicates
+                                If Not SelectComboBox.Items.Contains(_customers(row, 8)) Then
+                                    SelectComboBox.Items.Add(_customers(row, 8))
+                                End If
                         End Select
 
                     End If
@@ -61,6 +64,20 @@ Public Class SuperVideoStopForm
             Next
         End If
 
+    End Sub
+
+    Sub FillListBox(searchColumn As Integer)
+        Dim _customers(,) As String = Customers()
+        DisplayListBox.Items.Clear()
+        'make sure the array has stuff
+        If _customers IsNot Nothing Then
+            'check every row
+            For row = 0 To _customers.GetUpperBound(0)
+                If _customers(row, searchColumn) = SelectComboBox.SelectedItem.ToString() Then
+                    DisplayListBox.Items.Add($"{(_customers(row, 1) & "," & _customers(row, 0)).PadRight(25)} {_customers(row, 3).PadRight(15)} {_customers(row, 8)} ")
+                End If
+            Next
+        End If
     End Sub
 
     ''' <summary>
@@ -258,7 +275,20 @@ Public Class SuperVideoStopForm
     'treat combobox selection as filter
     'populate list box
     'listbox selection populate textboxes
-    Private Sub SelectComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) ' Handles SelectComboBox.SelectedIndexChanged
+    Private Sub SelectComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SelectComboBox.SelectedIndexChanged
+        Select Case True
+            Case NameRadioButton.Checked
+                FillListBox(2)
+            Case CityRadioButton.Checked
+                FillListBox(3)
+            Case CustomerIDRadioButton.Checked
+                FillListBox(8)
+        End Select
+
+    End Sub
+
+    Sub FillTextBoxes()
+
         Dim temp() As String
         Dim _customers(,) As String = Customers()
 
@@ -290,6 +320,10 @@ Public Class SuperVideoStopForm
     End Sub
 
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
+        DisplayFilterData()
+    End Sub
+
+    Private Sub FilterRadioButtons_CheckedChanged(sender As Object, e As EventArgs) Handles NameRadioButton.CheckedChanged, CityRadioButton.CheckedChanged, CustomerIDRadioButton.CheckedChanged
         DisplayFilterData()
     End Sub
 End Class

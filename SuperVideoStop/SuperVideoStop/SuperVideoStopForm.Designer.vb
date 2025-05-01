@@ -46,6 +46,8 @@ Partial Class SuperVideoStopForm
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.UpdateButton = New System.Windows.Forms.Button()
         Me.DataGroupBox = New System.Windows.Forms.GroupBox()
+        Me.CaseSensativeCheckBox = New System.Windows.Forms.CheckBox()
+        Me.CustomerIDRadioButton = New System.Windows.Forms.RadioButton()
         Me.SearchButton = New System.Windows.Forms.Button()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
         Me.CityRadioButton = New System.Windows.Forms.RadioButton()
@@ -63,8 +65,6 @@ Partial Class SuperVideoStopForm
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.BottomStatusStrip = New System.Windows.Forms.StatusStrip()
         Me.FileNameStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.CustomerIDRadioButton = New System.Windows.Forms.RadioButton()
-        Me.CaseSensativeCheckBox = New System.Windows.Forms.CheckBox()
         Me.InfoGroupBox.SuspendLayout()
         Me.ButtonsGroupBox.SuspendLayout()
         Me.DataGroupBox.SuspendLayout()
@@ -296,6 +296,27 @@ Partial Class SuperVideoStopForm
         Me.DataGroupBox.TabIndex = 2
         Me.DataGroupBox.TabStop = False
         '
+        'CaseSensativeCheckBox
+        '
+        Me.CaseSensativeCheckBox.AutoSize = True
+        Me.CaseSensativeCheckBox.Location = New System.Drawing.Point(24, 25)
+        Me.CaseSensativeCheckBox.Name = "CaseSensativeCheckBox"
+        Me.CaseSensativeCheckBox.Size = New System.Drawing.Size(142, 24)
+        Me.CaseSensativeCheckBox.TabIndex = 20
+        Me.CaseSensativeCheckBox.Text = "CaseSensative"
+        Me.CaseSensativeCheckBox.UseVisualStyleBackColor = True
+        '
+        'CustomerIDRadioButton
+        '
+        Me.CustomerIDRadioButton.AutoSize = True
+        Me.CustomerIDRadioButton.Location = New System.Drawing.Point(24, 119)
+        Me.CustomerIDRadioButton.Name = "CustomerIDRadioButton"
+        Me.CustomerIDRadioButton.Size = New System.Drawing.Size(124, 24)
+        Me.CustomerIDRadioButton.TabIndex = 19
+        Me.CustomerIDRadioButton.TabStop = True
+        Me.CustomerIDRadioButton.Text = "Customer ID"
+        Me.CustomerIDRadioButton.UseVisualStyleBackColor = True
+        '
         'SearchButton
         '
         Me.SearchButton.Location = New System.Drawing.Point(683, 25)
@@ -335,11 +356,12 @@ Partial Class SuperVideoStopForm
         '
         'DisplayListBox
         '
+        Me.DisplayListBox.Font = New System.Drawing.Font("Consolas", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DisplayListBox.FormattingEnabled = True
-        Me.DisplayListBox.ItemHeight = 20
+        Me.DisplayListBox.ItemHeight = 19
         Me.DisplayListBox.Location = New System.Drawing.Point(211, 57)
         Me.DisplayListBox.Name = "DisplayListBox"
-        Me.DisplayListBox.Size = New System.Drawing.Size(515, 364)
+        Me.DisplayListBox.Size = New System.Drawing.Size(515, 346)
         Me.DisplayListBox.TabIndex = 1
         '
         'SelectComboBox
@@ -424,27 +446,6 @@ Partial Class SuperVideoStopForm
         Me.FileNameStatusLabel.Name = "FileNameStatusLabel"
         Me.FileNameStatusLabel.Size = New System.Drawing.Size(55, 25)
         Me.FileNameStatusLabel.Text = "None"
-        '
-        'CustomerIDRadioButton
-        '
-        Me.CustomerIDRadioButton.AutoSize = True
-        Me.CustomerIDRadioButton.Location = New System.Drawing.Point(24, 119)
-        Me.CustomerIDRadioButton.Name = "CustomerIDRadioButton"
-        Me.CustomerIDRadioButton.Size = New System.Drawing.Size(124, 24)
-        Me.CustomerIDRadioButton.TabIndex = 19
-        Me.CustomerIDRadioButton.TabStop = True
-        Me.CustomerIDRadioButton.Text = "Customer ID"
-        Me.CustomerIDRadioButton.UseVisualStyleBackColor = True
-        '
-        'CaseSensativeCheckBox
-        '
-        Me.CaseSensativeCheckBox.AutoSize = True
-        Me.CaseSensativeCheckBox.Location = New System.Drawing.Point(24, 25)
-        Me.CaseSensativeCheckBox.Name = "CaseSensativeCheckBox"
-        Me.CaseSensativeCheckBox.Size = New System.Drawing.Size(142, 24)
-        Me.CaseSensativeCheckBox.TabIndex = 20
-        Me.CaseSensativeCheckBox.Text = "CaseSensative"
-        Me.CaseSensativeCheckBox.UseVisualStyleBackColor = True
         '
         'SuperVideoStopForm
         '
