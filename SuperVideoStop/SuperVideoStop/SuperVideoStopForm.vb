@@ -70,6 +70,7 @@ Public Class SuperVideoStopForm
         Dim _customers(,) As String = Customers()
         Dim currentItem As String
         Dim searchColumn As Integer
+        Dim caseCompare As CompareMethod
 
         DisplayListBox.Items.Clear()
 
@@ -83,6 +84,14 @@ Public Class SuperVideoStopForm
                 searchColumn = 8
         End Select
 
+        'determine if search is case sensative
+        Select Case CaseSensativeCheckBox.Checked
+            Case True
+                caseCompare = CompareMethod.Binary
+            Case False
+                caseCompare = CompareMethod.Text
+        End Select
+
         'make sure the array has stuff
         If _customers IsNot Nothing Then
             'check every row
@@ -94,11 +103,11 @@ Public Class SuperVideoStopForm
                     'add matching selection and/or matching search string
                     Select Case SelectComboBox.SelectedItem.ToString
                         Case _customers(row, searchColumn) 'this narrows search to selected
-                            If InStr(_customers(row, column), SearchTextBox.Text) > 0 And Not DisplayListBox.Items.Contains(currentItem) Then
+                            If InStr(_customers(row, column), SearchTextBox.Text, caseCompare) > 0 And Not DisplayListBox.Items.Contains(currentItem) Then
                                 DisplayListBox.Items.Add(currentItem)
                             End If
                         Case " All" 'this allows for all items to be searched
-                            If InStr(_customers(row, column), SearchTextBox.Text) > 0 And Not DisplayListBox.Items.Contains(currentItem) Then
+                            If InStr(_customers(row, column), SearchTextBox.Text, caseCompare) > 0 And Not DisplayListBox.Items.Contains(currentItem) Then
                                 DisplayListBox.Items.Add(currentItem)
                             End If
                     End Select
@@ -272,6 +281,7 @@ Public Class SuperVideoStopForm
     Sub SetDefaults()
         NameRadioButton.Checked = True
         SearchTextBox.Text = ""
+        CaseSensativeCheckBox.Checked = False
 
     End Sub
 
@@ -333,7 +343,7 @@ Public Class SuperVideoStopForm
 
     End Sub
 
-    Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click, SelectComboBox.SelectedIndexChanged
+    Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click, SelectComboBox.SelectedIndexChanged, CaseSensativeCheckBox.CheckedChanged
         FillListBox()
     End Sub
 
