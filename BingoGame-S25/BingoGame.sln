@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+<<<<<<< HEAD:BingoGame/BingoGame.sln
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BingoGame", "BingoGame\BingoGame.vbproj", "{459F90E2-1C08-41EF-BA7E-8214E3F49892}"
+=======
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BingoGame", "BingoGame\BingoGame.vbproj", "{4D4DE150-9CF7-4E71-B535-DD7328203409}"
+>>>>>>> S25:BingoGame-S25/BingoGame.sln
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+<<<<<<< HEAD:BingoGame/BingoGame.sln
+		{459F90E2-1C08-41EF-BA7E-8214E3F49892}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{459F90E2-1C08-41EF-BA7E-8214E3F49892}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{459F90E2-1C08-41EF-BA7E-8214E3F49892}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{459F90E2-1C08-41EF-BA7E-8214E3F49892}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{4D4DE150-9CF7-4E71-B535-DD7328203409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D4DE150-9CF7-4E71-B535-DD7328203409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D4DE150-9CF7-4E71-B535-DD7328203409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D4DE150-9CF7-4E71-B535-DD7328203409}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> S25:BingoGame-S25/BingoGame.sln
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+<<<<<<< HEAD:BingoGame/BingoGame.sln
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C148E7CD-6FC7-4C3A-B772-59A8FEC62845}
+	EndGlobalSection
+=======
+>>>>>>> S25:BingoGame-S25/BingoGame.sln
+EndGlobal
